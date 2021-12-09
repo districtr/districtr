@@ -623,6 +623,11 @@ export function spatial_abilities(id) {
       border: true,
       sideload: false
     },
+    stlouis: {
+      shapefile: true,
+      number_markers: true,
+      border: true,
+    },
     placentia: {
       coalition: false,
       shapefile: true,

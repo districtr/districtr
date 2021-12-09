@@ -464,6 +464,7 @@
       {
         "id": "vtds20",
         "name": "2020 VTDs",
+        "hideOnDefault": true,
         "unitType": "VTDs",
         "columnSets": [
           {
@@ -1517,6 +1518,199 @@
         "name": "Communities of Interest",
         "numberOfParts": 0,
         "pluralNoun": "Communities of Interest"
+      }
+    ]
+  },
+  {
+    "id": "wi2020_official",
+    "name": "Wisconsin",
+    "state": "Wisconsin",
+    "units": [
+      {
+        "id": "wards",
+        "name": "2020 Wards (updated)",
+        "unitType": "2020 Wards (updated)",
+        "hideOnDefault": false,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "PERSONS",
+              "name": "Total Population",
+              "sum": 5893718,
+              "min": 0,
+              "max": 6115
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 4634018,
+                "min": 0,
+                "max": 3977
+              },
+              {
+                "key": "BLACK",
+                "name": "Black/African American population",
+                "sum": 415979,
+                "min": 0,
+                "max": 2566
+              },
+              {
+                "key": "HISPANIC",
+                "name": "Population of Hispanic origin",
+                "sum": 447290,
+                "min": 0,
+                "max": 2620
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 205170,
+                "min": 0,
+                "max": 1411
+              },
+              {
+                "key": "AMINDIAN",
+                "name": "American Indian or Alaska Native population",
+                "sum": 108054,
+                "min": 0,
+                "max": 938
+              },
+              {
+                "key": "PISLAND",
+                "name": "Native Hawaiian or other Pacific Islander population",
+                "sum": 3781,
+                "min": 0,
+                "max": 54
+              },
+              {
+                "key": "OTHER",
+                "name": "Population of other races",
+                "sum": 61098,
+                "min": 0,
+                "max": 221
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Presidential",
+            "subgroups": [
+              {
+                "key": "BidenD_20G",
+                "name": "Democratic",
+                "sum": 1630865,
+                "min": 0,
+                "max": 3142
+              },
+              {
+                "key": "TrumpR_20G",
+                "name": "Republican",
+                "sum": 1610183,
+                "min": 0,
+                "max": 1418
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "WalkerR_18",
+                "name": "Republican",
+                "sum": 1295080,
+                "min": 0,
+                "max": 1304
+              },
+              {
+                "key": "EversD_18G",
+                "name": "Democratic",
+                "sum": 1324307,
+                "min": 0,
+                "max": 2743
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "VukmirR_18",
+                "name": "Republican",
+                "sum": 1184885,
+                "min": 0,
+                "max": 1207
+              },
+              {
+                "key": "BaldwinD_1",
+                "name": "Democratic",
+                "sum": 1472914,
+                "min": 0,
+                "max": 2810
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Ward FIPS code",
+          "key": "GEOID"
+        },
+        "nameColumn": {
+          "name": "County name",
+          "key": "CNTY_FIPS"
+        },
+        "bounds": [
+          [
+            -92.8894,
+            42.4919
+          ],
+          [
+            -86.764,
+            47.0808
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.wi2020_official_wards"
+            },
+            "sourceLayer": "wi2020_official_wards"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.wi2020_official_wards_points"
+            },
+            "sourceLayer": "wi2020_official_wards_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "hideOnDefault": false,
+        "name": "Congress",
+        "numberOfParts": 8,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "hideOnDefault": false,
+        "name": "State Senate",
+        "numberOfParts": 33,
+        "pluralNoun": "State Senate Districts"
+      },
+      {
+        "hideOnDefault": false,
+        "name": "State Assembly",
+        "numberOfParts": 99,
+        "pluralNoun": "State Assembly Districts"
       }
     ]
   }

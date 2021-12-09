@@ -9241,6 +9241,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -9351,11 +9352,251 @@
             "sourceLayer": "canvdata_blockgroups"
           }
         ]
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 102284,
+              "min": 0,
+              "max": 980
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 10409,
+                "min": 0,
+                "max": 300
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 82882,
+                "min": 0,
+                "max": 698
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 819,
+                "min": 0,
+                "max": 31
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian population",
+                "sum": 2988,
+                "min": 0,
+                "max": 47
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 2422,
+                "min": 0,
+                "max": 35
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 272,
+                "min": 0,
+                "max": 6
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other population",
+                "sum": 2092,
+                "min": 0,
+                "max": 29
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races population",
+                "sum": 400,
+                "min": 0,
+                "max": 5
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "st1519_m2_totbyagg",
+              "name": "Total CVAP",
+              "sum": 80069,
+              "min": 0,
+              "max": 683
+            },
+            "subgroups": [
+              {
+                "key": "st1519_m2_nhw",
+                "name": "White Alone CVAP",
+                "sum": 70878,
+                "min": 0,
+                "max": 573
+              },
+              {
+                "key": "st1519_m2_nhb",
+                "name": "Black CVAP",
+                "sum": 593,
+                "min": 0,
+                "max": 56
+              },
+              {
+                "key": "st1519_m2_nhapi",
+                "name": "Asian and Pacific Islander CVAP",
+                "sum": 1340,
+                "min": 0,
+                "max": 24
+              },
+              {
+                "key": "st1519_m2_h",
+                "name": "Hispanic CVAP",
+                "sum": 5605,
+                "min": 0,
+                "max": 262
+              },
+              {
+                "key": "st1519_m2_nhi",
+                "name": "Native American CVAP",
+                "sum": 1447,
+                "min": 0,
+                "max": 44
+              },
+              {
+                "key": "st1519_m2_nhoth",
+                "name": "Other CVAP",
+                "sum": 207,
+                "min": 0,
+                "max": 9
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 17,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renters",
+                "sum": 20,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 6,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 75,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 30,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 36,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 3,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 0,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 2,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -121.2798,
+            39.0052
+          ],
+          [
+            -120.0038,
+            39.5269
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_nevada_blocks20"
+            },
+            "sourceLayer": "ca_nevada_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_nevada_blocks20_points"
+            },
+            "sourceLayer": "ca_nevada_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.canvdata_blockgroups20"
+            },
+            "sourceLayer": "canvdata_blockgroups20"
+          }
+        ]
       }
     ],
     "districtingProblems": [
       {
-        "name": "City Council",
+        "name": "County Supervisor",
         "numberOfParts": 5,
         "pluralNoun": "Supervisorial Districts"
       }
@@ -9566,6 +9807,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -9743,6 +9985,246 @@
               "url": "mapbox://districtr.arroyodata_blockgroups"
             },
             "sourceLayer": "arroyodata_blockgroups"
+          }
+        ]
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 18469,
+              "min": 0,
+              "max": 460
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 3652,
+                "min": 0,
+                "max": 186
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 12735,
+                "min": 0,
+                "max": 366
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 266,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian population",
+                "sum": 331,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 1010,
+                "min": 0,
+                "max": 25
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 50,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other population",
+                "sum": 345,
+                "min": 0,
+                "max": 15
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races population",
+                "sum": 80,
+                "min": 0,
+                "max": 6
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "st1519_m2_totbyagg",
+              "name": "Total CVAP",
+              "sum": 14150,
+              "min": 0,
+              "max": 411
+            },
+            "subgroups": [
+              {
+                "key": "st1519_m2_nhw",
+                "name": "White Alone CVAP",
+                "sum": 11192,
+                "min": 0,
+                "max": 398
+              },
+              {
+                "key": "st1519_m2_nhb",
+                "name": "Black CVAP",
+                "sum": 168,
+                "min": 0,
+                "max": 39
+              },
+              {
+                "key": "st1519_m2_nhapi",
+                "name": "Asian and Pacific Islander CVAP",
+                "sum": 716,
+                "min": 0,
+                "max": 36
+              },
+              {
+                "key": "st1519_m2_h",
+                "name": "Hispanic CVAP",
+                "sum": 1823,
+                "min": 0,
+                "max": 58
+              },
+              {
+                "key": "st1519_m2_nhi",
+                "name": "Native American CVAP",
+                "sum": 225,
+                "min": 0,
+                "max": 17
+              },
+              {
+                "key": "st1519_m2_nhoth",
+                "name": "Other CVAP",
+                "sum": 28,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 3,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renters",
+                "sum": 4,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 1,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 12,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 4,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 7,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 0,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 0,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 0,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -120.6095,
+            35.1018
+          ],
+          [
+            -120.5513,
+            35.1468
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_arroyo_blocks20"
+            },
+            "sourceLayer": "ca_arroyo_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_arroyo_blocks20_points"
+            },
+            "sourceLayer": "ca_arroyo_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.arrgdata_blockgroups20"
+            },
+            "sourceLayer": "arrgdata_blockgroups20"
           }
         ]
       }
@@ -11201,6 +11683,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -11378,6 +11861,246 @@
               "url": "mapbox://districtr.camarillodata_blockgroups"
             },
             "sourceLayer": "camarillodata_blockgroups"
+          }
+        ]
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 70850,
+              "min": 0,
+              "max": 1438
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 19411,
+                "min": 0,
+                "max": 606
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 37587,
+                "min": 0,
+                "max": 780
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 1971,
+                "min": 0,
+                "max": 78
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian population",
+                "sum": 763,
+                "min": 0,
+                "max": 16
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 9354,
+                "min": 0,
+                "max": 219
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 269,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other population",
+                "sum": 1020,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races population",
+                "sum": 475,
+                "min": 0,
+                "max": 6
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "st1519_m2_totbyagg",
+              "name": "Total CVAP",
+              "sum": 50397,
+              "min": 0,
+              "max": 1171
+            },
+            "subgroups": [
+              {
+                "key": "st1519_m2_nhw",
+                "name": "White Alone CVAP",
+                "sum": 32358,
+                "min": 0,
+                "max": 663
+              },
+              {
+                "key": "st1519_m2_nhb",
+                "name": "Black CVAP",
+                "sum": 947,
+                "min": 0,
+                "max": 59
+              },
+              {
+                "key": "st1519_m2_nhapi",
+                "name": "Asian and Pacific Islander CVAP",
+                "sum": 4954,
+                "min": 0,
+                "max": 286
+              },
+              {
+                "key": "st1519_m2_h",
+                "name": "Hispanic CVAP",
+                "sum": 11434,
+                "min": 0,
+                "max": 271
+              },
+              {
+                "key": "st1519_m2_nhi",
+                "name": "Native American CVAP",
+                "sum": 495,
+                "min": 0,
+                "max": 65
+              },
+              {
+                "key": "st1519_m2_nhoth",
+                "name": "Other CVAP",
+                "sum": 188,
+                "min": 0,
+                "max": 18
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 10,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renters",
+                "sum": 12,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 6,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 35,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 16,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 23,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 5,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 2,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 1,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -119.1095,
+            34.1914
+          ],
+          [
+            -118.9578,
+            34.2526
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_camarillo_blocks20"
+            },
+            "sourceLayer": "ca_camarillo_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_camarillo_blocks20_points"
+            },
+            "sourceLayer": "ca_camarillo_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.camardata_blockgroups20"
+            },
+            "sourceLayer": "camardata_blockgroups20"
           }
         ]
       }
@@ -12812,6 +13535,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -12991,6 +13715,246 @@
             "sourceLayer": "fremontdata_blockgroups"
           }
         ]
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 230646,
+              "min": 0,
+              "max": 1532
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 29071,
+                "min": 0,
+                "max": 473
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 38183,
+                "min": 0,
+                "max": 341
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 5741,
+                "min": 0,
+                "max": 203
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian population",
+                "sum": 1119,
+                "min": 0,
+                "max": 40
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 151367,
+                "min": 0,
+                "max": 1277
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 1167,
+                "min": 0,
+                "max": 29
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other population",
+                "sum": 1973,
+                "min": 0,
+                "max": 51
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races population",
+                "sum": 2028,
+                "min": 0,
+                "max": 68
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "st1519_m2_totbyagg",
+              "name": "Total CVAP",
+              "sum": 134686,
+              "min": 0,
+              "max": 902
+            },
+            "subgroups": [
+              {
+                "key": "st1519_m2_nhw",
+                "name": "White Alone CVAP",
+                "sum": 38710,
+                "min": 0,
+                "max": 437
+              },
+              {
+                "key": "st1519_m2_nhb",
+                "name": "Black CVAP",
+                "sum": 6157,
+                "min": 0,
+                "max": 139
+              },
+              {
+                "key": "st1519_m2_nhapi",
+                "name": "Asian and Pacific Islander CVAP",
+                "sum": 70577,
+                "min": 0,
+                "max": 685
+              },
+              {
+                "key": "st1519_m2_h",
+                "name": "Hispanic CVAP",
+                "sum": 17758,
+                "min": 0,
+                "max": 277
+              },
+              {
+                "key": "st1519_m2_nhi",
+                "name": "Native American CVAP",
+                "sum": 951,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "st1519_m2_nhoth",
+                "name": "Other CVAP",
+                "sum": 522,
+                "min": 0,
+                "max": 29
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 60,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renters",
+                "sum": 49,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 31,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 127,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 78,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 102,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 10,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 49,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 25,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -122.1492,
+            37.4542
+          ],
+          [
+            -121.8701,
+            37.6067
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_fremont_blocks20"
+            },
+            "sourceLayer": "ca_fremont_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_fremont_blocks20_points"
+            },
+            "sourceLayer": "ca_fremont_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.fremodata_blockgroups20"
+            },
+            "sourceLayer": "fremodata_blockgroups20"
+          }
+        ]
       }
     ],
     "id": "ca_fremont",
@@ -13010,6 +13974,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -13187,6 +14152,246 @@
               "url": "mapbox://districtr.chinodata_blockgroups"
             },
             "sourceLayer": "chinodata_blockgroups"
+          }
+        ]
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 86573,
+              "min": 0,
+              "max": 1339
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 45054,
+                "min": 0,
+                "max": 1032
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 17173,
+                "min": 0,
+                "max": 356
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 4418,
+                "min": 0,
+                "max": 334
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian population",
+                "sum": 488,
+                "min": 0,
+                "max": 12
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 17970,
+                "min": 0,
+                "max": 386
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 151,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other population",
+                "sum": 708,
+                "min": 0,
+                "max": 15
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races population",
+                "sum": 611,
+                "min": 0,
+                "max": 9
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "st1519_m2_totbyagg",
+              "name": "Total CVAP",
+              "sum": 52661,
+              "min": 0,
+              "max": 1463
+            },
+            "subgroups": [
+              {
+                "key": "st1519_m2_nhw",
+                "name": "White Alone CVAP",
+                "sum": 15488,
+                "min": 0,
+                "max": 486
+              },
+              {
+                "key": "st1519_m2_nhb",
+                "name": "Black CVAP",
+                "sum": 3122,
+                "min": 0,
+                "max": 425
+              },
+              {
+                "key": "st1519_m2_nhapi",
+                "name": "Asian and Pacific Islander CVAP",
+                "sum": 8546,
+                "min": 0,
+                "max": 257
+              },
+              {
+                "key": "st1519_m2_h",
+                "name": "Hispanic CVAP",
+                "sum": 24717,
+                "min": 0,
+                "max": 525
+              },
+              {
+                "key": "st1519_m2_nhi",
+                "name": "Native American CVAP",
+                "sum": 419,
+                "min": 0,
+                "max": 72
+              },
+              {
+                "key": "st1519_m2_nhoth",
+                "name": "Other CVAP",
+                "sum": 334,
+                "min": 0,
+                "max": 32
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 18,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renters",
+                "sum": 16,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 9,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 38,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 11,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 25,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 14,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 5,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 1,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -117.7353,
+            33.9243
+          ],
+          [
+            -117.6001,
+            34.0484
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_chino_blocks20"
+            },
+            "sourceLayer": "ca_chino_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_chino_blocks20_points"
+            },
+            "sourceLayer": "ca_chino_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.chinodata_blockgroups20"
+            },
+            "sourceLayer": "chinodata_blockgroups20"
           }
         ]
       }
@@ -13781,6 +14986,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -13788,7 +14994,7 @@
             "total": {
               "key": "Est_Population",
               "name": "Total population",
-              "sum": 13520,
+              "sum": 13509,
               "min": 0,
               "max": 363
             },
@@ -13802,34 +15008,34 @@
               "name": "Total population",
               "sum": 9947,
               "min": 0,
-              "max": 267
+              "max": 268
             },
             "subgroups": [
               {
                 "key": "CVAP_White",
                 "name": "White population",
-                "sum": 6993,
+                "sum": 6995,
                 "min": 0,
                 "max": 185
               },
               {
                 "key": "CVAP_Black",
                 "name": "Black population",
-                "sum": 230,
+                "sum": 228,
                 "min": 0,
                 "max": 30
               },
               {
                 "key": "CVAP_Asian_Amer",
                 "name": "Asian population",
-                "sum": 510,
+                "sum": 517,
                 "min": 0,
                 "max": 43
               },
               {
                 "key": "CVAP_Latino",
                 "name": "Hispanic population",
-                "sum": 2046,
+                "sum": 2039,
                 "min": 0,
                 "max": 81
               },
@@ -13838,14 +15044,14 @@
                 "name": "Native American population",
                 "sum": 138,
                 "min": 0,
-                "max": 31
+                "max": 32
               },
               {
                 "key": "CVAP_Pacific_Isl",
                 "name": "Native Hawaiian Pacific Islander population",
                 "sum": 25,
                 "min": 0,
-                "max": 18
+                "max": 19
               },
               {
                 "key": "CVAP_Other",
@@ -13931,25 +15137,31 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [-120.6386, 35.1055],
-          [-120.6044, 35.1344]
+          [
+            -120.6386,
+            35.1055
+          ],
+          [
+            -120.6044,
+            35.1344
+          ]
         ],
         "tilesets": [
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.ca_grover_blocks_points"
-            },
-            "sourceLayer": "ca_grover_blocks_points"
-          },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_grover_blocks"
+              "url": "mapbox://districtr.ca_grover2_blocks"
             },
-            "sourceLayer": "ca_grover_blocks"
+            "sourceLayer": "ca_grover2_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_grover2_blocks_points"
+            },
+            "sourceLayer": "ca_grover2_blocks_points"
           },
           {
             "type": "fill",
@@ -13958,6 +15170,246 @@
               "url": "mapbox://districtr.groverdata_blockgroups"
             },
             "sourceLayer": "groverdata_blockgroups"
+          }
+        ]
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 12739,
+              "min": 0,
+              "max": 266
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 3994,
+                "min": 0,
+                "max": 114
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 7256,
+                "min": 0,
+                "max": 187
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 187,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian population",
+                "sum": 286,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 688,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 32,
+                "min": 0,
+                "max": 3
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other population",
+                "sum": 211,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races population",
+                "sum": 85,
+                "min": 0,
+                "max": 5
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "st1519_m2_totbyagg",
+              "name": "Total CVAP",
+              "sum": 9960,
+              "min": 0,
+              "max": 227
+            },
+            "subgroups": [
+              {
+                "key": "st1519_m2_nhw",
+                "name": "White Alone CVAP",
+                "sum": 7001,
+                "min": 0,
+                "max": 197
+              },
+              {
+                "key": "st1519_m2_nhb",
+                "name": "Black CVAP",
+                "sum": 209,
+                "min": 0,
+                "max": 25
+              },
+              {
+                "key": "st1519_m2_nhapi",
+                "name": "Asian and Pacific Islander CVAP",
+                "sum": 552,
+                "min": 0,
+                "max": 37
+              },
+              {
+                "key": "st1519_m2_h",
+                "name": "Hispanic CVAP",
+                "sum": 2054,
+                "min": 0,
+                "max": 57
+              },
+              {
+                "key": "st1519_m2_nhi",
+                "name": "Native American CVAP",
+                "sum": 138,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "st1519_m2_nhoth",
+                "name": "Other CVAP",
+                "sum": 4,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 2,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renters",
+                "sum": 4,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 2,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 8,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 2,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 4,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 1,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 0,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 0,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -120.6386,
+            35.1055
+          ],
+          [
+            -120.6044,
+            35.1344
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_grover2_blocks20"
+            },
+            "sourceLayer": "ca_grover2_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_grover2_blocks20_points"
+            },
+            "sourceLayer": "ca_grover2_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.grovedata2_blockgroups20"
+            },
+            "sourceLayer": "grovedata2_blockgroups20"
           }
         ]
       }
@@ -15063,6 +16515,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -15240,6 +16693,246 @@
               "url": "mapbox://districtr.pomonadata_blockgroups"
             },
             "sourceLayer": "pomonadata_blockgroups"
+          }
+        ]
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 152554,
+              "min": 0,
+              "max": 1706
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 108543,
+                "min": 0,
+                "max": 1486
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 15730,
+                "min": 0,
+                "max": 447
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 8863,
+                "min": 0,
+                "max": 159
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian population",
+                "sum": 706,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 16600,
+                "min": 0,
+                "max": 350
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 309,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other population",
+                "sum": 967,
+                "min": 0,
+                "max": 17
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races population",
+                "sum": 837,
+                "min": 0,
+                "max": 11
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "st1519_m2_totbyagg",
+              "name": "Total CVAP",
+              "sum": 86030,
+              "min": 0,
+              "max": 1387
+            },
+            "subgroups": [
+              {
+                "key": "st1519_m2_nhw",
+                "name": "White Alone CVAP",
+                "sum": 14558,
+                "min": 0,
+                "max": 452
+              },
+              {
+                "key": "st1519_m2_nhb",
+                "name": "Black CVAP",
+                "sum": 6926,
+                "min": 0,
+                "max": 138
+              },
+              {
+                "key": "st1519_m2_nhapi",
+                "name": "Asian and Pacific Islander CVAP",
+                "sum": 10547,
+                "min": 0,
+                "max": 315
+              },
+              {
+                "key": "st1519_m2_h",
+                "name": "Hispanic CVAP",
+                "sum": 53198,
+                "min": 0,
+                "max": 533
+              },
+              {
+                "key": "st1519_m2_nhi",
+                "name": "Native American CVAP",
+                "sum": 486,
+                "min": 0,
+                "max": 40
+              },
+              {
+                "key": "st1519_m2_nhoth",
+                "name": "Other CVAP",
+                "sum": 323,
+                "min": 0,
+                "max": 22
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 35,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renters",
+                "sum": 39,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 20,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 56,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 14,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 34,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 47,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 6,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 1,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -117.8287,
+            34.0186
+          ],
+          [
+            -117.7112,
+            34.1126
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.pomona_blocks20"
+            },
+            "sourceLayer": "pomona_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.pomona_blocks20_points"
+            },
+            "sourceLayer": "pomona_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.pomondata_blockgroups20"
+            },
+            "sourceLayer": "pomondata_blockgroups20"
           }
         ]
       }
@@ -15457,6 +17150,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -15634,6 +17328,246 @@
               "url": "mapbox://districtr.elcajondata_blockgroups"
             },
             "sourceLayer": "elcajondata_blockgroups"
+          }
+        ]
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 106584,
+              "min": 0,
+              "max": 2031
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 31385,
+                "min": 0,
+                "max": 752
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 56234,
+                "min": 0,
+                "max": 1001
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 7694,
+                "min": 0,
+                "max": 265
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian population",
+                "sum": 1066,
+                "min": 0,
+                "max": 23
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 7267,
+                "min": 0,
+                "max": 173
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 631,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other population",
+                "sum": 1282,
+                "min": 0,
+                "max": 38
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races population",
+                "sum": 1026,
+                "min": 0,
+                "max": 23
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "st1519_m2_totbyagg",
+              "name": "Total CVAP",
+              "sum": 64377,
+              "min": 0,
+              "max": 1093
+            },
+            "subgroups": [
+              {
+                "key": "st1519_m2_nhw",
+                "name": "White Alone CVAP",
+                "sum": 41256,
+                "min": 0,
+                "max": 631
+              },
+              {
+                "key": "st1519_m2_nhb",
+                "name": "Black CVAP",
+                "sum": 4328,
+                "min": 0,
+                "max": 193
+              },
+              {
+                "key": "st1519_m2_nhapi",
+                "name": "Asian and Pacific Islander CVAP",
+                "sum": 3361,
+                "min": 0,
+                "max": 91
+              },
+              {
+                "key": "st1519_m2_h",
+                "name": "Hispanic CVAP",
+                "sum": 14429,
+                "min": 0,
+                "max": 461
+              },
+              {
+                "key": "st1519_m2_nhi",
+                "name": "Native American CVAP",
+                "sum": 528,
+                "min": 0,
+                "max": 35
+              },
+              {
+                "key": "st1519_m2_nhoth",
+                "name": "Other CVAP",
+                "sum": 453,
+                "min": 0,
+                "max": 20
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 28,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renters",
+                "sum": 41,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 31,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 64,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 16,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 30,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 14,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 2,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 12,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -117.0112,
+            32.7675
+          ],
+          [
+            -116.8957,
+            32.831
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.elcajon_blocks20"
+            },
+            "sourceLayer": "elcajon_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.elcajon_blocks20_points"
+            },
+            "sourceLayer": "elcajon_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.elcajdata_blockgroups20"
+            },
+            "sourceLayer": "elcajdata_blockgroups20"
           }
         ]
       }
@@ -15852,6 +17786,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -16031,6 +17966,246 @@
             "sourceLayer": "encinitasdata_blockgroups"
           }
         ]
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 62107,
+              "min": 0,
+              "max": 1474
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 9391,
+                "min": 0,
+                "max": 350
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 45674,
+                "min": 0,
+                "max": 1226
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 614,
+                "min": 0,
+                "max": 15
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian population",
+                "sum": 689,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 4154,
+                "min": 0,
+                "max": 117
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 144,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other population",
+                "sum": 1137,
+                "min": 0,
+                "max": 22
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races population",
+                "sum": 307,
+                "min": 0,
+                "max": 7
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "st1519_m2_totbyagg",
+              "name": "Total CVAP",
+              "sum": 47521,
+              "min": 0,
+              "max": 1083
+            },
+            "subgroups": [
+              {
+                "key": "st1519_m2_nhw",
+                "name": "White Alone CVAP",
+                "sum": 39042,
+                "min": 0,
+                "max": 989
+              },
+              {
+                "key": "st1519_m2_nhb",
+                "name": "Black CVAP",
+                "sum": 455,
+                "min": 0,
+                "max": 47
+              },
+              {
+                "key": "st1519_m2_nhapi",
+                "name": "Asian and Pacific Islander CVAP",
+                "sum": 2541,
+                "min": 0,
+                "max": 68
+              },
+              {
+                "key": "st1519_m2_h",
+                "name": "Hispanic CVAP",
+                "sum": 5064,
+                "min": 0,
+                "max": 184
+              },
+              {
+                "key": "st1519_m2_nhi",
+                "name": "Native American CVAP",
+                "sum": 296,
+                "min": 0,
+                "max": 18
+              },
+              {
+                "key": "st1519_m2_nhoth",
+                "name": "Other CVAP",
+                "sum": 103,
+                "min": 0,
+                "max": 12
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 14,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renters",
+                "sum": 18,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 11,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 47,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 31,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 34,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 5,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 0,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 2,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -117.3129,
+            32.9993
+          ],
+          [
+            -117.1957,
+            33.089
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.encinitas_blocks20"
+            },
+            "sourceLayer": "encinitas_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.encinitas_blocks20_points"
+            },
+            "sourceLayer": "encinitas_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.encindata_blockgroups20"
+            },
+            "sourceLayer": "encindata_blockgroups20"
+          }
+        ]
       }
     ],
     "id": "encinitas",
@@ -16051,6 +18226,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -16228,6 +18404,246 @@
               "url": "mapbox://districtr.buenaparkdata_blockgroups"
             },
             "sourceLayer": "buenaparkdata_blockgroups"
+          }
+        ]
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 84188,
+              "min": 0,
+              "max": 1754
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 34415,
+                "min": 0,
+                "max": 1056
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White Alone population",
+                "sum": 16372,
+                "min": 0,
+                "max": 460
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 2792,
+                "min": 0,
+                "max": 136
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian population",
+                "sum": 518,
+                "min": 0,
+                "max": 26
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 28440,
+                "min": 0,
+                "max": 592
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 467,
+                "min": 0,
+                "max": 15
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other population",
+                "sum": 583,
+                "min": 0,
+                "max": 16
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races population",
+                "sum": 600,
+                "min": 0,
+                "max": 19
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "st1519_m2_totbyagg",
+              "name": "Total CVAP",
+              "sum": 50892,
+              "min": 0,
+              "max": 1207
+            },
+            "subgroups": [
+              {
+                "key": "st1519_m2_nhw",
+                "name": "White Alone CVAP",
+                "sum": 16095,
+                "min": 0,
+                "max": 481
+              },
+              {
+                "key": "st1519_m2_nhb",
+                "name": "Black CVAP",
+                "sum": 2032,
+                "min": 0,
+                "max": 167
+              },
+              {
+                "key": "st1519_m2_nhapi",
+                "name": "Asian and Pacific Islander CVAP",
+                "sum": 17018,
+                "min": 0,
+                "max": 599
+              },
+              {
+                "key": "st1519_m2_h",
+                "name": "Hispanic CVAP",
+                "sum": 15156,
+                "min": 0,
+                "max": 307
+              },
+              {
+                "key": "st1519_m2_nhi",
+                "name": "Native American CVAP",
+                "sum": 358,
+                "min": 0,
+                "max": 33
+              },
+              {
+                "key": "st1519_m2_nhoth",
+                "name": "Other CVAP",
+                "sum": 235,
+                "min": 0,
+                "max": 21
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 19,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renters",
+                "sum": 23,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 17,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 42,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 14,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 26,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 13,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 11,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 3,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -118.0374,
+            33.8098
+          ],
+          [
+            -117.9762,
+            33.8956
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.buenapark_blocks20"
+            },
+            "sourceLayer": "buenapark_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.buenapark_blocks20_points"
+            },
+            "sourceLayer": "buenapark_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.bpdata_blockgroups20"
+            },
+            "sourceLayer": "bpdata_blockgroups20"
           }
         ]
       }
@@ -16879,270 +19295,6 @@
       }
     ]
   },
-  {
-   "units": [
-     {
-       "id": "blocks20",
-       "name": "2020 Blocks",
-       "unitType": "Blocks",
-       "columnSets": [
-         {
-           "type": "population",
-           "name": "Population",
-           "total": {
-             "key": "LF_20_Total",
-             "name": "Total population",
-             "sum": 777312,
-             "min": 0,
-             "max": 1799
-           },
-           "subgroups": [
-             {
-               "key": "LF_20_White",
-               "name": "White population",
-               "sum": 214667,
-               "min": 0,
-               "max": 762
-             },
-             {
-               "key": "LF_20_AfAm",
-               "name": "Black population",
-               "sum": 56337,
-               "min": 0,
-               "max": 482
-             },
-             {
-               "key": "LF_20_Asian",
-               "name": "Asian population",
-               "sum": 134684,
-               "min": 0,
-               "max": 450
-             },
-             {
-               "key": "LF_20_Hispanic_or_Latino",
-               "name": "Hispanic population",
-               "sum": 325178,
-               "min": 0,
-               "max": 808
-             }
-           ]
-         },
-         {
-           "type": "population",
-           "name": "Citizen Voting Age Population",
-           "total": {
-             "key": "CVAP_15-19_Total",
-             "name": "Total population",
-             "sum": 440849,
-             "min": 0,
-             "max": 2164
-           },
-           "subgroups": [
-             {
-               "key": "CVAP_15-19_AfAm",
-               "name": "Black population",
-               "sum": 33821,
-               "min": 0,
-               "max": 453
-             },
-             {
-               "key": "CVAP_15-19_AiAn",
-               "name": "American Indian population",
-               "sum": 1264,
-               "min": 0,
-               "max": 64
-             },
-             {
-               "key": "CVAP_15-19_Asian",
-               "name": "Asian population",
-               "sum": 60294,
-               "min": 0,
-               "max": 282
-             },
-             {
-               "key": "CVAP_15-19_Hawaiian_API",
-               "name": "Native Hawaiian Pacific Islander population",
-               "sum": 1905,
-               "min": 0,
-               "max": 43
-             },
-             {
-               "key": "CVAP_15-19_Hispanic_or_Latino",
-               "name": "Hispanic population",
-               "sum": 134705,
-               "min": 0,
-               "max": 641
-             }
-           ]
-         }
-       ],
-       "idColumn": {
-         "name": "Geo ID",
-         "key": "GEOID20"
-       },
-       "bounds": [
-         [
-           -121.5851,
-           37.4818
-         ],
-         [
-           -120.917,
-           38.3003
-         ]
-       ],
-       "tilesets": [
-         {
-           "type": "circle",
-           "source": {
-             "type": "vector",
-             "url": "mapbox://districtr.ca_sanjoaquin_blocks20_points?v=2"
-           },
-           "sourceLayer": "ca_sanjoaquin_blocks20_points"
-         },
-         {
-           "type": "fill",
-           "source": {
-             "type": "vector",
-             "url": "mapbox://districtr.ca_sanjoaquin_blocks20?v=2"
-           },
-           "sourceLayer": "ca_sanjoaquin_blocks20"
-         }
-       ]
-     },
-     {
-       "id": "blocks",
-       "name": "Blocks",
-       "unitType": "Blocks",
-       "hideOnDefault": true,
-       "columnSets": [
-         {
-           "type": "population",
-           "name": "Population",
-           "total": {
-             "key": "ACS_15-19_Total",
-             "name": "Total population",
-             "sum": 738505,
-             "min": 0,
-             "max": 2340
-           },
-           "subgroups": [
-             {
-               "key": "ACS_15-19_AfAm",
-               "name": "Black population",
-               "sum": 47251,
-               "min": 0,
-               "max": 557
-             },
-             {
-               "key": "ACS_15-19_Asian",
-               "name": "Asian population",
-               "sum": 109546,
-               "min": 0,
-               "max": 536
-             },
-             {
-               "key": "ACS_15-19_Hispanic_or_Latino",
-               "name": "Hispanic population",
-               "sum": 303394,
-               "min": 0,
-               "max": 941
-             }
-           ]
-         },
-         {
-           "type": "population",
-           "name": "Citizen Voting Age Population",
-           "total": {
-             "key": "CVAP_15-19_Total",
-             "name": "Total population",
-             "sum": 440849,
-             "min": 0,
-             "max": 2164
-           },
-           "subgroups": [
-             {
-               "key": "CVAP_15-19_AfAm",
-               "name": "Black population",
-               "sum": 33821,
-               "min": 0,
-               "max": 453
-             },
-             {
-               "key": "CVAP_15-19_AiAn",
-               "name": "American Indian population",
-               "sum": 1264,
-               "min": 0,
-               "max": 64
-             },
-             {
-               "key": "CVAP_15-19_Asian",
-               "name": "Asian population",
-               "sum": 60294,
-               "min": 0,
-               "max": 282
-             },
-             {
-               "key": "CVAP_15-19_Hawaiian_API",
-               "name": "Native Hawaiian Pacific Islander population",
-               "sum": 1905,
-               "min": 0,
-               "max": 43
-             },
-             {
-               "key": "CVAP_15-19_Hispanic_or_Latino",
-               "name": "Hispanic population",
-               "sum": 134705,
-               "min": 0,
-               "max": 641
-             }
-           ]
-         }
-       ],
-       "idColumn": {
-         "name": "Geo ID",
-         "key": "GEOID20"
-       },
-       "bounds": [
-         [
-           -121.5851,
-           37.4818
-         ],
-         [
-           -120.9207,
-           38.3002
-         ]
-       ],
-       "tilesets": [
-         {
-           "type": "circle",
-           "source": {
-             "type": "vector",
-             "url": "mapbox://districtr.ca_sanjoaquin_blocks_points?v=2"
-           },
-           "sourceLayer": "ca_sanjoaquin_blocks_points"
-         },
-         {
-           "type": "fill",
-           "source": {
-             "type": "vector",
-             "url": "mapbox://districtr.ca_sanjoaquin_blocks?v=2"
-           },
-           "sourceLayer": "ca_sanjoaquin_blocks"
-         }
-       ]
-     }
-   ],
-   "id": "ca_sanjoaquin",
-   "state": "California",
-   "name": "San Joaquin County",
-   "districtingProblems": [
-     {
-       "name": "County",
-       "numberOfParts": 5,
-       "pluralNoun": "Supervisorial Districts"
-     }
-   ]
- },
  {
    "name": "Tuolumne County",
    "state": "California",

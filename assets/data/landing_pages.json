@@ -1854,6 +1854,12 @@
         "ids": ["missouri"],
         "default": "true",
         "id": "state"
+      },
+      {
+        "name": "Cities",
+        "ids": ["stlouis"],
+        "default": "true",
+        "id": "loc"
       }
     ],
     "sections": [
@@ -3569,7 +3575,7 @@
     "modules": [
       {
         "name": "Statewide",
-        "ids": ["wisconsin", "wisco2019acs"],
+        "ids": ["wisconsin", "wisco2019acs", "wi2020_official"],
         "default": "true",
         "id": "state"
       }

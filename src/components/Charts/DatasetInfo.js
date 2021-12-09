@@ -34,7 +34,7 @@ function datasetInfo(state) {
 
     if (acsLocations.includes(place.id.toLowerCase()) || state.units.id.includes("2019") || population.name !== "Population") {
         dataset = `<p><span>&#9432;</span> ${populations.acs}`;
-    } else if (["rp_lax", "ca_butte", "mesaaz", "sanluiso", "sanjoseca", "siskiyou", "redwood", "ca_ventura", "ca_yolo", "ca_solano", "ca_sc_county", "ca_sanmateo", "ca_kern", "ca_sanjoaquin", "ca_sc_county", "ca_tuolumne", "napa2021", "napacounty2021", "napa_boe", "santa_clara_h2o", "ca_oakland", "ca_martinez", "ca_humboldt", "carpinteria"].includes(place.id)) {
+    } else if (["rp_lax", "ca_butte", "sanluiso", "sanjoseca", "siskiyou", "redwood", "ca_ventura", "ca_yolo", "ca_solano", "ca_sc_county", "ca_sanmateo", "ca_kern", "ca_sanjoaquin", "ca_sc_county", "ca_tuolumne", "napa2021", "napacounty2021", "napa_boe", "santa_clara_h2o", "ca_oakland", "ca_martinez", "ca_humboldt", "carpinteria"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${(units === "2020 Blocks") ? populations.redistpartners2020 : populations.mesa}`;
     } else if (["pasorobles"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.pasorobles}`;
@@ -60,7 +60,9 @@ function datasetInfo(state) {
                     "ca_goleta", "ca_glendora", "arcadia", "la_mirada", "lakewood",
                     "san_bruno", "ca_santabarbara", "ca_marin", "ca_kings",
                     "ca_merced", "ca_fresno", "ca_sm_county", "ca_sanbenito", "laverne",
-                    "29palms", "yuba_city"
+                    "29palms", "yuba_city", "buenapark", "ca_arroyo", "ca_camarillo",
+                    "ca_chino", "ca_grover", "ca_nevada", "elcajon", "pomona",
+                    "ca_fremont", "encinitas"
                 ].includes(state.place.id)
             ) {
           // 2020 - NDC - Prison
