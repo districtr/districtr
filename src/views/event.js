@@ -141,7 +141,9 @@ commoncausepa: 'Pennsylvania',
   yubacity: 'California',
   "rohnert_park": "California",
   "brentwood": "California",
-  "watsonville": "California"
+  "watsonville": "California",
+  sbusd_5: 'California',
+  sbusd_7: 'California',
 };
 
 const validEventCodes = {
@@ -272,7 +274,9 @@ commoncausepa: 'pennsylvania',
   yubacity: 'yuba_city',
   "rohnert_park": "ca_rohnert",
   "brentwood": "ca_brentwood",
-  "watsonville": "ca_watsonville"
+  "watsonville": "ca_watsonville",
+  sbusd_5: 'sbusd_5',
+  sbusd_7: 'sbusd_7',
 };
 
 const blockPlans = {
@@ -488,7 +492,9 @@ const hybrid_events = [
   "rohnert_park",
   "brentwood",
   "watsonville",
-  "carpinteria"
+  "carpinteria",
+  "sbusd_5",
+  "sbusd_7"
 ];
 
 const portal_events = [
@@ -2077,6 +2083,18 @@ butte_county: [
     the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
     incarcerated populations to their last known residential address.
     `
+  ],
+  "sbusd_5": [
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census blocks. For more information, please visit the Statewide Database’s website. \
+    The data was prepared by <a href='https://www.coopstrategies.com/#/' target=_blank>Cooperative Strategies, </a> a comprehensive planning and demographics firm that has been retained by the School District to assist in redistricting. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.
+    `
+  ],
+  "sbusd_7": [
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census blocks. For more information, please visit the Statewide Database’s website. \
+    The data was prepared by <a href='https://www.coopstrategies.com/#/' target=_blank>Cooperative Strategies, </a> a comprehensive planning and demographics firm that has been retained by the School District to assist in redistricting. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.
+    `
   ]
 };
 
@@ -2270,7 +2288,7 @@ export default () => {
             "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021",
             "glendale2021", "yumasup", "yumaawc", "glendora2021", "anaheim2021", "arcadia2021",
             "lamirada2021", "lakewood2021", "placentia2021", "sanbruno2021","poway2021", "torrance2021",
-            "29palms", "navajoco", "yubacity", "bpld2021"
+            "29palms", "navajoco", "yubacity", "bpld2021", 'sbusd_5', 'sbusd_7'
           ].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";

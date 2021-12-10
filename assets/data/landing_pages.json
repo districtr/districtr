@@ -352,7 +352,7 @@
         ],
         "id": "loc"
       },
-      { "name": "School Districts", "ids": ["napaschools"], "id": "schools" }
+      { "name": "School Districts", "ids": ["napaschools", "sbusd_5", "sbusd_7"], "id": "schools" }
     ],
     "sections": [
       {

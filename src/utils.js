@@ -531,6 +531,20 @@ export function spatial_abilities(id) {
       border: true,
       sideload: false
     },
+    sbusd_5: {
+      coalition: false,
+      shapefile: false,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
+    sbusd_7: {
+      coalition: false,
+      shapefile: false,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
     navajoco: {
       coalition: false,
       shapefile: true,
