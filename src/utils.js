@@ -536,14 +536,36 @@ export function spatial_abilities(id) {
       shapefile: false,
       number_markers: true,
       border: true,
-      sideload: false
+      sideload: false,
+      boundaries: [{
+        id: 'sbusd_feeder',
+        label: 'SBUSD Feeder Boundaries',
+        path: 'school_districts/california/sbusd_feeder_bounds',
+        lineColor: 'black'
+      },{
+        id: 'sbusd',
+        label: 'SBUSD Boundaries',
+        path: 'school_districts/california/sbusd',
+        lineColor: 'black'
+      }],
     },
     sbusd_7: {
       coalition: false,
       shapefile: false,
       number_markers: true,
       border: true,
-      sideload: false
+      sideload: false,
+      boundaries: [{
+        id: 'sbusd_feeder',
+        label: 'SBUSD Feeder Boundaries',
+        path: 'school_districts/california/sbusd_feeder_bounds',
+        lineColor: 'black'
+      },{
+        id: 'sbusd',
+        label: 'SBUSD Boundaries',
+        path: 'school_districts/california/sbusd',
+        lineColor: 'black'
+      }],
     },
     navajoco: {
       coalition: false,
