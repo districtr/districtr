@@ -25260,7 +25260,7 @@
       {
         "id": "blocks20",
         "name": "2020 Blocks",
-        "unitType": "2020 Blocks",
+        "unitType": "Blocks",
         "columnSets": [
           {
             "type": "population",
@@ -25387,7 +25387,7 @@
       },
       {
         "id": "blocks20",
-        "name": "2020 Blocks",
+        "name": "Blocks",
         "unitType": "Blocks",
         "hideOnDefault": true,
         "columnSets": [
