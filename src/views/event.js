@@ -360,6 +360,7 @@ const unitTypes = {
   "pomonaca": { no: 'Blocks' },
   "fremont2021": { no: 'Blocks' },
   "encinitas2021": { no: 'Blocks' },
+  "santa_ana": { no: 'Blocks' },
 };
 
 const unitCounts = {
