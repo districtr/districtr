@@ -352,7 +352,7 @@
         ],
         "id": "loc"
       },
-      { "name": "School Districts", "ids": ["napaschools"], "id": "schools" }
+      { "name": "School Districts", "ids": ["napaschools", "oxnarduhsd", "marinco"], "id": "schools" }
     ],
     "sections": [
       {
@@ -3575,7 +3575,7 @@
     "modules": [
       {
         "name": "Statewide",
-        "ids": ["wisconsin", "wisco2019acs"],
+        "ids": ["wisconsin", "wisco2019acs", "wi2020_official"],
         "default": "true",
         "id": "state"
       }
