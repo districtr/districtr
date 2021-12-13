@@ -2302,7 +2302,7 @@ export default () => {
             "carlsbad2021", "pomonaca", "encinitas2021", "bp2021", "hmb2021", "stockton2021",
             "glendale2021", "yumasup", "yumaawc", "glendora2021", "anaheim2021", "arcadia2021",
             "lamirada2021", "lakewood2021", "placentia2021", "sanbruno2021","poway2021", "torrance2021",
-            "29palms", "navajoco", "yubacity", "bpld2021", 'sbusd_5', 'sbusd_7'
+            "29palms", "navajoco", "yubacity", "bpld2021"
           ].includes(eventCode)) {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";

@@ -539,12 +539,12 @@ export function spatial_abilities(id) {
       sideload: false,
       boundaries: [{
         id: 'sbusd_feeder',
-        label: 'SBUSD Feeder Boundaries',
+        label: 'Feeder Boundaries',
         path: 'school_districts/california/sbusd_feeder_bounds',
         lineColor: 'black'
       },{
         id: 'sbusd',
-        label: 'SBUSD Boundaries',
+        label: 'Cities and Towns',
         path: 'school_districts/california/sbusd',
         lineColor: 'black'
       }],
