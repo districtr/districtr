@@ -531,6 +531,13 @@ export function spatial_abilities(id) {
       border: true,
       sideload: false
     },
+    modesto: {
+      coalition: false,
+      shapefile: false,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
     sbusd_5: {
       coalition: false,
       shapefile: false,
