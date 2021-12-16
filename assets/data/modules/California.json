@@ -714,20 +714,21 @@
     ]
   },
   {
-    "name": "Modesto",
+    "id": "modesto",
+    "name": "City of Modesto",
     "state": "California",
     "units": [
       {
-        "id": "blocks",
+        "id": "blocks20",
         "name": "Blocks",
         "unitType": "Blocks",
         "columnSets": [
           {
             "type": "population",
-            "name": "Citizen Voting Age Population 19",
+            "name": "Citizen Voting Age Population",
             "total": {
               "key": "CVAP_15-19_Total",
-              "name": "Total Citizen Voting Age Population 19",
+              "name": "Total Citizen Voting Age Population",
               "sum": 139604,
               "min": 0,
               "max": 779
@@ -735,56 +736,56 @@
             "subgroups": [
               {
                 "key": "CVAP_15-19_White Alone",
-                "name": "White Citizen Voting Age Population 19",
+                "name": "White Citizen Voting Age Population",
                 "sum": 77412,
                 "min": 0,
                 "max": 402
               },
               {
                 "key": "CVAP_15-19_Black or African American Alone",
-                "name": "Black or African American Alone Citizen Voting Age Population 19",
+                "name": "Black or African American Alone Citizen Voting Age Population",
                 "sum": 5924,
                 "min": 0,
                 "max": 174
               },
               {
                 "key": "CVAP_15-19_Black or African American and White",
-                "name": "Black or African American and White Citizen Voting Age Population 19",
+                "name": "Black or African American and White Citizen Voting Age Population",
                 "sum": 349,
                 "min": 0,
                 "max": 16
               },
               {
                 "key": "CVAP_15-19_Hispanic or Latino",
-                "name": "Hispanic or Latino Citizen Voting Age Population 19",
+                "name": "Hispanic or Latino Citizen Voting Age Population",
                 "sum": 41412,
                 "min": 0,
                 "max": 232
               },
               {
                 "key": "CVAP_15-19_Asian Alone",
-                "name": "Asian Alone Citizen Voting Age Population 19",
+                "name": "Asian Alone Citizen Voting Age Population",
                 "sum": 9518,
                 "min": 0,
                 "max": 120
               },
               {
                 "key": "CVAP_15-19_Asian and White",
-                "name": "Asian and White Citizen Voting Age Population 19",
+                "name": "Asian and White Citizen Voting Age Population",
                 "sum": 855,
                 "min": 0,
                 "max": 18
               },
               {
                 "key": "CVAP_15-19_American Indian or Alaska Native Alone",
-                "name": "American Indian or Alaska Native Alone Voting Age Population 19",
+                "name": "American Indian or Alaska Native Alone Voting Age Population",
                 "sum": 800,
                 "min": 0,
                 "max": 20
               },
               {
                 "key": "CVAP_15-19_American Indian or Alaska Native and Black or African American",
-                "name": "American Indian or Alaska Native Alone and Black or African American Citizen Voting Age Population 19",
+                "name": "American Indian or Alaska Native Alone and Black or African American Citizen Voting Age Population",
                 "sum": 4,
                 "min": 0,
                 "max": 0
@@ -793,10 +794,10 @@
           },
           {
             "type": "population",
-            "name": "LF_20 Population",
+            "name": "Population",
             "total": {
               "key": "LF_20_Total",
-              "name": "LF Total Population",
+              "name": "Total Population",
               "sum": 219250,
               "min": 0,
               "max": 1178
@@ -866,22 +867,21 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.modesto_blocks"
+              "url": "mapbox://districtr.modesto_blocks20"
             },
-            "sourceLayer": "modesto_blocks"
+            "sourceLayer": "modesto_blocks20"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.modesto_blocks_points"
+              "url": "mapbox://districtr.modesto_blocks20_points"
             },
-            "sourceLayer": "modesto_blocks_points"
+            "sourceLayer": "modesto_blocks20_points"
           }
         ]
       }
     ],
-    "id": "modesto",
     "districtingProblems": [
       {
         "name": "City Council",
