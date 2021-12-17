@@ -17586,9 +17586,250 @@
     "id": "ca_carlsbad",
     "units": [
       {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population_CA_Adj_swdb",
+              "name": "Total population",
+              "sum": 114953,
+              "min": 0,
+              "max": 1272
+            },
+            "subgroups": [
+              {
+                "key": "Hispanic Origin",
+                "name": "Hispanic population",
+                "sum": 17382,
+                "min": 0,
+                "max": 446
+              },
+              {
+                "key": "NH_Wht",
+                "name": "White population",
+                "sum": 79270,
+                "min": 0,
+                "max": 897
+              },
+              {
+                "key": "DOJ_NH_Blk",
+                "name": "Black population",
+                "sum": 2051,
+                "min": 0,
+                "max": 69
+              },
+              {
+                "key": "DOJ_NH_Ind",
+                "name": "American Indian population",
+                "sum": 1241,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "key": "DOJ_NH_Asn",
+                "name": "Asian population",
+                "sum": 12033,
+                "min": 0,
+                "max": 154
+              },
+              {
+                "key": "DOJ_NH_Hwn",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 349,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "DOJ_NH_Oth",
+                "name": "Other population",
+                "sum": 1944,
+                "min": 0,
+                "max": 23
+              },
+              {
+                "key": "DOJ_NH_OthMR",
+                "name": "2+ races population",
+                "sum": 682,
+                "min": 0,
+                "max": 12
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "st1519_m2_totbyagg",
+              "name": "Total population",
+              "sum": 82251,
+              "min": 0,
+              "max": 992
+            },
+            "subgroups": [
+              {
+                "key": "st1519_m2_nhw",
+                "name": "White population",
+                "sum": 63785,
+                "min": 0,
+                "max": 805
+              },
+              {
+                "key": "st1519_m2_nhb",
+                "name": "Black population",
+                "sum": 1299,
+                "min": 0,
+                "max": 35
+              },
+              {
+                "key": "st1519_m2_nhapi",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 6793,
+                "min": 0,
+                "max": 153
+              },
+              {
+                "key": "st1519_m2_h",
+                "name": "Hispanic population",
+                "sum": 9565,
+                "min": 0,
+                "max": 241
+              },
+              {
+                "key": "st1519_m2_nhi",
+                "name": "Native American population",
+                "sum": 398,
+                "min": 0,
+                "max": 25
+              },
+              {
+                "key": "st1519_m2_nhoth",
+                "name": "Other population",
+                "sum": 385,
+                "min": 0,
+                "max": 37
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "ChildAtHome",
+              "name": "Children at home",
+              "sum": 25,
+              "min": 0,
+              "max": 0
+            },
+            "subgroups": [
+              {
+                "key": "Renters",
+                "name": "Renters",
+                "sum": 26,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "Apts",
+                "name": "Multi-family residents",
+                "sum": 21,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "HSGrads",
+                "name": "High school graduate",
+                "sum": 73,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CollegeGrads",
+                "name": "College graduate",
+                "sum": 45,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "Inc75",
+                "name": ">$75k income",
+                "sum": 51,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "SpanishAtHome",
+                "name": "Spanish spoken at home",
+                "sum": 6,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "AsnLangAtHome",
+                "name": "Asian languages spoken at home",
+                "sum": 2,
+                "min": 0,
+                "max": 0
+              },
+              {
+                "key": "OthLangAtHome",
+                "name": "Other languages spoken at home",
+                "sum": 3,
+                "min": 0,
+                "max": 0
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -117.3597,
+            33.0605
+          ],
+          [
+            -117.2159,
+            33.1826
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_carlsbad_blocks20"
+            },
+            "sourceLayer": "ca_carlsbad_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_carlsbad_blocks20_points"
+            },
+            "sourceLayer": "ca_carlsbad_blocks20_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.carldata_blockgroups20"
+            },
+            "sourceLayer": "carldata_blockgroups20"
+          }
+        ]
+      },
+      {
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
