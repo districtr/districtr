@@ -825,11 +825,6 @@ export function spatial_abilities(id) {
         label: 'Census Places',
         path: 'neighborhoods/california/camarillo_places',
         lineColor: 'black',
-      },{
-        id: 'parks',
-        label: 'Parks',
-        path: 'neighborhoods/california/camarillo_parks',
-        lineColor: 'black',
       }],
     },
     ca_sanbenito: {
