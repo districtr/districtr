@@ -1408,14 +1408,14 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   `
     <p>Welcome to the public mapping page for the Santa Barbara School District (SBUSD) Board of Education. SBUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election. In by-area elections, SBUSD will consist of 5 or 7 voting areas that are roughly equal in population. Board members will be elected from each of the areas only by voters who reside within the respective areas. Board members will be required to reside within the area from which they are elected. For example, Area A’s representative on the SBUSD Board will need to reside within Area A and is only elected by voters who reside within Area A.</p>
     <p>
-    As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing this <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a> or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://districtr.org/guide">here</a> for a tutorial.
+    As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing the website below or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://districtr.org/guide">here</a> for a tutorial.
     </p>
     `,
     sbusd_7:
   `
     <p>Welcome to the public mapping page for the Santa Barbara School District (SBUSD) Board of Education. SBUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election. In by-area elections, SBUSD will consist of 5 or 7 voting areas that are roughly equal in population. Board members will be elected from each of the areas only by voters who reside within the respective areas. Board members will be required to reside within the area from which they are elected. For example, Area A’s representative on the SBUSD Board will need to reside within Area A and is only elected by voters who reside within Area A.</p>
     <p>
-    As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing this <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a> or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://districtr.org/guide">here</a> for a tutorial.
+    As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing the website below or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://districtr.org/guide">here</a> for a tutorial.
     </p>
     `
 };
@@ -2100,13 +2100,13 @@ butte_county: [
   ],
   sbusd_5: [
     `
-    This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census blocks. For more information, please visit the Statewide Database’s website. \
+    This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. \
     The data was prepared by <a href='https://www.coopstrategies.com/#/' target=_blank>Cooperative Strategies, </a> a comprehensive planning and demographics firm that has been retained by the School District to assist in redistricting. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.
     `
   ],
   sbusd_7: [
     `
-    This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census blocks. For more information, please visit the Statewide Database’s website. \
+    This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census blocks. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>. \
     The data was prepared by <a href='https://www.coopstrategies.com/#/' target=_blank>Cooperative Strategies, </a> a comprehensive planning and demographics firm that has been retained by the School District to assist in redistricting. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.
     `
   ]
