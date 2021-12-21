@@ -17,6 +17,7 @@ function datasetInfo(state) {
             acs: "Uses <strong>2019 American Community Survey</strong> data",
             mesa: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Redistricting Partners",
             redistpartners2020: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Redistricting Partners",
+            modesto: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Redistricting Partners",
             ndc_prison_2020: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by National Demographics Corporation",
             pasorobles: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Cooperative Strategies",
             sacramento: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation",
