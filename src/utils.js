@@ -936,6 +936,12 @@ export function spatial_abilities(id) {
     number_markers: true,
     municipalities: true,
   },
+  santarosa: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: true,
+  },
   ca_sanmateo: {
     number_markers: true,
     // contiguity: 2,

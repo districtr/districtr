@@ -2119,7 +2119,12 @@ butte_county: [
     This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census blocks. For more information, please visit the Statewide Database’s website. \
     The data was prepared by <a href='https://www.coopstrategies.com/#/' target=_blank>Cooperative Strategies, </a> a comprehensive planning and demographics firm that has been retained by the School District to assist in redistricting. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.
     `
-  ]
+  ],
+  santarosa: [
+    `
+    This mapping module uses the official Redistricting Database for California, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here.</a>
+    `
+  ],
 };
 
 const proposals_by_event = {
