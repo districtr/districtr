@@ -42,6 +42,8 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${(units === "2020 Blocks") ? populations.redistpartners2020 : populations.mesa}`;
     } else if (["pasorobles"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.pasorobles}`;
+    } else if (["santarosa"].includes(place.id)) {
+        dataset = `<p><span>&#9432;</span> ${populations.santarosa}`;
     } else if (["sbusd_5"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.sbusd_5}`;
     } else if (["sbusd_7"].includes(place.id)) {
