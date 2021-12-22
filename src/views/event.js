@@ -145,6 +145,7 @@ commoncausepa: 'Pennsylvania',
   sbusd_5: 'California',
   sbusd_7: 'California',
   modesto: 'California',
+  santarosa: 'California'
 };
 
 const validEventCodes = {
@@ -279,6 +280,7 @@ commoncausepa: 'pennsylvania',
   sbusd_5: 'sbusd_5',
   sbusd_7: 'sbusd_7',
   modesto: 'modesto',
+  santarosa: 'santarosa'
 };
 
 const blockPlans = {
