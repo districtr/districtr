@@ -28835,8 +28835,8 @@
     "units": [
       {
         "id": "blocks",
-        "name": "Blocks",
-        "unitType": "Blocks",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
         "columnSets": [
           {
             "type": "population",
@@ -28898,7 +28898,7 @@
             "name": "Citizen Voting Age Population",
             "total": {
               "key": "CVAP_15-19_Total",
-              "name": "Total population",
+              "name": "Total citizen voting age population",
               "sum": 121924,
               "min": 0,
               "max": 925
@@ -28906,35 +28906,35 @@
             "subgroups": [
               {
                 "key": "CVAP_15-19_Black or African American Alone",
-                "name": "Black population",
+                "name": "Black citizen voting age population",
                 "sum": 2779,
                 "min": 0,
                 "max": 134
               },
               {
                 "key": "CVAP_15-19_American Indian or Alaska Native Alone",
-                "name": "American Indian population",
+                "name": "American Indian citizen voting age population",
                 "sum": 1000,
                 "min": 0,
                 "max": 45
               },
               {
                 "key": "CVAP_15-19_Asian Alone",
-                "name": "Asian population",
+                "name": "Asian citizen voting age population",
                 "sum": 6286,
                 "min": 0,
                 "max": 90
               },
               {
                 "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
-                "name": "Native Hawaiian Pacific Islander population",
+                "name": "Native Hawaiian Pacific Islander citizen voting age population",
                 "sum": 319,
                 "min": 0,
                 "max": 85
               },
               {
                 "key": "CVAP_15-19_Hispanic or Latino",
-                "name": "Hispanic population",
+                "name": "Hispanic citizen voting age population",
                 "sum": 22977,
                 "min": 0,
                 "max": 324
