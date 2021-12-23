@@ -352,7 +352,7 @@
         ],
         "id": "loc"
       },
-      { "name": "School Districts", "ids": ["napaschools","sbusd_7","sbusd_5"], "id": "schools" } 
+      { "name": "School Districts", "ids": ["napaschools","sbusd_7","sbusd_5","oxnarduhsd", "marinco"], "id": "schools" } 
     ],
     "sections": [
       {
@@ -2710,7 +2710,7 @@
     "modules": [
       {
         "name": "Statewide",
-        "ids": ["pennsylvania"],
+        "ids": ["pennsylvania", "pa_adj", "pa_prison_adj"],
         "default": "true",
         "id": "state"
       },

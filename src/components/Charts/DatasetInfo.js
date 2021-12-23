@@ -14,6 +14,7 @@ function datasetInfo(state) {
             census: "Uses <strong>2010 Decennial Census</strong> data",
             census20: "Uses <strong>2020 Decennial Census</strong> data",
             census20adj: "Uses <strong>2020 Decennial Census</strong> prison-adjusted data",
+            census20non_p_adj: "Uses <strong>2020 Decennial Census</strong> adjusted data",
             acs: "Uses <strong>2019 American Community Survey</strong> data",
             mesa: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Redistricting Partners",
             redistpartners2020: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Redistricting Partners",
@@ -50,9 +51,17 @@ function datasetInfo(state) {
             && !(["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties"].includes(state.unitsRecord.name))) {
                 dataset = `<p><span>&#9432;</span> ${populations.ndc_proj_2020}`;
     } else if (["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties", "2021 Precincts"].includes(state.unitsRecord.name)) {
-        if (("2020 VTDs" === state.unitsRecord.name && ["virginia", "maryland"].includes(place.id))
-          || (["california", "ca_SanDiego", "ca_contracosta", "ca_sutter", "menlo_park"].includes(state.place.id))) {
+        if (("2020 VTDs" === state.unitsRecord.name && ["virginia", "maryland", "pa_prison_adj"].includes(place.id)) ||
+            (
+                [
+                    "california", "ca_SanDiego", "ca_contracosta", "ca_sutter",
+                    "menlo_park", "marinco"
+                ].includes(state.place.id)
+            )
+        ) {
             dataset = `<p><span>&#9432;</span> ${populations.census20adj}`;
+        } else if (["pa_adj"].includes(place.id)) {
+            dataset = `<p><span>&#9432;</span> ${populations.census20non_p_adj}`;
         } else if (
                 [
                     "san_dimas", "ccsanitation2", "ca_pasadena", "sacramento",
@@ -61,7 +70,7 @@ function datasetInfo(state) {
                     "ca_merced", "ca_fresno", "ca_sm_county", "ca_sanbenito", "laverne",
                     "29palms", "yuba_city", "buenapark", "ca_arroyo", "ca_camarillo",
                     "ca_chino", "ca_grover", "ca_nevada", "elcajon", "pomona",
-                    "ca_fremont", "encinitas"
+                    "ca_fremont", "encinitas", "oxnarduhsd", "ca_carlsbad"
                 ].includes(state.place.id)
             ) {
           // 2020 - NDC - Prison

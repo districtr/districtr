@@ -15,6 +15,7 @@ import { addAmerIndianLayer } from "../layers/amin_control";
 import { addCountyLayer } from "../layers/counties";
 import { addBoundaryLayer } from "../layers/current_districts";
 import { spatial_abilities, nested, one_cd } from "../utils";
+import { select } from "d3-selection";
 
 export default function DataLayersPlugin(editor) {
     const { state, toolbar } = editor;
