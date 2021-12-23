@@ -30213,11 +30213,9 @@
               "type": "vector",
               "url": "mapbox://districtr.sbusd_5_blocks"
             },
-            "sourceLayer": "sbusd_5_blocks"
+            "sourceLayer": "sbusd_5_blocks",
               "url": "mapbox://districtr.marinco_blocks20"
             },
-            "sourceLayer": "marinco_blocks20"
-          },
           {
             "type": "circle",
             "source": {
@@ -30404,22 +30402,16 @@
               "url": "mapbox://districtr.sbusd_7_blocks_points"
             },
             "sourceLayer": "sbusd_7_blocks_points"
-              "url": "mapbox://districtr.marinco_blocks20_points"
-            },
-            "sourceLayer": "marinco_blocks20_points"
           }
         ]
       }
     ],
     "state": "California",
-    "id": "marinco",
-    "name": "Marin Comm. College Districts",
     "districtingProblems": [
       {
         "name": "Board of Trustees",
         "numberOfParts": 7,
         "pluralNoun": "Districts"
-        "pluralNoun": "Trustee Districts"
       }
     ]
   },
