@@ -22,7 +22,9 @@ function datasetInfo(state) {
             sacramento: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation",
             ndc_proj_2020: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation",
             ndc_2020: "Uses <strong>2020 Decennial Census population</strong> with processing by National Demographics Corporation",
-            wagaman_2020: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Wagaman Strategies"
+            wagaman_2020: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Wagaman Strategies",
+            sbusd: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Cooperative Strategies",
+            pvsd: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Cooperative Strategies"
         },
         acsLocations = [
             "wisco2019acs", "hall_ga", "grand_county_2", "mn2020acs", "nd_benson",
@@ -38,6 +40,10 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${(units === "2020 Blocks") ? populations.redistpartners2020 : populations.mesa}`;
     } else if (["pasorobles"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.pasorobles}`;
+    } else if (["sbusd"].includes(place.id)) {
+        dataset = `<p><span>&#9432;</span> ${populations.sbusd}`;
+    } else if (["pvsd"].includes(place.id)) {
+        dataset = `<p><span>&#9432;</span> ${populations.pvsd}`;
     } else if (["ca_watsonville", "ca_rohnert", "ca_brentwood"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.wagaman_2020}`;
     } else if ((["sacramento", "ca_goleta", "ca_santabarbara", "ca_marin", "ca_kings", "ca_merced", "ca_nevada", "ca_marina", "ca_arroyo", "ca_sm_county", "ca_sanbenito", "ca_bellflower", "ca_camarillo", "ca_fremont", "lake_el", "ca_chino", "ca_campbell", "ca_vallejo", "ca_oceano", "ca_grover", "ca_buellton", "buenapark", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne", "encinitas", "lodi", "pomona", "sunnyvale"].includes(place.id)) 
