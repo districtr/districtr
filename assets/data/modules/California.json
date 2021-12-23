@@ -29688,7 +29688,7 @@
       {
         "id": "blocks",
         "name": "2020 Blocks",
-        "unitType": "Blocks",
+        "unitType": "2020 Blocks",
         "columnSets": [
           {
             "type": "population",
@@ -29696,66 +29696,66 @@
             "total": {
               "key": "POP_TOTAL",
               "name": "Total Population",
-              "sum": 80882,
+              "sum": 190594,
               "min": 0,
-              "max": 1438
+              "max": 2601
             },
             "subgroups": [
               {
                 "key": "POP_WHITE",
                 "name": "White Population",
-                "sum": 44019,
+                "sum": 100754,
                 "min": 0,
-                "max": 780
+                "max": 1094
               },
               {
                 "key": "POP_BLACK",
                 "name": "Black Population",
-                "sum": 1741,
+                "sum": 2331,
                 "min": 0,
-                "max": 78
+                "max": 46
               },
               {
                 "key": "POP_HISP",
                 "name": "Hispanic Population",
-                "sum": 21508,
+                "sum": 61471,
                 "min": 0,
-                "max": 606
+                "max": 1027
               },
               {
                 "key": "POP_ASIAN",
                 "name": "Asian Population",
-                "sum": 8473,
+                "sum": 15976,
                 "min": 0,
-                "max": 198
+                "max": 958
               },
               {
                 "key": "POP_AMIND",
                 "name": "American Indian Population",
-                "sum": 150,
+                "sum": 490,
                 "min": 0,
-                "max": 5
+                "max": 11
               },
               {
                 "key": "POP_HAWPI",
                 "name": "Native Hawaiian Pacific Islander Population",
-                "sum": 173,
+                "sum": 163,
                 "min": 0,
-                "max": 7
+                "max": 21
               },
               {
                 "key": "POP_2MR",
                 "name": "Two or More Races Population",
-                "sum": 4277,
+                "sum": 8195,
                 "min": 0,
-                "max": 57
+                "max": 164
               },
               {
                 "key": "POP_OTHER",
                 "name": "Other Race Population",
-                "sum": 541,
+                "sum": 1214,
                 "min": 0,
-                "max": 12
+                "max": 45
               }
             ]
           },
@@ -29765,38 +29765,38 @@
             "total": {
               "key": "CVAP19_TOT",
               "name": "Total Citizen Voting Age Population",
-              "sum": 59314,
+              "sum": 139923,
               "min": 0,
-              "max": 1265
+              "max": 1528
             },
             "subgroups": [
               {
                 "key": "CVAP19_WHT",
                 "name": "White Citizen Voting Age Population",
-                "sum": 38275,
+                "sum": 93830,
                 "min": 0,
-                "max": 661
+                "max": 1011
               },
               {
                 "key": "CVAP19_BLK",
                 "name": "Black Citizen Voting Age Population",
-                "sum": 1012,
+                "sum": 3233,
                 "min": 0,
-                "max": 60
+                "max": 121
               },
               {
                 "key": "CVAP19_HSP",
                 "name": "Hispanic Citizen Voting Age Population",
-                "sum": 13353,
+                "sum": 31131,
                 "min": 0,
-                "max": 518
+                "max": 673
               },
               {
                 "key": "CVAP19_ASN",
                 "name": "Asian Citizen Voting Age Population",
-                "sum": 4996,
+                "sum": 8548,
                 "min": 0,
-                "max": 244
+                "max": 469
               },
               {
                 "key": "CVAP19_HWP",
@@ -29808,9 +29808,9 @@
               {
                 "key": "CVAP19_2MR",
                 "name": "Two or More Races Citizen Voting Age Population",
-                "sum": 1337,
+                "sum": 2825,
                 "min": 0,
-                "max": 72
+                "max": 120
               }
             ]
           }
@@ -29821,12 +29821,12 @@
         },
         "bounds": [
           [
-            -119.0998,
-            34.1563
+            -120.023,
+            34.3947
           ],
           [
-            -118.8659,
-            34.2609
+            -119.5903,
+            34.5252
           ]
         ],
         "tilesets": [
@@ -29834,17 +29834,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.pvsd_blocks"
+              "url": "mapbox://districtr.sbusd_5_blocks"
             },
-            "sourceLayer": "pvsd_blocks"
+            "sourceLayer": "sbusd_5_blocks"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.pvsd_blocks_points"
+              "url": "mapbox://districtr.sbusd_5_blocks_points"
             },
-            "sourceLayer": "pvsd_blocks_points"
+            "sourceLayer": "sbusd_5_blocks_points"
           }
         ]
       }
@@ -29856,6 +29856,183 @@
       {
         "name": "Board of Trustees",
         "numberOfParts": 5,
+        "pluralNoun": "Districts"
+      }
+    ]
+  },
+  {
+    "name": "Santa Barbara Unified School District",
+    "id": "sbusd_7",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "POP_TOTAL",
+              "name": "Total Population",
+              "sum": 190594,
+              "min": 0,
+              "max": 2601
+            },
+            "subgroups": [
+              {
+                "key": "POP_WHITE",
+                "name": "White Population",
+                "sum": 100754,
+                "min": 0,
+                "max": 1094
+              },
+              {
+                "key": "POP_BLACK",
+                "name": "Black Population",
+                "sum": 2331,
+                "min": 0,
+                "max": 46
+              },
+              {
+                "key": "POP_HISP",
+                "name": "Hispanic Population",
+                "sum": 61471,
+                "min": 0,
+                "max": 1027
+              },
+              {
+                "key": "POP_ASIAN",
+                "name": "Asian Population",
+                "sum": 15976,
+                "min": 0,
+                "max": 958
+              },
+              {
+                "key": "POP_AMIND",
+                "name": "American Indian Population",
+                "sum": 490,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "POP_HAWPI",
+                "name": "Native Hawaiian Pacific Islander Population",
+                "sum": 163,
+                "min": 0,
+                "max": 21
+              },
+              {
+                "key": "POP_2MR",
+                "name": "Two or More Races Population",
+                "sum": 8195,
+                "min": 0,
+                "max": 164
+              },
+              {
+                "key": "POP_OTHER",
+                "name": "Other Race Population",
+                "sum": 1214,
+                "min": 0,
+                "max": 45
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP19_TOT",
+              "name": "Total Citizen Voting Age Population",
+              "sum": 139923,
+              "min": 0,
+              "max": 1528
+            },
+            "subgroups": [
+              {
+                "key": "CVAP19_WHT",
+                "name": "White Citizen Voting Age Population",
+                "sum": 93830,
+                "min": 0,
+                "max": 1011
+              },
+              {
+                "key": "CVAP19_BLK",
+                "name": "Black Citizen Voting Age Population",
+                "sum": 3233,
+                "min": 0,
+                "max": 121
+              },
+              {
+                "key": "CVAP19_HSP",
+                "name": "Hispanic Citizen Voting Age Population",
+                "sum": 31131,
+                "min": 0,
+                "max": 673
+              },
+              {
+                "key": "CVAP19_ASN",
+                "name": "Asian Citizen Voting Age Population",
+                "sum": 8548,
+                "min": 0,
+                "max": 469
+              },
+              {
+                "key": "CVAP19_HWP",
+                "name": "Native Hawaiian Pacific Islander Citizen Voting Age Population",
+                "sum": 15,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "CVAP19_2MR",
+                "name": "Two or More Races Citizen Voting Age Population",
+                "sum": 2825,
+                "min": 0,
+                "max": 120
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -120.023,
+            34.3947
+          ],
+          [
+            -119.5903,
+            34.5252
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sbusd_7_blocks"
+            },
+            "sourceLayer": "sbusd_7_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sbusd_7_blocks_points"
+            },
+            "sourceLayer": "sbusd_7_blocks_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "Board of Trustees",
+        "numberOfParts": 7,
         "pluralNoun": "Districts"
       }
     ]

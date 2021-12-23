@@ -23,8 +23,8 @@ function datasetInfo(state) {
             ndc_proj_2020: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation",
             ndc_2020: "Uses <strong>2020 Decennial Census population</strong> with processing by National Demographics Corporation",
             wagaman_2020: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Wagaman Strategies",
-            sbusd: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Cooperative Strategies",
-            pvsd: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Cooperative Strategies"
+            sbusd_5: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Cooperative Strategies",
+            sbusd_7: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Cooperative Strategies"
         },
         acsLocations = [
             "wisco2019acs", "hall_ga", "grand_county_2", "mn2020acs", "nd_benson",
@@ -40,13 +40,13 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${(units === "2020 Blocks") ? populations.redistpartners2020 : populations.mesa}`;
     } else if (["pasorobles"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.pasorobles}`;
-    } else if (["sbusd"].includes(place.id)) {
-        dataset = `<p><span>&#9432;</span> ${populations.sbusd}`;
-    } else if (["pvsd"].includes(place.id)) {
-        dataset = `<p><span>&#9432;</span> ${populations.pvsd}`;
+    } else if (["sbusd_5"].includes(place.id)) {
+        dataset = `<p><span>&#9432;</span> ${populations.sbusd_5}`;
+    } else if (["sbusd_7"].includes(place.id)) {
+        dataset = `<p><span>&#9432;</span> ${populations.sbusd_7}`;    
     } else if (["ca_watsonville", "ca_rohnert", "ca_brentwood"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.wagaman_2020}`;
-    } else if ((["sacramento", "ca_goleta", "ca_santabarbara", "ca_marin", "ca_kings", "ca_merced", "ca_nevada", "ca_marina", "ca_arroyo", "ca_sm_county", "ca_sanbenito", "ca_bellflower", "ca_camarillo", "ca_fremont", "lake_el", "ca_chino", "ca_campbell", "ca_vallejo", "ca_oceano", "ca_grover", "ca_buellton", "buenapark", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne", "encinitas", "lodi", "pomona", "sunnyvale"].includes(place.id)) 
+    } else if ((["sacramento", "ca_goleta", "ca_santabarbara", "ca_marin", "ca_kings", "ca_merced", "ca_nevada", "ca_marina", "ca_arroyo", "ca_sm_county", "ca_sanbenito", "ca_bellflower", "ca_camarillo", "ca_fremont", "lake_el", "ca_chino", "ca_campbell", "ca_vallejo", "ca_oceano", "ca_grover", "ca_buellton", "buenapark", "halfmoon", "ca_carlsbad", "ca_richmond", "elcajon", "laverne", "encinitas", "lodi", "pomona", "sunnyvale", "sbusd_5", "sbusd_7"].includes(place.id)) 
             && !(["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties"].includes(state.unitsRecord.name))) {
                 dataset = `<p><span>&#9432;</span> ${populations.ndc_proj_2020}`;
     } else if (["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties", "2021 Precincts"].includes(state.unitsRecord.name)) {
