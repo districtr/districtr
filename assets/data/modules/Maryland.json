@@ -405,14 +405,14 @@
             "subgroups": [
               {
                 "key": "AG14D",
-                "name": "Republican",
+                "name": "Democratic",
                 "sum": 934954,
                 "min": 0,
                 "max": 2040
               },
               {
                 "key": "AG14R",
-                "name": "Democratic",
+                "name": "Republican",
                 "sum": 681329,
                 "min": 0,
                 "max": 2900

@@ -590,6 +590,51 @@ export function spatial_abilities(id) {
       border: true,
       sideload: false
     },
+    marinco: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      current_districts: "Marin County",
+      boundaries: [
+        {
+          path: "municipalities/california/marinco",
+          id: "cities_towns",
+          label: "Cities and Towns",
+          centroids: false,
+          fill: false
+        },
+        {
+          path: "school_districts/california/marinco",
+          id: "school_districts",
+          label: "School Districts",
+          centroids: false,
+          fill: false
+        }
+      ]
+    },
+    oxnarduhsd: {
+      coalition: false,
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      boundaries: [
+        {
+          path: "school_districts/california/oxnarduhsd_elementary",
+          id: "elementary_schools",
+          label: "Elementary School Feeder Zones",
+          centroids: false,
+          fill: false
+        },
+        {
+          path: "municipalities/california/oxnarduhsd",
+          id: "cities_towns",
+          label: "Cities and Towns",
+          centroids: false,
+          fill: false
+        }
+      ]
+    },
     anaheim: {
       coalition: false,
       shapefile: true,
@@ -1993,6 +2038,24 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: "https://portal.pennsylvania-mapping.org",
       },
+    },
+    pa_adj: {
+      number_markers: true,
+      county_brush: true,
+      shapefile: true,
+      find_unpainted: true,
+      sideload: true,
+      load_coi: false,
+      contiguity: 2,
+    },
+    pa_prison_adj: {
+      number_markers: true,
+      county_brush: true,
+      shapefile: true,
+      find_unpainted: true,
+      sideload: true,
+      load_coi: false,
+      contiguity: 2,
     },
     philadelphia: {
       number_markers: true,
