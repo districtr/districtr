@@ -331,6 +331,7 @@
           "carpinteria",
           "rp_lax",
           "longbeach",
+          "modesto",
           "ca_SanDiego",
           "ojai",
           "ca_santa_ana",
@@ -352,7 +353,18 @@
         ],
         "id": "loc"
       },
-      { "name": "School Districts", "ids": ["napaschools","sbusd_7","sbusd_5","oxnarduhsd", "pvsd","marinco"], "id": "schools" } 
+      {
+        "name": "School Districts",
+        "ids": [
+          "napaschools",
+          "sbusd_7",
+          "sbusd_5",
+          "oxnarduhsd",
+          "marinco",
+          "pvsd"
+        ],
+        "id": "schools"
+      } 
     ],
     "sections": [
       {

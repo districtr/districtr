@@ -18,6 +18,7 @@ function datasetInfo(state) {
             acs: "Uses <strong>2019 American Community Survey</strong> data",
             mesa: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Redistricting Partners",
             redistpartners2020: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Redistricting Partners",
+            modesto: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Redistricting Partners",
             ndc_prison_2020: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by National Demographics Corporation",
             pasorobles: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Cooperative Strategies",
             sacramento: "Uses <strong>projected 2020 population</strong> data with processing by National Demographics Corporation",
@@ -37,7 +38,7 @@ function datasetInfo(state) {
 
     if (acsLocations.includes(place.id.toLowerCase()) || state.units.id.includes("2019") || population.name !== "Population") {
         dataset = `<p><span>&#9432;</span> ${populations.acs}`;
-    } else if (["rp_lax", "ca_butte", "sanluiso", "sanjoseca", "siskiyou", "redwood", "ca_ventura", "ca_yolo", "ca_solano", "ca_sc_county", "ca_sanmateo", "ca_kern", "ca_sanjoaquin", "ca_sc_county", "ca_tuolumne", "napa2021", "napacounty2021", "napa_boe", "santa_clara_h2o", "ca_oakland", "ca_martinez", "ca_humboldt", "carpinteria"].includes(place.id)) {
+    } else if (["rp_lax", "ca_butte", "sanluiso", "sanjoseca", "siskiyou", "redwood", "ca_ventura", "ca_yolo", "ca_solano", "ca_sc_county", "ca_sanmateo", "ca_kern", "ca_sanjoaquin", "ca_sc_county", "ca_tuolumne", "napa2021", "napacounty2021", "napa_boe", "santa_clara_h2o", "ca_oakland", "ca_martinez", "ca_humboldt", "carpinteria","modesto"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${(units === "2020 Blocks") ? populations.redistpartners2020 : populations.mesa}`;
     } else if (["pasorobles"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.pasorobles}`;

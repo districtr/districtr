@@ -531,23 +531,33 @@ export function spatial_abilities(id) {
       border: true,
       sideload: false
     },
+    modesto: {
+      coalition: false,
+      shapefile: false,
+      number_markers: true,
+      border: true,
+      sideload: false
+    },
     sbusd_5: {
       coalition: false,
       shapefile: false,
       number_markers: true,
       border: true,
       sideload: false,
-      boundaries: [{
-        id: 'sbusd_feeder',
-        label: 'Feeder Boundaries',
-        path: 'school_districts/california/sbusd_feeder_bounds',
-        lineColor: 'black'
-      },{
-        id: 'sbusd',
-        label: 'Cities and Towns',
-        path: 'school_districts/california/sbusd',
-        lineColor: 'black'
-      }],
+      boundaries: [
+        {
+          id: 'sbusd_feeder',
+          label: 'Feeder Boundaries',
+          path: 'school_districts/california/sbusd-feeder-districts',
+          lineColor: 'black'
+        },
+        {
+          id: 'sbusd',
+          label: 'Cities and Towns',
+          path: 'municipalities/california/sbusd-municipalities',
+          lineColor: 'black'
+        }
+      ]
     },
     sbusd_7: {
       coalition: false,
@@ -555,17 +565,20 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
       sideload: false,
-      boundaries: [{
-        id: 'sbusd_feeder',
-        label: 'Feeder Boundaries',
-        path: 'school_districts/california/sbusd_feeder_bounds',
-        lineColor: 'black'
-      },{
-        id: 'sbusd',
-        label: 'Cities and Towns',
-        path: 'school_districts/california/sbusd',
-        lineColor: 'black'
-      }],
+      boundaries: [
+        {
+          id: 'sbusd_feeder',
+          label: 'Feeder Boundaries',
+          path: 'school_districts/california/sbusd-feeder-districts',
+          lineColor: 'black'
+        },
+        {
+          id: 'sbusd',
+          label: 'Cities and Towns',
+          path: 'municipalities/california/sbusd-municipalities',
+          lineColor: 'black'
+        }
+      ]
     },
     navajoco: {
       coalition: false,
