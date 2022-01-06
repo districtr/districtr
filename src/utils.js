@@ -544,17 +544,20 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
       sideload: false,
-      boundaries: [{
-        id: 'sbusd_feeder',
-        label: 'Feeder Boundaries',
-        path: 'school_districts/california/sbusd_feeder_bounds',
-        lineColor: 'black'
-      },{
-        id: 'sbusd',
-        label: 'Cities and Towns',
-        path: 'school_districts/california/sbusd',
-        lineColor: 'black'
-      }],
+      boundaries: [
+        {
+          id: 'sbusd_feeder',
+          label: 'Elementary School Attendance Boundaries',
+          path: 'school_districts/california/sbusd-feeder-districts',
+          lineColor: 'black'
+        },
+        {
+          id: 'sbusd',
+          label: 'Cities and Towns',
+          path: 'municipalities/california/sbusd-municipalities',
+          lineColor: 'black'
+        }
+      ]
     },
     sbusd_7: {
       coalition: false,
@@ -562,17 +565,20 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
       sideload: false,
-      boundaries: [{
-        id: 'sbusd_feeder',
-        label: 'Feeder Boundaries',
-        path: 'school_districts/california/sbusd_feeder_bounds',
-        lineColor: 'black'
-      },{
-        id: 'sbusd',
-        label: 'Cities and Towns',
-        path: 'school_districts/california/sbusd',
-        lineColor: 'black'
-      }],
+      boundaries: [
+        {
+          id: 'sbusd_feeder',
+          label: 'Elementary School Attendance Boundaries',
+          path: 'school_districts/california/sbusd-feeder-districts',
+          lineColor: 'black'
+        },
+        {
+          id: 'sbusd',
+          label: 'Cities and Towns',
+          path: 'municipalities/california/sbusd-municipalities',
+          lineColor: 'black'
+        }
+      ]
     },
     navajoco: {
       coalition: false,
@@ -622,7 +628,7 @@ export function spatial_abilities(id) {
         {
           path: "school_districts/california/oxnarduhsd_elementary",
           id: "elementary_schools",
-          label: "Elementary School Feeder Zones",
+          label: "Elementary School Attendance Boundaries",
           centroids: false,
           fill: false
         },
@@ -889,6 +895,39 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
       current_districts: true,
+    },
+    sbusd: {
+      coalition: false,
+      border: true,
+      number_markers: true,
+      school_districts: true,
+      municipalities: true
+    },
+    pvsd: {
+      coalition: false,
+      border: true,
+      number_markers: true,
+      load_coi: true,
+      boundaries: [
+        {
+          id: 'es_boundary',
+          label: 'Elementary School Attendance Boundaries',
+          path: 'school_districts/california/pvsd_feeder',
+          lineColor: 'black'
+        },
+        {
+          id: 'citycouncil',
+          label: 'Camarillo City Council Districts (2010)',
+          path: 'current_districts/california/camarillo_city_council',
+          lineColor: 'black'
+        },
+        {
+          id: 'places',
+          label: 'Census Places',
+          path: 'neighborhoods/california/camarillo_places',
+          lineColor: 'black'
+        }
+      ]
     },
     ca_sanbenito: {
       coalition: false,
