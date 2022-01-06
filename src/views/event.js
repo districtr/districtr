@@ -143,7 +143,10 @@ commoncausepa: 'Pennsylvania',
   "oxnarduhsd": "California",
   "rohnert_park": "California",
   "brentwood": "California",
-  "watsonville": "California"
+  "watsonville": "California",
+  sbusd_5: 'California',
+  sbusd_7: 'California',
+  modesto: 'California',
 };
 
 const validEventCodes = {
@@ -276,7 +279,10 @@ commoncausepa: 'pennsylvania',
   "oxnarduhsd": "oxnarduhsd",
   "rohnert_park": "ca_rohnert",
   "brentwood": "ca_brentwood",
-  "watsonville": "ca_watsonville"
+  "watsonville": "ca_watsonville",
+  sbusd_5: 'sbusd_5',
+  sbusd_7: 'sbusd_7',
+  modesto: 'modesto',
 };
 
 const blockPlans = {
@@ -498,7 +504,10 @@ const hybrid_events = [
   "rohnert_park",
   "brentwood",
   "watsonville",
-  "carpinteria"
+  "carpinteria",
+  "sbusd_5",
+  "sbusd_7",
+  "modesto",
 ];
 
 const portal_events = [
@@ -796,6 +805,10 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   <p>Redistricting also determines which neighborhoods and communities are grouped together into a district.  Communities are those with common social or economic interests that should be included within a single district for effective, fair representation.  They are best described by those with first‐hand knowledge.  <strong>We want to hear about your community; you know it best!</strong></p>\
   <p><strong>You can also submit your own plan for how to divide the city into four districts.</strong>  Every plan submitted to the City will be carefully reviewed and included as part of the public record. For more information, <a href="https://drawlivermore.org" target="_blank">visit this link</a>.</p>\
   <p>Get started by clicking the orange or purple button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Livermore”.</p>',
+  modesto: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each City Councilmember represents substantially the same number of constituents. How those lines are drawn affects how people are represented.</p>\
+  <p>Redistricting also determines which neighborhoods and communities are grouped together into a district.  Communities are those with common social or economic interests that should be included within a single district for effective, fair representation.  They are best described by those with first‐hand knowledge.  <strong>We want to hear about your community; you know it best!</strong></p>\
+  <p><strong>You can also submit your own plan for how to divide the city into five districts.</strong>  Every plan submitted to the City will be carefully reviewed and included as part of the public record. For more information, <a href="https://www.modestogov.com/1141/Citizens-Districting-Commission" target="_blank">visit this link</a>.</p>\
+  <p>To share your map to this page, be sure to select "Share" and click on the button "Share to Gallery".</p>',
   napa_college: '<p>Every 10 years, Californians get the chance to help reshape the seven Napa Valley College Trustee districts based on current United States Census data. Redistricting is based on population and communities of interest. A community of interest shares common social and economic interests that should be included within a single trustee district to achieve effective and fair representation for its residents.</p> \
     <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, areas using the same community facilities such as schools, transportation and public services.  It’s basically any geographic area where people have a common interest that needs a voice in government.</p>\
     <p>We need your help to describe communities of interest.  Please use this tool to map the boundaries of your community and share your thoughts on what makes it a community of interest.\
@@ -1464,7 +1477,21 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     <p>
       To share your map to this page, be sure to select “Share Now” and click on the button “Share to Gallery”.
     </p>
+  `,
+  sbusd_5:
   `
+    <p>Welcome to the public mapping page for the Santa Barbara School District (SBUSD) Board of Education. SBUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election. In by-area elections, SBUSD will consist of 5 or 7 voting areas that are roughly equal in population. Board members will be elected from each of the areas only by voters who reside within the respective areas. Board members will be required to reside within the area from which they are elected. For example, Area A’s representative on the SBUSD Board will need to reside within Area A and is only elected by voters who reside within Area A.</p>
+    <p>
+    As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing this <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a> or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://districtr.org/guide">here</a> for a tutorial.
+    </p>
+    `,
+    sbusd_7:
+  `
+    <p>Welcome to the public mapping page for the Santa Barbara School District (SBUSD) Board of Education. SBUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election. In by-area elections, SBUSD will consist of 5 or 7 voting areas that are roughly equal in population. Board members will be elected from each of the areas only by voters who reside within the respective areas. Board members will be required to reside within the area from which they are elected. For example, Area A’s representative on the SBUSD Board will need to reside within Area A and is only elected by voters who reside within Area A.</p>
+    <p>
+    As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing this <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a> or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://districtr.org/guide">here</a> for a tutorial.
+    </p>
+    `
 };
 
 const longAbout = {
@@ -1507,6 +1534,9 @@ const longAbout = {
  livermore: [
    "This mapping model uses the official Redistricting Database of California, published by the Statewide Database with processing by Wagaman Strategies."
  ],
+ modesto: [
+  "This mapping model uses the <strong>official Redistricting Database of California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>."
+],
  tuolumne_county: [
    "This mapping model displays the official Redistricting Database of California, published by the Statewide Database, on 2020 Blocks. Per California state law, the Statewide Database reallocates incarcerated populations to their last known address. For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/'>website</a>. The data was processed by Redistricting Partners. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
  ],
@@ -2169,6 +2199,18 @@ butte_county: [
     This mapping module uses the official 2020 Redistricting Database of California, published by 
     the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
     incarcerated populations to their last known residential address.
+    `
+  ],
+  sbusd_5: [
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census blocks. For more information, please visit the Statewide Database’s website. \
+    The data was prepared by <a href='https://www.coopstrategies.com/#/' target=_blank>Cooperative Strategies, </a> a comprehensive planning and demographics firm that has been retained by the School District to assist in redistricting. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.
+    `
+  ],
+  sbusd_7: [
+    `
+    This mapping module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census blocks. For more information, please visit the Statewide Database’s website. \
+    The data was prepared by <a href='https://www.coopstrategies.com/#/' target=_blank>Cooperative Strategies, </a> a comprehensive planning and demographics firm that has been retained by the School District to assist in redistricting. Over the last decade, Cooperative Strategies has assisted more than 50 school districts across California draw their voting areas.
     `
   ]
 };
