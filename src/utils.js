@@ -820,7 +820,7 @@ export function spatial_abilities(id) {
       border: true,
       shapefile: true,
       number_markers: true,
-      current_districts: true,
+      current_districts: true
     },
     ca_merced: {
       coalition: false,
@@ -1019,6 +1019,12 @@ export function spatial_abilities(id) {
     shapefile: true,
     number_markers: true,
     municipalities: true,
+  },
+  santarosa: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    municipalities: false,
   },
   ca_sanmateo: {
     number_markers: true,
