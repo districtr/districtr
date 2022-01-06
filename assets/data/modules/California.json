@@ -29953,7 +29953,7 @@
   {
     "units": [
       {
-        "id": "blocks20",
+        "id": "blocks",
         "name": "2020 Blocks",
         "unitType": "Blocks",
         "columnSets": [
@@ -30103,9 +30103,8 @@
               "type": "vector",
               "url": "mapbox://districtr.sbusd_5_blocks"
             },
-            "sourceLayer": "sbusd_5_blocks",
-              "url": "mapbox://districtr.marinco_blocks20"
-            },
+            "sourceLayer": "sbusd_5_blocks"
+          },
           {
             "type": "circle",
             "source": {
