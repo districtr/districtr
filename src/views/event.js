@@ -1481,7 +1481,8 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     these voting areas should look like. To let PVSD know what you think the maps
     should look like, you can create your own map utilizing this website or you
     can take one of the previously created maps and modify it, then submit the
-    map for consideration by the Board of Education. Click here for a tutorial.
+    map for consideration by the Board of Education.
+    <a href="https://districtr.org/guide">Click here</a> for a tutorial.
     Please note that the deadline for submission of public maps is January 27,
     2022 in order to be considered by PVSD's Board of Education.
   </p>
