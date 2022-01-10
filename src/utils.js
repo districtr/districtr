@@ -1000,38 +1000,40 @@ export function spatial_abilities(id) {
     border: true,
     shapefile: true,
     number_markers: true,
-    municipalities: true,
+    municipalities: true
   },
   napa_boe: {
     border: true,
     shapefile: true,
     number_markers: true,
-    municipalities: true,
+    municipalities: true
   },
   napa_college: {
     border: true,
     shapefile: true,
     number_markers: true,
-    municipalities: true,
+    municipalities: true
   },
   santa_clara_h2o: {
     border: true,
     shapefile: true,
     number_markers: true,
-    municipalities: true,
+    municipalities: true
   },
   santarosa: {
     border: true,
     shapefile: true,
     number_markers: true,
     municipalities: false,
+    coalition: false,
+    current_districts: true
   },
   ca_sanmateo: {
     number_markers: true,
     // contiguity: 2,
     border: true,
     shapefile: true,
-    neighborhood_borders: 'Neighborhoods',
+    neighborhood_borders: 'Neighborhoods'
   },
   ca_santa_ana: {
     number_markers: true,
