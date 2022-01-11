@@ -147,7 +147,8 @@ commoncausepa: 'Pennsylvania',
   sbusd_5: 'California',
   sbusd_7: 'California',
   modesto: 'California',
-  pvsd: "California"
+  pvsd: "California",
+  santarosa: 'California'
 };
 
 const validEventCodes = {
@@ -284,7 +285,8 @@ commoncausepa: 'pennsylvania',
   sbusd_5: 'sbusd_5',
   sbusd_7: 'sbusd_7',
   modesto: 'modesto',
-  pvsd: "pvsd"
+  pvsd: "pvsd",
+  santarosa: 'santarosa'
 };
 
 const blockPlans = {
@@ -510,7 +512,8 @@ const hybrid_events = [
   "sbusd_5",
   "sbusd_7",
   "modesto",
-  "pvsd"
+  "pvsd",
+  "santarosa"
 ];
 
 const portal_events = [
@@ -789,6 +792,43 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   <p>Every map submitted to the Long Beach Independent Redistricting Commission will be carefully reviewed and included as part of the public record. For more information, visit <a href="https://www.longbeach.gov/redistricting" target="_blank">this link</a>.</p>\
   <p>Get started by clicking the orange button to draw your community or the purple button to draw your city council map. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Long_Beach”.</p>\
   <p>For a detailed how-to guide of Districtr, visit our <a href="/guide" target="_blank">Guide page</a>.</p>',
+  santarosa:
+  `
+    <p>
+      Every ten years, local governments use new United States Census data to
+      redraw their district lines to reflect how local populations have changed.
+      This process, called redistricting, is important in ensuring that each City
+      Council Member represents substantially the same number of constituents.
+      How those lines are drawn affects how people are represented.
+    </p>
+    <p>
+      Redistricting also determines which neighborhoods and communities are
+      grouped together into a district. Communities are those with common social
+      or economic interests that should be included within a single district for
+      effective, fair representation. They are best described by those with
+      first-hand knowledge.<strong> We want to hear about your community; you
+      know it best!</strong>
+    </p>
+    <p>
+      <strong>You can also submit your own plan for how to divide the city into
+      seven districts</strong>. Every plan submitted to the City will be carefully
+      reviewed and included as part of the public record. For more information,
+      <a href="https://srcity.org/2593/District-Based-Elections" target="_blank">visit this link.</a>
+    </p>
+    <p>
+      <strong>To share your map to this page, be sure to select "Share" and click on the
+      "Share to Gallery" button.</strong>
+    </p>
+    <p>
+      Click the purple tile below to begin. Once open, click the
+      paintbrush icon and a color to begin drawing a district! Switching colors
+      changes the district you are building. By clicking the "Data Layers" tab,
+      you can toggle on and off the map overlays for the current districts and
+      other pertinent information related to the City of Santa Rosa. When building
+      your districts, please try to keep each district's population roughly equal.
+      Good luck and thank you for your input!
+    </p>
+  `,
   santa_ana: '<p>Every ten years, local governments use new United States Census data to redraw their district lines to reflect how local populations have changed. This process, called redistricting, is important in ensuring that each City Councilmember represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a district for purposes of electing a Councilmember. In addition to Census data, officials conducting the redistricting process consider how to maintain communities of interest when redrawing district boundaries.</p>\
   <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
   <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -2282,7 +2322,17 @@ butte_county: [
     Cooperative Strategies has assisted more than 50 school districts across
     California draw their voting areas.
     `
-  ]
+  ],
+  santarosa: [
+    `
+    This mapping module uses the official Redistricting Database for California,
+    published by the Statewide Database with processing by Redistricting Partners.
+    For the last decade, Redistricting Partners has supported cities, community
+    college districts, school boards, hospital districts, water boards, and other
+    special districts. To learn more about their team
+    <a href='https://redistrictingpartners.com/about/' target=_blank>click here.</a>
+    `
+  ],
 };
 
 const proposals_by_event = {
