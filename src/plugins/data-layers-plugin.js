@@ -321,7 +321,7 @@ export default function DataLayersPlugin(editor) {
             false,
             (abilities.coalition === false) ? null : "Coalition citizen voting age population",
             false,
-            false,
+            false
 
         );
         coalitionOverlays.push(vapOverlay);
