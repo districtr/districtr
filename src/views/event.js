@@ -1206,14 +1206,43 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
        <p>Every decade, the City must re-draw the city wards to balance the population within the wards to distribute the representation on the City Council equally and fairly.</p>\
        <p>This online tool allows easy access to the United States Census's population data for redistricting, based on the 2020 decennial census. Users of this system can create and \
         save maps to better understand the process. Public transparency, communication, and participation are keys to a successful redistricting effort.</p>",
-  cityofdallas: '<p>Every 10 years, the residents of the City of Dallas get the chance to help reshape their City Council districts following the decennial U.S. Census.</p>\
-<p>Please take this opportunity to draw your own districts using the redistricting requirements as listed <a href="https://www.dallascityhall.com" target="_blank">here</a>.</p>\
-<p>It’s important to know about the communities of interest so that the district lines can amplify the voices of residents.</p>\
-<p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part of the City where people have a common interest that needs a voice in government.</p>\
-<p><strong>Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-<p>Every map submitted will be carefully reviewed by the City of Dallas Redistricting Commission. For more information, visit <a href="https://dallascityhall.com" target="_blank">City of Dallas Citizen Redistricting Commission</a>.</p>\
-<p>Get started by clicking the orange button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “CityofDallas” (any capitalization) is entered.</p>\
-<p>As part of the redistricting process, the Commission will consider Communities of Interest, or COIs, groups with shared interests that should be given special consideration. To let the Commission, know where communities are and what common concerns bind them together, share your map on this mapping page or submit your map through the Commission’s public submission portal here.</p>',
+  cityofdallas: `
+  <p>
+    Every 10 years, the residents of the City of Dallas get the chance to help
+    reshape their City Council districts following the decennial U.S. Census.
+    Please take this opportunity to draw your own districts using the
+    <a href="https://dallasredistricting.com/create-your-plan/" target="_blank">
+    redistricting requirements as listed here</a>.
+  </p>
+  <p>
+    It's important to know about the communities of interest (COIs) so that the
+    district lines can amplify the voices of residents.
+    Examples of communities can include homeowner associations (HOAs) or registered
+    neighborhoods, areas where many residents speak the same language, or even areas
+    where the residents use the same community facilities. It’s basically any
+    part of the City where people have a common interest that needs a voice in
+    government. <strong>Please use this tool to identify the boundaries of your community and
+    share what makes it a community!</strong>
+  </p>
+  <p>
+    Get started by clicking the orange button. To share your map, click "Save" in
+    the upper right corner of the mapping module. To pin your map to this page,
+    be sure the tag "CityofDallas" (any capitalization) is entered.
+  </p>
+  <p>
+    The Commission will consider communities of interest during the redistricting
+    process. To let the Commission know where communities are and what
+    common concerns bind them together, share your map on this mapping page or
+    submit your map through the
+    <a href="https://dallasredistricting.com/submit-your-map/" target="_blank">
+    Commission's public submission portal</a> or email its districtr URL to
+    <a href="mailto:redistrictdallas@gmail.com?subject=Districtr Submission">
+    <code>redistrictdallas@gmail.com</code></a>.
+    Every map submitted will be carefully reviewed by the City of Dallas
+    Redistricting Commission. For more information, visit the
+    <a href="https://dallasredistricting.com/create-your-plan/" target="_blank">
+    City of Dallas Citizen Redistricting Commission page</a>. 
+  </p>`,
   glendora2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Glendora's 2021 city council redistricting.<p>\
   <p>As part of the redistricting process, the California FAIR MAPS Act incudes \
   neighborhoods and “Communities of Interest” as important considerations. California law defines Communities of Interest as “a \
