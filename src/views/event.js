@@ -512,7 +512,8 @@ const hybrid_events = [
   "sbusd_5",
   "sbusd_7",
   "modesto",
-  "pvsd"
+  "pvsd",
+  "santarosa"
 ];
 
 const portal_events = [
