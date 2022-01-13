@@ -372,6 +372,8 @@ const unitTypes = {
   "encinitas2021": { no: 'Blocks' },
   "santa_ana": { no: 'Blocks' },
   "carlsbad2021": { no: 'Blocks' },
+  "buellton": { no: 'Blocks' },
+  "ocsd": { no: 'Blocks' }
 };
 
 const unitCounts = {
@@ -1898,14 +1900,22 @@ butte_county: [
   ocsd: [
     "Oceano Community Services District's boundaries must be redrawn every 10 years using U.S. Census data in order to make the five divisions as equal in population as possible and that each member represents about the same number of constituents. \
     The CSD encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full five-division map suggestions for the whole district.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays data processed by National Demographics Corporation (NDC). To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>. \
+    The module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census Blocks. \
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.",
+    "The Citizen Voting Age Population (CVAP) data are collected by the U.S. Census Bureau in its annual American Community Survey on Census Block Groups. NDC disaggregates that Block Group \
+    level geography down to Census Block geography based on each Block's share of both the Block Group's total population and each racial/ethnic group's population in the Block Group. The \
+    “Additional demographics” in the module displays 2019 ACS data on the Block Groups.",
   ],
   buellton: [
     "City of Buellton District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible and that each member represents about the same number of constituents. \
     The City encourages residents to participate by suggesting neighborhood and community of interest maps of areas that should be kept undivided, and full four-district map suggestions for the whole city.",
-    "This mapping module displays projected 2020 population based on the American Community Survey data disaggregated onto Census blocks. \
-    The data was prepared by National Demographics Corporation. To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target='_blank'>here</a>.",
+    "This mapping module displays data processed by National Demographics Corporation (NDC). To learn more about their team click <a href='https://www.ndcresearch.com/about-us/' target=_blank>here</a>. \
+    The module displays 2020 Decennial Census population, adjusted per California state law to reallocate incarcerated populations to their last known residential address, on Census Blocks. \
+    For more information, please visit the Statewide Database’s <a href='https://statewidedatabase.org/redistricting2021/' target=_blank>website</a>.",
+    "The Citizen Voting Age Population (CVAP) data are collected by the U.S. Census Bureau in its annual American Community Survey on Census Block Groups. NDC disaggregates that Block Group \
+    level geography down to Census Block geography based on each Block's share of both the Block Group's total population and each racial/ethnic group's population in the Block Group. The \
+    “Additional demographics” in the module displays 2019 ACS data on the Block Groups.",
   ],
   groverbeach: [
     "City of Grover Beach District Boundaries must be redrawn every 10 years using U.S. Census data in order to make the four districts as equal in population as possible, so that each member represents about the same number of constituents. \
