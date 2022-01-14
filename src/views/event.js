@@ -149,6 +149,7 @@ commoncausepa: 'Pennsylvania',
   modesto: 'California',
   pvsd: "California",
   santarosa: 'California'
+  "millbrae": "California"
 };
 
 const validEventCodes = {
@@ -286,7 +287,8 @@ commoncausepa: 'pennsylvania',
   sbusd_7: 'sbusd_7',
   modesto: 'modesto',
   pvsd: "pvsd",
-  santarosa: 'santarosa'
+  santarosa: 'santarosa',
+  "millbrae": "ca_millbrae"
 };
 
 const blockPlans = {
@@ -513,7 +515,8 @@ const hybrid_events = [
   "sbusd_7",
   "modesto",
   "pvsd",
-  "santarosa"
+  "santarosa",
+  "millbrae"
 ];
 
 const portal_events = [
@@ -1594,7 +1597,39 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     <p>
     As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing the website below or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://districtr.org/guide">here</a> for a tutorial.
     </p>
-    `
+    `,
+  "millbrae": `
+    <p>
+      The City of Millbrae is in the process of moving from an at-large election 
+      system to a by-district election system. To draw these new districts we 
+      need to hear from you as it’s important to know about your community so 
+      that the district lines can amplify the voices of residents. Learn more 
+      on the <a href='https://www.configuremillbrae.org/' target=_blank>Configure Millbrae website</a>.
+    </p>
+    <p>
+      Examples of communities can include neighborhoods, areas where many 
+      residents speak the same language, or areas where the residents use the 
+      same community facilities. It’s basically any area of the city where 
+      people have a common interest that needs a voice in government.
+    </p>
+    <p>
+    <strong>
+      We need your help to build a community map and our new city council map! 
+      Please use this tool to identify the boundaries of your community and 
+      provide your city council lines.
+    </strong>
+    </p>
+    <p>
+      Every map submitted will be carefully reviewed by professional demographers 
+      and decision makers who are charged with drawing the City Council District Map.
+    </p>
+    <p>
+      Get started by clicking the orange or purple button to draw your community of 
+      interest or a city council district map. To share your map, click “Save” in the 
+      upper right corner of the mapping module. To pin your map to this page, be sure 
+      the tag “Millbrae” (any capitalization) is entered.
+    </p>
+  `
 };
 
 const longAbout = {
@@ -2362,6 +2397,15 @@ butte_county: [
     <a href='https://redistrictingpartners.com/about/' target=_blank>click here.</a>
     `
   ],
+  "millbrae": [
+    `
+      This mapping module uses the <strong>official Redistricting Database for California</strong>, 
+      published by the Statewide Database with processing by Redistricting Partners. 
+      For the last decade, Redistricting Partners has supported cities, community college 
+      districts, school boards, hospital districts, water boards, and other special 
+      districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    `
+  ],
 };
 
 const proposals_by_event = {
@@ -2437,6 +2481,13 @@ export default () => {
       document.getElementById("partnership-icons").style.display = "block";
       document.getElementById("partner-link-a").href = "https://cityofwatsonville.org/";
       document.getElementById("partnership-a").src = "/assets/partners-watsonville.png";
+      document.getElementById("partnership-a").style.marginRight = 0;
+      document.getElementById("partnership-b").style.display = "none";
+    }
+    if (["millbrae"].includes(eventCode)) {
+      document.getElementById("partnership-icons").style.display = "block";
+      document.getElementById("partner-link-a").href = "https://www.configuremillbrae.org/";
+      document.getElementById("partnership-a").src = "/assets/partners-millbrae.jpeg";
       document.getElementById("partnership-a").style.marginRight = 0;
       document.getElementById("partnership-b").style.display = "none";
     }

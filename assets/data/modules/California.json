@@ -30821,6 +30821,155 @@
         "pluralNoun": "Trustee Districts"
       }
     ]
+  },
+  {
+    "name": "Millbrae",
+    "id": "ca_millbrae",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 23228,
+              "min": 0,
+              "max": 893
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 2625,
+                "min": 0,
+                "max": 216
+              },
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 6871,
+                "min": 0,
+                "max": 277
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 172,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 12155,
+                "min": 0,
+                "max": 489
+              },
+              {
+                "key": "LF_20_AiAn",
+                "name": "American Indian population",
+                "sum": 16,
+                "min": 0,
+                "max": 4
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total VAP",
+              "sum": 15848,
+              "min": 0,
+              "max": 632
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_White Alone",
+                "name": "White population",
+                "sum": 6614,
+                "min": 0,
+                "max": 346
+              },
+              {
+                "key": "CVAP_15-19_Black or African American Alone",
+                "name": "Black population",
+                "sum": 112,
+                "min": 0,
+                "max": 35
+              },
+              {
+                "key": "CVAP_15-19_Asian Alone",
+                "name": "Asian population",
+                "sum": 7077,
+                "min": 0,
+                "max": 254
+              },
+              {
+                "key": "CVAP_15-19_Hispanic or Latino",
+                "name": "Hispanic population",
+                "sum": 1589,
+                "min": 0,
+                "max": 97
+              },
+              {
+                "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+                "name": "American Indian population",
+                "sum": 4,
+                "min": 0,
+                "max": 4
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -122.4249,
+            37.5816
+          ],
+          [
+            -122.3725,
+            37.615
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_millbrae_blocks20"
+            },
+            "sourceLayer": "ca_millbrae_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_millbrae_blocks20_points"
+            },
+            "sourceLayer": "ca_millbrae_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]
   
