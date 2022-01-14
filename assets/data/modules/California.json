@@ -30881,10 +30881,10 @@
           },
           {
             "type": "population",
-            "name": "Voting Age Population",
+            "name": "Citizen Voting Age Population",
             "total": {
               "key": "CVAP_15-19_Total",
-              "name": "Total VAP",
+              "name": "Total CVAP",
               "sum": 15848,
               "min": 0,
               "max": 632
