@@ -148,7 +148,7 @@ commoncausepa: 'Pennsylvania',
   sbusd_7: 'California',
   modesto: 'California',
   pvsd: "California",
-  santarosa: 'California'
+  santarosa: 'California',
   "millbrae": "California"
 };
 
