@@ -577,12 +577,12 @@
       {
         "name": "State Senate",
         "numberOfParts": 50,
-        "pluralNoun": "State House Districts"
+        "pluralNoun": "State Senate Districts"
       },
       {
         "name": "State House",
         "numberOfParts": 203,
-        "pluralNoun": "State Senate Districts"
+        "pluralNoun": "State House Districts"
       }
     ]
   },
