@@ -1221,6 +1221,11 @@ export function spatial_abilities(id) {
     number_markers: true,
     coalition: false,
   },
+  ca_millbrae: {
+    border: true,
+    number_markers: true,
+    coalition: false,
+  },
   sanjoseca: {
     border: true,
     shapefile: true,
