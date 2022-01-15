@@ -297,7 +297,7 @@
     "units": [
       {
         "id": "vtds20",
-        "name": "2020 pseduo VTDs",
+        "name": "2020 subdivided VTDs",
         "unitType": "VTDs",
         "columnSets": [
           {
@@ -577,17 +577,20 @@
       {
         "name": "Congress",
         "numberOfParts": 17,
-        "pluralNoun": "Congressional Districts"
+        "pluralNoun": "Congressional Districts",
+        "hideOnDefault": true
       },
       {
         "name": "State Senate",
         "numberOfParts": 50,
-        "pluralNoun": "State Senate Districts"
+        "pluralNoun": "State Senate Districts",
+        "hideOnDefault": true
       },
       {
         "name": "State House",
         "numberOfParts": 203,
-        "pluralNoun": "State House Districts"
+        "pluralNoun": "State House Districts",
+        "hideOnDefault": true
       }
     ]
   },
