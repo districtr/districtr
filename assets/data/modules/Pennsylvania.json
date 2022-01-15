@@ -291,112 +291,15 @@
     ]
   },
   {
+    "id": "pa_ref_20",
+    "name": "Pennsylvania",
+    "state": "Pennsylvania",
     "units": [
       {
         "id": "vtds20",
-        "name": "Pennsylvania",
+        "name": "2020 pseduo VTDs",
         "unitType": "VTDs",
         "columnSets": [
-          {
-            "type": "election",
-            "name": "2016 Presidential",
-            "subgroups": [
-              {
-                "key": "G16PREDCLI",
-                "name": "Democratic",
-                "sum": 2926393,
-                "min": 0,
-                "max": 3896
-              },
-              {
-                "key": "G16PRERTRU",
-                "name": "Republican",
-                "sum": 2971090,
-                "min": 0,
-                "max": 2264
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2016 US Senate",
-            "subgroups": [
-              {
-                "key": "G16USSDMCG",
-                "name": "Democratic",
-                "sum": 2864967,
-                "min": 0,
-                "max": 3444
-              },
-              {
-                "key": "G16USSRTOO",
-                "name": "Republican",
-                "sum": 2951591,
-                "min": 0,
-                "max": 2460
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2018 US Senate",
-            "subgroups": [
-              {
-                "key": "G18USSDCAS",
-                "name": "Democratic",
-                "sum": 2792687,
-                "min": 0,
-                "max": 2681
-              },
-              {
-                "key": "G18USSRBAR",
-                "name": "Republican",
-                "sum": 2135231,
-                "min": 0,
-                "max": 1858
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2018 Governor",
-            "subgroups": [
-              {
-                "key": "G18GOVDWOL",
-                "name": "Democratic",
-                "sum": 2895937,
-                "min": 0,
-                "max": 2745
-              },
-              {
-                "key": "G18GOVRWAG",
-                "name": "Republican",
-                "sum": 2040226,
-                "min": 0,
-                "max": 1726
-              }
-            ]
-          },
-          {
-            "type": "election",
-            "name": "2014 Governor",
-            "subgroups": [
-              {
-                "key": "GOV14D",
-                "name": "Democratic",
-                "sum": 1909492,
-                "min": 0,
-                "max": 1149
-              },
-              {
-                "key": "GOV14R",
-                "name": "Republican",
-                "sum": 1568804,
-                "min": 0,
-                "max": 1504
-              }
-            ]
-          },
           {
             "type": "population",
             "name": "Population",
@@ -534,6 +437,106 @@
                 "max": 2243
               }
             ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "G16PREDCLI",
+                "name": "Democratic",
+                "sum": 2926393,
+                "min": 0,
+                "max": 3896
+              },
+              {
+                "key": "G16PRERTRU",
+                "name": "Republican",
+                "sum": 2971083,
+                "min": 0,
+                "max": 2264
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Senate",
+            "subgroups": [
+              {
+                "key": "G16USSDMCG",
+                "name": "Democratic",
+                "sum": 2864964,
+                "min": 0,
+                "max": 3443
+              },
+              {
+                "key": "G16USSRTOO",
+                "name": "Republican",
+                "sum": 2951596,
+                "min": 0,
+                "max": 2460
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "G18USSDCAS",
+                "name": "Democratic",
+                "sum": 2792692,
+                "min": 0,
+                "max": 2680
+              },
+              {
+                "key": "G18USSRBAR",
+                "name": "Republican",
+                "sum": 2135222,
+                "min": 0,
+                "max": 1858
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "G18GOVDWOL",
+                "name": "Democratic",
+                "sum": 2895931,
+                "min": 0,
+                "max": 2744
+              },
+              {
+                "key": "G18GOVRWAG",
+                "name": "Republican",
+                "sum": 2040232,
+                "min": 0,
+                "max": 1726
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2014 Governor",
+            "subgroups": [
+              {
+                "key": "GOV14D",
+                "name": "Democratic",
+                "sum": 1909487,
+                "min": 0,
+                "max": 1154
+              },
+              {
+                "key": "GOV14R",
+                "name": "Republican",
+                "sum": 1568774,
+                "min": 0,
+                "max": 1503
+              }
+            ]
           }
         ],
         "idColumn": {
@@ -570,9 +573,6 @@
         ]
       }
     ],
-    "name": "2020 pseudo VTDs",
-    "state": "Pennsylvania",
-    "id": "pa_ref_20",
     "districtingProblems": [
       {
         "name": "Congress",
