@@ -1648,9 +1648,9 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     </p>
     <p>
     <strong>
-      We need your help to build a community map and our new city council map! 
+      We need your help to build a community map and our new city council district map! 
       Please use this tool to identify the boundaries of your community and 
-      provide your proposed city council lines.
+      provide your proposed city council district lines.
     </strong>
     </p>
     <p>
