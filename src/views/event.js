@@ -149,7 +149,8 @@ commoncausepa: 'Pennsylvania',
   modesto: 'California',
   pvsd: "California",
   santarosa: 'California',
-  "millbrae": "California"
+  "millbrae": "California",
+  "belmont": "California"
 };
 
 const validEventCodes = {
@@ -288,7 +289,8 @@ commoncausepa: 'pennsylvania',
   modesto: 'modesto',
   pvsd: "pvsd",
   santarosa: 'santarosa',
-  "millbrae": "ca_millbrae"
+  "millbrae": "ca_millbrae",
+  "belmont": "ca_belmont"
 };
 
 const blockPlans = {
@@ -516,7 +518,8 @@ const hybrid_events = [
   "modesto",
   "pvsd",
   "santarosa",
-  "millbrae"
+  "millbrae",
+  "belmont"
 ];
 
 const portal_events = [
@@ -1629,6 +1632,37 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       upper right corner of the mapping module. To pin your map to this page, be sure 
       the tag “Millbrae” (any capitalization) is entered.
     </p>
+  `,
+  "belmont": `
+    <p>
+      The City of Belmont is in the process of moving from an at-large election 
+      system to a by-district election system. To draw these new districts we 
+      need to hear from you as it’s important to know about your community so 
+      that the district lines can amplify the voices of residents.
+    </p>
+    <p>
+      Examples of communities can include neighborhoods, areas where many 
+      residents speak the same language, or areas where the residents use the 
+      same community facilities. It’s basically any area of the city where 
+      people have a common interest that needs a voice in government.
+    </p>
+    <p>
+    <strong>
+      We need your help to build a community map and our new city council map! 
+      Please use this tool to identify the boundaries of your community and 
+      provide your proposed city council lines.
+    </strong>
+    </p>
+    <p>
+      Every map submitted will be carefully reviewed by professional demographers 
+      and decision makers who are charged with drawing the City Council District Map.
+    </p>
+    <p>
+      Get started by clicking the orange or purple button to draw your community of 
+      interest or a city council district map. To share your map, click “Save” in the 
+      upper right corner of the mapping module. To pin your map to this page, be sure 
+      the tag “Belmont” (any capitalization) is entered.
+    </p>
   `
 };
 
@@ -2406,6 +2440,15 @@ butte_county: [
       districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
     `
   ],
+  "belmont": [
+    `
+      This mapping module uses the <strong>official Redistricting Database for California</strong>, 
+      published by the Statewide Database with processing by Redistricting Partners. 
+      For the last decade, Redistricting Partners has supported cities, community college 
+      districts, school boards, hospital districts, water boards, and other special 
+      districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    `
+  ],
 };
 
 const proposals_by_event = {
@@ -2488,6 +2531,13 @@ export default () => {
       document.getElementById("partnership-icons").style.display = "block";
       document.getElementById("partner-link-a").href = "https://www.configuremillbrae.org/";
       document.getElementById("partnership-a").src = "/assets/partners-millbrae.jpeg";
+      document.getElementById("partnership-a").style.marginRight = 0;
+      document.getElementById("partnership-b").style.display = "none";
+    }
+    if (["belmont"].includes(eventCode)) {
+      document.getElementById("partnership-icons").style.display = "block";
+      document.getElementById("partner-link-a").href = "https://www.belmont.gov/";
+      document.getElementById("partnership-a").src = "/assets/partners-belmont.png";
       document.getElementById("partnership-a").style.marginRight = 0;
       document.getElementById("partnership-b").style.display = "none";
     }
