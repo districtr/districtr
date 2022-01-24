@@ -96,7 +96,7 @@ function datasetInfo(state) {
                     "29palms", "yuba_city", "buenapark", "ca_arroyo", "ca_camarillo",
                     "ca_chino", "ca_grover", "ca_nevada", "elcajon", "pomona",
                     "ca_fremont", "encinitas", "oxnarduhsd", "ca_carlsbad",
-                    "ca_buellmont", "ca_oceano"
+                    "ca_buellton", "ca_oceano"
                 ].includes(state.place.id)
             ) {
           // 2020 - NDC - Prison
