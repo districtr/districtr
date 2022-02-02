@@ -150,7 +150,8 @@ commoncausepa: 'Pennsylvania',
   pvsd: "California",
   santarosa: 'California',
   "millbrae": "California",
-  "belmont": "California"
+  "belmont": "California",
+  "draweg": "California"
 };
 
 const validEventCodes = {
@@ -290,7 +291,8 @@ commoncausepa: 'pennsylvania',
   pvsd: "pvsd",
   santarosa: 'santarosa',
   "millbrae": "ca_millbrae",
-  "belmont": "ca_belmont"
+  "belmont": "ca_belmont",
+  "draweg": "ca_elkgrove"
 };
 
 const blockPlans = {
@@ -521,7 +523,8 @@ const hybrid_events = [
   "pvsd",
   "santarosa",
   "millbrae",
-  "belmont"
+  "belmont",
+  "draweg"
 ];
 
 const portal_events = [
@@ -1665,6 +1668,19 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       upper right corner of the mapping module. To pin your map to this page, be sure 
       the tag “Belmont” (any capitalization) is entered.
     </p>
+  `,
+  "draweg": `
+    <p>
+      Every 10 years, a new U.S. Census is conducted, and the population counts are 
+      then used for redistricting. For district elections, the City will be divided 
+      into four districts. The goal of redistricting is to create a final map with four 
+      districts that are relatively equal in total population using the new Census counts.
+    </p>
+    <p>
+      You can track the <a href='http://www.elkgrovecity.org/city_hall/city_government/city_council/redistricting' target=_blank>Redistricting Project discussion</a> 
+      on the City website. If anyone needs information or assistance, please contact the City Clerk Group at 
+      <a href='mailto:cityclerk@elkgrovecity.org' target=_blank>cityclerk@elkgrovecity.org</a> or 916-478-2286.
+    </p>
   `
 };
 
@@ -2459,6 +2475,14 @@ butte_county: [
       districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
     `
   ],
+  "draweg": [
+    `
+      This mapping module uses the official Redistricting Database for California, 
+      published by the Statewide Database with processing by City Staff. For 
+      additional information, contact the City Clerk at 
+      <a href='mailto:cityclerk@elkgrovecity.org' target=_blank>cityclerk@elkgrovecity.org</a>.
+    `
+  ],
 };
 
 const proposals_by_event = {
@@ -2548,6 +2572,13 @@ export default () => {
       document.getElementById("partnership-icons").style.display = "block";
       document.getElementById("partner-link-a").href = "https://www.belmont.gov/";
       document.getElementById("partnership-a").src = "/assets/partners-belmont.png";
+      document.getElementById("partnership-a").style.marginRight = 0;
+      document.getElementById("partnership-b").style.display = "none";
+    }
+    if (["draweg"].includes(eventCode)) {
+      document.getElementById("partnership-icons").style.display = "block";
+      document.getElementById("partner-link-a").href = "http://www.elkgrovecity.org/city_hall/city_government/city_council/redistricting";
+      document.getElementById("partnership-a").src = "/assets/partners-draweg.jpg";
       document.getElementById("partnership-a").style.marginRight = 0;
       document.getElementById("partnership-b").style.display = "none";
     }
