@@ -1246,6 +1246,7 @@ export function spatial_abilities(id) {
     border: true,
     number_markers: true,
     coalition: false,
+    municipalities: 'Census Places',
     boundaries: [
       {
         id: 'fee_title',
@@ -1263,12 +1264,6 @@ export function spatial_abilities(id) {
         path: 'ca_scvosa/schools',
         centroids: true,
         namefield: 'School'
-      },
-      {
-        id: 'census_places',
-        label: 'Census Places',
-        path: 'ca_scvosa/census_places',
-        centroids: true
       }
     ]
   },
