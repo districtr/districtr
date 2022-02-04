@@ -31594,6 +31594,155 @@
         "pluralNoun": "Council Districts"
       }
     ]
+  },
+  {
+    "id": "ca_scvosa",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 1374395,
+              "min": 0,
+              "max": 2943
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 398902,
+                "min": 0,
+                "max": 1308
+              },
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 342276,
+                "min": 0,
+                "max": 1080
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 34842,
+                "min": 0,
+                "max": 238
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 532470,
+                "min": 0,
+                "max": 2293
+              },
+              {
+                "key": "LF_20_AiAn",
+                "name": "American Indian population",
+                "sum": 2609,
+                "min": 0,
+                "max": 21
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total CVAP",
+              "sum": 852805,
+              "min": 0,
+              "max": 2216
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_White Alone",
+                "name": "White population",
+                "sum": 305647,
+                "min": 0,
+                "max": 1000
+              },
+              {
+                "key": "CVAP_15-19_Black or African American Alone",
+                "name": "Black population",
+                "sum": 28118,
+                "min": 0,
+                "max": 283
+              },
+              {
+                "key": "CVAP_15-19_Asian Alone",
+                "name": "Asian population",
+                "sum": 285556,
+                "min": 0,
+                "max": 744
+              },
+              {
+                "key": "CVAP_15-19_Hispanic or Latino",
+                "name": "Hispanic population",
+                "sum": 203922,
+                "min": 0,
+                "max": 1092
+              },
+              {
+                "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+                "name": "American Indian population",
+                "sum": 1345,
+                "min": 0,
+                "max": 75
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -122.046,
+            36.893
+          ],
+          [
+            -121.2084,
+            37.4847
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_scvosa_blocks20"
+            },
+            "sourceLayer": "ca_scvosa_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_scvosa_blocks20_points"
+            },
+            "sourceLayer": "ca_scvosa_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "name": "Santa Clara Valley Open Space Authority",
+    "districtingProblems": [
+      {
+        "name": "Board",
+        "numberOfParts": 7,
+        "pluralNoun": "Board Districts"
+      }
+    ]
   }
 ]
   

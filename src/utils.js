@@ -1242,6 +1242,36 @@ export function spatial_abilities(id) {
       centroids: true,
     }]
   },
+  ca_scvosa: {
+    border: true,
+    number_markers: true,
+    coalition: false,
+    boundaries: [
+      {
+        id: 'fee_title',
+        label: 'Protected Lands: Fee Title',
+        path: 'ca_scvosa/fee_title'
+      },
+      {
+        id: 'conservation_easement',
+        label: 'Protected Lands: Conservation Easements',
+        path: 'ca_scvosa/conservation_easement'
+      },
+      {
+        id: 'schools',
+        label: 'K-12 Schools',
+        path: 'ca_scvosa/schools',
+        centroids: true,
+        namefield: 'School'
+      },
+      {
+        id: 'census_places',
+        label: 'Census Places',
+        path: 'ca_scvosa/census_places',
+        centroids: true
+      }
+    ]
+  },
   redwood: {
     border: true,
     shapefile: true,
