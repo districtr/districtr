@@ -1678,7 +1678,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     </p>
     <p>
       You can track the <a href='http://www.elkgrovecity.org/city_hall/city_government/city_council/redistricting' target=_blank>Redistricting Project discussion</a> 
-      on the City website. If anyone needs information or assistance, please contact the City Clerk Group at 
+      on the City website. If anyone needs information or assistance, please contact the City Clerk at 
       <a href='mailto:cityclerk@elkgrovecity.org' target=_blank>cityclerk@elkgrovecity.org</a> or 916-478-2286.
     </p>
   `
