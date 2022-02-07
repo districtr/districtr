@@ -151,7 +151,8 @@ commoncausepa: 'Pennsylvania',
   santarosa: 'California',
   "millbrae": "California",
   "belmont": "California",
-  "draweg": "California"
+  "draweg": "California",
+  "open_space_authority": "California"
 };
 
 const validEventCodes = {
@@ -292,7 +293,8 @@ commoncausepa: 'pennsylvania',
   santarosa: 'santarosa',
   "millbrae": "ca_millbrae",
   "belmont": "ca_belmont",
-  "draweg": "ca_elkgrove"
+  "draweg": "ca_elkgrove",
+  "open_space_authority": "ca_scvosa"
 };
 
 const blockPlans = {
@@ -524,7 +526,8 @@ const hybrid_events = [
   "santarosa",
   "millbrae",
   "belmont",
-  "draweg"
+  "draweg",
+  "open_space_authority"
 ];
 
 const portal_events = [
@@ -1682,6 +1685,31 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       the tag “Belmont” (any capitalization) is entered.
     </p>
   `,
+  "open_space_authority": `
+    <p>
+      Every 10 years, Californians get the chance to help reshape districts following 
+      the decennial U.S. Census. In the Santa Clara Valley Open Space Authority, these 
+      electoral districts are called “director divisions.” It’s important to know about 
+      communities so that the division lines can amplify the voices of residents.
+    </p>
+    <p>
+      Examples of communities can include cities, neighborhood associations, areas where 
+      many residents speak the same language, or even areas where the residents use the 
+      same community facilities. It’s basically any part where people have a common interest 
+      that needs a voice in government.
+    </p>
+    <p>
+    <strong>
+      We need your help to build a community map and our new director division map! Please use 
+      this tool to identify the boundaries of your community and provide a director division map.
+    </strong>
+    </p>
+    <p>
+      Get started by clicking the orange or purple button to draw your community or a 
+      board district map. To share your map, click “Save” in the upper right corner of 
+      the mapping module. Then click on the “Share to Gallery” green button.
+    </p>
+  `
 };
 
 const longAbout = {
@@ -2478,6 +2506,15 @@ butte_county: [
     `
       This mapping module uses the <strong>official Redistricting Database for California</strong>, 
       published by the Statewide Database with processing by Redistricting Partners. 
+      For the last decade, Redistricting Partners has supported cities, community college 
+      districts, school boards, hospital districts, water boards, and other special 
+      districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    `
+  ],
+  "open_space_authority": [
+    `
+      This mapping module displays 2015-2019 American Community Survey data disaggregated 
+      onto Census blocks. The data was prepared by Redistricting Partners.
       For the last decade, Redistricting Partners has supported cities, community college 
       districts, school boards, hospital districts, water boards, and other special 
       districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
