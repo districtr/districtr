@@ -1672,8 +1672,9 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   "open_space_authority": `
     <p>
       Every 10 years, Californians get the chance to help reshape districts following 
-      the decennial U.S. Census. It’s important to know about communities so that the 
-      district lines can amplify the voices of residents.
+      the decennial U.S. Census. In the Santa Clara Valley Open Space Authority, these 
+      electoral districts are called “director divisions.” It’s important to know about 
+      communities so that the division lines can amplify the voices of residents.
     </p>
     <p>
       Examples of communities can include cities, neighborhood associations, areas where 
@@ -1683,8 +1684,8 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     </p>
     <p>
     <strong>
-      We need your help to build a community map and our new board district map! Please use 
-      this tool to identify the boundaries of your community and provide a board district map.
+      We need your help to build a community map and our new director division map! Please use 
+      this tool to identify the boundaries of your community and provide a director division map.
     </strong>
     </p>
     <p>
