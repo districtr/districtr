@@ -31447,155 +31447,6 @@
     ]
   },
   {
-    "units": [
-      {
-        "id": "blocks20",
-        "name": "2020 Blocks",
-        "unitType": "2020 Blocks",
-        "columnSets": [
-          {
-            "type": "population",
-            "name": "Population",
-            "total": {
-              "key": "LF_20_Total",
-              "name": "Total population",
-              "sum": 28360,
-              "min": 0,
-              "max": 1340
-            },
-            "subgroups": [
-              {
-                "key": "LF_20_Hispanic_or_Latino",
-                "name": "Hispanic population",
-                "sum": 3533,
-                "min": 0,
-                "max": 182
-              },
-              {
-                "key": "LF_20_White",
-                "name": "White population",
-                "sum": 13576,
-                "min": 0,
-                "max": 693
-              },
-              {
-                "key": "LF_20_AfAm",
-                "name": "Black population",
-                "sum": 354,
-                "min": 0,
-                "max": 19
-              },
-              {
-                "key": "LF_20_Asian",
-                "name": "Asian population",
-                "sum": 8330,
-                "min": 0,
-                "max": 397
-              },
-              {
-                "key": "LF_20_AiAn",
-                "name": "American Indian population",
-                "sum": 23,
-                "min": 0,
-                "max": 2
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Citizen Voting Age Population",
-            "total": {
-              "key": "CVAP_15-19_Total",
-              "name": "Total CVAP",
-              "sum": 17750,
-              "min": 0,
-              "max": 803
-            },
-            "subgroups": [
-              {
-                "key": "CVAP_15-19_White Alone",
-                "name": "White population",
-                "sum": 10786,
-                "min": 0,
-                "max": 445
-              },
-              {
-                "key": "CVAP_15-19_Black or African American Alone",
-                "name": "Black population",
-                "sum": 278,
-                "min": 0,
-                "max": 26
-              },
-              {
-                "key": "CVAP_15-19_Asian Alone",
-                "name": "Asian population",
-                "sum": 3982,
-                "min": 0,
-                "max": 220
-              },
-              {
-                "key": "CVAP_15-19_Hispanic or Latino",
-                "name": "Hispanic population",
-                "sum": 2031,
-                "min": 0,
-                "max": 122
-              },
-              {
-                "key": "CVAP_15-19_American Indian or Alaska Native Alone",
-                "name": "American Indian population",
-                "sum": 40,
-                "min": 0,
-                "max": 25
-              }
-            ]
-          }
-        ],
-        "idColumn": {
-          "name": "Geo ID",
-          "key": "GEOID20"
-        },
-        "bounds": [
-          [
-            -122.3289,
-            37.4971
-          ],
-          [
-            -122.2611,
-            37.5342
-          ]
-        ],
-        "tilesets": [
-          {
-            "type": "fill",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.ca_belmont_blocks20"
-            },
-            "sourceLayer": "ca_belmont_blocks20"
-          },
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.ca_belmont_blocks20_points"
-            },
-            "sourceLayer": "ca_belmont_blocks20_points"
-          }
-        ]
-      }
-    ],
-    "state": "California",
-    "name": "Belmont",
-    "id": "ca_belmont",
-    "districtingProblems": [
-      {
-        "name": "City Council",
-        "numberOfParts": 4,
-        "pluralNoun": "Council Districts"
-      }
-    ]
-  },
-  {
     "id": "ca_elkgrove",
     "units": [
       {
@@ -31785,6 +31636,155 @@
         "pluralNoun": "Council Districts"
       }
     ]
-  }
+  },
+  {
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 28360,
+              "min": 0,
+              "max": 1340
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 3533,
+                "min": 0,
+                "max": 182
+              },
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 13576,
+                "min": 0,
+                "max": 693
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 354,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 8330,
+                "min": 0,
+                "max": 397
+              },
+              {
+                "key": "LF_20_AiAn",
+                "name": "American Indian population",
+                "sum": 23,
+                "min": 0,
+                "max": 2
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total CVAP",
+              "sum": 17750,
+              "min": 0,
+              "max": 803
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_White Alone",
+                "name": "White population",
+                "sum": 10786,
+                "min": 0,
+                "max": 445
+              },
+              {
+                "key": "CVAP_15-19_Black or African American Alone",
+                "name": "Black population",
+                "sum": 278,
+                "min": 0,
+                "max": 26
+              },
+              {
+                "key": "CVAP_15-19_Asian Alone",
+                "name": "Asian population",
+                "sum": 3982,
+                "min": 0,
+                "max": 220
+              },
+              {
+                "key": "CVAP_15-19_Hispanic or Latino",
+                "name": "Hispanic population",
+                "sum": 2031,
+                "min": 0,
+                "max": 122
+              },
+              {
+                "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+                "name": "American Indian population",
+                "sum": 40,
+                "min": 0,
+                "max": 25
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -122.3289,
+            37.4971
+          ],
+          [
+            -122.2611,
+            37.5342
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_belmont_blocks20"
+            },
+            "sourceLayer": "ca_belmont_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_belmont_blocks20_points"
+            },
+            "sourceLayer": "ca_belmont_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "name": "Belmont",
+    "id": "ca_belmont",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 4,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
 ]
   

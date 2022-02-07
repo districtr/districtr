@@ -1638,6 +1638,19 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       the tag “Millbrae” (any capitalization) is entered.
     </p>
   `,
+  "draweg": `
+    <p>
+      Every 10 years, a new U.S. Census is conducted, and the population counts are 
+      then used for redistricting. For district elections, the City will be divided 
+      into four districts. The goal of redistricting is to create a final map with four 
+      districts that are relatively equal in total population using the new Census counts.
+    </p>
+    <p>
+      You can track the <a href='http://www.elkgrovecity.org/city_hall/city_government/city_council/redistricting' target=_blank>Redistricting Project discussion</a> 
+      on the City website. If anyone needs information or assistance, please contact the City Clerk at 
+      <a href='mailto:cityclerk@elkgrovecity.org' target=_blank>cityclerk@elkgrovecity.org</a> or 916-478-2286.
+    </p>
+  `,
   "belmont": `
     <p>
       The City of Belmont is in the process of moving from an at-large election 
@@ -1669,19 +1682,6 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       the tag “Belmont” (any capitalization) is entered.
     </p>
   `,
-  "draweg": `
-    <p>
-      Every 10 years, a new U.S. Census is conducted, and the population counts are 
-      then used for redistricting. For district elections, the City will be divided 
-      into four districts. The goal of redistricting is to create a final map with four 
-      districts that are relatively equal in total population using the new Census counts.
-    </p>
-    <p>
-      You can track the <a href='http://www.elkgrovecity.org/city_hall/city_government/city_council/redistricting' target=_blank>Redistricting Project discussion</a> 
-      on the City website. If anyone needs information or assistance, please contact the City Clerk at 
-      <a href='mailto:cityclerk@elkgrovecity.org' target=_blank>cityclerk@elkgrovecity.org</a> or 916-478-2286.
-    </p>
-  `
 };
 
 const longAbout = {
@@ -2466,6 +2466,14 @@ butte_county: [
       districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
     `
   ],
+  "draweg": [
+    `
+      This mapping module uses the official Redistricting Database for California, 
+      published by the Statewide Database with processing by City Staff. For 
+      additional information, contact the City Clerk at 
+      <a href='mailto:cityclerk@elkgrovecity.org' target=_blank>cityclerk@elkgrovecity.org</a>.
+    `
+  ],
   "belmont": [
     `
       This mapping module uses the <strong>official Redistricting Database for California</strong>, 
@@ -2473,14 +2481,6 @@ butte_county: [
       For the last decade, Redistricting Partners has supported cities, community college 
       districts, school boards, hospital districts, water boards, and other special 
       districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
-    `
-  ],
-  "draweg": [
-    `
-      This mapping module uses the official Redistricting Database for California, 
-      published by the Statewide Database with processing by City Staff. For 
-      additional information, contact the City Clerk at 
-      <a href='mailto:cityclerk@elkgrovecity.org' target=_blank>cityclerk@elkgrovecity.org</a>.
     `
   ],
 };
