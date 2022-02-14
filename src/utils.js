@@ -1253,6 +1253,34 @@ export function spatial_abilities(id) {
       }
     ]
   },
+  az_pima: {
+    border: true,
+    number_markers: true,
+    coalition: false,
+    native_american: true,
+    boundaries: [
+      {
+        id: 'current_supervisor_dists',
+        label: 'Current Supervisor/P.C.C. Districts',
+        path: 'az_pima/current_supervisor_dists'
+      },
+      {
+        id: 'incorp_jurisdictions',
+        label: 'Incorporated Jurisdictions',
+        path: 'az_pima/incorp_jurisdictions'
+      },
+      {
+        id: "incumbent_precincts",
+        label: "Voter Precincts Containing Incumbent Elected Official’s Residence",
+        path: "az_pima/incumbent_precincts"
+      },
+      {
+        id: 'school_districts',
+        label: 'School Districts',
+        path: 'az_pima/school_districts'
+      }
+    ]
+  },
   sanjoseca: {
     border: true,
     shapefile: true,
