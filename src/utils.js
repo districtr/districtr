@@ -1610,6 +1610,9 @@ export function spatial_abilities(id) {
       // shapefile: true,
       // find_unpainted: true,
     },
+    essexma: {
+      coalition: false,
+    },
     lowell: {
       neighborhoods: true,
       contiguity: 2,

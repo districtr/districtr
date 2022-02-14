@@ -1,5 +1,110 @@
 [
   {
+    "name": "Essex County",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP20",
+              "name": "Total population",
+              "sum": 809829,
+              "min": 0,
+              "max": 1650
+            },
+            "subgroups": []
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP20",
+              "name": "Total voting age population",
+              "sum": 640842,
+              "min": 0,
+              "max": 1631
+            },
+            "subgroups": [
+              {
+                "key": "HVAP20",
+                "name": "Hispanic voting age population",
+                "sum": 127013,
+                "min": 0,
+                "max": 980
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP19",
+              "name": "Total citizen voting age population",
+              "sum": 562186,
+              "min": 0,
+              "max": 1459
+            },
+            "subgroups": [
+              {
+                "key": "HCVAP19",
+                "name": "Hispanic citizen voting age population",
+                "sum": 79049,
+                "min": 0,
+                "max": 754
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -71.2562,
+            42.3841
+          ],
+          [
+            -70.5021,
+            42.8868
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.essexma_blocks_points"
+            },
+            "sourceLayer": "essexma_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.essexma_blocks"
+            },
+            "sourceLayer": "essexma_blocks"
+          }
+        ]
+      }
+    ],
+    "state": "Massachusetts",
+    "id": "essexma",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 8,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
     "name": "Lowell",
     "id": "lowell",
     "districtingProblems": [
