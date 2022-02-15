@@ -3146,8 +3146,8 @@
     "units": [
       {
         "id": "precincts",
-        "name": "Precincts",
-        "unitType": "Precincts",
+        "name": "2020 Precincts",
+        "unitType": "2020 Precincts",
         "columnSets": [
           {
             "type": "population",

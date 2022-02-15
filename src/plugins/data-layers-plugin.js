@@ -403,10 +403,20 @@ export default function DataLayersPlugin(editor) {
         );
     }
     
+    // This is clearly not the best way to handle any of this, but
+    // we need to pull in a percent column set that is on precincts
+    // in Pima County, AZ. Therefore, we'll check if the module is
+    // az_pima and set the layer appropriately here. The default
+    // is to look for percents on a block group layer, as that is
+    // where they are in the NDC modules with ACS data, for example.
     if (state.pcts) {
+      let pctLayers = state.layers.filter(lyr => lyr.sourceId.includes("blockgroups"));
+      if (["az_pima"].includes(state.place.id)) {
+          pctLayers = state.layers.filter(lyr => lyr.sourceId.includes("precincts"));
+      }
       const pctOverlay = new OverlayContainer(
           "pcts",
-          state.layers.filter(lyr => lyr.sourceId.includes("blockgroups")),
+          pctLayers,
           state.pcts,
           "Additional demographics",
           false,

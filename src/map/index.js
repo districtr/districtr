@@ -172,11 +172,7 @@ function addTracts(map, tilesets, stateName) {
 
     // If this state isn't one of the exceptions or doesn't have a county filter,
     // return null immediately.
-    // This is very poor coding practice, but we should also continue if the
-    // module is Pima County, AZ. This is because Pima County has a layer of
-    // percentage data (similar to NDC modules' ACS data) on precincts that
-    // needs to be displayed.
-    if (!(isException || hasCountyFilter || ["az_pima"].includes(stateName))) return null;
+    if (!(isException || hasCountyFilter)) return null;
 
     // Otherwise, create a new Layer.
     tileType = isException ? "blockgroups" : "precincts";
