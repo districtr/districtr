@@ -152,7 +152,8 @@ commoncausepa: 'Pennsylvania',
   "millbrae": "California",
   "belmont": "California",
   "draweg": "California",
-  "open_space_authority": "California"
+  "open_space_authority": "California",
+  "pimaaz": "Arizona"
 };
 
 const validEventCodes = {
@@ -294,7 +295,8 @@ commoncausepa: 'pennsylvania',
   "millbrae": "ca_millbrae",
   "belmont": "ca_belmont",
   "draweg": "ca_elkgrove",
-  "open_space_authority": "ca_scvosa"
+  "open_space_authority": "ca_scvosa",
+  "pimaaz": "az_pima"
 };
 
 const blockPlans = {
@@ -390,7 +392,8 @@ const unitCounts = {
   buncombe: 67,
   'towsonu-baltimore': 653,
   prjusd: 2818,
-  'pmc-districts': 7078
+  'pmc-districts': 7078,
+  "pimaaz": 278
 };
 
 const coi_events = [
@@ -1709,6 +1712,36 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       board district map. To share your map, click “Save” in the upper right corner of 
       the mapping module. Then click on the “Share to Gallery” green button.
     </p>
+  `,
+  "pimaaz": `
+    <p>
+      Welcome to Pima County’s online tool for the 2022 County Supervisorial redistricting process.
+    </p>
+    <p>
+      Every 10 years the Pima County Board of Supervisors is required to redistrict (redraw) 
+      district boundaries for the purpose of balancing the population of each district to 
+      within 10 percent. According to 2020 Census population figures, the difference in 
+      population between the highest and lowest populated districts is 15 percent. The Pima 
+      Community College Governing Board uses the same district boundaries as the Board of 
+      Supervisors and will therefore also be impacted by changes to district boundaries.
+    </p>
+    <p>
+      The Board of Supervisors appointed a Redistricting Advisory Committee to hold public 
+      hearings and develop and recommend a map or maps to the Board by April 30, 2022. The 
+      Board anticipates approving new district boundaries by May 30, 2022, well in advance 
+      of the required July 1 deadline. For more information about Pima County Redistricting, 
+      including Committee meeting dates, other opportunities to provide comments, and how to 
+      find your district, please visit the County redistricting website 
+      <a href='https://www.pima.gov/countyredistricting' target=_blank>here</a>.
+    </p>
+    <p>
+      This online mapping tool allows Committee members, the public and other stakeholders 
+      to redraw district boundaries using voter precincts as building blocks, and submit 
+      maps of proposed new district configurations for consideration. Users will be able 
+      to view changes to the districts’ population, demographics, and registered voters by 
+      party registration. These data come from the 2020 Census and the Pima County Recorder’s 
+      Office (Recorder’s voter registration data as of December 6, 2021).
+    </p>
   `
 };
 
@@ -2616,6 +2649,13 @@ export default () => {
       document.getElementById("partnership-icons").style.display = "block";
       document.getElementById("partner-link-a").href = "http://www.elkgrovecity.org/city_hall/city_government/city_council/redistricting";
       document.getElementById("partnership-a").src = "/assets/partners-draweg.jpg";
+      document.getElementById("partnership-a").style.marginRight = 0;
+      document.getElementById("partnership-b").style.display = "none";
+    }
+    if (["pimaaz"].includes(eventCode)) {
+      document.getElementById("partnership-icons").style.display = "block";
+      document.getElementById("partner-link-a").href = "https://webcms.pima.gov/";
+      document.getElementById("partnership-a").src = "/assets/partners-pimaaz.png";
       document.getElementById("partnership-a").style.marginRight = 0;
       document.getElementById("partnership-b").style.display = "none";
     }

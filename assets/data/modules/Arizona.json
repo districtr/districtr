@@ -3141,5 +3141,223 @@
         "pluralNoun": "Supervisorial Districts"
       }
     ]
+  },
+  {
+    "units": [
+      {
+        "id": "precincts",
+        "name": "2020 Precincts",
+        "unitType": "2020 Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP20",
+              "name": "Total population",
+              "sum": 1043433,
+              "min": 0,
+              "max": 15381
+            },
+            "subgroups": [
+              {
+                "key": "WPOP20",
+                "name": "White population",
+                "sum": 536868,
+                "min": 0,
+                "max": 7362
+              },
+              {
+                "key": "BPOP20",
+                "name": "Black population",
+                "sum": 42924,
+                "min": 0,
+                "max": 1277
+              },
+              {
+                "key": "HISP20",
+                "name": "Hispanic population",
+                "sum": 372788,
+                "min": 0,
+                "max": 12650
+              },
+              {
+                "key": "ASIANPOP20",
+                "name": "Asian population",
+                "sum": 38708,
+                "min": 0,
+                "max": 1156
+              },
+              {
+                "key": "AMINPOP20",
+                "name": "American Indian population",
+                "sum": 32896,
+                "min": 0,
+                "max": 2527
+              },
+              {
+                "key": "NHPIPOP20",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 2609,
+                "min": 0,
+                "max": 106
+              },
+              {
+                "key": "F2MOREPOP2",
+                "name": "Two or more races",
+                "sum": 5019,
+                "min": 0,
+                "max": 83
+              },
+              {
+                "key": "OTHERPOP20",
+                "name": "Other races",
+                "sum": 11621,
+                "min": 0,
+                "max": 176
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP20",
+              "name": "Voting age population",
+              "sum": 834265,
+              "min": 0,
+              "max": 10554
+            },
+            "subgroups": [
+              {
+                "key": "WVAP20",
+                "name": "White voting age population",
+                "sum": 468023,
+                "min": 0,
+                "max": 7160
+              },
+              {
+                "key": "BVAP20",
+                "name": "Black voting age population",
+                "sum": 31635,
+                "min": 0,
+                "max": 1128
+              },
+              {
+                "key": "HVAP20",
+                "name": "Hispanic voting age population",
+                "sum": 265048,
+                "min": 0,
+                "max": 8459
+              },
+              {
+                "key": "AMINVAP20",
+                "name": "Native American voting age population",
+                "sum": 24692,
+                "min": 0,
+                "max": 1670
+              },
+              {
+                "key": "NHPIVAP20",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1858,
+                "min": 0,
+                "max": 62
+              },
+              {
+                "key": "ASIANVAP20",
+                "name": "Asian voting age population",
+                "sum": 30619,
+                "min": 0,
+                "max": 1094
+              },
+              {
+                "key": "OTHERVAP20",
+                "name": "Other races voting age population",
+                "sum": 9154,
+                "min": 0,
+                "max": 136
+              },
+              {
+                "key": "F2MOREVAP2",
+                "name": "Two or more races voting age population",
+                "sum": 3236,
+                "min": 0,
+                "max": 54
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Percentages",
+            "total": {
+              "key": "PCT_DEM",
+              "name": "Registered Democrats",
+              "sum": 108,
+              "min": 0,
+              "max": 1
+            },
+            "subgroups": [
+              {
+                "key": "PCT_REP",
+                "name": "Registered Republicans",
+                "sum": 74,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "PCT_ALLOTH",
+                "name": "Other registered voters",
+                "sum": 83,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Voter Precinct Number",
+          "key": "PRECINCT"
+        },
+        "bounds": [
+          [
+            -113.3342,
+            31.4261
+          ],
+          [
+            -110.4477,
+            32.5141
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.az_pima_precincts"
+            },
+            "sourceLayer": "az_pima_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.az_pima_precincts_points"
+            },
+            "sourceLayer": "az_pima_precincts_points"
+          }
+        ]
+      }
+    ],
+    "name": "Pima County",
+    "state": "Arizona",
+    "id": "az_pima",
+    "districtingProblems": [
+      {
+        "name": "Board of Supervisors",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
   }
 ]
