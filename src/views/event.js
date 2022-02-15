@@ -1731,15 +1731,16 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       Board anticipates approving new district boundaries by May 30, 2022, well in advance 
       of the required July 1 deadline. For more information about Pima County Redistricting, 
       including Committee meeting dates, other opportunities to provide comments, and how to 
-      find your district, please visit https://www.pima.gov/countyredistricting.
+      find your district, please visit the County redistricting website 
+      <a href='https://www.pima.gov/countyredistricting' target=_blank>here</a>.
     </p>
     <p>
       This online mapping tool allows Committee members, the public and other stakeholders 
       to redraw district boundaries using voter precincts as building blocks, and submit 
-      maps of proposed new district configurations for consideration.  Users will be able 
-      to view changes to the districts’ population, demographics, number of registered voters 
-      and party registration; these data come from the 2020 Census and the Pima County 
-      Recorder’s Office (Recorder’s voter registration data as of Dec. 6, 2021).
+      maps of proposed new district configurations for consideration. Users will be able 
+      to view changes to the districts’ population, demographics, and registered voters by 
+      party registration. These data come from the 2020 Census and the Pima County Recorder’s 
+      Office (Recorder’s voter registration data as of December 6, 2021).
     </p>
   `
 };
