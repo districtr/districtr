@@ -26,7 +26,8 @@ function datasetInfo(state) {
             ndc_2020: "Uses <strong>2020 Decennial Census population</strong> with processing by National Demographics Corporation",
             wagaman_2020: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Wagaman Strategies",
             cooperative_strategies: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Cooperative Strategies",
-            ca_elkgrove: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by the City of Elk Grove"
+            ca_elkgrove: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by the City of Elk Grove",
+            az_pima: "Uses <strong>2020 Decennial Census population</strong> with processing by Pima County"
         },
         acsLocations = [
             "wisco2019acs", "hall_ga", "grand_county_2", "mn2020acs", "nd_benson",
@@ -53,6 +54,8 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${populations.pasorobles}`;
     } else if (["ca_elkgrove"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.ca_elkgrove}`;
+    } else if (["az_pima"].includes(place.id)) {
+        dataset = `<p><span>&#9432;</span> ${populations.az_pima}`;
     
     // Cooperative strategies modules. I also wholeheartedly disagree with the
     // way this info message differentiation is being done; why don't we put this

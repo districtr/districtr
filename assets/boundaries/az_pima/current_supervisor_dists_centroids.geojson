@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "DISTRICT": 1, "NAME": "REX SCOTT", "Shape_Leng": 582704.414903, "Shape_Area": 6867031557.1599998 }, "geometry": { "type": "Point", "coordinates": [ -110.996324090176628, 32.402634953186833 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 2, "NAME": "DR. MATT HEINZ", "Shape_Leng": 541790.21429699997, "Shape_Area": 5104020802.0799999 }, "geometry": { "type": "Point", "coordinates": [ -110.896423320677229, 32.052203680831163 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 3, "NAME": "SHARON BRONSON", "Shape_Leng": 2467670.66903, "Shape_Area": 201898959164.0 }, "geometry": { "type": "Point", "coordinates": [ -112.065134968909675, 32.086365780138195 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 4, "NAME": "STEVE CHRISTY", "Shape_Leng": 1346296.7820900001, "Shape_Area": 39149919397.599998 }, "geometry": { "type": "Point", "coordinates": [ -110.684003995431937, 32.097325838727819 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 5, "NAME": "ADELITA S. GRIJALVA", "Shape_Leng": 467843.62305300002, "Shape_Area": 3104054206.4099998 }, "geometry": { "type": "Point", "coordinates": [ -111.049960056527667, 32.210882944893939 ] } }
+]
+}
