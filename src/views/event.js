@@ -2657,7 +2657,7 @@ export default () => {
     if (["pimaaz"].includes(eventCode)) {
       document.getElementById("partnership-icons").style.display = "block";
       document.getElementById("partner-link-a").href = "https://webcms.pima.gov/";
-      document.getElementById("partnership-a").src = "/assets/partners-pimaaz.png";
+      document.getElementById("partnership-a").src = "/assets/partners-pimaaz.jpg";
       document.getElementById("partnership-a").style.marginRight = 0;
       document.getElementById("partnership-b").style.display = "none";
     }
