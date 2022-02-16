@@ -95,14 +95,14 @@
             "subgroups": [
               {
                 "key": "EL14G_USS_",
-                "name": "Democratic",
+                "name": "Republican",
                 "sum": 33872,
                 "min": 24,
                 "max": 1649
               },
               {
                 "key": "EL14G_US_1",
-                "name": "Republican",
+                "name": "Democratic",
                 "sum": 49455,
                 "min": 132,
                 "max": 1969
@@ -1878,14 +1878,14 @@
             "subgroups": [
               {
                 "key": "EL14G_USS_",
-                "name": "Democratic",
+                "name": "Republican",
                 "sum": 1416842,
                 "min": 0,
                 "max": 3024
               },
               {
                 "key": "EL14G_US_1",
-                "name": "Republican",
+                "name": "Democratic",
                 "sum": 1370298,
                 "min": 0,
                 "max": 3455

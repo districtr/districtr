@@ -3182,7 +3182,7 @@ export default () => {
 
         fetch(eventurl).then(res => res.json()).then(showPlans);
         let drafturl = eventurl + (window.location.hostname === "localhost" ? "" : "&type=draft");
-        fetch(drafturl.replace(`limit=${limitNum + 1}`, "limit=0")).then(res => res.json()).then(p => showPlans(p, true))
+        fetch(drafturl.replace(`limit=${limitNum + 1}`, "limit=1")).then(res => res.json()).then(p => showPlans(p, true))
     } else {
         const target = document.getElementById("districting-options");
         render("Tag or Organization not recognized", target);
