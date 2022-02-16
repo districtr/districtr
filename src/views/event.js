@@ -2553,7 +2553,6 @@ butte_county: [
       districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
     `
   ],
-  "pimaaz": [``],
 };
 
 const proposals_by_event = {
@@ -2591,8 +2590,6 @@ export default () => {
           document.getElementById("eventHeadline").innerText = "Foothill-De Anza";
         } else if (eventCode === "pimaaz") {
           document.getElementById("districting-options-title").innerText = "Click below to start with a blank map. After working, click “Save” in the upper right corner of the mapping module to save your work. To display your map on this page, either as a proposed plan or a draft, click the “Share to Gallery” button.";
-          document.getElementById("about-section").innerText = "";
-          document.getElementById("about-section-text").innerText = "";
         }
 
     if (["mp-maps"].includes(eventCode)) {
