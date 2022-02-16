@@ -1,0 +1,22 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "SDISTNAME": "TANQUE VERDE UNIFIED SCHOOL DISTRICT", "DISTNUMB": 13, "Shape_Leng": 172301.603504, "Shape_Area": 820985657.71599996 }, "geometry": { "type": "Point", "coordinates": [ -110.732863080253722, 32.254326336287164 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "SAN FERNANDO ELEMENTARY SCHOOL DISTRICT", "DISTNUMB": 35, "Shape_Leng": 397038.21611600003, "Shape_Area": 5880524403.6599998 }, "geometry": { "type": "Point", "coordinates": [ -111.532339351944344, 31.63083151109625 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "TUCSON UNIFIED SCHOOL DISTRICT", "DISTNUMB": 1, "Shape_Leng": 506822.405593, "Shape_Area": 6396001234.96 }, "geometry": { "type": "Point", "coordinates": [ -110.962512447282435, 32.211226809525286 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "CATALINA FOOTHILLS UNIFIED SCHOOL DISTRICT", "DISTNUMB": 16, "Shape_Leng": 132304.764062, "Shape_Area": 699754645.16299999 }, "geometry": { "type": "Point", "coordinates": [ -110.884281079953638, 32.315663021311906 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "AJO UNIFIED SCHOOL DISTRICT", "DISTNUMB": 15, "Shape_Leng": 253037.38645200001, "Shape_Area": 4003060368.9299998 }, "geometry": { "type": "Point", "coordinates": [ -112.829630804752213, 32.418141121175715 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "ALTAR VALLEY ELEMENTARY SCHOOL DISTRICT", "DISTNUMB": 51, "Shape_Leng": 652219.57405900001, "Shape_Area": 13829101319.6 }, "geometry": { "type": "Point", "coordinates": [ -111.373506098718011, 31.965418882437888 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "EMPIRE ELEMENTARY SCHOOL DISTRICT", "DISTNUMB": 37, "Shape_Leng": 379007.99737, "Shape_Area": 6187168317.9099998 }, "geometry": { "type": "Point", "coordinates": [ -110.593175837361883, 31.81992281994518 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "REDINGTON ELEMENTARY SCHOOL DISTRICT", "DISTNUMB": 44, "Shape_Leng": 329379.68309100001, "Shape_Area": 3909903240.0100002 }, "geometry": { "type": "Point", "coordinates": [ -110.534243943982389, 32.419313575610509 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "CONTINENTAL ELEMENTARY SCHOOL DISTRICT", "DISTNUMB": 39, "Shape_Leng": 279984.826489, "Shape_Area": 3711473169.3499999 }, "geometry": { "type": "Point", "coordinates": [ -110.932777942398985, 31.814318138065932 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "VAIL UNIFIED SCHOOL DISTRICT", "DISTNUMB": 20, "Shape_Leng": 499413.213491, "Shape_Area": 11063286428.6 }, "geometry": { "type": "Point", "coordinates": [ -110.678366749175694, 32.014160675881719 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "INDIAN OASIS-BABOQUIVARI UNIFIED SCHOOL DISTRICT", "DISTNUMB": 40, "Shape_Leng": 1766517.0785300001, "Shape_Area": 105021403357.0 }, "geometry": { "type": "Point", "coordinates": [ -112.068503638260424, 32.082559259373134 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "FLOWING WELLS UNIFIED SCHOOL DISTRICT", "DISTNUMB": 8, "Shape_Leng": 100407.604578, "Shape_Area": 339775251.89600003 }, "geometry": { "type": "Point", "coordinates": [ -111.026462161011182, 32.297618772720533 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "AMPHITHEATER UNIFIED SCHOOL DISTRICT", "DISTNUMB": 10, "Shape_Leng": 333440.916692, "Shape_Area": 3007538288.1399999 }, "geometry": { "type": "Point", "coordinates": [ -110.965178535804583, 32.411564786273132 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "SUNNYSIDE UNIFIED SCHOOL DISTRICT", "DISTNUMB": 12, "Shape_Leng": 352378.298946, "Shape_Area": 2762545797.2800002 }, "geometry": { "type": "Point", "coordinates": [ -110.979636594962528, 32.097800482529578 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "MARANA UNIFIED SCHOOL DISTRICT", "DISTNUMB": 6, "Shape_Leng": 591874.88103100006, "Shape_Area": 15245798792.1 }, "geometry": { "type": "Point", "coordinates": [ -111.289567533654207, 32.372754164069924 ] } },
+{ "type": "Feature", "properties": { "SDISTNAME": "SAHUARITA UNIFIED SCHOOL DISTRICT", "DISTNUMB": 30, "Shape_Leng": 896395.15335599997, "Shape_Area": 18019713621.200001 }, "geometry": { "type": "Point", "coordinates": [ -111.162798828722202, 31.812312221124145 ] } }
+]
+}

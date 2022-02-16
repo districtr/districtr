@@ -2588,6 +2588,8 @@ export default () => {
         } else if (eventCode === "foothilldeanza") {
           document.getElementById("introExplain").innerHTML = "";
           document.getElementById("eventHeadline").innerText = "Foothill-De Anza";
+        } else if (eventCode === "pimaaz") {
+          document.getElementById("districting-options-title").innerText = "Click below to start with a blank map. After working, click “Save” in the upper right corner of the mapping module to save your work. To display your map on this page, either as a proposed plan or a draft, click the “Share to Gallery” button.";
         }
 
     if (["mp-maps"].includes(eventCode)) {
@@ -2655,7 +2657,7 @@ export default () => {
     if (["pimaaz"].includes(eventCode)) {
       document.getElementById("partnership-icons").style.display = "block";
       document.getElementById("partner-link-a").href = "https://webcms.pima.gov/";
-      document.getElementById("partnership-a").src = "/assets/partners-pimaaz.png";
+      document.getElementById("partnership-a").src = "/assets/partners-pimaaz.jpg";
       document.getElementById("partnership-a").style.marginRight = 0;
       document.getElementById("partnership-b").style.display = "none";
     }

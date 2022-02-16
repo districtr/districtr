@@ -1256,12 +1256,15 @@ export function spatial_abilities(id) {
   az_pima: {
     border: true,
     number_markers: true,
-    coalition: false,
+    coalition: true,
     native_american: true,
+    shapefile: true,
     boundaries: [
       {
         id: 'current_supervisor_dists',
         label: 'Current Supervisor/P.C.C. Districts',
+        centroids: true,
+        namefield: 'DISTRICT',
         path: 'az_pima/current_supervisor_dists'
       },
       {
@@ -1277,6 +1280,8 @@ export function spatial_abilities(id) {
       {
         id: 'school_districts',
         label: 'School Districts',
+        centroids: true,
+        namefield: 'SDISTNAME',
         path: 'az_pima/school_districts'
       }
     ]
