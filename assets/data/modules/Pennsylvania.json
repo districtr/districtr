@@ -1691,6 +1691,247 @@
           }
         ],
         "id": "precincts"
+      },
+      {
+        "id": "vtds",
+        "name": "2020 VTDs",
+        "unitType": "vtds",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP19",
+              "name": "Total population",
+              "sum": 12791523,
+              "min": 0,
+              "max": 11459
+            },
+            "subgroups": [
+              {
+                "key": "WPOP19",
+                "name": "White population",
+                "sum": 10300579,
+                "min": 0,
+                "max": 9151
+              },
+              {
+                "key": "BPOP19",
+                "name": "Black population",
+                "sum": 1429683,
+                "min": 0,
+                "max": 2744
+              },
+              {
+                "key": "HPOP19",
+                "name": "Hispanic population",
+                "sum": 934673,
+                "min": 0,
+                "max": 3138
+              },
+              {
+                "key": "ASIANPOP19",
+                "name": "Asian population",
+                "sum": 434581,
+                "min": 0,
+                "max": 2242
+              },
+              {
+                "key": "AMINPOP19",
+                "name": "American Indian population",
+                "sum": 20978,
+                "min": 0,
+                "max": 341
+              },
+              {
+                "key": "NHPIPOP19",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 4190,
+                "min": 0,
+                "max": 128
+              },
+              {
+                "key": "2MOREPOP19",
+                "name": "Two or more races",
+                "sum": 319499,
+                "min": 0,
+                "max": 804
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Senate",
+            "subgroups": [
+              {
+                "key": "G18USSDCAS",
+                "name": "Democratic",
+                "sum": 2792687,
+                "min": 0,
+                "max": 2681
+              },
+              {
+                "key": "G18USSRBAR",
+                "name": "Republican",
+                "sum": 2135231,
+                "min": 0,
+                "max": 1858
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Auditor",
+            "subgroups": [
+              {
+                "key": "G16AUDRBRO",
+                "name": "Republican",
+                "sum": 2667219,
+                "min": 0,
+                "max": 2254
+              },
+              {
+                "key": "G16AUDDDEP",
+                "name": "Democratic",
+                "sum": 2958764,
+                "min": 0,
+                "max": 3153
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Senate",
+            "subgroups": [
+              {
+                "key": "G16USSRTOO",
+                "name": "Republican",
+                "sum": 2951591,
+                "min": 0,
+                "max": 2460
+              },
+              {
+                "key": "G16USSDMCG",
+                "name": "Democratic",
+                "sum": 2864967,
+                "min": 0,
+                "max": 3444
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Treasurer",
+            "subgroups": [
+              {
+                "key": "G16TRERVOI",
+                "name": "Republican",
+                "sum": 2610706,
+                "min": 0,
+                "max": 2277
+              },
+              {
+                "key": "G16TREDTOR",
+                "name": "Democratic",
+                "sum": 2991357,
+                "min": 0,
+                "max": 3152
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 President",
+            "subgroups": [
+              {
+                "key": "G16PRERTRU",
+                "name": "Republican",
+                "sum": 2971090,
+                "min": 0,
+                "max": 2264
+              },
+              {
+                "key": "G16PREDCLI",
+                "name": "Democratic",
+                "sum": 2926393,
+                "min": 0,
+                "max": 3896
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Govenor",
+            "subgroups": [
+              {
+                "key": "G18GOVRWAG",
+                "name": "Republican",
+                "sum": 2040226,
+                "min": 0,
+                "max": 1726
+              },
+              {
+                "key": "G18GOVDWOL",
+                "name": "Democratic",
+                "sum": 2895937,
+                "min": 0,
+                "max": 2745
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Attorney General",
+            "subgroups": [
+              {
+                "key": "G16ATGRRAF",
+                "name": "Republican",
+                "sum": 2891216,
+                "min": 0,
+                "max": 2389
+              },
+              {
+                "key": "G16ATGDSHA",
+                "name": "Democratic",
+                "sum": 3056953,
+                "min": 0,
+                "max": 3698
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -80.5199,
+            39.7198
+          ],
+          [
+            -74.6896,
+            42.5161
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.pa2020_precincts"
+            },
+            "sourceLayer": "pa2020_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.pa2020_precincts_points"
+            },
+            "sourceLayer": "pa2020_precincts_points"
+          }
+        ]
       }
     ],
     "id": "pennsylvania"
