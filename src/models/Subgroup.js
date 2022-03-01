@@ -77,7 +77,7 @@ export class Subgroup extends NumericalColumn {
             let prelim = this.name.split(" ")[0];
             if (prelim === "American" || this.key.includes("native")) {
               return "Native Am.";
-            } else if (prelim === "Native") {
+            } else if (prelim === "Native" && !this.key.includes("American")) {
               return "NH/PI";
             }
             return prelim;
@@ -92,8 +92,10 @@ const ABBREVIATIONS = {
     NH_ASIAN: "Asian",
     NH_AMIN: "Native",
     AMIN: "AmIn/Alaskan",
+    "AMINPOP20": "Native Am.",
     NH_NHPI: "NH/PI",
     NHPI: "NH/PI",
+    "NHPIPOP20": "NH/PI",
     NH_2MORE: "2+",
     "2MORE": "2+",
     NH_OTHER: "Other",
@@ -106,5 +108,7 @@ const ABBREVIATIONS = {
     AKNATVAP: "AK Native VAP",
     OTHERVAP: "Other VAP",
     OTHVAP: "Other VAP",
-    "2MOREVAP": "2+ VAP"
+    "2MOREVAP": "2+ VAP",
+    "AMINVAP20": "Native Am.",
+    "NHPIVAP20": "NH/PI"
 };
