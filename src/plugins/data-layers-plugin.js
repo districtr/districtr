@@ -210,6 +210,7 @@ export default function DataLayersPlugin(editor) {
         html`<h5>${(state.population && !state.population.subgroups.length) ? "Population" : "Population by Race"}</h5>`,
         (uiState, dispatch) => html`
             ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
+            ${state.place.id === "ma_worcester" ? "(“Coalition” = Black + Hispanic)" : ""}
             ${demographicsOverlay.render()}
             ${vapOverlay ? vapOverlay.render() : null}
             ${(abilities.coalition === false) ? "" : html`<p class="italic-note">*Use the coalition builder to define a collection
