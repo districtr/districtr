@@ -1718,12 +1718,14 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       Welcome to Pima County’s online tool for the 2022 County Supervisorial redistricting process.
     </p>
     <p>
-      Every 10 years the Pima County Board of Supervisors is required to redistrict (redraw) 
-      district boundaries for the purpose of balancing the population of each district to 
-      within 10 percent. According to 2020 Census population figures, the difference in 
-      population between the highest and lowest populated districts is 15 percent. The Pima 
-      Community College Governing Board uses the same district boundaries as the Board of 
-      Supervisors and will therefore also be impacted by changes to district boundaries.
+      Every 10 years the Pima County Board of Supervisors is required to redistrict (redraw 
+      district boundaries) for the purpose of balancing the population of each district to 
+      within 10 percent. Using 2020 Census population figures and the federally-accepted 
+      calculation method (difference between the percentage deviations of the highest- and 
+      lowest-populated districts from ideal population equality), the deviation of the 
+      current districts is 15 percent. The Pima Community College Governing Board uses the 
+      same district boundaries as the Board of Supervisors and will therefore also be impacted 
+      by changes to district boundaries.
     </p>
     <p>
       The Board of Supervisors appointed a Redistricting Advisory Committee to hold public 
@@ -1732,15 +1734,17 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       of the required July 1 deadline. For more information about Pima County Redistricting, 
       including Committee meeting dates, other opportunities to provide comments, and how to 
       find your district, please visit the County redistricting website 
-      <a href='https://www.pima.gov/countyredistricting' target=_blank>here</a>.
+      <a href='http://www.pima.gov/countyredistricting' target=_blank>here</a>.
     </p>
     <p>
-      This online mapping tool allows Committee members, the public and other stakeholders 
-      to redraw district boundaries using voter precincts as building blocks, and submit 
-      maps of proposed new district configurations for consideration. Users will be able 
-      to view changes to the districts’ population, demographics, and registered voters by 
-      party registration. These data come from the 2020 Census and the Pima County Recorder’s 
-      Office (Recorder’s voter registration data as of December 6, 2021).
+      This online mapping tool allows Committee members, the public and other stakeholders to 
+      redraw district boundaries using voter precincts as building blocks, and submit maps of 
+      proposed new district configurations for consideration. Users will be able to view 
+      information about population, demographics, and registered voters by party registration. 
+      These data come from the 2020 Census and the Pima County Recorder’s Office (Recorder’s 
+      voter registration data as of December 6, 2021). Additional data for Pima County is 
+      available on <a href='https://districtr.org/arizona' target=_blank>Arizona’s Districtr page</a>, 
+      including election results by precinct for 2018 statewide offices.
     </p>
   `
 };
@@ -2590,7 +2594,7 @@ export default () => {
           document.getElementById("introExplain").innerHTML = "";
           document.getElementById("eventHeadline").innerText = "Foothill-De Anza";
         } else if (eventCode === "pimaaz") {
-          document.getElementById("districting-options-title").innerText = "Click below to start with a blank map. After working, click “Save” in the upper right corner of the mapping module to save your work. To display your map on this page, either as a proposed plan or a draft, click the “Share to Gallery” button.";
+          document.getElementById("districting-options-title").innerHTML = "<p>Click the purple box below to start with a blank map. If you’d prefer to start using the current district boundaries, click <a href='https://districtr.org/edit/113736?event=pimaaz' target=_blank>here</a>. After working, click “Save” in the upper right corner of the mapping module to save your work. Copy the URL shown in the “Save” box so that you can return to your map. To display your map on this page, either as a proposed plan or a draft, click the “Share to Gallery” button.</p><p><strong>Note: The maximum population deviation shown on the Population tab displays the maximum population deviation of any <u>single</u> district from ideal size.</strong> This isn’t the method used to calculate the 10 percent deviation statutory requirement. To ensure your plan has less than 10 percent deviation, hover over the District bars and sum the deviations (ignoring negative percentages) for the highest- and lowest-populated Districts.</p>";
           document.getElementById("about-section").innerHTML = document.getElementById("about-section").innerHTML.replace("<h2>About</h2>", "");
         }
 

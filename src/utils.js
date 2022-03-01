@@ -1263,8 +1263,6 @@ export function spatial_abilities(id) {
       {
         id: 'current_supervisor_dists',
         label: 'Current Supervisor/P.C.C. Districts',
-        centroids: true,
-        namefield: 'DISTRICT',
         path: 'az_pima/current_supervisor_dists'
       },
       {
