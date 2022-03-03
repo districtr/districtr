@@ -1325,6 +1325,11 @@ export function spatial_abilities(id) {
       }
     ]
   },
+  ca_west_sac: {
+    border: true,
+    number_markers: true,
+    coalition: false,
+  },
   redwood: {
     border: true,
     shapefile: true,

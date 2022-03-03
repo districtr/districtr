@@ -153,7 +153,8 @@ commoncausepa: 'Pennsylvania',
   "belmont": "California",
   "draweg": "California",
   "open_space_authority": "California",
-  "pimaaz": "Arizona"
+  "pimaaz": "Arizona",
+  "west_sacramento": "California"
 };
 
 const validEventCodes = {
@@ -296,7 +297,8 @@ commoncausepa: 'pennsylvania',
   "belmont": "ca_belmont",
   "draweg": "ca_elkgrove",
   "open_space_authority": "ca_scvosa",
-  "pimaaz": "az_pima"
+  "pimaaz": "az_pima",
+  "west_sacramento": "ca_west_sac"
 };
 
 const blockPlans = {
@@ -530,7 +532,8 @@ const hybrid_events = [
   "millbrae",
   "belmont",
   "draweg",
-  "open_space_authority"
+  "open_space_authority",
+  "west_sacramento"
 ];
 
 const portal_events = [
@@ -1746,6 +1749,34 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       available on <a href='https://districtr.org/arizona' target=_blank>Arizona’s Districtr page</a>, 
       including election results by precinct for 2018 statewide offices.
     </p>
+  `,
+  "west_sacramento": `
+    <p>
+      The City of West Sacramento is in the process of moving from an at-large election system to a 
+      by-district election system. To draw these new districts we need to hear from you as it’s 
+      important to know about your community so that the district lines can amplify the voices of 
+      residents. Learn more on our 
+      <a href='https://www.cityofwestsacramento.org/government/city-clerk-s-office/district-election-1336' target=_blank>website</a>.
+    </p>
+    <p>
+      Examples of communities can include neighborhoods, areas where many residents speak the same 
+      language, or areas where the residents use the same community facilities. It’s basically any 
+      area of the city where people have a common interest that needs a voice in government.
+    </p>
+    <p>
+      We need your help to build a community map and our new city council map! Please use this tool 
+      to identify the boundaries of your community and provide draft city council lines.
+    </p>
+    <p>
+      Every map submitted will be carefully reviewed by professional demographers and decision 
+      makers who are charged with drawing the City Council District Map.
+    </p>
+    <p>
+      Get started by clicking the orange or purple button to draw your community of interest or a 
+      city council district map. To share your map, click “Save” in the upper right corner of the 
+      mapping module, select “Share Now”, and then click on the “Share to Gallery” button. A “Team” 
+      or “Plan Name” is optional.
+    </p>
   `
 };
 
@@ -2558,6 +2589,16 @@ butte_county: [
     `
   ],
   "pimaaz": [``],
+  "west_sacramento": [
+    `
+      This mapping module uses the official Redistricting Database for California, 
+      published by the Statewide Database with processing by Redistricting Partners. 
+      For the last decade, Redistricting Partners has supported cities, community college 
+      districts, school boards, hospital districts, water boards, and other special districts. 
+      To learn more about their team click 
+      <a href='https://redistrictingpartners.com/about/' target=_blank>here</a>.
+    `
+  ]
 };
 
 const proposals_by_event = {
