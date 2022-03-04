@@ -31934,6 +31934,155 @@
         "pluralNoun": "Director Divisions"
       }
     ]
+  },
+  {
+    "name": "West Sacramento",
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 54077,
+              "min": 0,
+              "max": 1480
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 17324,
+                "min": 0,
+                "max": 468
+              },
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 22204,
+                "min": 0,
+                "max": 849
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 2523,
+                "min": 0,
+                "max": 83
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 7144,
+                "min": 0,
+                "max": 271
+              },
+              {
+                "key": "LF_20_AiAn",
+                "name": "American Indian population",
+                "sum": 311,
+                "min": 0,
+                "max": 14
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total CVAP",
+              "sum": 33544,
+              "min": 0,
+              "max": 1201
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_White Alone",
+                "name": "White population",
+                "sum": 18559,
+                "min": 0,
+                "max": 789
+              },
+              {
+                "key": "CVAP_15-19_Black or African American Alone",
+                "name": "Black population",
+                "sum": 2070,
+                "min": 0,
+                "max": 76
+              },
+              {
+                "key": "CVAP_15-19_Asian Alone",
+                "name": "Asian population",
+                "sum": 3680,
+                "min": 0,
+                "max": 97
+              },
+              {
+                "key": "CVAP_15-19_Hispanic or Latino",
+                "name": "Hispanic population",
+                "sum": 7145,
+                "min": 0,
+                "max": 284
+              },
+              {
+                "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+                "name": "American Indian population",
+                "sum": 137,
+                "min": 0,
+                "max": 34
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -121.5894,
+            38.5016
+          ],
+          [
+            -121.5062,
+            38.6046
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_west_sac_blocks20"
+            },
+            "sourceLayer": "ca_west_sac_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_west_sac_blocks20_points"
+            },
+            "sourceLayer": "ca_west_sac_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "id": "ca_west_sac",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 4,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]
   
