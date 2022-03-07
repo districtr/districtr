@@ -13093,7 +13093,7 @@
       {
         "id": "blocks20",
         "name": "2020 Blocks",
-        "unitType": "Blocks",
+        "unitType": "2020 Blocks",
         "columnSets": [
           {
             "type": "population",
@@ -13101,149 +13101,162 @@
             "total": {
               "key": "TOTPOP",
               "name": "Total population",
-              "sum": 35007,
+              "sum": 33830,
               "min": 0,
-              "max": 917
+              "max": 915
             },
             "subgroups": [
               {
                 "key": "WHITE",
                 "name": "White population",
-                "sum": 19161,
+                "sum": 18583,
                 "min": 0,
                 "max": 578
               },
               {
                 "key": "BLACK",
                 "name": "Black population",
-                "sum": 1054,
+                "sum": 1159,
                 "min": 0,
-                "max": 49
-              },
-              {
-                "key": "AMIN",
-                "name": "American Indian population",
-                "sum": 28,
-                "min": 0,
-                "max": 4
-              },
-              {
-                "key": "ASIAN",
-                "name": "Asian population",
-                "sum": 5953,
-                "min": 0,
-                "max": 269
-              },
-              {
-                "key": "NHPI",
-                "name": "Native Hawaiian Pacific Islander population",
-                "sum": 379,
-                "min": 0,
-                "max": 24
-              },
-              {
-                "key": "OTHER",
-                "name": "Other races",
-                "sum": 166,
-                "min": 0,
-                "max": 9
-              },
-              {
-                "key": "2MORE",
-                "name": "Two or more races",
-                "sum": 1968,
-                "min": 0,
-                "max": 54
+                "max": 50
               },
               {
                 "key": "HISP",
                 "name": "Hispanic population",
-                "sum": 6298,
+                "sum": 6008,
                 "min": 0,
                 "max": 228
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 6814,
+                "min": 0,
+                "max": 280
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 185,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 390,
+                "min": 0,
+                "max": 24
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 238,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 453,
+                "min": 0,
+                "max": 22
               }
             ]
           },
           {
             "type": "population",
-            "name": "Voting Age Population",
+            "name": "Citizen Voting Age Population",
             "total": {
-              "key": "VAP",
-              "name": "Total population",
-              "sum": 26910,
+              "key": "CVPTOT",
+              "name": "Total CVAP",
+              "sum": 21438,
               "min": 0,
-              "max": 783
+              "max": 683
             },
             "subgroups": [
               {
-                "key": "WVAP",
+                "key": "CVPNHWHT",
                 "name": "White population",
-                "sum": 15221,
+                "sum": 14229,
                 "min": 0,
-                "max": 480
+                "max": 539
               },
               {
-                "key": "BVAP",
+                "key": "CVPNHBLK",
                 "name": "Black population",
-                "sum": 921,
+                "sum": 1274,
+                "min": 0,
+                "max": 187
+              },
+              {
+                "key": "CVPNHASN",
+                "name": "Asian population",
+                "sum": 2904,
+                "min": 0,
+                "max": 196
+              },
+              {
+                "key": "CVPHSP",
+                "name": "Hispanic population",
+                "sum": 2418,
+                "min": 0,
+                "max": 80
+              },
+              {
+                "key": "CVPNHIND",
+                "name": "American Indian population",
+                "sum": 19,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "CVPNHHWN",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 444,
                 "min": 0,
                 "max": 40
               },
               {
-                "key": "AMINVAP",
-                "name": "American Indian population",
-                "sum": 21,
+                "key": "CVP2MORE",
+                "name": "Two or more races",
+                "sum": 526,
                 "min": 0,
-                "max": 4
-              },
-              {
-                "key": "ASIANVAP",
-                "name": "Asian population",
-                "sum": 4777,
-                "min": 0,
-                "max": 262
-              },
-              {
-                "key": "NHPIVAP",
-                "name": "Native Hawaiian Pacific Islander population",
-                "sum": 273,
-                "min": 0,
-                "max": 17
-              },
-              {
-                "key": "HVAP",
-                "name": "Hispanic population",
-                "sum": 4530,
-                "min": 0,
-                "max": 167
+                "max": 40
               }
             ]
           }
         ],
         "idColumn": {
-          "name": "Geo ID",
+          "name": "Block FIPS code",
           "key": "GEOID20"
         },
         "bounds": [
-          [-122.2293, 37.4169],
-          [-122.0815, 37.5343]
+          [
+            -122.2293,
+            37.4169
+          ],
+          [
+            -122.0815,
+            37.5343
+          ]
         ],
         "tilesets": [
-          {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.menlo_park_blocks20_points?v=2"
-            },
-            "sourceLayer": "menlo_park_blocks20_points"
-          },
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.menlo_park_blocks20?v=2"
+              "url": "mapbox://districtr.menlo_park_blocks20"
             },
             "sourceLayer": "menlo_park_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.menlo_park_blocks20_points"
+            },
+            "sourceLayer": "menlo_park_blocks20_points"
           }
         ]
       },

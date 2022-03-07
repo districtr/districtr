@@ -1213,7 +1213,10 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
      is defined by California law as: “a population that shares common social or economic interests that should be included within a single district \
      for purposes of its effective and fair representation.”</p>\
      <p>Draft districts must be contiguous and maintain equal population size to ensure equal representation between districts.</p>\
-     <p>Click the following link to view <a href='https://menlopark.maps.arcgis.com/apps/InformationLookup/index.html?appid=83d9c16b24d2493893fde31135490a7e' target='_blank'>Current Districts</a>.</p>",
+     <p>Click the following link to view <a href='https://menlopark.maps.arcgis.com/apps/InformationLookup/index.html?appid=83d9c16b24d2493893fde31135490a7e' target='_blank'>Current Districts</a>.</p>\
+     <p><strong>Note for all public map submissions:</strong> The Max Population Deviation only displays information for the district \
+     with the greatest deviation from ideal. This number does not reflect the total population variance between all districts. As a best \
+     practice, <strong>keep the Max Population Deviation under 5%</strong> to ensure a viable map for population balance.</p>",
   ourmaps: 'Welcome to the event page for OurMaps!',
   commoncausepa: "<p>Welcome to the Community Mapping page managed by Common Cause PA.<p>\
   <p>This is a space where maps created by Communities of Interest (COI) are held until the COI determines what will be done with that map \
