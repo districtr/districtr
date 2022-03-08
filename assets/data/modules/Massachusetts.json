@@ -2979,14 +2979,14 @@
     ]
   },
   {
-    "state": "Massachusetts",
     "id": "ma_worcester",
+    "state": "Massachusetts",
     "name": "Worcester",
     "units": [
       {
         "id": "blocks20",
         "name": "2020 Blocks",
-        "unitType": "2020 Blocks",
+        "unitType": "Blocks",
         "columnSets": [
           {
             "type": "population",
@@ -3058,9 +3058,9 @@
               {
                 "key": "COPOP20",
                 "name": "Coalition population",
-                "sum": 88485,
+                "sum": 83366,
                 "min": 0,
-                "max": 1085
+                "max": 1031
               }
             ]
           },
@@ -3134,9 +3134,9 @@
               {
                 "key": "COVAP20",
                 "name": "Coalition population",
-                "sum": 61873,
+                "sum": 58632,
                 "min": 0,
-                "max": 727
+                "max": 697
               }
             ]
           }
