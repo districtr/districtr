@@ -1330,6 +1330,11 @@ export function spatial_abilities(id) {
     number_markers: true,
     coalition: false,
   },
+  ca_diamond_bar: {
+    border: true,
+    number_markers: true,
+    coalition: false,
+  },
   redwood: {
     border: true,
     shapefile: true,
