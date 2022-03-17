@@ -1347,7 +1347,8 @@ export function spatial_abilities(id) {
         label: 'School Districts',
         centroids: true,
         namefield: 'NAME',
-        path: 'ca_diamond_bar/school_districts'
+        path: 'ca_diamond_bar/school_districts',
+        lineWidth: 0.5
       }
     ]
   },
