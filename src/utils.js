@@ -1334,6 +1334,22 @@ export function spatial_abilities(id) {
     border: true,
     number_markers: true,
     coalition: false,
+    boundaries: [
+      {
+        id: 'parks',
+        label: 'Parks',
+        centroids: true,
+        namefield: 'NAME',
+        path: 'ca_diamond_bar/parks'
+      },
+      {
+        id: 'school_districts',
+        label: 'School Districts',
+        centroids: true,
+        namefield: 'NAME',
+        path: 'ca_diamond_bar/school_districts'
+      }
+    ]
   },
   redwood: {
     border: true,

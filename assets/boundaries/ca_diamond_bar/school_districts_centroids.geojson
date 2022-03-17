@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 294, "AREA": 0.00794281, "PERIMETER": 0.47118523, "SN06_D00_": 295, "SN06_D00_I": 294, "STATE": "06", "SD_U": "31320", "NAME": "POMONA UNIFIED", "LSAD": "S3", "LSAD_TRANS": null, "Shape_area": 875622002.73300004, "Shape_len": 155355.55983000001 }, "geometry": { "type": "Point", "coordinates": [ -117.775856822378756, 34.048088151067184 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 302, "AREA": 0.00544905, "PERIMETER": 0.46655551, "SN06_D00_": 303, "SN06_D00_I": 302, "STATE": "06", "SD_U": "41280", "NAME": "WALNUT VALLEY UNIFIED", "LSAD": "S3", "LSAD_TRANS": null, "Shape_area": 601068259.60399997, "Shape_len": 154546.101864 }, "geometry": { "type": "Point", "coordinates": [ -117.834158029483135, 33.995222951560159 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 306, "AREA": 0.00627945, "PERIMETER": 0.40079768, "SN06_D00_": 307, "SN06_D00_I": 306, "STATE": "06", "SD_U": "33750", "NAME": "ROWLAND UNIFIED", "LSAD": "S3", "LSAD_TRANS": null, "Shape_area": 692725621.63399994, "Shape_len": 133794.21754799999 }, "geometry": { "type": "Point", "coordinates": [ -117.894085200477406, 33.990867415526608 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 307, "AREA": 0.02141017, "PERIMETER": 0.68962046, "SN06_D00_": 308, "SN06_D00_I": 307, "STATE": "06", "SD_U": "08460", "NAME": "CHINO VALLEY UNIFIED", "LSAD": "S3", "LSAD_TRANS": null, "Shape_area": 2362519704.5300002, "Shape_len": 228826.82862099999 }, "geometry": { "type": "Point", "coordinates": [ -117.695167669616538, 33.969595696936977 ] } }
+]
+}

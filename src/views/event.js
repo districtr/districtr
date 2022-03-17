@@ -2680,6 +2680,8 @@ export default () => {
         } else if (eventCode === "pimaaz") {
           document.getElementById("districting-options-title").innerHTML = "<p>Click the purple box below to start with a blank map. If you’d prefer to start using the current district boundaries, click <a href='https://districtr.org/edit/113736?event=pimaaz' target=_blank>here</a>. After working, click “Save” in the upper right corner of the mapping module to save your work. Copy the URL shown in the “Save” box so that you can return to your map. To display your map on this page, either as a proposed plan or a draft, click the “Share to Gallery” button.</p><p><strong>Note: The maximum population deviation shown on the Population tab displays the maximum population deviation of any <u>single</u> district from ideal size.</strong> This isn’t the method used to calculate the 10 percent deviation statutory requirement. To ensure your plan has less than 10 percent deviation, hover over the District bars and sum the deviations (ignoring negative percentages) for the highest- and lowest-populated Districts.</p>";
           document.getElementById("about-section").innerHTML = document.getElementById("about-section").innerHTML.replace("<h2>About</h2>", "");
+        } else if (eventCode === "diamond_bar") {
+          document.getElementById("districting-options-title").innerHTML = "<p>Click below to start with a blank map. Please note that zooming into the map will allow you to see various points of interest and street names in greater detail.</p>";
         }
 
     if (["mp-maps"].includes(eventCode)) {
