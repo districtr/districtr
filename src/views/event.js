@@ -154,7 +154,8 @@ commoncausepa: 'Pennsylvania',
   "draweg": "California",
   "open_space_authority": "California",
   "pimaaz": "Arizona",
-  "west_sacramento": "California"
+  "west_sacramento": "California",
+  "diamond_bar": "California"
 };
 
 const validEventCodes = {
@@ -298,7 +299,8 @@ commoncausepa: 'pennsylvania',
   "draweg": "ca_elkgrove",
   "open_space_authority": "ca_scvosa",
   "pimaaz": "az_pima",
-  "west_sacramento": "ca_west_sac"
+  "west_sacramento": "ca_west_sac",
+  "diamond_bar": "ca_diamond_bar"
 };
 
 const blockPlans = {
@@ -533,7 +535,8 @@ const hybrid_events = [
   "belmont",
   "draweg",
   "open_space_authority",
-  "west_sacramento"
+  "west_sacramento",
+  "diamond_bar"
 ];
 
 const portal_events = [
@@ -1780,6 +1783,34 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       mapping module, select “Share Now”, and then click on the “Share to Gallery” button. A “Team” 
       or “Plan Name” is optional.
     </p>
+  `,
+  "diamond_bar": `
+    <p>
+      The City of Diamond Bar is in the process of moving from an at-large election system to a 
+      by-district election system. To draw these new districts we need to hear from you as it’s 
+      important to know about your community so that the district lines can amplify the voices of 
+      residents. Learn more at <a href='https://www.diamondbarca.gov/1070/City-Council-Districting' target=_blank>Districting Diamond Bar</a>.
+    </p>
+    <p>
+      Examples of communities can include neighborhoods, areas where many residents speak the same 
+      language, or areas where the residents use the same community facilities. It’s basically any 
+      area of the city where people have a common interest that needs a voice in government.
+    </p>
+    <p>
+      <strong>We need your help to build a community map and our new city council district map! 
+      Please use this tool to identify the boundaries of your community and provide your proposed 
+      city council district lines.</strong>
+    </p>
+    <p>
+      Every map submitted will be carefully reviewed by professional demographers and decision 
+      makers who are charged with drawing the City Council District Map.
+    </p>
+    <p>
+      Get started by clicking the orange or purple button to draw your community of interest or 
+      a city council district map. To share your map, click “Save” in the upper right corner of 
+      the mapping module. To pin your map to this page, be sure the tag “Diamond Bar” (any 
+      capitalization) is entered.
+    </p>
   `
 };
 
@@ -2601,6 +2632,15 @@ butte_county: [
       To learn more about their team click 
       <a href='https://redistrictingpartners.com/about/' target=_blank>here</a>.
     `
+  ],
+  "diamond_bar": [
+    `
+      This mapping module uses the official Redistricting Database for California, published by 
+      the Statewide Database with processing by Redistricting Partners. For the last decade, 
+      Redistricting Partners has supported cities, community college districts, school boards, 
+      hospital districts, water boards, and other special districts. To learn more about their 
+      team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    `
   ]
 };
 
@@ -2640,6 +2680,8 @@ export default () => {
         } else if (eventCode === "pimaaz") {
           document.getElementById("districting-options-title").innerHTML = "<p>Click the purple box below to start with a blank map. If you’d prefer to start using the current district boundaries, click <a href='https://districtr.org/edit/113736?event=pimaaz' target=_blank>here</a>. After working, click “Save” in the upper right corner of the mapping module to save your work. Copy the URL shown in the “Save” box so that you can return to your map. To display your map on this page, either as a proposed plan or a draft, click the “Share to Gallery” button.</p><p><strong>Note: The maximum population deviation shown on the Population tab displays the maximum population deviation of any <u>single</u> district from ideal size.</strong> This isn’t the method used to calculate the 10 percent deviation statutory requirement. To ensure your plan has less than 10 percent deviation, hover over the District bars and sum the deviations (ignoring negative percentages) for the highest- and lowest-populated Districts.</p>";
           document.getElementById("about-section").innerHTML = document.getElementById("about-section").innerHTML.replace("<h2>About</h2>", "");
+        } else if (eventCode === "diamond_bar") {
+          document.getElementById("districting-options-title").innerHTML = "<p>Click below to start with a blank map. Please note that zooming into the map will allow you to see various points of interest and street names in greater detail.</p>";
         }
 
     if (["mp-maps"].includes(eventCode)) {

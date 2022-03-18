@@ -32096,6 +32096,154 @@
         "pluralNoun": "Council Districts"
       }
     ]
+  },
+  {
+    "state": "California",
+    "name": "Diamond Bar",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 55181,
+              "min": 0,
+              "max": 1290
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 10847,
+                "min": 0,
+                "max": 334
+              },
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 8134,
+                "min": 0,
+                "max": 265
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 1756,
+                "min": 0,
+                "max": 42
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 32628,
+                "min": 0,
+                "max": 786
+              },
+              {
+                "key": "LF_20_AiAn",
+                "name": "American Indian population",
+                "sum": 56,
+                "min": 0,
+                "max": 7
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total CVAP",
+              "sum": 38179,
+              "min": 0,
+              "max": 1106
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_White Alone",
+                "name": "White population",
+                "sum": 8171,
+                "min": 0,
+                "max": 322
+              },
+              {
+                "key": "CVAP_15-19_Black or African American Alone",
+                "name": "Black population",
+                "sum": 1610,
+                "min": 0,
+                "max": 50
+              },
+              {
+                "key": "CVAP_15-19_Asian Alone",
+                "name": "Asian population",
+                "sum": 20148,
+                "min": 0,
+                "max": 484
+              },
+              {
+                "key": "CVAP_15-19_Hispanic or Latino",
+                "name": "Hispanic population",
+                "sum": 7361,
+                "min": 0,
+                "max": 414
+              },
+              {
+                "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+                "name": "American Indian population",
+                "sum": 95,
+                "min": 0,
+                "max": 40
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -117.8639,
+            33.9607
+          ],
+          [
+            -117.767,
+            34.0428
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_diamond_bar_blocks20"
+            },
+            "sourceLayer": "ca_diamond_bar_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_diamond_bar_blocks20_points"
+            },
+            "sourceLayer": "ca_diamond_bar_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "id": "ca_diamond_bar",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]
-  
