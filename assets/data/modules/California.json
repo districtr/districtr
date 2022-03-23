@@ -32245,5 +32245,189 @@
         "pluralNoun": "Council Districts"
       }
     ]
+  },
+  {
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 34738,
+              "min": 0,
+              "max": 1846
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 15186,
+                "min": 0,
+                "max": 659
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 480,
+                "min": 0,
+                "max": 89
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 16667,
+                "min": 0,
+                "max": 1388
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 779,
+                "min": 0,
+                "max": 47
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 110,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 108,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 1246,
+                "min": 0,
+                "max": 47
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 161,
+                "min": 0,
+                "max": 11
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP",
+              "name": "Citizen voting age population",
+              "sum": 22332,
+              "min": 0,
+              "max": 789
+            },
+            "subgroups": [
+              {
+                "key": "WCVAP",
+                "name": "White population",
+                "sum": 13642,
+                "min": 0,
+                "max": 595
+              },
+              {
+                "key": "BCVAP",
+                "name": "Black population",
+                "sum": 514,
+                "min": 0,
+                "max": 93
+              },
+              {
+                "key": "HCVAP",
+                "name": "Hispanic population",
+                "sum": 7125,
+                "min": 0,
+                "max": 393
+              },
+              {
+                "key": "AMINCVAP",
+                "name": "Native American population",
+                "sum": 113,
+                "min": 0,
+                "max": 21
+              },
+              {
+                "key": "NHPICVAP",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 79,
+                "min": 0,
+                "max": 51
+              },
+              {
+                "key": "ASIANCVAP",
+                "name": "Asian population",
+                "sum": 586,
+                "min": 0,
+                "max": 135
+              },
+              {
+                "key": "OTHERCVAP",
+                "name": "Other races population",
+                "sum": 128,
+                "min": 0,
+                "max": 36
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -117.3975,
+            33.3146
+          ],
+          [
+            -117.1784,
+            33.47
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_fpud_blocks20"
+            },
+            "sourceLayer": "ca_fpud_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_fpud_blocks20_points"
+            },
+            "sourceLayer": "ca_fpud_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "id": "ca_fpud",
+    "name": "Fallbrook Public Utilities District",
+    "districtingProblems": [
+      {
+        "name": "Board of Directors",
+        "numberOfParts": 5,
+        "pluralNoun": "Divisions"
+      }
+    ]
   }
 ]
