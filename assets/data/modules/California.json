@@ -32247,6 +32247,8 @@
     ]
   },
   {
+    "id": "ca_fpud_",
+    "name": "Fallbrook Public Utilities District",
     "state": "California",
     "units": [
       {
@@ -32405,23 +32407,21 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_fpud_blocks20"
+              "url": "mapbox://districtr.ca_fpud__blocks20"
             },
-            "sourceLayer": "ca_fpud_blocks20"
+            "sourceLayer": "ca_fpud__blocks20"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ca_fpud_blocks20_points"
+              "url": "mapbox://districtr.ca_fpud__blocks20_points"
             },
-            "sourceLayer": "ca_fpud_blocks20_points"
+            "sourceLayer": "ca_fpud__blocks20_points"
           }
         ]
       }
     ],
-    "id": "ca_fpud",
-    "name": "Fallbrook Public Utilities District",
     "districtingProblems": [
       {
         "name": "Board of Directors",
