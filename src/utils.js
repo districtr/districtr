@@ -1352,6 +1352,18 @@ export function spatial_abilities(id) {
       }
     ]
   },
+  ca_fpud: {
+    border: true,
+    number_markers: true,
+    coalition: false,
+    boundaries: [
+      {
+        id: 'current_divisions',
+        label: 'Current Divisions',
+        path: 'ca_fpud/current_divisions',
+      }
+    ]
+  },
   redwood: {
     border: true,
     shapefile: true,
