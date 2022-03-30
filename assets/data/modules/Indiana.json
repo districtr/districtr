@@ -1229,5 +1229,236 @@
         "pluralNoun": "State Senate Districts"
       }
     ]
+  },
+  {
+    "state": "Indiana",
+    "units": [
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 977203,
+              "min": 0,
+              "max": 4730
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 493665,
+                "min": 0,
+                "max": 3478
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 265659,
+                "min": 0,
+                "max": 2250
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 129286,
+                "min": 0,
+                "max": 1985
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 39827,
+                "min": 0,
+                "max": 1755
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 1752,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 374,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "2MORE",
+                "name": "Two or more races",
+                "sum": 41267,
+                "min": 0,
+                "max": 268
+              },
+              {
+                "key": "OTHER",
+                "name": "Other races",
+                "sum": 5373,
+                "min": 0,
+                "max": 46
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 742442,
+              "min": 0,
+              "max": 3828
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White population",
+                "sum": 411843,
+                "min": 0,
+                "max": 3031
+              },
+              {
+                "key": "BVAP",
+                "name": "Black population",
+                "sum": 191837,
+                "min": 0,
+                "max": 1489
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic population",
+                "sum": 81133,
+                "min": 0,
+                "max": 1255
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American population",
+                "sum": 1424,
+                "min": 0,
+                "max": 15
+              },
+              {
+                "key": "NHPIVAP",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 291,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian population",
+                "sum": 27888,
+                "min": 0,
+                "max": 1039
+              },
+              {
+                "key": "OTHERVAP",
+                "name": "Other races population",
+                "sum": 3268,
+                "min": 0,
+                "max": 30
+              },
+              {
+                "key": "2MOREVAP",
+                "name": "Two or more races population",
+                "sum": 24758,
+                "min": 0,
+                "max": 119
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2015 Mayor",
+            "subgroups": [
+              {
+                "key": "MAYOR15R",
+                "name": "Republican",
+                "sum": 56661,
+                "min": 0,
+                "max": 363
+              },
+              {
+                "key": "MAYOR15D",
+                "name": "Democratic",
+                "sum": 92830,
+                "min": 0,
+                "max": 415
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2019 Mayor",
+            "subgroups": [
+              {
+                "key": "MAYOR19R",
+                "name": "Republican",
+                "sum": 40903,
+                "min": 0,
+                "max": 274
+              },
+              {
+                "key": "MAYOR19D",
+                "name": "Democratic",
+                "sum": 109084,
+                "min": 0,
+                "max": 538
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -86.3281,
+            39.6322
+          ],
+          [
+            -85.9374,
+            39.9274
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.indianapolis_cc_vtds20"
+            },
+            "sourceLayer": "indianapolis_cc_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.indianapolis_cc_vtds20_points"
+            },
+            "sourceLayer": "indianapolis_cc_vtds20_points"
+          }
+        ]
+      }
+    ],
+    "name": "Indianapolis City-County Council",
+    "id": "indianapolis_cc",
+    "districtingProblems": [
+      {
+        "name": "City-County Council",
+        "numberOfParts": 25,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]

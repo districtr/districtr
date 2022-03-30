@@ -1,0 +1,25 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "OBJECTID": 1, "CITYNAME": "INDIANAPOLIS", "SHAPEAREA": 10259453206.1947, "SHAPELEN": 860666.77106672304 }, "geometry": { "type": "Point", "coordinates": [ -86.145782463081929, 39.777164604610924 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 2, "CITYNAME": "WILLIAMS CREEK", "SHAPEAREA": 9191005.4803185202, "SHAPELEN": 13419.051900572102 }, "geometry": { "type": "Point", "coordinates": [ -86.150366427748025, 39.900249924654247 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 3, "CITYNAME": "MERIDIAN HILLS", "SHAPEAREA": 41323327.069457501, "SHAPELEN": 35748.585194202198 }, "geometry": { "type": "Point", "coordinates": [ -86.156663391450834, 39.887347318041499 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 4, "CITYNAME": "NORTH CROW'S NEST", "SHAPEAREA": 1382731.1476187401, "SHAPELEN": 6267.0012468801106 }, "geometry": { "type": "Point", "coordinates": [ -86.162700616640066, 39.866374260533973 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 5, "CITYNAME": "CROW'S NEST", "SHAPEAREA": 11151493.3455476, "SHAPELEN": 16861.842291608402 }, "geometry": { "type": "Point", "coordinates": [ -86.169305508416514, 39.856641780109626 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 6, "CITYNAME": "ROCKY RIPPLE", "SHAPEAREA": 7468055.1602128502, "SHAPELEN": 14371.686531428901 }, "geometry": { "type": "Point", "coordinates": [ -86.173168960126617, 39.848416519512604 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 7, "CITYNAME": "HIGHWOODS", "SHAPEAREA": 1342199.38117162, "SHAPELEN": 6586.1975060227505 }, "geometry": { "type": "Point", "coordinates": [ -86.188327770834974, 39.842421770103826 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 8, "CITYNAME": "SPRING HILLS", "SHAPEAREA": 2507097.15927148, "SHAPELEN": 7609.6767700118098 }, "geometry": { "type": "Point", "coordinates": [ -86.192784164928611, 39.834883098207143 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 9, "CITYNAME": "WYNNEDALE", "SHAPEAREA": 4479386.7440221403, "SHAPELEN": 9208.4164559184301 }, "geometry": { "type": "Point", "coordinates": [ -86.200047003140966, 39.832447585348504 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 10, "CITYNAME": "CLERMONT", "SHAPEAREA": 18628805.964180801, "SHAPELEN": 25692.614325577601 }, "geometry": { "type": "Point", "coordinates": [ -86.320652864882092, 39.816383742968249 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 11, "CITYNAME": "WARREN PARK", "SHAPEAREA": 2972443.2934173001, "SHAPELEN": 7687.4440686399003 }, "geometry": { "type": "Point", "coordinates": [ -86.047945564231313, 39.78525322626102 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 12, "CITYNAME": "WARREN PARK", "SHAPEAREA": 9328085.7490655109, "SHAPELEN": 19012.9680933091 }, "geometry": { "type": "Point", "coordinates": [ -86.052796469168243, 39.782438526928104 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 13, "CITYNAME": "CUMBERLAND", "SHAPEAREA": 19572126.309863001, "SHAPELEN": 21164.7441434313 }, "geometry": { "type": "Point", "coordinates": [ -85.962228123980395, 39.777360563368674 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 14, "CITYNAME": "HOMECROFT", "SHAPEAREA": 6096476.9421363799, "SHAPELEN": 12426.991597627601 }, "geometry": { "type": "Point", "coordinates": [ -86.131060896015853, 39.669659032728731 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 15, "CITYNAME": "LAWRENCE", "SHAPEAREA": 565075930.81683803, "SHAPELEN": 129080.58236150299 }, "geometry": { "type": "Point", "coordinates": [ -85.9904700616611, 39.867395158792256 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 16, "CITYNAME": "SPEEDWAY", "SHAPEAREA": 132199456.180105, "SHAPELEN": 81904.765677453892 }, "geometry": { "type": "Point", "coordinates": [ -86.24812577071782, 39.793904906951759 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 17, "CITYNAME": "BEECH GROVE", "SHAPEAREA": 124149405.645602, "SHAPELEN": 65198.303287524701 }, "geometry": { "type": "Point", "coordinates": [ -86.087005268402294, 39.715707802568176 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 18, "CITYNAME": "BEECH GROVE", "SHAPEAREA": 201469.77652546801, "SHAPELEN": 2596.2032121798197 }, "geometry": { "type": "Point", "coordinates": [ -86.080701308895755, 39.702626942002603 ] } },
+{ "type": "Feature", "properties": { "OBJECTID": 19, "CITYNAME": "SOUTHPORT", "SHAPEAREA": 17172410.541872598, "SHAPELEN": 20556.200612119002 }, "geometry": { "type": "Point", "coordinates": [ -86.117303151182213, 39.660087580102505 ] } }
+]
+}

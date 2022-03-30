@@ -1364,6 +1364,27 @@ export function spatial_abilities(id) {
       }
     ]
   },
+  indianapolis_cc: {
+    border: true,
+    number_markers: true,
+    coalition: false,
+    boundaries: [
+      {
+        id: 'neighborhoods',
+        label: 'Neighborhoods',
+        path: 'indianapolis_cc/neighborhoods',
+        centroids: true,
+        namefield: 'NAME'
+      },
+      {
+        id: 'cities_and_towns',
+        label: 'Cities and Towns',
+        path: 'indianapolis_cc/cities_and_towns',
+        centroids: true,
+        namefield: 'CITYNAME'
+      }
+    ]
+  },
   redwood: {
     border: true,
     shapefile: true,

@@ -1099,6 +1099,16 @@
         "ids": ["indiana"],
         "default": "true",
         "id": "state"
+      },
+      {
+        "name": "Counties",
+        "ids": ["indianapolis_cc"],
+        "id": "counties"
+      },
+      {
+        "name": "Cities",
+        "ids": ["indianapolis_cc"],
+        "id": "loc"
       }
     ],
     "sections": [
