@@ -2771,13 +2771,11 @@
     ]
   },
   {
-    "id": "dallastx",
-    "name": "Dallas",
     "units": [
       {
-        "id": "blocks",
+        "id": "blocks20",
         "name": "2020 Blocks",
-        "unitType": "Blocks",
+        "unitType": "2020 Blocks",
         "columnSets": [
           {
             "type": "population",
@@ -2860,18 +2858,18 @@
             },
             "subgroups": [
               {
-                "key": "WVAP",
+                "key": "NH_WVAP",
                 "name": "White voting age population",
-                "sum": 388331,
+                "sum": 318767,
                 "min": 0,
-                "max": 1175
+                "max": 959
               },
               {
-                "key": "BVAP",
+                "key": "NH_BVAP",
                 "name": "Black voting age population",
-                "sum": 232908,
+                "sum": 230257,
                 "min": 0,
-                "max": 1352
+                "max": 1325
               },
               {
                 "key": "HVAP",
@@ -2881,39 +2879,39 @@
                 "max": 1174
               },
               {
-                "key": "AMINVAP",
+                "key": "NH_AMINVAP",
                 "name": "Native American voting age population",
-                "sum": 11076,
+                "sum": 2353,
                 "min": 0,
-                "max": 52
+                "max": 12
               },
               {
-                "key": "NHPIVAP",
+                "key": "NH_NHPIVAP",
                 "name": "Native Hawaiian and Pacific Islander voting age population",
-                "sum": 513,
+                "sum": 354,
                 "min": 0,
                 "max": 11
               },
               {
-                "key": "ASIANVAP",
+                "key": "NH_ASIANVA",
                 "name": "Asian voting age population",
-                "sum": 40651,
+                "sum": 40191,
                 "min": 0,
                 "max": 653
               },
               {
-                "key": "OTHERVAP",
+                "key": "NH_OTHERVA",
                 "name": "Other races voting age population",
-                "sum": 176427,
+                "sum": 3594,
                 "min": 0,
-                "max": 668
+                "max": 59
               },
               {
-                "key": "2MOREVAP",
+                "key": "NH_2MOREVA",
                 "name": "Two or more races voting age population",
-                "sum": 149799,
+                "sum": 23227,
                 "min": 0,
-                "max": 499
+                "max": 61
               }
             ]
           }
@@ -2934,25 +2932,27 @@
         ],
         "tilesets": [
           {
-            "type": "circle",
-            "source": {
-              "type": "vector",
-              "url": "mapbox://districtr.dallastx_blocks_points?v=2"
-            },
-            "sourceLayer": "dallastx_blocks_points"
-          },
-          {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.dallastx_blocks?v=2"
+              "url": "mapbox://districtr.dallastx_blocks20"
             },
-            "sourceLayer": "dallastx_blocks"
+            "sourceLayer": "dallastx_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.dallastx_blocks20_points"
+            },
+            "sourceLayer": "dallastx_blocks20_points"
           }
         ]
       }
     ],
     "state": "Texas",
+    "id": "dallastx",
+    "name": "Dallas",
     "districtingProblems": [
       {
         "name": "City Council",
