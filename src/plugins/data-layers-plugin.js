@@ -228,27 +228,19 @@ export default function DataLayersPlugin(editor) {
         let vapEquivalents = {
           NH_WHITE: 'WVAP',
           WHITE: 'WVAP',
-          NH_WVAP: 'WVAP',
           NH_BLACK: 'BVAP',
           BLACK: 'BVAP',
-          NH_BVAP: 'BVAP',
           HISP: 'HVAP',
-          HVAP: 'HVAP',
           NH_ASIAN: 'ASIANVAP',
           ASIAN: 'ASIANVAP',
-          NH_ASIANVA: 'ASIANVAP',
           NH_AMIN: 'AMINVAP',
           AMIN: 'AMINVAP',
-          NH_AMINVAP: 'AMINVAP',
           NH_NHPI: 'NHPIVAP',
           NHPI: 'NHPIVAP',
-          NH_NHPIVAP: 'NHPIVAP',
           'NH_2MORE': '2MOREVAP',
           '2MORE': '2MOREVAP',
-          'NH_2MOREVA': '2MOREVAP',
           NH_OTHER: 'OTHERVAP',
           OTHER: 'OTHERVAP',
-          NH_OTHERVA: 'OTHERVAP'
         };
 
         const coalitionPivot = CoalitionPivotTable(
