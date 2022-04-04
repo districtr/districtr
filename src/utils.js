@@ -317,6 +317,13 @@ export function spatial_abilities(id) {
       school_districts: true,
       municipalities: true,
       current_districts: true,
+      boundaries: [
+        {
+          id: '2021_plan',
+          label: '2021 Proclamation Plan',
+          path: 'current_districts/alaska/2021_plan'
+        }
+      ],
       portal: {
         endpoint: 'https://www.akredistrict.org/map-comment',
       },
