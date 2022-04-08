@@ -2041,5 +2041,196 @@
         "name": "Public Education Commission"
       }
     ]
+  },
+  {
+    "id": "nm_abq",
+    "state": "New Mexico",
+    "name": "Albuquerque",
+    "units": [
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TPOP",
+              "name": "Total population",
+              "sum": 564550,
+              "min": 0,
+              "max": 2372
+            },
+            "subgroups": [
+              {
+                "key": "TNWHITE",
+                "name": "White population",
+                "sum": 212965,
+                "min": 0,
+                "max": 821
+              },
+              {
+                "key": "TNBLACK",
+                "name": "Black population",
+                "sum": 16649,
+                "min": 0,
+                "max": 215
+              },
+              {
+                "key": "THISP",
+                "name": "Hispanic population",
+                "sum": 269231,
+                "min": 0,
+                "max": 1985
+              },
+              {
+                "key": "TNASIAN",
+                "name": "Asian population",
+                "sum": 18041,
+                "min": 0,
+                "max": 280
+              },
+              {
+                "key": "TNAMIND",
+                "name": "American Indian population",
+                "sum": 25195,
+                "min": 0,
+                "max": 341
+              },
+              {
+                "key": "TNHAWPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 483,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "TN2MRACES",
+                "name": "Two or more races",
+                "sum": 19098,
+                "min": 0,
+                "max": 101
+              },
+              {
+                "key": "TNOTHER",
+                "name": "Other races",
+                "sum": 2888,
+                "min": 0,
+                "max": 32
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 445560,
+              "min": 0,
+              "max": 1818
+            },
+            "subgroups": [
+              {
+                "key": "VNWHITE",
+                "name": "White population",
+                "sum": 185563,
+                "min": 0,
+                "max": 772
+              },
+              {
+                "key": "VNBLACK",
+                "name": "Black population",
+                "sum": 13254,
+                "min": 0,
+                "max": 186
+              },
+              {
+                "key": "VHISP",
+                "name": "Hispanic population",
+                "sum": 196634,
+                "min": 0,
+                "max": 1317
+              },
+              {
+                "key": "VNAMIND",
+                "name": "Native American population",
+                "sum": 19209,
+                "min": 0,
+                "max": 224
+              },
+              {
+                "key": "VNHAWPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 406,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "VNASIAN",
+                "name": "Asian population",
+                "sum": 14861,
+                "min": 0,
+                "max": 202
+              },
+              {
+                "key": "VNOTHER",
+                "name": "Other races population",
+                "sum": 2252,
+                "min": 0,
+                "max": 29
+              },
+              {
+                "key": "VN2MRACES",
+                "name": "Two or more races population",
+                "sum": 13381,
+                "min": 0,
+                "max": 75
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "VTD FIPS code",
+          "key": "VTDID"
+        },
+        "bounds": [
+          [
+            -106.8728,
+            34.9468
+          ],
+          [
+            -106.4712,
+            35.218
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nm_abq_vtds20"
+            },
+            "sourceLayer": "nm_abq_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.nm_abq_vtds20_points"
+            },
+            "sourceLayer": "nm_abq_vtds20_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 9,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]
