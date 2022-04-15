@@ -1299,7 +1299,7 @@ export function spatial_abilities(id) {
       {
         id: 'senate',
         label: 'Senate Districts',
-        path: 'az_pmaricopa/senate'
+        path: 'az_maricopa/senate'
       },
       {
         id: 'congressional',
