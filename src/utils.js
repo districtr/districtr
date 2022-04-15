@@ -1291,6 +1291,40 @@ export function spatial_abilities(id) {
       }
     ]
   },
+  az_maricopa: {
+    border: true,
+    number_markers: true,
+    coalition: false,
+    boundaries: [
+      {
+        id: 'senate',
+        label: 'Senate Districts',
+        path: 'az_pmaricopa/senate'
+      },
+      {
+        id: 'congressional',
+        label: 'Congressional Districts',
+        path: 'az_maricopa/congressional'
+      },
+      {
+        id: "legislative",
+        label: "Legislative Districts",
+        path: "az_maricopa/legislative"
+      },
+      {
+        id: 'current',
+        label: 'Current Districts',
+        path: 'az_maricopa/current'
+      },
+      {
+        id: 'cities',
+        label: 'Cities',
+        centroids: true,
+        namefield: 'Juris',
+        path: 'az_maricopa/cities'
+      }
+    ]
+  },
   sanjoseca: {
     border: true,
     shapefile: true,

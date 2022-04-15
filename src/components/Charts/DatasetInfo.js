@@ -28,6 +28,7 @@ function datasetInfo(state) {
             cooperative_strategies: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by Cooperative Strategies",
             ca_elkgrove: "Uses <strong>adjusted 2020 Decennial Census population</strong> with processing by the City of Elk Grove",
             az_pima: "Uses <strong>2020 Decennial Census population</strong> with processing by Pima County",
+            az_maricopa: "Uses <strong>2020 Decennial Census population</strong> with processing by Maricopa County Recorder’s Office",
             haystaq_2020: "Uses <strong>2020 Decennial Census population</strong> with processing by Haystaq"
         },
         acsLocations = [
@@ -57,6 +58,8 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${populations.ca_elkgrove}`;
     } else if (["az_pima"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.az_pima}`;
+    } else if (["az_maricopa"].includes(place.id)) {
+        dataset = `<p><span>&#9432;</span> ${populations.az_maricopa}`;
     } else if (["ca_fpud"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.haystaq_2020}`;
     
