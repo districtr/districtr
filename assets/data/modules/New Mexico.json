@@ -2049,8 +2049,8 @@
     "units": [
       {
         "id": "vtds20",
-        "name": "2020 VTDs",
-        "unitType": "VTDs",
+        "name": "2021 Precincts",
+        "unitType": "Precincts",
         "columnSets": [
           {
             "type": "population",

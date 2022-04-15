@@ -1399,12 +1399,12 @@ export function spatial_abilities(id) {
     boundaries: [
       {
         id: 'current_districts',
-        label: 'Current Districts',
+        label: 'City Council Districts (enacted 2011)',
         path: 'nm_abq/current_districts',
       },
       {
         id: 'incumbents',
-        label: `Incumbents' VTDs`,
+        label: `Current City Councilor Locations`,
         path: 'nm_abq/incumbents',
         centroids: true,
         namefield: 'Name'
