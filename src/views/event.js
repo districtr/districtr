@@ -1851,7 +1851,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     </p>
     <p>
       The committee will consider a plan (that meets the above criteria) or community of interest 
-      submitted on this site, and if it is introduced by the creator during the public comment section 
+      submitted on this site, if it is introduced by the creator during the public comment section 
       of a meeting, or if it is introduced via the Public Comments page on the city’s redistricting website. If submitting 
       a plan or community of interest on the city’s website (<a href='https://www.cabq.gov/2022redistricting' target=_blank>www.cabq.gov/2022redistricting</a>), 
       please include the plan URL (plan link) in the “Your Comments” box.
