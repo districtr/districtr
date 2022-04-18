@@ -86,6 +86,7 @@ export class Subgroup extends NumericalColumn {
 }
 
 const ABBREVIATIONS = {
+
     NH_WHITE: "White",
     NH_BLACK: "Black",
     HISP: "Hispanic",
@@ -93,6 +94,7 @@ const ABBREVIATIONS = {
     NH_AMIN: "Native",
     AMIN: "AmIn/Alaskan",
     "AMINPOP20": "Native Am.",
+    "VNAMIND": "Native Am.",
     NH_NHPI: "NH/PI",
     NHPI: "NH/PI",
     "NHPIPOP20": "NH/PI",

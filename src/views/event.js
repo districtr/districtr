@@ -155,7 +155,8 @@ commoncausepa: 'Pennsylvania',
   "open_space_authority": "California",
   "pimaaz": "Arizona",
   "west_sacramento": "California",
-  "diamond_bar": "California"
+  "diamond_bar": "California",
+  "drawabq": "New Mexico"
 };
 
 const validEventCodes = {
@@ -300,7 +301,8 @@ commoncausepa: 'pennsylvania',
   "open_space_authority": "ca_scvosa",
   "pimaaz": "az_pima",
   "west_sacramento": "ca_west_sac",
-  "diamond_bar": "ca_diamond_bar"
+  "diamond_bar": "ca_diamond_bar",
+  "drawabq": "nm_abq"
 };
 
 const blockPlans = {
@@ -536,7 +538,8 @@ const hybrid_events = [
   "draweg",
   "open_space_authority",
   "west_sacramento",
-  "diamond_bar"
+  "diamond_bar",
+  "drawabq"
 ];
 
 const portal_events = [
@@ -1810,6 +1813,48 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       a city council district map. To share your map, click “Save” in the upper right corner of 
       the mapping module. To pin your map to this page, be sure the tag “Diamond Bar” (any 
       capitalization) is entered.
+    </p>
+  `,
+  "drawabq": `
+    <p>
+      Welcome to the City of Albuquerque’s redistricting 2022 public mapping portal!
+    </p>
+    <p>
+      Redistricting is the process of redrawing city council district boundaries based on the most 
+      recent population information about the City of Albuquerque. The goal of redistricting is to 
+      create nine City Council districts with substantially equal population.
+    </p>
+    <p>
+      Albuquerque’s City Charter creates a redistricting committee of community members appointed 
+      by City Councilors to represent each of the nine City Council districts. You can find more 
+      information or provide written comment on the City’s redistricting website at 
+      <a href='https://www.cabq.gov/2022redistricting' target=_blank>www.cabq.gov/2022redistricting</a>.
+    </p>
+    <p>
+      The public can participate in the redistricting process by drawing maps and communities of 
+      interest using the tools on this site to draw your own plan, update existing concepts under 
+      committee consideration, or let the committee know about your community.
+    </p>
+    <p>
+      In order for a plan to be considered by the committee, make sure your map fits the following 
+      criteria.
+      <ul>
+        <li>
+          All districts are contiguous – meaning that all precincts assigned to a district are 
+          touching at least one other precinct assigned to that district.
+        </li>
+        <li>
+          The maximum population deviation does not exceed 5.00% (i.e. does not exceed +/- 5% 
+          deviation from the ideal population).
+        </li>
+      </ul>
+    </p>
+    <p>
+      The committee will consider a plan (that meets the above criteria) or community of interest 
+      submitted on this site, if it is introduced by the creator during the public comment section 
+      of a meeting, or if it is introduced via the Public Comments page on the city’s redistricting website. If submitting 
+      a plan or community of interest on the city’s website (<a href='https://www.cabq.gov/2022redistricting' target=_blank>www.cabq.gov/2022redistricting</a>), 
+      please include the plan URL (plan link) in the “Your Comments” box.
     </p>
   `
 };
