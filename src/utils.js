@@ -1777,7 +1777,7 @@ export function spatial_abilities(id) {
       boundaries: [
         {
           id: 'city_council',
-          label: 'City Council Districts',
+          label: 'City Council Districts (2020)',
           path: 'ma_worcester/city_council'
         },
         {
