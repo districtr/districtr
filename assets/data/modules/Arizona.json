@@ -36,6 +36,7 @@
         "id": "blocks",
         "name": "Blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
@@ -3352,6 +3353,197 @@
     "name": "Pima County",
     "state": "Arizona",
     "id": "az_pima",
+    "districtingProblems": [
+      {
+        "name": "Board of Supervisors",
+        "numberOfParts": 5,
+        "pluralNoun": "Supervisorial Districts"
+      }
+    ]
+  },
+  {
+    "name": "Maricopa County",
+    "id": "az_maricopa",
+    "units": [
+      {
+        "id": "precincts",
+        "name": "Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP20",
+              "name": "Total population",
+              "sum": 4420568,
+              "min": 0,
+              "max": 18453
+            },
+            "subgroups": [
+              {
+                "key": "WPOP20",
+                "name": "White population",
+                "sum": 2357571,
+                "min": 0,
+                "max": 8862
+              },
+              {
+                "key": "BPOP20",
+                "name": "Black population",
+                "sum": 245239,
+                "min": 0,
+                "max": 2502
+              },
+              {
+                "key": "HISP20",
+                "name": "Hispanic population",
+                "sum": 1351415,
+                "min": 0,
+                "max": 10840
+              },
+              {
+                "key": "ASIANPOP20",
+                "name": "Asian population",
+                "sum": 197910,
+                "min": 0,
+                "max": 4125
+              },
+              {
+                "key": "AMINPOP20",
+                "name": "American Indian population",
+                "sum": 68353,
+                "min": 0,
+                "max": 4228
+              },
+              {
+                "key": "NHPIPOP20",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 9579,
+                "min": 0,
+                "max": 226
+              },
+              {
+                "key": "2MOREPOP20",
+                "name": "Two or more races",
+                "sum": 20693,
+                "min": 0,
+                "max": 156
+              },
+              {
+                "key": "OTHERPOP20",
+                "name": "Other races",
+                "sum": 169808,
+                "min": 0,
+                "max": 811
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP20",
+              "name": "Voting age population",
+              "sum": 3382386,
+              "min": 0,
+              "max": 17333
+            },
+            "subgroups": [
+              {
+                "key": "WVAP20",
+                "name": "White voting age population",
+                "sum": 1963332,
+                "min": 0,
+                "max": 8515
+              },
+              {
+                "key": "BVAP20",
+                "name": "Black voting age population",
+                "sum": 180875,
+                "min": 0,
+                "max": 1964
+              },
+              {
+                "key": "HVAP20",
+                "name": "Hispanic voting age population",
+                "sum": 902740,
+                "min": 0,
+                "max": 6943
+              },
+              {
+                "key": "AMINVAP20",
+                "name": "Native American voting age population",
+                "sum": 50004,
+                "min": 0,
+                "max": 2819
+              },
+              {
+                "key": "NHPIVAP20",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 7051,
+                "min": 0,
+                "max": 130
+              },
+              {
+                "key": "ASIANVAP20",
+                "name": "Asian voting age population",
+                "sum": 156654,
+                "min": 0,
+                "max": 3965
+              },
+              {
+                "key": "OTHERVAP20",
+                "name": "Other races voting age population",
+                "sum": 106777,
+                "min": 0,
+                "max": 728
+              },
+              {
+                "key": "2MOREVAP20",
+                "name": "Two or more races voting age population",
+                "sum": 14953,
+                "min": 0,
+                "max": 144
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Voter Precinct Number",
+          "key": "PRECINCT"
+        },
+        "bounds": [
+          [
+            -113.334,
+            32.5049
+          ],
+          [
+            -111.0399,
+            34.0482
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.az_maricopa_precincts"
+            },
+            "sourceLayer": "az_maricopa_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.az_maricopa_precincts_points"
+            },
+            "sourceLayer": "az_maricopa_precincts_points"
+          }
+        ]
+      }
+    ],
+    "state": "Arizona",
     "districtingProblems": [
       {
         "name": "Board of Supervisors",

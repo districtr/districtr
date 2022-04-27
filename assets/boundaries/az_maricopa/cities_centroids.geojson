@@ -1,0 +1,31 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Juris": "APACHE JUNCTION" }, "geometry": { "type": "Point", "coordinates": [ -111.535020225887578, 33.398916658554619 ] } },
+{ "type": "Feature", "properties": { "Juris": "AVONDALE" }, "geometry": { "type": "Point", "coordinates": [ -112.323194545096726, 33.387498552489319 ] } },
+{ "type": "Feature", "properties": { "Juris": "BUCKEYE" }, "geometry": { "type": "Point", "coordinates": [ -112.642939472058757, 33.431312989973769 ] } },
+{ "type": "Feature", "properties": { "Juris": "CAREFREE" }, "geometry": { "type": "Point", "coordinates": [ -111.916093890020861, 33.823473620018234 ] } },
+{ "type": "Feature", "properties": { "Juris": "CAVE CREEK" }, "geometry": { "type": "Point", "coordinates": [ -111.980035251923312, 33.851274853928004 ] } },
+{ "type": "Feature", "properties": { "Juris": "CHANDLER" }, "geometry": { "type": "Point", "coordinates": [ -111.851265641195695, 33.282257650704445 ] } },
+{ "type": "Feature", "properties": { "Juris": "EL MIRAGE" }, "geometry": { "type": "Point", "coordinates": [ -112.327173659726895, 33.590480382790169 ] } },
+{ "type": "Feature", "properties": { "Juris": "FOUNTAIN HILLS" }, "geometry": { "type": "Point", "coordinates": [ -111.739914711064557, 33.607277987755566 ] } },
+{ "type": "Feature", "properties": { "Juris": "GILA BEND" }, "geometry": { "type": "Point", "coordinates": [ -112.71544951037572, 32.966384595391595 ] } },
+{ "type": "Feature", "properties": { "Juris": "GILBERT" }, "geometry": { "type": "Point", "coordinates": [ -111.746168929498637, 33.309944937553617 ] } },
+{ "type": "Feature", "properties": { "Juris": "GLENDALE" }, "geometry": { "type": "Point", "coordinates": [ -112.243529215712897, 33.57598319026998 ] } },
+{ "type": "Feature", "properties": { "Juris": "GOODYEAR" }, "geometry": { "type": "Point", "coordinates": [ -112.362147018839266, 33.261282510439813 ] } },
+{ "type": "Feature", "properties": { "Juris": "GUADALUPE" }, "geometry": { "type": "Point", "coordinates": [ -111.963162303659644, 33.366430304236111 ] } },
+{ "type": "Feature", "properties": { "Juris": "LITCHFIELD PARK" }, "geometry": { "type": "Point", "coordinates": [ -112.358526740734547, 33.502444512315961 ] } },
+{ "type": "Feature", "properties": { "Juris": "MESA" }, "geometry": { "type": "Point", "coordinates": [ -111.71670141770268, 33.400399849090796 ] } },
+{ "type": "Feature", "properties": { "Juris": "PARADISE VALLEY" }, "geometry": { "type": "Point", "coordinates": [ -111.959535677064281, 33.54341021723215 ] } },
+{ "type": "Feature", "properties": { "Juris": "PEORIA" }, "geometry": { "type": "Point", "coordinates": [ -112.29881198109949, 33.783969388080699 ] } },
+{ "type": "Feature", "properties": { "Juris": "PHOENIX" }, "geometry": { "type": "Point", "coordinates": [ -112.089220293424503, 33.572073403930808 ] } },
+{ "type": "Feature", "properties": { "Juris": "QUEEN CREEK" }, "geometry": { "type": "Point", "coordinates": [ -111.630820884139084, 33.23702410225696 ] } },
+{ "type": "Feature", "properties": { "Juris": "SCOTTSDALE" }, "geometry": { "type": "Point", "coordinates": [ -111.865104809083689, 33.687217105357114 ] } },
+{ "type": "Feature", "properties": { "Juris": "SURPRISE" }, "geometry": { "type": "Point", "coordinates": [ -112.451280546093415, 33.681520562130366 ] } },
+{ "type": "Feature", "properties": { "Juris": "TEMPE" }, "geometry": { "type": "Point", "coordinates": [ -111.931863564174549, 33.388107667240703 ] } },
+{ "type": "Feature", "properties": { "Juris": "TOLLESON" }, "geometry": { "type": "Point", "coordinates": [ -112.256023884997717, 33.447751993740958 ] } },
+{ "type": "Feature", "properties": { "Juris": "WICKENBURG" }, "geometry": { "type": "Point", "coordinates": [ -112.759955797987999, 33.96837964595224 ] } },
+{ "type": "Feature", "properties": { "Juris": "YOUNGTOWN" }, "geometry": { "type": "Point", "coordinates": [ -112.304841224276515, 33.584566048504463 ] } }
+]
+}
