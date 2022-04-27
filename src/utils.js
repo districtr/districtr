@@ -1426,6 +1426,25 @@ export function spatial_abilities(id) {
       }
     ]
   },
+  nm_abq: {
+    border: true,
+    number_markers: true,
+    coalition: false,
+    boundaries: [
+      {
+        id: 'current_districts',
+        label: 'City Council Districts (enacted 2011)',
+        path: 'nm_abq/current_districts',
+      },
+      {
+        id: 'incumbents',
+        label: `Current City Councilor Locations`,
+        path: 'nm_abq/incumbents',
+        centroids: true,
+        namefield: 'Name'
+      }
+    ]
+  },
   redwood: {
     border: true,
     shapefile: true,

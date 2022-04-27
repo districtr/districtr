@@ -2213,7 +2213,7 @@
         "default": "true",
         "id": "state"
       },
-      { "name": "Cities", "ids": ["santafe"], "id": "loc" }
+      { "name": "Cities", "ids": ["santafe", "nm_abq"], "id": "loc" }
     ],
     "sections": [
       {

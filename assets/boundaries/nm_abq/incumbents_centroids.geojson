@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4269" } },
+"features": [
+{ "type": "Feature", "properties": { "STATEFP20": "35", "COUNTYFP20": "001", "VTDID": "35001000206", "VTD": "000206", "VTD_Name": "206", "CABQ": "City of ABQ", "District": 1, "Name": "Sanchez" }, "geometry": { "type": "Point", "coordinates": [ -106.722757337508682, 35.153395312959987 ] } },
+{ "type": "Feature", "properties": { "STATEFP20": "35", "COUNTYFP20": "001", "VTDID": "35001000352", "VTD": "000352", "VTD_Name": "352", "CABQ": "City of ABQ", "District": 6, "Name": "Davis" }, "geometry": { "type": "Point", "coordinates": [ -106.607082574480785, 35.08333242629697 ] } },
+{ "type": "Feature", "properties": { "STATEFP20": "35", "COUNTYFP20": "001", "VTDID": "35001000172", "VTD": "000172", "VTD_Name": "172", "CABQ": "City of ABQ", "District": 5, "Name": "Lewis" }, "geometry": { "type": "Point", "coordinates": [ -106.672586969025858, 35.201827777029841 ] } },
+{ "type": "Feature", "properties": { "STATEFP20": "35", "COUNTYFP20": "001", "VTDID": "35001000051", "VTD": "000051", "VTD_Name": "51", "CABQ": "City of ABQ", "District": 3, "Name": "Peña" }, "geometry": { "type": "Point", "coordinates": [ -106.704953762225216, 35.072021198238119 ] } },
+{ "type": "Feature", "properties": { "STATEFP20": "35", "COUNTYFP20": "001", "VTDID": "35001000634", "VTD": "000634", "VTD_Name": "634", "CABQ": "City of ABQ", "District": 2, "Name": "Benton" }, "geometry": { "type": "Point", "coordinates": [ -106.672545435018876, 35.086605396849698 ] } },
+{ "type": "Feature", "properties": { "STATEFP20": "35", "COUNTYFP20": "001", "VTDID": "35001000598", "VTD": "000598", "VTD_Name": "598", "CABQ": "City of ABQ", "District": 8, "Name": "Jones" }, "geometry": { "type": "Point", "coordinates": [ -106.519471249003516, 35.157025590294914 ] } },
+{ "type": "Feature", "properties": { "STATEFP20": "35", "COUNTYFP20": "001", "VTDID": "35001000665", "VTD": "000665", "VTD_Name": "665", "CABQ": "City of ABQ", "District": 4, "Name": "Bassan" }, "geometry": { "type": "Point", "coordinates": [ -106.546275815300334, 35.188445067122885 ] } },
+{ "type": "Feature", "properties": { "STATEFP20": "35", "COUNTYFP20": "001", "VTDID": "35001000374", "VTD": "000374", "VTD_Name": "374", "CABQ": "City of ABQ", "District": 7, "Name": "Fiebelkorn" }, "geometry": { "type": "Point", "coordinates": [ -106.59102603874959, 35.101074774093881 ] } },
+{ "type": "Feature", "properties": { "STATEFP20": "35", "COUNTYFP20": "001", "VTDID": "35001000334", "VTD": "000334", "VTD_Name": "334", "CABQ": "City of ABQ", "District": 9, "Name": "Grout" }, "geometry": { "type": "Point", "coordinates": [ -106.495770395831357, 35.051003491954717 ] } }
+]
+}
