@@ -1297,9 +1297,9 @@ export function spatial_abilities(id) {
     coalition: false,
     boundaries: [
       {
-        id: 'senate',
-        label: 'Senate Districts',
-        path: 'az_maricopa/senate'
+        id: 'school',
+        label: 'School Districts',
+        path: 'az_maricopa/school'
       },
       {
         id: 'congressional',
