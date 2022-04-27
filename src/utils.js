@@ -1773,7 +1773,24 @@ export function spatial_abilities(id) {
     ma_worcester: {
       number_markers: true,
       coalition: false,
-      border: true
+      border: true,
+      boundaries: [
+        {
+          id: 'city_council',
+          label: 'City Council Districts (2020)',
+          path: 'ma_worcester/city_council'
+        },
+        {
+          id: 'wards',
+          label: 'Wards',
+          path: 'ma_worcester/wards'
+        },
+        {
+          id: "voting_precincts",
+          label: "Voting Precincts",
+          path: "ma_worcester/voting_precincts"
+        }
+      ]
     },
     massachusetts: {
       portal: {
