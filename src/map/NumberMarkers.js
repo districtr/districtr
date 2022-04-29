@@ -158,8 +158,6 @@ export default function NumberMarkers(state, brush) {
                 let stateName = state.place.id;
                 if (state.place.id === "dc") {
                   stateName = "district_of_columbia";
-                } else if (stateNameToFips[state.place.id] || state.unitsRecord.id.includes("blockgroup") || state.unitsRecord.id.includes("vtds20")) {
-                  stateName = state.place.state;
                 } else if (state.place.id === "nm_abq") {
                   // This is stupid, but because 2020 VTD modules grab the 
                   // statewide centroid CSV from S3 rather than the module-
@@ -168,7 +166,9 @@ export default function NumberMarkers(state, brush) {
                   // later these units were renamed 2021 Precincts (although 
                   // they retain the vtds20 unit id so that nothing that relies
                   // on that breaks).
-                  stateName = state.place.id
+                  stateName = state.place.id                    
+                } else if (stateNameToFips[state.place.id] || state.unitsRecord.id.includes("blockgroup") || state.unitsRecord.id.includes("vtds20")) {
+                  stateName = state.place.state;
                 }
                 const assign = markers[district_num];
                 fetch("https://gvd4917837.execute-api.us-east-1.amazonaws.com/district_center", {
