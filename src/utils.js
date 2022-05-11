@@ -1774,6 +1774,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       coalition: false,
       border: true,
+      shapefile: true,
       boundaries: [
         {
           id: 'city_council',
