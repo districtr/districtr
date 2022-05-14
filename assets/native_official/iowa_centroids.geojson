@@ -3,12 +3,16 @@
 "name": "iowa_centroids",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "NAME": "Sac and Fox\/Meskwaki" }, "geometry": { "type": "Point", "coordinates": [ -92.608717557063102, 41.933047329237205 ] } },
-{ "type": "Feature", "properties": { "NAME": "Sac and Fox\/Meskwaki" }, "geometry": { "type": "Point", "coordinates": [ -92.653514695190921, 41.9847056456248 ] } },
-{ "type": "Feature", "properties": { "NAME": "Ponca (NE)" }, "geometry": { "type": "Point", "coordinates": [ -95.916794154443807, 41.280806247678598 ] } },
-{ "type": "Feature", "properties": { "NAME": "Sac and Fox\/Meskwaki" }, "geometry": { "type": "Point", "coordinates": [ -92.628599526665724, 41.987633836530264 ] } },
-{ "type": "Feature", "properties": { "NAME": "Sac and Fox\/Meskwaki" }, "geometry": { "type": "Point", "coordinates": [ -92.64332780177547, 41.996565361666484 ] } },
-{ "type": "Feature", "properties": { "NAME": "Sac and Fox\/Meskwaki" }, "geometry": { "type": "Point", "coordinates": [ -92.639632203005121, 41.945508535867987 ] } },
-{ "type": "Feature", "properties": { "NAME": "Sac and Fox\/Meskwaki" }, "geometry": { "type": "Point", "coordinates": [ -92.670451468155349, 42.003652038875757 ] } }
+{ "type": "Feature", "properties": { "NAME": "Ponca (NE)" }, "geometry": { "type": "Point", "coordinates": [ -97.496939951585304, 42.728510984587246 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ponca (NE)" }, "geometry": { "type": "Point", "coordinates": [ -98.032964592921701, 42.750222069008252 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox/Meskwaki" }, "geometry": { "type": "Point", "coordinates": [ -92.608717557063144, 41.933047329237233 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ponca (NE)" }, "geometry": { "type": "Point", "coordinates": [ -95.916794154443821, 41.280806247678605 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox/Meskwaki" }, "geometry": { "type": "Point", "coordinates": [ -92.653514695191092, 41.984705645624793 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ponca (NE)" }, "geometry": { "type": "Point", "coordinates": [ -96.69629836725845, 40.803262408047061 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox/Meskwaki" }, "geometry": { "type": "Point", "coordinates": [ -92.639632203005135, 41.945508535867987 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox/Meskwaki" }, "geometry": { "type": "Point", "coordinates": [ -92.670451468155377, 42.003652038875757 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox/Meskwaki" }, "geometry": { "type": "Point", "coordinates": [ -92.628599526665667, 41.987633836530264 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sac and Fox/Meskwaki" }, "geometry": { "type": "Point", "coordinates": [ -92.64332780177547, 41.996565361666491 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ponca (NE)" }, "geometry": { "type": "Point", "coordinates": [ -98.084699907630124, 42.714076694428343 ] } }
 ]
 }
