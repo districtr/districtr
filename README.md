@@ -28,7 +28,7 @@ prepared by participants in MGGG's 2019 Voting Rights Data Institute.
 ## Contributing
 
 If you're interested in contributing, thank you! Send an email to
-[max@mggg.org](mailto:max@mggg.org) and we'll find a way that you can get
+[engineering@mggg.org](mailto:engineering@mggg.org) and we'll find a way that you can get
 involved.
 
 ### Development
