@@ -91,7 +91,7 @@ function datasetInfo(state) {
         ].includes(state.unitsRecord.name)
     ) {
         dataset = `<p><span>&#9432;</span> ${populations.ndc_proj_2020}`;
-    } else if (["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties", "2021 Precincts"].includes(state.unitsRecord.name)) {
+    } else if (["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties", "2021 Precincts", "2022 Precincts"].includes(state.unitsRecord.name)) {
         if (("2020 VTDs" === state.unitsRecord.name && ["virginia", "maryland", "pa_prison_adj"].includes(place.id)) ||
             (
                 [

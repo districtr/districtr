@@ -1460,5 +1460,196 @@
         "pluralNoun": "Council Districts"
       }
     ]
+  },
+  {
+    "state": "Indiana",
+    "name": "Bloomington",
+    "id": "in_bloomington",
+    "units": [
+      {
+        "id": "precincts",
+        "name": "2022 Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP20",
+              "name": "Total population",
+              "sum": 90376,
+              "min": 216,
+              "max": 5803
+            },
+            "subgroups": [
+              {
+                "key": "WPOP20",
+                "name": "White population",
+                "sum": 68383,
+                "min": 179,
+                "max": 4600
+              },
+              {
+                "key": "APBPOP20",
+                "name": "Black population",
+                "sum": 6189,
+                "min": 20,
+                "max": 551
+              },
+              {
+                "key": "HISP20",
+                "name": "Hispanic population",
+                "sum": 5042,
+                "min": 11,
+                "max": 304
+              },
+              {
+                "key": "ASIANPOP20",
+                "name": "Asian population",
+                "sum": 7546,
+                "min": 0,
+                "max": 594
+              },
+              {
+                "key": "AMINPOP20",
+                "name": "American Indian population",
+                "sum": 141,
+                "min": 0,
+                "max": 12
+              },
+              {
+                "key": "NHPIPOP20",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 24,
+                "min": 0,
+                "max": 3
+              },
+              {
+                "key": "2MOREPOP20",
+                "name": "Two or more races",
+                "sum": 4491,
+                "min": 16,
+                "max": 327
+              },
+              {
+                "key": "OTHERPOP20",
+                "name": "Other races",
+                "sum": 381,
+                "min": 0,
+                "max": 29
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP20",
+              "name": "Voting age population",
+              "sum": 77807,
+              "min": 174,
+              "max": 4471
+            },
+            "subgroups": [
+              {
+                "key": "WVAP20",
+                "name": "White population",
+                "sum": 59875,
+                "min": 150,
+                "max": 3655
+              },
+              {
+                "key": "APBVAP20",
+                "name": "Black population",
+                "sum": 4598,
+                "min": 11,
+                "max": 354
+              },
+              {
+                "key": "HVAP20",
+                "name": "Hispanic population",
+                "sum": 4054,
+                "min": 6,
+                "max": 279
+              },
+              {
+                "key": "AMINVAP20",
+                "name": "Native American population",
+                "sum": 114,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "NHPIVAP20",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 19,
+                "min": 0,
+                "max": 3
+              },
+              {
+                "key": "ASIANVAP20",
+                "name": "Asian population",
+                "sum": 6776,
+                "min": 0,
+                "max": 576
+              },
+              {
+                "key": "OTHERVAP20",
+                "name": "Other races population",
+                "sum": 328,
+                "min": 0,
+                "max": 29
+              },
+              {
+                "key": "2MOREVAP20",
+                "name": "Two or more races population",
+                "sum": 3127,
+                "min": 10,
+                "max": 181
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct Name",
+          "key": "PRECINCT"
+        },
+        "bounds": [
+          [
+            -86.5919,
+            39.1213
+          ],
+          [
+            -86.4712,
+            39.2212
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.in_bloomington_precincts"
+            },
+            "sourceLayer": "in_bloomington_precincts"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.in_bloomington_precincts_points"
+            },
+            "sourceLayer": "in_bloomington_precincts_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 6,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
   }
 ]

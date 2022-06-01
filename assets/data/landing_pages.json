@@ -1107,7 +1107,7 @@
       },
       {
         "name": "Cities",
-        "ids": ["indianapolis_cc"],
+        "ids": ["indianapolis_cc", "in_bloomington"],
         "id": "loc"
       }
     ],
