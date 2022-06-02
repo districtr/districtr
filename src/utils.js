@@ -1793,6 +1793,11 @@ export function spatial_abilities(id) {
         }
       ]
     },
+    in_bloomington: {
+      number_markers: true,
+      coalition: false,
+      border: true
+    },
     massachusetts: {
       portal: {
         endpoint: 'https://www.massachusetts-mapping.org',
