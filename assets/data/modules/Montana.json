@@ -736,7 +736,6 @@
         ]
       },
       {
-        "limit": "hidden",
         "id": "blockgroups20",
         "name": "2020 Block Groups",
         "unitType": "Block Groups",
@@ -918,7 +917,6 @@
         "id": "vtds20",
         "name": "2020 VTDs",
         "unitType": "VTDs",
-        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "election",
@@ -1193,7 +1191,7 @@
   },
   {
     "state": "Montana",
-    "name": "Montana",
+    "name": "Montana (adjusted population)",
     "id": "mt_pris_adj",
     "units": [
       {
