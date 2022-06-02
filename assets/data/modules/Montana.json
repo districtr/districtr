@@ -736,6 +736,7 @@
         ]
       },
       {
+        "limit": "hidden",
         "id": "blockgroups20",
         "name": "2020 Block Groups",
         "unitType": "Block Groups",

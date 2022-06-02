@@ -14,7 +14,7 @@ function datasetInfo(state) {
             census: "Uses <strong>2010 Decennial Census</strong> data",
             census20: "Uses <strong>2020 Decennial Census</strong> data",
             census20adj: "Uses <strong>2020 Decennial Census</strong> prison-adjusted data",
-            census20adjMT: "Uses <strong>2020 Decennial Census</strong> Montana prison-adjusted data",
+            census20adjMT: "Uses prison-adjusted <strong>2020 Decennial Census</strong> data",
             census20non_p_adj: "Uses <strong>2020 Decennial Census</strong> adjusted data",
             acs: "Uses <strong>2019 American Community Survey</strong> data",
             mesa: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Redistricting Partners",
