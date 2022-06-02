@@ -1931,7 +1931,7 @@
     "modules": [
       {
         "name": "Statewide",
-        "ids": ["montana"],
+        "ids": ["montana", "mt_pris_adj"],
         "default": "true",
         "id": "state"
       }

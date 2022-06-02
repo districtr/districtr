@@ -1949,6 +1949,11 @@ export function spatial_abilities(id) {
       find_unpainted: true,
       county_brush: true,
     },
+    mt_pris_adj: {
+      native_american: true,
+      number_markers: true,
+      // shapefile: true,
+    },
     nebraska: {
       number_markers: true,
       native_american: true,
