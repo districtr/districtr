@@ -1627,17 +1627,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.in_bloomington_precincts"
+              "url": "mapbox://districtr.bloomington_re_precincts"
             },
-            "sourceLayer": "in_bloomington_precincts"
+            "sourceLayer": "bloomington_re_precincts"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.in_bloomington_precincts_points"
+              "url": "mapbox://districtr.bloomington_re_precincts_points"
             },
-            "sourceLayer": "in_bloomington_precincts_points"
+            "sourceLayer": "bloomington_re_precincts_points"
           }
         ]
       }
