@@ -14,6 +14,7 @@ function datasetInfo(state) {
             census: "Uses <strong>2010 Decennial Census</strong> data",
             census20: "Uses <strong>2020 Decennial Census</strong> data",
             census20adj: "Uses <strong>2020 Decennial Census</strong> prison-adjusted data",
+            census20adjMT: "Uses <strong>2020 Decennial Census</strong> Montana prison-adjusted data",
             census20non_p_adj: "Uses <strong>2020 Decennial Census</strong> adjusted data",
             acs: "Uses <strong>2019 American Community Survey</strong> data",
             mesa: "Uses <strong>2019 American Community Survey</strong> population disaggregated from blockgroups by Redistricting Partners",
@@ -42,6 +43,8 @@ function datasetInfo(state) {
 
     if (acsLocations.includes(place.id.toLowerCase()) || state.units.id.includes("2019") || population.name !== "Population") {
         dataset = `<p><span>&#9432;</span> ${populations.acs}`;
+    } else if (["mt_pris_adj"].includes(place.id)) {
+        dataset = `<p><span>&#9432;</span> ${populations.census20adjMT}`;
     } else if (
         [
             "rp_lax", "ca_butte", "sanluiso", "sanjoseca", "siskiyou", "redwood",

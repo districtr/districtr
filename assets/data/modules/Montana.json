@@ -917,6 +917,7 @@
         "id": "vtds20",
         "name": "2020 VTDs",
         "unitType": "VTDs",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "election",
@@ -1186,6 +1187,301 @@
         "name": "State Senate",
         "numberOfParts": 50,
         "pluralNoun": "State Senate Districts"
+      }
+    ]
+  },
+  {
+    "state": "Montana",
+    "name": "Montana",
+    "id": "mt_pris_adj",
+    "units": [
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1082717,
+              "min": 0,
+              "max": 10982
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 900291,
+                "min": 0,
+                "max": 9463
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 5444,
+                "min": 0,
+                "max": 388
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 45169,
+                "min": 0,
+                "max": 1174
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 8304,
+                "min": 0,
+                "max": 248
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 67327,
+                "min": 0,
+                "max": 3410
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 848623,
+              "min": 0,
+              "max": 9022
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 736124,
+                "min": 0,
+                "max": 8099
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 4000,
+                "min": 0,
+                "max": 311
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 29878,
+                "min": 0,
+                "max": 1172
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 44249,
+                "min": 0,
+                "max": 2238
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 6832,
+                "min": 0,
+                "max": 204
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "VTD GEOID code",
+          "key": "VTD"
+        },
+        "bounds": [
+          [
+            -116.0492,
+            44.3579
+          ],
+          [
+            -104.0397,
+            49.0011
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mt_pris_adj_vtds20"
+            },
+            "sourceLayer": "mt_pris_adj_vtds20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mt_pris_adj_vtds20_points"
+            },
+            "sourceLayer": "mt_pris_adj_vtds20_points"
+          }
+        ]
+      },
+      {
+        "id": "blockgroups20",
+        "name": "2020 Block Groups",
+        "unitType": "Block Groups",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP",
+              "name": "Total population",
+              "sum": 1082717,
+              "min": 13,
+              "max": 5902
+            },
+            "subgroups": [
+              {
+                "key": "WHITE",
+                "name": "White population",
+                "sum": 900291,
+                "min": 7,
+                "max": 5209
+              },
+              {
+                "key": "BLACK",
+                "name": "Black population",
+                "sum": 5444,
+                "min": 0,
+                "max": 149
+              },
+              {
+                "key": "HISP",
+                "name": "Hispanic population",
+                "sum": 45169,
+                "min": 0,
+                "max": 1207
+              },
+              {
+                "key": "ASIAN",
+                "name": "Asian population",
+                "sum": 8304,
+                "min": 0,
+                "max": 176
+              },
+              {
+                "key": "AMIN",
+                "name": "American Indian population",
+                "sum": 67327,
+                "min": 0,
+                "max": 2444
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP",
+              "name": "Voting age population",
+              "sum": 848623,
+              "min": 7,
+              "max": 4465
+            },
+            "subgroups": [
+              {
+                "key": "WVAP",
+                "name": "White voting age population",
+                "sum": 736124,
+                "min": 3,
+                "max": 4041
+              },
+              {
+                "key": "BVAP",
+                "name": "Black voting age population",
+                "sum": 4000,
+                "min": 0,
+                "max": 139
+              },
+              {
+                "key": "HVAP",
+                "name": "Hispanic voting age population",
+                "sum": 29878,
+                "min": 0,
+                "max": 1197
+              },
+              {
+                "key": "AMINVAP",
+                "name": "Native American voting age population",
+                "sum": 44249,
+                "min": 0,
+                "max": 1585
+              },
+              {
+                "key": "ASIANVAP",
+                "name": "Asian voting age population",
+                "sum": 6832,
+                "min": 0,
+                "max": 150
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block Group GEOID code",
+          "key": "BLOCKGROUP"
+        },
+        "bounds": [
+          [
+            -116.0492,
+            44.3579
+          ],
+          [
+            -104.0397,
+            49.0011
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mt_pris_adj_blockgroups20"
+            },
+            "sourceLayer": "mt_pris_adj_blockgroups20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.mt_pris_adj_blockgroups20_points"
+            },
+            "sourceLayer": "mt_pris_adj_blockgroups20_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 2,
+        "pluralNoun": "Congressional Districts"
+      },
+      {
+        "name": "State Senate",
+        "numberOfParts": 50,
+        "pluralNoun": "State Senate Districts"
+      },
+      {
+        "name": "State House",
+        "numberOfParts": 100,
+        "pluralNoun": "State House Districts"
       }
     ]
   }
