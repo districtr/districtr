@@ -402,7 +402,8 @@ const unitCounts = {
   'towsonu-baltimore': 653,
   prjusd: 2818,
   'pmc-districts': 7078,
-  "pimaaz": 278
+  "pimaaz": 278,
+  "worcestersd": 2380
 };
 
 const coi_events = [
@@ -2725,7 +2726,8 @@ const proposals_by_event = {
   'pmc-districts': true,
   prjusd: true,
   san_mateo_city: true,
-  butte_county: true
+  butte_county: true,
+  "worcestersd": true
 };
 
 export default () => {
