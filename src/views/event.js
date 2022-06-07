@@ -304,7 +304,7 @@ commoncausepa: 'pennsylvania',
   "west_sacramento": "ca_west_sac",
   "diamond_bar": "ca_diamond_bar",
   "drawabq": "nm_abq",
-  "worcestersd": "worcestersd"
+  "worcestersd": "ma_worcester"
 };
 
 const blockPlans = {
