@@ -156,7 +156,8 @@ commoncausepa: 'Pennsylvania',
   "pimaaz": "Arizona",
   "west_sacramento": "California",
   "diamond_bar": "California",
-  "drawabq": "New Mexico"
+  "drawabq": "New Mexico",
+  "worcestersd": "Massachusetts"
 };
 
 const validEventCodes = {
@@ -302,7 +303,8 @@ commoncausepa: 'pennsylvania',
   "pimaaz": "az_pima",
   "west_sacramento": "ca_west_sac",
   "diamond_bar": "ca_diamond_bar",
-  "drawabq": "nm_abq"
+  "drawabq": "nm_abq",
+  "worcestersd": "worcestersd"
 };
 
 const blockPlans = {
@@ -389,7 +391,8 @@ const unitTypes = {
   "santa_ana": { no: 'Blocks' },
   "carlsbad2021": { no: 'Blocks' },
   "buellton": { no: 'Blocks' },
-  "ocsd": { no: 'Blocks' }
+  "ocsd": { no: 'Blocks' },
+  "worcestersd": { no: "Blocks" }
 };
 
 const unitCounts = {
@@ -1856,6 +1859,34 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       a plan or community of interest on the city’s website (<a href='https://www.cabq.gov/2022redistricting' target=_blank>www.cabq.gov/2022redistricting</a>), 
       please include the plan URL (plan link) in the “Your Comments” box.
     </p>
+  `,
+  "worcestersd": `
+    <p>
+      Welcome to the public mapping page for the City of Worcester's School Committee
+      Districts.
+    </p>
+    <p>
+      In 2022, the city will be transitioning from an at-large electoral system
+      to districted elections. This change was prompted by consent decree as part
+      of voting rights litigation.
+    </p>
+    <p>
+      As the city finalizes the new district boundaries, <strong>we invite you to
+      draw your own district plan or open one of the new maps proposed by the outside
+      expert as a starting point</strong>. To comply with the new requirements, two
+      of the six districts must have a majority of Black and Hispanic coalition
+      population, which can be viewed in the Districtr mapping module. (Technically,
+      the majority must be in terms of <t>citizen</i> voting-age population, or
+      CVAP. In the module, you can view voting-age population, which is close to
+      CVAP.)
+    </p>
+    <p>
+      When your map is complete, click "Save" in the upper right corner of the mapping
+      module. To pin your own map to the gallery on this page, be sure that the
+      tag <strong>"worcestersd"</strong> is visible in the save window. For a detailed
+      how-to guide for Districtr, visit our <a href=https://districtr.org/guide>Guide
+      page.</a>
+    </p>
   `
 };
 
@@ -2728,6 +2759,29 @@ export default () => {
         } else if (eventCode === "diamond_bar") {
           document.getElementById("districting-options-title").innerHTML = "<p>Click below to start with a blank map. Please note that zooming into the map will allow you to see various points of interest and street names in greater detail.</p>";
         }
+
+      // Worcester event page.
+      if (["worcestersd"].includes(eventCode)) {
+        document.getElementById("districting-options-title").innerHTML = `
+          <p>
+            Click below to start with a blank map or click on one of the proposed
+            maps drawn by Professor Nate Persily, who was agreed to by the plaintiffs
+            and the city as the line-drawer pursuant to the consent decree.
+          </p>
+          <p>
+            <strong>Plan 5.27</strong> of proposed School Committee Districts
+            represents one option that satisfies the consent decree imposed on the
+            City of Worcester by the federal district court. It is designated
+            Plan 5.27 because it was drafted on May 27, 2022.
+          </p>
+          <p>
+            <strong>Plan 6.1</strong> of proposed School Committee Districts represents
+            another option that satisfies the consent decree imposed on the City of
+            Worcester by the federal district court. It is designated Plan 6.1
+            because it was drafted on June 1, 2022.
+          </p>
+        `;
+      }
 
     if (["mp-maps"].includes(eventCode)) {
         document.getElementById("eventHeadline").innerText = og_eventCode;
