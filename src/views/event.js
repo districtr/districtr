@@ -1874,12 +1874,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     <p>
       As the city finalizes the new district boundaries, <strong>we invite you to
       draw your own district plan or open one of the new maps proposed by the outside
-      expert as a starting point</strong>. To comply with the new requirements, two
-      of the six districts must have a majority of Black and Hispanic coalition
-      population, which can be viewed in the Districtr mapping module. (Technically,
-      the majority must be in terms of <t>citizen</i> voting-age population, or
-      CVAP. In the module, you can view voting-age population, which is close to
-      CVAP.)
+      expert as a starting point</strong>.
     </p>
     <p>
       When your map is complete, click "Save" in the upper right corner of the mapping
