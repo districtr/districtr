@@ -1860,6 +1860,11 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       a plan or community of interest on the city’s website (<a href='https://www.cabq.gov/2022redistricting' target=_blank>www.cabq.gov/2022redistricting</a>), 
       please include the plan URL (plan link) in the “Your Comments” box.
     </p>
+    <p>
+      <strong>UPDATE June 8, 2022:</strong> The Albuquerque Redistricting Committee
+      is no longer accepting new submissions given the upcoming deadline for
+      providing recommendations to the City Council.
+    </p>
   `,
   "worcestersd": `
     <p>
