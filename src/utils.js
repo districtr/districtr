@@ -2645,7 +2645,10 @@ export function spatial_abilities(id) {
     },
     wyoming: {
       native_american: true,
-      number_markers: true,
+      number_markers: true
+    },
+    "ny_nyc_test": {
+      coalition: false
     }
   };
   return status[id] || {};
