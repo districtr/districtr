@@ -1,5 +1,92 @@
 [
   {
+  "name": "New York City",
+  "id": "nyc_demo_22",
+  "units": [
+    {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "LF_20_Total",
+            "name": "Total population",
+            "sum": 8816959,
+            "min": 0,
+            "max": 5092
+          },
+          "subgroups": [
+            {
+              "key": "LF_20_AfAm",
+              "name": "Black population",
+              "sum": 1784870,
+              "min": 0,
+              "max": 3634
+            },
+            {
+              "key": "LF_20_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 2494775,
+              "min": 0,
+              "max": 2261
+            },
+            {
+              "key": "LF_20_Asian",
+              "name": "Asian population",
+              "sum": 1373629,
+              "min": 0,
+              "max": 2732
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Block FIPS code",
+        "key": "GEOID20"
+      },
+      "bounds": [
+        [
+          -74.2588,
+          40.4766
+        ],
+        [
+          -73.7002,
+          40.9177
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.nyc_demo_22_blocks"
+          },
+          "sourceLayer": "nyc_demo_22_blocks"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.nyc_demo_22_blocks_points"
+          },
+          "sourceLayer": "nyc_demo_22_blocks_points"
+        }
+      ]
+    }
+  ],
+  "state": "New York",
+  "districtingProblems": [
+    {
+      "name": "City Council",
+      "numberOfParts": 51,
+      "pluralNoun": "City Council Districts"
+    }
+  ]
+},
+  {
     "units": [
       {
         "id": "blocks",
