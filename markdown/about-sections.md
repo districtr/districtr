@@ -6,7 +6,7 @@ downloaded from the Census's
 [TIGER/Line Shapefiles](https://www.census.gov/geo/maps-data/data/tiger-line.html).
 Demographic information from the 2010 Decennial Census was downloaded at the
 block level from
-[Data.census.gov](https://data.census.gov/).
+[data.census.gov](https://data.census.gov/).
 The source shapefile with demographic information is available for download from
 MGGG's GitHub organization
 [@gerrymandr](https://github.com/gerrymandr/Districtr-Prep/tree/master/Santa_Clara).
@@ -55,7 +55,7 @@ downloaded from the Census
 [TIGER/Line Shapefiles](https://www.census.gov/geo/maps-data/data/tiger-line.html).
 Demographic information from the 2010 Decennial Census was downloaded at the
 block level from
-[Data.census.gov](https://data.census.gov/).
+[data.census.gov](https://data.census.gov/).
 The source shapefile with demographic information is available for download from
 MGGG's GitHub organization
 [@gerrymandr](https://github.com/gerrymandr/Districtr-Prep/tree/master/Austin).
@@ -101,7 +101,7 @@ Bureau. The community area shapefile was downloaded from the
 [Chicago Data Portal](https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6).
 Demographic information from the 2010 Decennial Census was downloaded at the
 block level from
-[Data.census.gov](https://data.census.gov/).
+[data.census.gov](https://data.census.gov/).
 The source shapefile with demographic information is available for download from
 [MGGG's GitHub organization](https://github.com/mggg/chicago/tree/master/shapefiles).
 
@@ -118,7 +118,7 @@ downloaded from the
 [Chicago Data Portal](https://data.cityofchicago.org/Facilities-Geographic-Boundaries/Boundaries-Community-Areas-current-/cauq-8yn6).
 Demographic information from the 2010 Decennial Census was downloaded at the
 block level from
-[Data.census.gov](https://data.census.gov/).
+[data.census.gov](https://data.census.gov/).
 The source shapefile with demographic information is available for download from
 [MGGG's GitHub organization](https://github.com/mggg/chicago/tree/master/shapefiles).
 
@@ -135,7 +135,7 @@ downloaded from the Census's
 [TIGER/Line Shapefiles](https://www.census.gov/geo/maps-data/data/tiger-line.html).
 Demographic information from the 2010 Decennial Census was downloaded at the
 block level from
-[Data.census.gov](https://data.census.gov/).
+[data.census.gov](https://data.census.gov/).
 The source shapefile with demographic information is available for download from
 MGGG's GitHub organization
 [@gerrymandr](https://github.com/gerrymandr/Districtr-Prep/tree/master/Mississippi).
@@ -190,7 +190,7 @@ Election data was compiled at the precinct level by a private individual and was
 found to be within 1% of the official state-reported results at the county and
 state levels. Demographic information from the 2010 Decennial Census was
 downloaded at the block level from
-[Data.census.gov](https://data.census.gov/).
+[data.census.gov](https://data.census.gov/).
 The source shapefile for this module, along with additional information about
 processing, is available for download from MGGG's GitHub organization
 [@mggg-states](https://github.com/mggg-states/PA-shapefiles).
@@ -209,7 +209,7 @@ downloaded from the Census
 [TIGER/Line Shapefiles](https://www.census.gov/geo/maps-data/data/tiger-line.html).
 Demographic information from the 2010 Decennial Census was downloaded at the
 block level from
-[Data.census.gov](https://data.census.gov/).
+[data.census.gov](https://data.census.gov/).
 The source shapefile with demographic information is available for download from
 MGGG's GitHub organization
 [@gerrymandr](https://github.com/gerrymandr/Districtr-Prep/tree/master/Islip).
@@ -284,7 +284,7 @@ downloaded from the Census
 [TIGER/Line Shapefiles](https://www.census.gov/geo/maps-data/data/tiger-line.html).
 Demographic information from the 2010 Decennial Census was downloaded at the
 block level from
-[Data.census.gov](https://data.census.gov/).
+[data.census.gov](https://data.census.gov/).
 The source shapefile with demographic information is available for download from
 MGGG's GitHub organization
 [@gerrymandr](https://github.com/gerrymandr/Districtr-Prep/tree/master/Lowell).
@@ -308,7 +308,7 @@ Vermont does not release election results for towns with a total population
 under 50, thus 9 towns have been excluded from this module. Demographic
 information from the 2010 Decennial Census was downloaded at the sub-county
 level from
-[Data.census.gov](https://data.census.gov/).
+[data.census.gov](https://data.census.gov/).
 The source shapefile for this module, along with additional information about
 processing, is available for download from MGGG's GitHub organization
 [@mggg-states](https://github.com/mggg-states/VT-shapefiles).
