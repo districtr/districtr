@@ -99,7 +99,7 @@
         "type": "population",
         "name": "Population",
         "total": {
-          "key": "LF_20_Tota",
+          "key": "TOTPOP",
           "name": "Total population",
           "sum": 8816959,
           "min": 0,
@@ -109,7 +109,7 @@
     ],
     "idColumn": {
       "name": "Block FIPS code",
-      "key": "GEOID20"
+      "key": "GEOINDEX"
     },
     "bounds": [
       [
@@ -126,7 +126,7 @@
         "type": "fill",
         "source": {
           "type": "vector",
-          "url": "mapbox://districtr.nyc_22_poponly_blocks"
+          "url": "mapbox://districtr.nyc_22_poponly_blocks?v=2"
         },
         "sourceLayer": "nyc_22_poponly_blocks"
       },
@@ -134,7 +134,7 @@
         "type": "circle",
         "source": {
           "type": "vector",
-          "url": "mapbox://districtr.nyc_22_poponly_blocks_points"
+          "url": "mapbox://districtr.nyc_22_poponly_blocks_points?v=2"
         },
         "sourceLayer": "nyc_22_poponly_blocks_points"
       }
