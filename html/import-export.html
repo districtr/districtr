@@ -297,7 +297,7 @@ input[type="file"] {
                           <tr>
                             <td><a href="#json">JSON</a></td>
                             <td>Yes (download)</td>
-                            <td>Yes, if our units are used (Coming in March: upload communities into Districting mode)</td>
+                            <td>Yes, if our units are used</td>
                             <td>Adding communities as base layers in districts, using in other redistricting programs</td>
                             <td>
                                 <a download href="/assets/import-export-examples/districting/districtr-plan-ec0a7f81.json">Districts JSON</a>
@@ -307,7 +307,7 @@ input[type="file"] {
                         </tr>
                         <tr>
                             <td><a href="#shapefile">Shapefile</a></td>
-                            <td>Yes (download)</td>
+                            <td>Yes (download available in most modules)</td>
                             <td>No</td>
                             <td>Analysis in QGIS/ArcGIS/python, using in other redistricting programs</td>
                             <td>
@@ -317,20 +317,9 @@ input[type="file"] {
                             </td>
                         </tr>
                         <tr>
-                            <td><a href="#pdf">Print to PDF</a></td>
-                            <td>Yes (download)</td>
-                            <td>No</td>
-                            <td>Submitting to commissions, hanging on your wall</td>
-                            <td>
-                                <a href="/assets/import-export-examples/districting/Districts - Lowell.pdf">Districts PDF</a>
-                                <hr>
-                                <a href="/assets/import-export-examples/communities/COI - St Louis.pdf">Communities PDF</a>
-                            </td>
-                        </tr>
-                        <tr>
                             <td><a href="#csv">Unit assignment file (CSV)</a></td>
-                            <td>Yes (download)</td>
-                            <td>Yes (except landmarks)</td>
+                            <td>Yes (download, excludes landmarks)</td>
+                            <td>Yes (excludes landmarks)</td>
                             <td>Having a list of district assignments or communities in the building blocks you chose, analysis in python</td>
                             <td>
                                 <a download href="/assets/import-export-examples/districting/assignment-ec0a7f81.csv">Districts CSV</a>
@@ -340,10 +329,14 @@ input[type="file"] {
                         </tr>
                         <tr>
                             <td><a href="#geojson">GeoJSON</a></td>
-                            <td>In progress (Coming in March)</td>
+                            <td>Yes (download)</td>
                             <td>Yes, if our units are used</td>
                             <td>Analysis in QGIS/ArcGIS/python, using in other redistricting programs</td>
-                            <td>Coming soon</td>
+                            <td>
+                                <a download href="/assets/import-export-examples/districting/districtr-plan-ec0a7f81.geojsons.zip">Districts GeoJSON</a>
+                                <hr>
+                                <a download href="/assets/import-export-examples/communities/districtr-plan-5217364c.geojsons.zip">Communities GeoJSON</a>
+                            </td>
                         </tr>
                       </tbody>
                   </table>
@@ -377,12 +370,6 @@ input[type="file"] {
                         
                         JSON files can also be used in some other redistricting programs.
                     </p>
-                    <p>
-                        Coming in February, it will also be possible to upload a .json file made in 
-                        <strong style="color: #ff4f49">Communities</strong> mode into 
-                        <strong style="color: #b445b6">Districting</strong> mode.  This will enable
-                        you to view your communities as a static layer. 
-                    </p>
                     <div class="jump"  id="shapefile"></div>
                   <h3>Shapefile</h3>
                     <p>
@@ -407,20 +394,6 @@ input[type="file"] {
                     <p>
                         <em>This download can take a few minutes for larger states.</em>
                     </p>
-                    <div class="jump"  id="pdf"></div>
-                  <h3>Print to PDF</h3>
-                    <p>
-                        In <strong style="color: #b445b6">Districting</strong> mode, this will print 
-                        the current view on your screen.  In <strong style="color: #ff4f49">Communities</strong> 
-                        mode, this will generate a short report, including an image of your map along with the text you wrote 
-                        about the communities and important places. PDF files generated in 
-                        <strong style="color: #ff4f49">Communities</strong> mode may be especially 
-                        useful for submitting to commissions.
-                    </p>
-                    <p>
-                        You can print to PDF by using your computer’s print shortcut.
-
-                    </p>
                     <div class="jump"  id="csv"></div>
                   <h3>Comma-separated values (CSV)</h3>
                     <p>
@@ -430,12 +403,22 @@ input[type="file"] {
                          the smallest file generated. It can be joined to a shapefile for the same 
                          locality with the same building blocks in mapping software or python.
                     </p>
+                    <p>
+                        A CSV file exported from Districtr can be directly re-uploaded into Districtr by another user.
+                        If you open any particular mapping module, you can simply drag-and-drop a CSV from the same module onto the blank map!
+                        CSV assignment files are also interoperable with essentially all other redistricting software programs.
+                    </p>
                     <div class="jump"  id="geojson"></div>
                   <h3>GeoJSON</h3>
                   <p>
-                    This is on track to be added in March. A GeoJSON can be used in desktop mapping 
+                    A GeoJSON can be used in desktop mapping 
                     software (e.g., QGIS and ArcGIS), python, and other redistricting programs.
                   </p>
+                  <p>
+                     In <strong style="color: #ff4f49">Communities</strong> mode, when you download a GeoJSON, the zipped folder will contain one file 
+                      for the painted areas (made from precincts, block groups, etc.) and a separate file that contains the landmarks 
+                      or points of interest marked in the map.
+                    </p>
             </article>
         </main>
     </body>
