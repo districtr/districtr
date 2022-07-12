@@ -11,6 +11,7 @@ export default class Brush extends HoverWithRadius {
         this.county_brush = false;
         this.locked = false;
         this.changedColors = new Set();
+        this.nycPlusMinus = {};
 
         this.listeners = {
             colorend: [],
@@ -69,6 +70,9 @@ export default class Brush extends HoverWithRadius {
             countyProp = "GEOID10";
         if (this.color || this.color === 0 || this.color === '0') {
             this.changedColors.add(Number(this.color));
+            if (!this.nycPlusMinus[String(Number(this.color))]) {
+              this.nycPlusMinus[String(Number(this.color))] = { added:[], removed:[] };
+            }
         }
         for (let feature of this.hoveredFeatures) {
             if (filter(feature)) {
@@ -134,6 +138,14 @@ export default class Brush extends HoverWithRadius {
                     for (let listener of this.listeners.colorfeature) {
                         listener(feature, this.color);
                     }
+                    if (!this.nycPlusMinus[String(Number(this.color))]) {
+                      this.nycPlusMinus[String(Number(this.color))] = { added: [], removed: [] };
+                    }
+                    if (this.color === null || this.color === undefined) {
+                      this.nycPlusMinus[String(Number(this.color))].removed.push(feature.properties.GEOINDEX || feature.properties.GEOID20);
+                    } else {
+                      this.nycPlusMinus[String(Number(this.color))].added.push(feature.properties.GEOINDEX || feature.properties.GEOID20);
+                    }
                 }
 
                 // remember feature's initial color once per paint event
@@ -146,6 +158,10 @@ export default class Brush extends HoverWithRadius {
                 }
                 if (feature.state.color || feature.state.color === 0 || feature.state.color === '0') {
                     this.changedColors.add(Number(feature.state.color));
+                    if (!this.nycPlusMinus[String(Number(feature.state.color))]) {
+                      this.nycPlusMinus[String(Number(feature.state.color))] = { added:[], removed:[] };
+                    }
+                    this.nycPlusMinus[String(Number(feature.state.color))].removed.push(feature.properties.GEOINDEX || feature.properties.GEOID20);
                 }
 
                 this.layer.setFeatureState(feature.id, {
@@ -197,11 +213,12 @@ export default class Brush extends HoverWithRadius {
     }
     onClick(e) {
         this.changedColors = new Set();
+        this.nycPlusMinus = {};
         this.prepToUndo();
         this.colorFeatures();
         if (!this.county_brush) {
             for (let listener of this.listeners.colorop) {
-                listener(false, this.changedColors);
+                listener(false, this.changedColors, this.nycPlusMinus);
             }
         }
     }
@@ -210,6 +227,7 @@ export default class Brush extends HoverWithRadius {
         e.originalEvent.preventDefault();
         this.coloring = true;
         this.changedColors = new Set();
+        this.nycPlusMinus = {};
         window.addEventListener("mouseup", this.onMouseUp);
         window.addEventListener("touchend", this.onMouseUp);
         window.addEventListener("touchcancel", this.onMouseUp);
@@ -225,7 +243,7 @@ export default class Brush extends HoverWithRadius {
         window.removeEventListener("touchcancel", this.onMouseUp);
         if (Object.keys(this.trackUndo[this.cursorUndo]).length > 1) {
             for (let listener of this.listeners.colorop) {
-                listener(false, this.changedColors);
+                listener(false, this.changedColors, this.nycPlusMinus);
             }
         }
     }
@@ -240,6 +258,9 @@ export default class Brush extends HoverWithRadius {
         let brushedColor = atomicAction.color;
         if (brushedColor || brushedColor === 0 || brushedColor === '0') {
             this.changedColors.add(brushedColor * 1);
+            if (!this.nycPlusMinus[String(brushedColor * 1)]) {
+              this.nycPlusMinus[String(brushedColor * 1)] = { added:[], removed:[] };
+            }
         }
         Object.keys(atomicAction).forEach((fid) => {
             if (fid === "color") {
@@ -256,6 +277,9 @@ export default class Brush extends HoverWithRadius {
                 amendColor = null;
             }
             this.changedColors.add(amendColor);
+            if (amendColor !== null && !this.nycPlusMinus[String(amendColor)]) {
+              this.nycPlusMinus[String(amendColor)] = { added:[], removed:[] };
+            }
 
             // change map colors
             let featureState = this.layer.getFeatureState(fid);
@@ -279,9 +303,10 @@ export default class Brush extends HoverWithRadius {
 
         // locally store plan state
         for (let listener of this.listeners.colorend.concat(this.listeners.colorop)) {
-            listener(true, this.changedColors);
+            listener(true, this.changedColors, this.nycPlusMinus);
         }
         this.changedColors = new Set();
+        this.nycPlusMinus = {};
         for (let listener of this.listeners.undo) {
             listener(this.cursorUndo <= 0);
         }
@@ -298,6 +323,9 @@ export default class Brush extends HoverWithRadius {
         let brushedColor = atomicAction.color;
         if (brushedColor || brushedColor === 0 || brushedColor === '0') {
             this.changedColors.add(brushedColor * 1);
+            if (!this.nycPlusMinus[String(brushedColor * 1)]) {
+              this.nycPlusMinus[String(brushedColor * 1)] = { added:[], removed:[] };
+            }
         }
         let listeners = this.listeners.colorfeature;
         Object.keys(atomicAction).forEach((fid) => {
@@ -313,6 +341,9 @@ export default class Brush extends HoverWithRadius {
                 amendColor = null;
             }
             this.changedColors.add(amendColor);
+            if (!this.nycPlusMinus[String(amendColor)]) {
+              this.nycPlusMinus[String(amendColor)] = { added:[], removed:[] };
+            }
 
             // change map colors
             this.layer.setFeatureState(fid, {
@@ -331,9 +362,10 @@ export default class Brush extends HoverWithRadius {
 
         // locally store plan state
         for (let listener of this.listeners.colorend.concat(this.listeners.colorop)) {
-            listener(true, this.changedColors);
+            listener(true, this.changedColors, this.nycPlusMinus);
         }
         this.changedColors = new Set();
+        this.nycPlusMinus = {};
         for (let listener of this.listeners.redo) {
             listener(this.cursorUndo >= this.trackUndo.length - 1);
         }

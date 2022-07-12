@@ -57,8 +57,21 @@ export default function ToolsPlugin(editor) {
                             ? ContiguityChecker(state, brush, false)
                             : null;
 
-    brush.on("colorop", (isUndoRedo, colorsAffected) => {
+    brush.on("colorop", (isUndoRedo, colorsAffected, nycPlusMinus) => {
         savePlanToStorage(state.serialize());
+
+        if (state.place.id.indexOf("ny") > -1) {
+          fetch("//mggg.pythonanywhere.com/nyc-assist", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ colors: nycPlusMinus }),
+          }).then(res => res.json()).then(tallies => {
+            console.log(tallies);
+          });
+        }
+
         if (c_checker) {
             c_checker(state, colorsAffected);
         }

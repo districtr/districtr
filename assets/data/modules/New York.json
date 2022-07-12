@@ -104,7 +104,30 @@
           "sum": 8816959,
           "min": 0,
           "max": 5092
-        }
+        },
+        "subgroups": [
+          {
+            "key": "LF_20_AfAm",
+            "name": "Black population",
+            "sum": 1784870,
+            "min": 0,
+            "max": 3634
+          },
+          {
+            "key": "LF_20_Hispanic_or_Latino",
+            "name": "Hispanic population",
+            "sum": 2494775,
+            "min": 0,
+            "max": 2261
+          },
+          {
+            "key": "LF_20_Asian",
+            "name": "Asian population",
+            "sum": 1373629,
+            "min": 0,
+            "max": 2732
+          }
+        ]
       }
     ],
     "idColumn": {
