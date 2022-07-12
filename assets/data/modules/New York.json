@@ -126,7 +126,35 @@
             "sum": 1373629,
             "min": 0,
             "max": 2732
-          }
+          },
+          {
+             "key": "CVAP_15-19_Total",
+             "name": "Citizen Voting Age Population",
+             "sum": 5442070,
+             "min": 0,
+             "max": 4385
+           },
+           {
+             "key": "CVAP_15-19_Black or African American Alone",
+             "name": "Black CVAP",
+             "sum": 1313528,
+             "min": 0,
+             "max": 2489
+           },
+           {
+             "key": "CVAP_15-19_Asian Alone",
+             "name": "Asian CVAP",
+             "sum": 685662,
+             "min": 0,
+             "max": 1533
+           },
+           {
+             "key": "CVAP_15-19_Hispanic or Latino",
+             "name": "Hispanic CVAP",
+             "sum": 1357266,
+             "min": 0,
+             "max": 1785
+           }
         ]
       }
     ],
