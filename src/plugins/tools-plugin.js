@@ -57,10 +57,19 @@ export default function ToolsPlugin(editor) {
                             ? ContiguityChecker(state, brush, false)
                             : null;
 
+    if (state.place.id.indexOf("nyc") > -1) {
+      window.nycmode = true;
+    }
     brush.on("colorop", (isUndoRedo, colorsAffected, nycPlusMinus) => {
         savePlanToStorage(state.serialize());
 
-        if (state.place.id.indexOf("ny") > -1) {
+        if (window.nycmode) {
+          function sumChanges(plusAndMinus) {
+            let added = JSON.parse(plusAndMinus['+']),
+                subtracted = JSON.parse(plusAndMinus['-']);
+            Object.keys(subtracted).forEach(skey => added[skey] -= subtracted[skey] || 0);
+            return added;
+          }
           fetch("//mggg.pythonanywhere.com/nyc-assist", {
             method: "POST",
             headers: {
@@ -69,6 +78,16 @@ export default function ToolsPlugin(editor) {
             body: JSON.stringify({ colors: nycPlusMinus }),
           }).then(res => res.json()).then(tallies => {
             console.log(tallies);
+            Object.keys(tallies).forEach((part) => {
+              // add numbers to evaluation table
+              state.columnSets.forEach(columnSet => columnSet.update({
+                properties: sumChanges(tallies[part])
+              }, part));
+              // remove transparency on evaluation table
+              document.body.className = '';
+              // render table
+              state.render();
+            });
           });
         }
 

@@ -142,7 +142,8 @@ export default class Brush extends HoverWithRadius {
                       this.nycPlusMinus[String(Number(this.color))] = { added: [], removed: [] };
                     }
                     if (this.color === null || this.color === undefined) {
-                      this.nycPlusMinus[String(Number(this.color))].removed.push(feature.properties.GEOINDEX || feature.properties.GEOID20);
+                      // handled in removal of old color (as if this was painting a new color over this)
+                      // this.nycPlusMinus[String(Number(this.color))].removed.push(feature.properties.GEOINDEX || feature.properties.GEOID20);
                     } else {
                       this.nycPlusMinus[String(Number(this.color))].added.push(feature.properties.GEOINDEX || feature.properties.GEOID20);
                     }
@@ -235,6 +236,11 @@ export default class Brush extends HoverWithRadius {
         // after you undo, the cursor is in the middle of the undo stack (possible to redo an action)
         // when you draw new material, it is no longer possible to redo
         this.prepToUndo();
+
+        // add transparency to data-table to prevent strange pre-tally numbers
+        if (window.nycmode) {
+          document.body.className = 'nycmode';
+        }
     }
     onMouseUp() {
         this.coloring = false;
