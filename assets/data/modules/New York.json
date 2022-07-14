@@ -128,12 +128,25 @@
             "max": 2732
           },
           {
-             "key": "CVAP_15-19_Total",
-             "name": "Citizen Voting Age Population",
-             "sum": 5442070,
-             "min": 0,
-             "max": 4385
-           },
+            "key": "Others",
+            "name": "Other population",
+            "sum": 2742198,
+            "min": 0,
+            "max": 3878
+          }
+        ]
+      },
+      {
+        "type": "population",
+        "name": "Citizen Voting Age Population",
+        "total": {
+          "key": "CVAP_15-19_Total",
+          "name": "Citizen Voting Age Population",
+          "sum": 5442070,
+          "min": 0,
+          "max": 4385
+        },
+        "subgroups": [
            {
              "key": "CVAP_15-19_Black or African American Alone",
              "name": "Black CVAP",
@@ -154,6 +167,13 @@
              "sum": 1357266,
              "min": 0,
              "max": 1785
+           },
+           {
+             "key": "CVAP_Others",
+             "name": "Other CVAP",
+             "sum": 2070639,
+             "min": 0,
+             "max": 3925
            }
         ]
       }
