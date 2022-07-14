@@ -2031,6 +2031,30 @@ export function spatial_abilities(id) {
       shapefile: true,
       // find_unpainted: true,
     },
+      nyc_popdemo: {
+        number_markers: true,
+        shapefile: true,
+        boundaries: [
+          {
+            id: 'nyc_district',
+            label: 'City Council Districts (2012)',
+            path: 'current_districts/nyc/city_council',
+            centroids: false,
+          },
+          {
+            id: 'nyc_comm',
+            label: 'Community Districts',
+            path: 'current_districts/nyc/community',
+            centroids: false,
+          },
+          {
+            id: 'nyc_boro',
+            label: 'Boroughs',
+            path: 'current_districts/nyc/boroughs',
+            centroids: false,
+          },
+        ],
+      },
     northcarolina: {
       number_markers: true,
       county_brush: true,
