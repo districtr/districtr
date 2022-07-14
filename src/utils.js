@@ -2040,12 +2040,14 @@ export function spatial_abilities(id) {
             label: 'City Council Districts (2012)',
             path: 'current_districts/nyc/city_council',
             centroids: false,
+            lineColor: '#007',
           },
           {
             id: 'nyc_comm',
-            label: 'Community Districts',
+            label: 'Official Community Areas link:https://www1.nyc.gov/site/cau/community-boards/about-commmunity-boards.page',
             path: 'current_districts/nyc/community',
             centroids: false,
+            lineColor: '#700',
           },
           {
             id: 'nyc_boro',

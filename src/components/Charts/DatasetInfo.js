@@ -31,7 +31,8 @@ function datasetInfo(state) {
             az_pima: "Uses <strong>2020 Decennial Census population</strong> with processing by Pima County",
             az_maricopa: "Uses <strong>2020 Decennial Census population</strong> with processing by Maricopa County Recorder’s Office",
             haystaq_2020: "Uses <strong>2020 Decennial Census population</strong> with processing by Haystaq",
-            research_polling: "Uses <strong>2020 Decennial Census population</strong> with processing by Research & Polling"
+            research_polling: "Uses <strong>2020 Decennial Census population</strong> with processing by Research & Polling",
+            nyc_2022: "Uses <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners",
         },
         acsLocations = [
             "wisco2019acs", "hall_ga", "grand_county_2", "mn2020acs", "nd_benson",
@@ -45,6 +46,8 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${populations.acs}`;
     } else if (["mt_pris_adj"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.census20adjMT}`;
+    } else if ("nyc_popdemo" === place.id) {
+        dataset = `<p><span>&#9432;</span> ${populations.nyc_2022}`;
     } else if (
         [
             "rp_lax", "ca_butte", "sanluiso", "sanjoseca", "siskiyou", "redwood",
@@ -68,14 +71,14 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${populations.haystaq_2020}`;
     } else if (["nm_abq"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.research_polling}`;
-    
+
     // Cooperative strategies modules. I also wholeheartedly disagree with the
     // way this info message differentiation is being done; why don't we put this
     // info in the *configuration* for these modules rather than doing it
     // after-the-fact and making it way harder to figure out? This is ridiculous
     // and certainly not the way it was intended to be written.
     } else if (["sbusd_5", "sbusd_7", "pvsd"].includes(place.id)) {
-        dataset = `<p><span>&#9432;</span> ${populations.cooperative_strategies}`;  
+        dataset = `<p><span>&#9432;</span> ${populations.cooperative_strategies}`;
     } else if (["ca_watsonville", "ca_rohnert", "ca_brentwood"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.wagaman_2020}`;
     } else if (
