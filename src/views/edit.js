@@ -75,7 +75,12 @@ function getPlanContext() {
             console.error(e);
         });
     } else {
-        return Promise.resolve(getContextFromStorage());
+        let storage = getContextFromStorage();
+        if (storage && storage.place && storage.place.id && storage.place.id.indexOf("nyc") > -1) {
+          storage.placeId = storage.place.id;
+          return loadPlanFromJSON(storage);
+        }
+        return Promise.resolve(storage);
     }
 }
 
