@@ -118,9 +118,17 @@
         "type": "circle",
         "source": {
           "type": "vector",
-          "url": "mapbox://districtr.nyc_22_poponly_blocks_points?v=2"
+          "url": "mapbox://districtr.nyc_demo_bg_blockgroups_points?v=2"
         },
-        "sourceLayer": "nyc_22_poponly_blocks_points"
+        "sourceLayer": "nyc_demo_bg_blockgroups_points"
+      },
+      {
+        "type": "fill",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://districtr.nyc_demo_bg_blockgroups"
+        },
+        "sourceLayer": "nyc_demo_bg_blockgroups"
       }
     ]
   }
