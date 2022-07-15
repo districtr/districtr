@@ -169,13 +169,21 @@ export function loadPlanFromJSON(planRecord) {
         console.log(planRecord.msg);
         planRecord = planRecord.plan;
     }
+    window.nycKeeps = {};
     Object.keys(planRecord.assignment || {}).forEach((key) => {
         if (String(key).includes('÷')) {
             let newKey = key.replace(/÷/g, ".");
             planRecord.assignment[newKey] = planRecord.assignment[key];
             delete planRecord.assignment[key];
         }
+        let colorAssigned = planRecord.assignment[key];
+        if (!window.nycKeeps[String(colorAssigned)]) {
+          window.nycKeeps[String(colorAssigned)] = { added: [Number(key)], removed: [] };
+        } else {
+          window.nycKeeps[String(colorAssigned)].added.push(Number(key));
+        }
     });
+
     if (planRecord.placeId === "nc") {
         planRecord.placeId = "northcarolina";
     }
