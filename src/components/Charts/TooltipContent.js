@@ -86,7 +86,7 @@ export function TooltipContent(
         total = 1;
     }
     let values = columnSet.columns.map(column =>
-        sum(features.map(f => column.getValue(f)))
+        sum(features.map(f => column.getValue(f) || 0))
     );
 
     if (columnSet.type === "election") {

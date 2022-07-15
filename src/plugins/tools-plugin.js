@@ -77,7 +77,6 @@ export default function ToolsPlugin(editor) {
             },
             body: JSON.stringify({ colors: nycPlusMinus }),
           }).then(res => res.json()).then(tallies => {
-            console.log(tallies);
             Object.keys(tallies).forEach((part) => {
               // add numbers to evaluation table
               state.columnSets.forEach(columnSet => columnSet.update({

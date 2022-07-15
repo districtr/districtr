@@ -53,7 +53,46 @@ export default class Tooltip extends HoverWithRadius {
         this.render();
     }
     render() {
-        const insert = this.content(this.hoveredFeatures, this.index);
+        let fs = this.hoveredFeatures;
+        if (fs.length && fs[0].properties.GEOINDEX) {
+          fetch("//mggg.pythonanywhere.com/nyc-assist", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ colors: {
+              '-1': {
+                added: fs.map(f => f.properties.GEOINDEX),
+                removed: []
+              }
+            }}),
+          }).then(res => res.json()).then(counts => {
+            const newp = JSON.parse(counts['-1']['+']);
+            Object.keys(newp).forEach((col) => {
+              fs[0].properties[col] = newp[col];
+            });
+            let insert = this.content(fs, this.index);
+            render(
+                html`
+                    <aside
+                        class=${classMap({
+                            tooltip: true,
+                            "tooltip--hidden": (!this.visible || !insert)
+                        })}
+                        style=${styleMap({
+                            left: `${this.x + 4}px`,
+                            top: `${this.y + 8}px`
+                        })}
+                    >
+                        ${insert}
+                    </aside>
+                `,
+                this.container
+            );
+          });
+          return;
+        }
+        let insert = this.content(this.hoveredFeatures, this.index);
         render(
             html`
                 <aside
