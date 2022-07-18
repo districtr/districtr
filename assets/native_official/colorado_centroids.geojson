@@ -3,10 +3,14 @@
 "name": "colorado_centroids",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "NAME": "Southern Ute" }, "geometry": { "type": "Point", "coordinates": [ -107.643625219699132, 37.107970921969347 ] } },
-{ "type": "Feature", "properties": { "NAME": "Ute Mountain" }, "geometry": { "type": "Point", "coordinates": [ -108.700256833405888, 37.334491307893629 ] } },
-{ "type": "Feature", "properties": { "NAME": "Ute Mountain" }, "geometry": { "type": "Point", "coordinates": [ -108.758032577867908, 37.339104013933195 ] } },
-{ "type": "Feature", "properties": { "NAME": "Ute Mountain" }, "geometry": { "type": "Point", "coordinates": [ -108.911786300206273, 37.325284661247466 ] } },
-{ "type": "Feature", "properties": { "NAME": "Ute Mountain" }, "geometry": { "type": "Point", "coordinates": [ -108.639626525384728, 37.091633410321997 ] } }
+{ "type": "Feature", "properties": { "NAME": "Ute Mountain" }, "geometry": { "type": "Point", "coordinates": [ -109.06523039724469, 37.459355423367242 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ute Mountain" }, "geometry": { "type": "Point", "coordinates": [ -108.758032577867908, 37.339104013933181 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ute Mountain" }, "geometry": { "type": "Point", "coordinates": [ -108.911786300206316, 37.32528466124748 ] } },
+{ "type": "Feature", "properties": { "NAME": "Southern Ute" }, "geometry": { "type": "Point", "coordinates": [ -107.644461104130741, 37.108054815509092 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ute Mountain" }, "geometry": { "type": "Point", "coordinates": [ -108.700256833405874, 37.334491307893622 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ute Mountain" }, "geometry": { "type": "Point", "coordinates": [ -109.644690161048118, 37.709324232460204 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ute Mountain" }, "geometry": { "type": "Point", "coordinates": [ -109.467187379763928, 37.462472924845478 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ute Mountain" }, "geometry": { "type": "Point", "coordinates": [ -109.63077947172502, 37.681722251912895 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ute Mountain" }, "geometry": { "type": "Point", "coordinates": [ -108.639626525384841, 37.091633410322032 ] } }
 ]
 }

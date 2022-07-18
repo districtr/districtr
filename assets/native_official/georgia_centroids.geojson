@@ -3,6 +3,7 @@
 "name": "georgia_centroids",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 "features": [
-{ "type": "Feature", "properties": { "NAME": "Tama" }, "geometry": { "type": "Point", "coordinates": [ -84.264673641347954, 30.862501926852062 ] } }
+{ "type": "Feature", "properties": { "NAME": "Georgia Tribe of Eastern Cherokee" }, "geometry": { "type": "Point", "coordinates": [ -84.05643968034191, 34.522007862700356 ] } },
+{ "type": "Feature", "properties": { "NAME": "Tama" }, "geometry": { "type": "Point", "coordinates": [ -84.264673641347983, 30.862501926852051 ] } }
 ]
 }
