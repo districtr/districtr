@@ -2795,7 +2795,8 @@ const proposals_by_event = {
   prjusd: true,
   san_mateo_city: true,
   butte_county: true,
-  "worcestersd": true
+  "worcestersd": true,
+  nyc2022: true,
 };
 
 export default () => {
