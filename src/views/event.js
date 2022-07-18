@@ -157,7 +157,8 @@ commoncausepa: 'Pennsylvania',
   "west_sacramento": "California",
   "diamond_bar": "California",
   "drawabq": "New Mexico",
-  "worcestersd": "Massachusetts"
+  "worcestersd": "Massachusetts",
+  "nyc2022": "New York"
 };
 
 const validEventCodes = {
@@ -304,7 +305,8 @@ commoncausepa: 'pennsylvania',
   "west_sacramento": "ca_west_sac",
   "diamond_bar": "ca_diamond_bar",
   "drawabq": "nm_abq",
-  "worcestersd": "ma_worcester"
+  "worcestersd": "ma_worcester",
+  "nyc2022": "nyc_popdemo"
 };
 
 const blockPlans = {
@@ -392,7 +394,8 @@ const unitTypes = {
   "carlsbad2021": { no: 'Blocks' },
   "buellton": { no: 'Blocks' },
   "ocsd": { no: 'Blocks' },
-  "worcestersd": { no: "Blocks" }
+  "worcestersd": { no: "Blocks" },
+  "nyc2022": { no: "Blocks" }
 };
 
 const unitCounts = {
@@ -543,7 +546,8 @@ const hybrid_events = [
   "open_space_authority",
   "west_sacramento",
   "diamond_bar",
-  "drawabq"
+  "drawabq",
+  "nyc2022"
 ];
 
 const portal_events = [
@@ -983,17 +987,17 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
       lines are drawn affects how people are represented.
     </p>
     <p>
-      Redistricting also determines which neighborhoods and communities are grouped together into a 
-      district. Communities are those with common social or economic interests that should be included 
-      within a single district for effective, fair representation. They are best described by those with 
+      Redistricting also determines which neighborhoods and communities are grouped together into a
+      district. Communities are those with common social or economic interests that should be included
+      within a single district for effective, fair representation. They are best described by those with
       first‐hand knowledge. <strong>We want to hear about your community; you know it best!</strong>
     </p>
     <p>
-      <strong>You can also submit your own plan for how to divide the city into five districts.</strong> Every plan submitted 
+      <strong>You can also submit your own plan for how to divide the city into five districts.</strong> Every plan submitted
       to the City will be carefully reviewed and included as part of the public record.
     </p>
     <p>
-      Get started by clicking the orange or purple button. To share your map, click “Save” in the upper 
+      Get started by clicking the orange or purple button. To share your map, click “Save” in the upper
       right corner of the mapping module. To pin your map to this page, be sure the tag “Carpinteria”.
     </p>
   `,
@@ -1274,7 +1278,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
     Every map submitted will be carefully reviewed by the City of Dallas
     Redistricting Commission. For more information, visit the
     <a href="https://dallasredistricting.com/create-your-plan/" target="_blank">
-    City of Dallas Citizen Redistricting Commission page</a>. 
+    City of Dallas Citizen Redistricting Commission page</a>.
   </p>`,
   glendora2021: "<p>Welcome to the Districtr Community of Interest public mapping tool for Glendora's 2021 city council redistricting.<p>\
   <p>As part of the redistricting process, the California FAIR MAPS Act incudes \
@@ -1286,7 +1290,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   share your map and your story using this tool now.</p>\
   <p><strong>To display your map on this page, be sure the tag &quot;Glendora2021&quot; is filled \
   out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
-  
+
   "sandimas2021": `
     <p>Welcome to the Districtr Community of Interest public mapping tool for City of San Dimas' 2021 city council redistricting.</p>
     <p>As part of the redistricting process, the California FAIR MAPS Act includes neighborhoods and "Communities of Interest" as important
@@ -1463,7 +1467,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       areas only by voters who reside within the respective areas. Board members
       will be required to reside within the area from which they are elected.
       For example, Area A’s representative on the MCCD Board will need to reside
-      within Area A and is only elected by voters who reside within Area A. 
+      within Area A and is only elected by voters who reside within Area A.
     </p>
     <p>
       As part of the creation of voting areas, MCCD is seeking public input on
@@ -1492,13 +1496,13 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       only by voters who reside within the respective areas. Board members will be
       required to reside within the area from which they are elected. For example,
       Area A’s representative on the OUHSD Board will need to reside within Area A
-      and is only elected by voters who reside within Area A. 
+      and is only elected by voters who reside within Area A.
     </p>
     <p>
       As part of the creation of voting areas, OUHSD is seeking public input on
       what these voting areas should look like. To let OUHSD know what you think
       the maps should look like, you can create your own map utilizing this website
-      or you can take one of the previously created maps and modify it, then submit 
+      or you can take one of the previously created maps and modify it, then submit
       the map for consideration by the Board of Trustees.
       <a href="https://districtr.org/guide">Click here</a> for a tutorial.
     </p>
@@ -1512,22 +1516,22 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     </p>`,
   "watsonville": `
     <p>
-      Every ten years, local governments use new United States Census data to redraw 
-      their district lines to reflect how local populations have changed. This process, 
-      called redistricting, is important in ensuring that each City Council Member 
-      represents substantially the same number of constituents. How those lines are 
+      Every ten years, local governments use new United States Census data to redraw
+      their district lines to reflect how local populations have changed. This process,
+      called redistricting, is important in ensuring that each City Council Member
+      represents substantially the same number of constituents. How those lines are
       drawn affects how people are represented.
     </p>
     <p>
-      Redistricting also determines which neighborhoods and communities are grouped 
-      together into a district. Communities are those with common social or economic 
-      interests that should be included within a single district for effective, fair 
-      representation. They are best described by those with first‐hand knowledge. <strong>We 
+      Redistricting also determines which neighborhoods and communities are grouped
+      together into a district. Communities are those with common social or economic
+      interests that should be included within a single district for effective, fair
+      representation. They are best described by those with first‐hand knowledge. <strong>We
       want to hear about your community; you know it best!</strong>
     </p>
     <p>
-      <strong>You can also submit your own plan for how to divide the city into seven districts.</strong> 
-      Every plan submitted to the City will be carefully reviewed and included as part of 
+      <strong>You can also submit your own plan for how to divide the city into seven districts.</strong>
+      Every plan submitted to the City will be carefully reviewed and included as part of
       the public record. For more information, <a href='https://www.cityofwatsonville.org/2193/Redistricting' target=_blank>visit this link</a>.
     </p>
     <p>
@@ -1536,23 +1540,23 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   `,
   "rohnert_park": `
     <p>
-      Every ten years, local governments use new United States Census data to redraw 
-      their district lines to reflect how local populations have changed. This process, 
-      called redistricting, is important in ensuring that each City Council Member 
-      represents substantially the same number of constituents. How those lines are 
+      Every ten years, local governments use new United States Census data to redraw
+      their district lines to reflect how local populations have changed. This process,
+      called redistricting, is important in ensuring that each City Council Member
+      represents substantially the same number of constituents. How those lines are
       drawn affects how people are represented.
     </p>
     <p>
-      Redistricting also determines which neighborhoods and communities are grouped 
-      together into a district. Communities are those with common social or economic 
-      interests that should be included within a single district for effective, fair 
-      representation. They are best described by those with first‐hand knowledge. <strong>We 
+      Redistricting also determines which neighborhoods and communities are grouped
+      together into a district. Communities are those with common social or economic
+      interests that should be included within a single district for effective, fair
+      representation. They are best described by those with first‐hand knowledge. <strong>We
       want to hear about your community; you know it best!</strong>
     </p>
     <p>
-      <strong>You can also submit your own plan for how to divide the city into five districts.</strong> 
-      Every plan submitted to the City will be carefully reviewed and included as part of 
-      the public record. For more information, 
+      <strong>You can also submit your own plan for how to divide the city into five districts.</strong>
+      Every plan submitted to the City will be carefully reviewed and included as part of
+      the public record. For more information,
       <a href='https://www.rpcity.org/city_hall/administration/city_clerk/city_elections/redistricting' target=_blank>visit this link</a>.
     </p>
     <p>
@@ -1591,23 +1595,23 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   `,
   "brentwood": `
     <p>
-      Every ten years, local governments use new United States Census data to redraw 
-      their district lines to reflect how local populations have changed. This process, 
-      called redistricting, is important in ensuring that each City Council Member 
-      represents substantially the same number of constituents. How those lines are 
+      Every ten years, local governments use new United States Census data to redraw
+      their district lines to reflect how local populations have changed. This process,
+      called redistricting, is important in ensuring that each City Council Member
+      represents substantially the same number of constituents. How those lines are
       drawn affects how people are represented.
     </p>
     <p>
-      Redistricting also determines which neighborhoods and communities are grouped 
-      together into a district. Communities are those with common social or economic 
-      interests that should be included within a single district for effective, fair 
-      representation. They are best described by those with first‐hand knowledge. <strong>We 
+      Redistricting also determines which neighborhoods and communities are grouped
+      together into a district. Communities are those with common social or economic
+      interests that should be included within a single district for effective, fair
+      representation. They are best described by those with first‐hand knowledge. <strong>We
       want to hear about your community; you know it best!</strong>
     </p>
     <p>
-      <strong>You can also submit your own plan for how to divide the city into four districts.</strong> 
-      Every plan submitted to the City will be carefully reviewed and included as part of 
-      the public record. For more information, 
+      <strong>You can also submit your own plan for how to divide the city into four districts.</strong>
+      Every plan submitted to the City will be carefully reviewed and included as part of
+      the public record. For more information,
       <a href='https://www.brentwoodca.gov/gov/admin/clerk/redistricting.asp' target=_blank>visit this link</a>.
     </p>
     <p>
@@ -1630,102 +1634,102 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     `,
   "millbrae": `
     <p>
-      The City of Millbrae is in the process of moving from an at-large election 
-      system to a by-district election system. To draw these new districts we 
-      need to hear from you as it’s important to know about your community so 
-      that the district lines can amplify the voices of residents. Learn more 
+      The City of Millbrae is in the process of moving from an at-large election
+      system to a by-district election system. To draw these new districts we
+      need to hear from you as it’s important to know about your community so
+      that the district lines can amplify the voices of residents. Learn more
       on the <a href='https://www.configuremillbrae.org/' target=_blank>Configure Millbrae website</a>.
     </p>
     <p>
-      Examples of communities can include neighborhoods, areas where many 
-      residents speak the same language, or areas where the residents use the 
-      same community facilities. It’s basically any area of the city where 
+      Examples of communities can include neighborhoods, areas where many
+      residents speak the same language, or areas where the residents use the
+      same community facilities. It’s basically any area of the city where
       people have a common interest that needs a voice in government.
     </p>
     <p>
     <strong>
-      We need your help to build a community map and our new city council map! 
-      Please use this tool to identify the boundaries of your community and 
+      We need your help to build a community map and our new city council map!
+      Please use this tool to identify the boundaries of your community and
       provide your city council lines.
     </strong>
     </p>
     <p>
-      Every map submitted will be carefully reviewed by professional demographers 
+      Every map submitted will be carefully reviewed by professional demographers
       and decision makers who are charged with drawing the City Council District Map.
     </p>
     <p>
-      Get started by clicking the orange or purple button to draw your community of 
-      interest or a city council district map. To share your map, click “Save” in the 
-      upper right corner of the mapping module. To pin your map to this page, be sure 
+      Get started by clicking the orange or purple button to draw your community of
+      interest or a city council district map. To share your map, click “Save” in the
+      upper right corner of the mapping module. To pin your map to this page, be sure
       the tag “Millbrae” (any capitalization) is entered.
     </p>
   `,
   "draweg": `
     <p>
-      Every 10 years, a new U.S. Census is conducted, and the population counts are 
-      then used for redistricting. For district elections, the City will be divided 
-      into four districts. The goal of redistricting is to create a final map with four 
+      Every 10 years, a new U.S. Census is conducted, and the population counts are
+      then used for redistricting. For district elections, the City will be divided
+      into four districts. The goal of redistricting is to create a final map with four
       districts that are relatively equal in total population using the new Census counts.
     </p>
     <p>
-      You can track the <a href='http://www.elkgrovecity.org/city_hall/city_government/city_council/redistricting' target=_blank>Redistricting Project discussion</a> 
-      on the City website. If anyone needs information or assistance, please contact the City Clerk at 
+      You can track the <a href='http://www.elkgrovecity.org/city_hall/city_government/city_council/redistricting' target=_blank>Redistricting Project discussion</a>
+      on the City website. If anyone needs information or assistance, please contact the City Clerk at
       <a href='mailto:cityclerk@elkgrovecity.org' target=_blank>cityclerk@elkgrovecity.org</a> or 916-478-2286.
     </p>
   `,
   "belmont": `
     <p>
-      The City of Belmont is in the process of moving from an at-large election 
-      system to a by-district election system. To draw these new districts we 
-      need to hear from you as it’s important to know about your community so 
+      The City of Belmont is in the process of moving from an at-large election
+      system to a by-district election system. To draw these new districts we
+      need to hear from you as it’s important to know about your community so
       that the district lines can amplify the voices of residents.
     </p>
     <p>
-      Examples of communities can include neighborhoods, areas where many 
-      residents speak the same language, or areas where the residents use the 
-      same community facilities. It’s basically any area of the city where 
+      Examples of communities can include neighborhoods, areas where many
+      residents speak the same language, or areas where the residents use the
+      same community facilities. It’s basically any area of the city where
       people have a common interest that needs a voice in government.
     </p>
     <p>
     <strong>
-      We need your help to build a community map and our new city council district map! 
-      Please use this tool to identify the boundaries of your community and 
+      We need your help to build a community map and our new city council district map!
+      Please use this tool to identify the boundaries of your community and
       provide your proposed city council district lines.
     </strong>
     </p>
     <p>
-      Every map submitted will be carefully reviewed by professional demographers 
+      Every map submitted will be carefully reviewed by professional demographers
       and decision makers who are charged with drawing the City Council District Map.
     </p>
     <p>
-      Get started by clicking the orange or purple button to draw your community of 
-      interest or a city council district map. To share your map, click “Save” in the 
-      upper right corner of the mapping module. To pin your map to this page, be sure 
+      Get started by clicking the orange or purple button to draw your community of
+      interest or a city council district map. To share your map, click “Save” in the
+      upper right corner of the mapping module. To pin your map to this page, be sure
       the tag “Belmont” (any capitalization) is entered.
     </p>
   `,
   "open_space_authority": `
     <p>
-      Every 10 years, Californians get the chance to help reshape districts following 
-      the decennial U.S. Census. In the Santa Clara Valley Open Space Authority, these 
-      electoral districts are called “director divisions.” It’s important to know about 
+      Every 10 years, Californians get the chance to help reshape districts following
+      the decennial U.S. Census. In the Santa Clara Valley Open Space Authority, these
+      electoral districts are called “director divisions.” It’s important to know about
       communities so that the division lines can amplify the voices of residents.
     </p>
     <p>
-      Examples of communities can include cities, neighborhood associations, areas where 
-      many residents speak the same language, or even areas where the residents use the 
-      same community facilities. It’s basically any part where people have a common interest 
+      Examples of communities can include cities, neighborhood associations, areas where
+      many residents speak the same language, or even areas where the residents use the
+      same community facilities. It’s basically any part where people have a common interest
       that needs a voice in government.
     </p>
     <p>
     <strong>
-      We need your help to build a community map and our new director division map! Please use 
+      We need your help to build a community map and our new director division map! Please use
       this tool to identify the boundaries of your community and provide a director division map.
     </strong>
     </p>
     <p>
-      Get started by clicking the orange or purple button to draw your community or a 
-      board district map. To share your map, click “Save” in the upper right corner of 
+      Get started by clicking the orange or purple button to draw your community or a
+      board district map. To share your map, click “Save” in the upper right corner of
       the mapping module. Then click on the “Share to Gallery” green button.
     </p>
   `,
@@ -1734,88 +1738,88 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       Welcome to Pima County’s online tool for the 2022 County Supervisorial redistricting process.
     </p>
     <p>
-      Every 10 years the Pima County Board of Supervisors is required to redistrict (redraw 
-      district boundaries) for the purpose of balancing the population of each district to 
-      within 10 percent. Using 2020 Census population figures and the federally-accepted 
-      calculation method (difference between the percentage deviations of the highest- and 
-      lowest-populated districts from ideal population equality), the deviation of the 
-      current districts is 15 percent. The Pima Community College Governing Board uses the 
-      same district boundaries as the Board of Supervisors and will therefore also be impacted 
+      Every 10 years the Pima County Board of Supervisors is required to redistrict (redraw
+      district boundaries) for the purpose of balancing the population of each district to
+      within 10 percent. Using 2020 Census population figures and the federally-accepted
+      calculation method (difference between the percentage deviations of the highest- and
+      lowest-populated districts from ideal population equality), the deviation of the
+      current districts is 15 percent. The Pima Community College Governing Board uses the
+      same district boundaries as the Board of Supervisors and will therefore also be impacted
       by changes to district boundaries.
     </p>
     <p>
-      The Board of Supervisors appointed a Redistricting Advisory Committee to hold public 
-      hearings and develop and recommend a map or maps to the Board by April 30, 2022. The 
-      Board anticipates approving new district boundaries by May 30, 2022, well in advance 
-      of the required July 1 deadline. For more information about Pima County Redistricting, 
-      including Committee meeting dates, other opportunities to provide comments, and how to 
-      find your district, please visit the County redistricting website 
+      The Board of Supervisors appointed a Redistricting Advisory Committee to hold public
+      hearings and develop and recommend a map or maps to the Board by April 30, 2022. The
+      Board anticipates approving new district boundaries by May 30, 2022, well in advance
+      of the required July 1 deadline. For more information about Pima County Redistricting,
+      including Committee meeting dates, other opportunities to provide comments, and how to
+      find your district, please visit the County redistricting website
       <a href='http://www.pima.gov/countyredistricting' target=_blank>here</a>.
     </p>
     <p>
-      This online mapping tool allows Committee members, the public and other stakeholders to 
-      redraw district boundaries using voter precincts as building blocks, and submit maps of 
-      proposed new district configurations for consideration. Users will be able to view 
-      information about population, demographics, and registered voters by party registration. 
-      These data come from the 2020 Census and the Pima County Recorder’s Office (Recorder’s 
-      voter registration data as of December 6, 2021). Additional data for Pima County is 
-      available on <a href='https://districtr.org/arizona' target=_blank>Arizona’s Districtr page</a>, 
+      This online mapping tool allows Committee members, the public and other stakeholders to
+      redraw district boundaries using voter precincts as building blocks, and submit maps of
+      proposed new district configurations for consideration. Users will be able to view
+      information about population, demographics, and registered voters by party registration.
+      These data come from the 2020 Census and the Pima County Recorder’s Office (Recorder’s
+      voter registration data as of December 6, 2021). Additional data for Pima County is
+      available on <a href='https://districtr.org/arizona' target=_blank>Arizona’s Districtr page</a>,
       including election results by precinct for 2018 statewide offices.
     </p>
   `,
   "west_sacramento": `
     <p>
-      The City of West Sacramento is in the process of moving from an at-large election system to a 
-      by-district election system. To draw these new districts we need to hear from you as it’s 
-      important to know about your community so that the district lines can amplify the voices of 
-      residents. Learn more on our 
+      The City of West Sacramento is in the process of moving from an at-large election system to a
+      by-district election system. To draw these new districts we need to hear from you as it’s
+      important to know about your community so that the district lines can amplify the voices of
+      residents. Learn more on our
       <a href='https://www.cityofwestsacramento.org/government/city-clerk-s-office/district-election-1336' target=_blank>website</a>.
     </p>
     <p>
-      Examples of communities can include neighborhoods, areas where many residents speak the same 
-      language, or areas where the residents use the same community facilities. It’s basically any 
+      Examples of communities can include neighborhoods, areas where many residents speak the same
+      language, or areas where the residents use the same community facilities. It’s basically any
       area of the city where people have a common interest that needs a voice in government.
     </p>
     <p>
-      We need your help to build a community map and our new city council map! Please use this tool 
+      We need your help to build a community map and our new city council map! Please use this tool
       to identify the boundaries of your community and provide draft city council lines.
     </p>
     <p>
-      Every map submitted will be carefully reviewed by professional demographers and decision 
+      Every map submitted will be carefully reviewed by professional demographers and decision
       makers who are charged with drawing the City Council District Map.
     </p>
     <p>
-      Get started by clicking the orange or purple button to draw your community of interest or a 
-      city council district map. To share your map, click “Save” in the upper right corner of the 
-      mapping module, select “Share Now”, and then click on the “Share to Gallery” button. A “Team” 
+      Get started by clicking the orange or purple button to draw your community of interest or a
+      city council district map. To share your map, click “Save” in the upper right corner of the
+      mapping module, select “Share Now”, and then click on the “Share to Gallery” button. A “Team”
       or “Plan Name” is optional.
     </p>
   `,
   "diamond_bar": `
     <p>
-      The City of Diamond Bar is in the process of moving from an at-large election system to a 
-      by-district election system. To draw these new districts we need to hear from you as it’s 
-      important to know about your community so that the district lines can amplify the voices of 
+      The City of Diamond Bar is in the process of moving from an at-large election system to a
+      by-district election system. To draw these new districts we need to hear from you as it’s
+      important to know about your community so that the district lines can amplify the voices of
       residents. Learn more at <a href='https://www.diamondbarca.gov/1070/City-Council-Districting' target=_blank>Districting Diamond Bar</a>.
     </p>
     <p>
-      Examples of communities can include neighborhoods, areas where many residents speak the same 
-      language, or areas where the residents use the same community facilities. It’s basically any 
+      Examples of communities can include neighborhoods, areas where many residents speak the same
+      language, or areas where the residents use the same community facilities. It’s basically any
       area of the city where people have a common interest that needs a voice in government.
     </p>
     <p>
-      <strong>We need your help to build a community map and our new city council district map! 
-      Please use this tool to identify the boundaries of your community and provide your proposed 
+      <strong>We need your help to build a community map and our new city council district map!
+      Please use this tool to identify the boundaries of your community and provide your proposed
       city council district lines.</strong>
     </p>
     <p>
-      Every map submitted will be carefully reviewed by professional demographers and decision 
+      Every map submitted will be carefully reviewed by professional demographers and decision
       makers who are charged with drawing the City Council District Map.
     </p>
     <p>
-      Get started by clicking the orange or purple button to draw your community of interest or 
-      a city council district map. To share your map, click “Save” in the upper right corner of 
-      the mapping module. To pin your map to this page, be sure the tag “Diamond Bar” (any 
+      Get started by clicking the orange or purple button to draw your community of interest or
+      a city council district map. To share your map, click “Save” in the upper right corner of
+      the mapping module. To pin your map to this page, be sure the tag “Diamond Bar” (any
       capitalization) is entered.
     </p>
   `,
@@ -1824,40 +1828,40 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       Welcome to the City of Albuquerque’s redistricting 2022 public mapping portal!
     </p>
     <p>
-      Redistricting is the process of redrawing city council district boundaries based on the most 
-      recent population information about the City of Albuquerque. The goal of redistricting is to 
+      Redistricting is the process of redrawing city council district boundaries based on the most
+      recent population information about the City of Albuquerque. The goal of redistricting is to
       create nine City Council districts with substantially equal population.
     </p>
     <p>
-      Albuquerque’s City Charter creates a redistricting committee of community members appointed 
-      by City Councilors to represent each of the nine City Council districts. You can find more 
-      information or provide written comment on the City’s redistricting website at 
+      Albuquerque’s City Charter creates a redistricting committee of community members appointed
+      by City Councilors to represent each of the nine City Council districts. You can find more
+      information or provide written comment on the City’s redistricting website at
       <a href='https://www.cabq.gov/2022redistricting' target=_blank>www.cabq.gov/2022redistricting</a>.
     </p>
     <p>
-      The public can participate in the redistricting process by drawing maps and communities of 
-      interest using the tools on this site to draw your own plan, update existing concepts under 
+      The public can participate in the redistricting process by drawing maps and communities of
+      interest using the tools on this site to draw your own plan, update existing concepts under
       committee consideration, or let the committee know about your community.
     </p>
     <p>
-      In order for a plan to be considered by the committee, make sure your map fits the following 
+      In order for a plan to be considered by the committee, make sure your map fits the following
       criteria.
       <ul>
         <li>
-          All districts are contiguous – meaning that all precincts assigned to a district are 
+          All districts are contiguous – meaning that all precincts assigned to a district are
           touching at least one other precinct assigned to that district.
         </li>
         <li>
-          The maximum population deviation does not exceed 5.00% (i.e. does not exceed +/- 5% 
+          The maximum population deviation does not exceed 5.00% (i.e. does not exceed +/- 5%
           deviation from the ideal population).
         </li>
       </ul>
     </p>
     <p>
-      The committee will consider a plan (that meets the above criteria) or community of interest 
-      submitted on this site, if it is introduced by the creator during the public comment section 
-      of a meeting, or if it is introduced via the Public Comments page on the city’s redistricting website. If submitting 
-      a plan or community of interest on the city’s website (<a href='https://www.cabq.gov/2022redistricting' target=_blank>www.cabq.gov/2022redistricting</a>), 
+      The committee will consider a plan (that meets the above criteria) or community of interest
+      submitted on this site, if it is introduced by the creator during the public comment section
+      of a meeting, or if it is introduced via the Public Comments page on the city’s redistricting website. If submitting
+      a plan or community of interest on the city’s website (<a href='https://www.cabq.gov/2022redistricting' target=_blank>www.cabq.gov/2022redistricting</a>),
       please include the plan URL (plan link) in the “Your Comments” box.
     </p>
     <p>
@@ -1887,6 +1891,58 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       tag <strong>"worcestersd"</strong> is visible in the save window. For a detailed
       how-to guide for Districtr, visit our <a href=https://districtr.org/guide>Guide
       page.</a>
+    </p>
+  `,
+  "nyc2022": `
+    <p>
+      Every ten years, local governments use new United States Census data to
+      redraw their district lines to reflect how local populations have changed.
+      This process, called redistricting, is important in ensuring that each City
+      Councilmember represents about the same number of constituents. Each newly
+      drawn New York City Council District will include between 168,000 to 177,000
+      people.
+    </p>
+    <p>
+      The 51 New York City Council Districts will be drawn by a Districting
+      Commission, which is composed of 15 Commissioners that reflect the geographic
+      and ethnic diversity of New York City. Five of the Commissioners were appointed
+      by the City Council's Majority Caucus, three were appointed by the City
+      Council's Minority Caucus, and Mayor Adams appointed the remaining seven.
+      To learn more about the Commission, please visit their
+      <a href=https://www1.nyc.gov/site/districting/index.page>website.</a>
+    </p>
+    <p>
+      Redistricting determines which neighborhoods and communities are grouped
+      together into a City Council District for purposes of electing a Councilmember.
+      In addition to Census data, the Districting Commission will be holding a
+      series of public hearings to discuss communities of interest.
+      <a href=https://www1.nyc.gov/site/districting/public-meetings-hearings/meetings.page>Click here</a>
+      to view the hearing schedule.
+    </p>
+    <p>
+      You can draw your communities of interest using Districtr. Examples of
+      communities of interest can include neighborhood associations, areas where
+      many residents speak the same language, or even areas where the residents
+      use the same community facilities or resources. Communities can also be
+      defined by people who share common interests that need a voice in government.
+    </p>
+    <p><strong>
+      We need your help to build a community map and our new City Council District
+      map! Please use this tool to identify the boundaries of your community and
+      provide your proposed city council district lines.
+    </strong></p>
+    <p>
+      Every map submitted to the New York City Districting Commission will be
+      carefully reviewed and included as part of the public record.
+    </p>
+    <p>
+      Get started by clicking the orange button to draw your community or the
+      purple button to draw your city council map. To share your map, click
+      "Save" in the upper right corner of the mapping module.
+    </p>
+    <p>
+      For a detailed how-to guide of Districtr, visit the
+      <a href=https://districtr.org/guide>User Guide</a>.
     </p>
   `
 };
@@ -1962,11 +2018,11 @@ martinez: [
 ],
 carpinteria: [
   `
-    This mapping module displays 2020 Decennial Census population, adjusted per California 
-    state law to reallocate incarcerated populations to their last known residential address, 
-    on Census blocks. This data was processed Redistricting Partners. For the last decade, 
-    Redistricting Partners has supported cities, community college districts, school boards, 
-    hospital districts, water boards, and other special districts. To learn more about their 
+    This mapping module displays 2020 Decennial Census population, adjusted per California
+    state law to reallocate incarcerated populations to their last known residential address,
+    on Census blocks. This data was processed Redistricting Partners. For the last decade,
+    Redistricting Partners has supported cities, community college districts, school boards,
+    hospital districts, water boards, and other special districts. To learn more about their
     team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
   `
 ],
@@ -2587,22 +2643,22 @@ butte_county: [
   ],
   "rohnert_park": [
     `
-    This mapping module uses the official 2020 Redistricting Database of California, published by 
-    the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
+    This mapping module uses the official 2020 Redistricting Database of California, published by
+    the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates
     incarcerated populations to their last known residential address.
     `
   ],
   "brentwood": [
     `
-    This mapping module uses the official 2020 Redistricting Database of California, published by 
-    the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
+    This mapping module uses the official 2020 Redistricting Database of California, published by
+    the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates
     incarcerated populations to their last known residential address.
     `
   ],
   "watsonville": [
     `
-    This mapping module uses the official 2020 Redistricting Database of California, published by 
-    the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates 
+    This mapping module uses the official 2020 Redistricting Database of California, published by
+    the Statewide Database with processing by Wagaman Strategies. The Statewide Database reallocates
     incarcerated populations to their last known residential address.
     `
   ],
@@ -2666,57 +2722,69 @@ butte_county: [
   ],
   "millbrae": [
     `
-      This mapping module uses the <strong>official Redistricting Database for California</strong>, 
-      published by the Statewide Database with processing by Redistricting Partners. 
-      For the last decade, Redistricting Partners has supported cities, community college 
-      districts, school boards, hospital districts, water boards, and other special 
+      This mapping module uses the <strong>official Redistricting Database for California</strong>,
+      published by the Statewide Database with processing by Redistricting Partners.
+      For the last decade, Redistricting Partners has supported cities, community college
+      districts, school boards, hospital districts, water boards, and other special
       districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
     `
   ],
   "draweg": [
     `
-      This mapping module uses the official Redistricting Database for California, 
-      published by the Statewide Database with processing by City Staff. For 
-      additional information, contact the City Clerk at 
+      This mapping module uses the official Redistricting Database for California,
+      published by the Statewide Database with processing by City Staff. For
+      additional information, contact the City Clerk at
       <a href='mailto:cityclerk@elkgrovecity.org' target=_blank>cityclerk@elkgrovecity.org</a>.
     `
   ],
   "belmont": [
     `
-      This mapping module uses the <strong>official Redistricting Database for California</strong>, 
-      published by the Statewide Database with processing by Redistricting Partners. 
-      For the last decade, Redistricting Partners has supported cities, community college 
-      districts, school boards, hospital districts, water boards, and other special 
+      This mapping module uses the <strong>official Redistricting Database for California</strong>,
+      published by the Statewide Database with processing by Redistricting Partners.
+      For the last decade, Redistricting Partners has supported cities, community college
+      districts, school boards, hospital districts, water boards, and other special
       districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
     `
   ],
   "open_space_authority": [
     `
-      This mapping module displays 2015-2019 American Community Survey data disaggregated 
+      This mapping module displays 2015-2019 American Community Survey data disaggregated
       onto Census blocks. The data was prepared by Redistricting Partners.
-      For the last decade, Redistricting Partners has supported cities, community college 
-      districts, school boards, hospital districts, water boards, and other special 
+      For the last decade, Redistricting Partners has supported cities, community college
+      districts, school boards, hospital districts, water boards, and other special
       districts. To learn more about their team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
     `
   ],
   "pimaaz": [``],
   "west_sacramento": [
     `
-      This mapping module uses the official Redistricting Database for California, 
-      published by the Statewide Database with processing by Redistricting Partners. 
-      For the last decade, Redistricting Partners has supported cities, community college 
-      districts, school boards, hospital districts, water boards, and other special districts. 
-      To learn more about their team click 
+      This mapping module uses the official Redistricting Database for California,
+      published by the Statewide Database with processing by Redistricting Partners.
+      For the last decade, Redistricting Partners has supported cities, community college
+      districts, school boards, hospital districts, water boards, and other special districts.
+      To learn more about their team click
       <a href='https://redistrictingpartners.com/about/' target=_blank>here</a>.
     `
   ],
   "diamond_bar": [
     `
-      This mapping module uses the official Redistricting Database for California, published by 
-      the Statewide Database with processing by Redistricting Partners. For the last decade, 
-      Redistricting Partners has supported cities, community college districts, school boards, 
-      hospital districts, water boards, and other special districts. To learn more about their 
+      This mapping module uses the official Redistricting Database for California, published by
+      the Statewide Database with processing by Redistricting Partners. For the last decade,
+      Redistricting Partners has supported cities, community college districts, school boards,
+      hospital districts, water boards, and other special districts. To learn more about their
       team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    `
+  ],
+  "nyc2022": [
+    `
+      This mapping module uses adjusted data obtained from the US Census Bureau
+      with processing by Redistricting Partners. <a href=https://latfor.state.ny.us/>
+      New York State Legislative Task Force on Demographic Research and Reapportionment</a>
+      conducted adjustments for incarcerated individuals. For the last decade,
+      Redistricting Partners has supported states, counties, cities, community
+      college districts, school boards, and other special districts drawing new
+      districts. To learn more about their team,
+      <a href=https://redistrictingpartners.com/about/>click here</a>.
     `
   ]
 };
@@ -2973,7 +3041,7 @@ export default () => {
             document.getElementById("partnership-icons").style.display = "block";
             document.getElementById("partnership-b").src = "/assets/partners-ndc.png?v=2";
             document.getElementById("partner-link-b").href = "https://www.ndcresearch.com/";
-          
+
             if (eventCode == "yubacity") {
               document.getElementById("partner-link-a").href = "https://www.yubacity.net/";
               document.getElementById("partnership-a").src = "/assets/partner-logos/yuba_city.png?v=2";
