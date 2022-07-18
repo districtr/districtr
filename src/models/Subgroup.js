@@ -113,6 +113,6 @@ const ABBREVIATIONS = {
     "2MOREVAP": "2+ VAP",
     "AMINVAP20": "Native Am.",
     "NHPIVAP20": "NH/PI",
-    Others: "Others",
-    CVAP_Others: "Others",
+    Others: "Wh/Oth",
+    CVAP_Others: "Wh/Oth",
 };

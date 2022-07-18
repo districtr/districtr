@@ -284,10 +284,10 @@ function getMenuItems(state) {
             name: "New plan",
             onClick: () => navigateTo("/new")
         },
-        {
-            name: "Print / PDF",
-            onClick: () => window.print()
-        },
+        // {
+        //     name: "Print / PDF",
+        //     onClick: () => window.print()
+        // },
         {
             name: `Export Districtr-JSON`,
             onClick: () => exportPlanAsJSON(state)

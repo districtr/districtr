@@ -2033,8 +2033,8 @@ export function spatial_abilities(id) {
     },
       nyc_popdemo: {
         number_markers: true,
-        shapefile: false,
-        coalition: false,
+        shapefile: true,
+        coalition: true,
         boundaries: [
           {
             id: 'nyc_district',
@@ -2045,7 +2045,7 @@ export function spatial_abilities(id) {
           },
           {
             id: 'nyc_comm',
-            label: 'Official Community Areas link:https://www1.nyc.gov/site/cau/community-boards/about-commmunity-boards.page',
+            label: 'Official Community Areas link:https://communityprofiles.planning.nyc.gov/',
             path: 'current_districts/nyc/community',
             centroids: false,
             lineColor: '#700',

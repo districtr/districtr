@@ -12,9 +12,9 @@ import { html } from "lit-html";
 export function toggle(label, checked, onChange, optionalId="", optionalClass="") {
     let link = ''
     if (label.indexOf("link:") > -1) {
-      link = html`<a href="${label.split(' link:')[1]}" target="_blank">
-        Info
-      </a>`;
+      link = html`<span>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="${label.split(' link:')[1]}" target="_blank">
+        ⓘ
+      </a></span>`;
       label = label.split(' link:')[0];
     }
     return html`

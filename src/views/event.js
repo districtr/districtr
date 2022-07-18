@@ -2824,6 +2824,9 @@ export default () => {
         } else if (eventCode === "foothilldeanza") {
           document.getElementById("introExplain").innerHTML = "";
           document.getElementById("eventHeadline").innerText = "Foothill-De Anza";
+        } else if (eventCode === "nyc2022") {
+          document.getElementById("introExplain").innerHTML = "";
+          document.getElementById("eventHeadline").innerText = "New York City Council Mapping Page";         
         } else if (eventCode === "pimaaz") {
           document.getElementById("districting-options-title").innerHTML = "<p>Click the purple box below to start with a blank map. If you’d prefer to start using the current district boundaries, click <a href='https://districtr.org/edit/113736?event=pimaaz' target=_blank>here</a>. After working, click “Save” in the upper right corner of the mapping module to save your work. Copy the URL shown in the “Save” box so that you can return to your map. To display your map on this page, either as a proposed plan or a draft, click the “Share to Gallery” button.</p><p><strong>Note: The maximum population deviation shown on the Population tab displays the maximum population deviation of any <u>single</u> district from ideal size.</strong> This isn’t the method used to calculate the 10 percent deviation statutory requirement. To ensure your plan has less than 10 percent deviation, hover over the District bars and sum the deviations (ignoring negative percentages) for the highest- and lowest-populated Districts.</p>";
           document.getElementById("about-section").innerHTML = document.getElementById("about-section").innerHTML.replace("<h2>About</h2>", "");
@@ -3434,9 +3437,11 @@ export default () => {
               document.getElementById('drafts-nav').style.display = "none";
             }
             if (proposals_by_event[eventCode]) {
-                fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
-                    render(plansSection([{ title: 'Sample plans', plans: sample.plans, desc: (sample.description ? sample.description : null) }], eventCode, true), document.getElementById("proposals"));
-                });
+                setTimeout(() => {
+                  fetch(`/assets/plans/${eventCode}.json`).then(res => res.json()).then(sample => {
+                      render(plansSection([{ title: 'Sample plans', plans: sample.plans, desc: (sample.description ? sample.description : null) }], eventCode, true), document.getElementById("proposals"));
+                  });
+                }, 500);
             } else {
                 document.getElementById("sample_plan_link").style.display = "none";
             }

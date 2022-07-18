@@ -316,11 +316,11 @@ export default function DataLayersPlugin(editor) {
     if (state.cvap) {
         vapOverlay = new OverlayContainer(
             "cvap",
-            demoLayers.filter(lyr => !lyr.background),
+            demoLayers.filter(lyr => (!lyr.background && lyr.id !== "nyc_22_poponly_blocks") || (lyr.sourceLayer === "nyc_demo_bg_blockgroups")),
             state.cvap,
             "Show citizen voting age population (CVAP)",
             false,
-            (abilities.coalition === false) ? null : "Coalition citizen voting age population",
+            (abilities.coalition === false || state.place.id === "nyc_popdemo") ? null : "Coalition citizen voting age population",
             false,
             false
 
@@ -403,7 +403,7 @@ export default function DataLayersPlugin(editor) {
             </div>`
         );
     }
-    
+
     // This is clearly not the best way to handle any of this, but
     // we need to pull in a percent column set that is on precincts
     // in Pima County, AZ. Therefore, we'll check if the module is
