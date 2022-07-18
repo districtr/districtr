@@ -84,6 +84,29 @@ export default function EvaluationPlugin(editor) {
             };
         }
 
+        if (state.place.id === "nyc_popdemo") {
+          tab.addSection(() => html`<button style="border: none; background: #fff; font-weight: bold; cursor: pointer; font-size: 11pt; margin-left: 11px; margin-bottom:8px; margin-top:8px;"
+              @mouseover=${() => {
+                document.getElementById("demo-note-popup-2").className = "show";
+              }}
+              @mouseout=${() => {
+                document.getElementById("demo-note-popup-2").className = "hide";
+              }}
+            >Demographic Data Info - ⓘ</button></strong>
+              <div id="demo-note-popup-2">
+                  <p style="font-weight: normal;font-size:11pt;">
+                  Redistricting Partners has prepared the groupings of race/ethnicity on census blocks,
+                  following guidance from the Department of Justice and breaking down counts from larger geographies.
+                  These are based on responses to the Decennial Census and the American Community Survey.
+                  All individuals indicating Hispanic ethnicity are grouped as Hispanic.
+                  <br/>
+                  Among non-Hispanic respondents, Black and Black+White respondents are grouped as Black;
+                  Asian and Asian+White respondents are grouped as Asian;
+                  and the balance of respondents, who are mostly White-identified, are grouped as White/Other.
+                  </p>
+              </div>`)
+        }
+
         tab.addRevealSection(
             "Population by Race",
             (uiState, dispatch) =>

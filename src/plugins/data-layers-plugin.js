@@ -200,7 +200,36 @@ export default function DataLayersPlugin(editor) {
     //     addMyCOI(state, tab);
     // }
 
-    tab.addSection(() => html`<h4>Demographics</h4>`)
+    if (state.place.id === "nyc_popdemo") {
+        tab.addSection(() => html`<h4>
+          Demographics
+          - <button style="border: none; background: #fff; cursor: pointer;"
+            @mouseover=${() => {
+              document.getElementById("demo-note-popup").className = "show";
+            }}
+            @mouseout=${() => {
+              document.getElementById("demo-note-popup").className = "hide";
+            }}
+          >ⓘ</button>
+            <div id="demo-note-popup">
+                <p style="font-weight: normal;font-size:11pt;">
+                Redistricting Partners has prepared the groupings of race/ethnicity on census blocks,
+                following guidance from the Department of Justice and breaking down counts from larger geographies.
+                These are based on responses to the Decennial Census and the American Community Survey.
+                All individuals indicating Hispanic ethnicity are grouped as Hispanic.
+                <br/>
+                Among non-Hispanic respondents, Black and Black+White respondents are grouped as Black;
+                Asian and Asian+White respondents are grouped as Asian;
+                and the balance of respondents, who are mostly White-identified, are grouped as White/Other.
+                </p>
+            </div>
+        </h4>
+        <p class="italic-note">
+          Shading is shown in small collections of blocks called block groups.
+        </p>`)
+    } else {
+      tab.addSection(() => html`<h4>Demographics</h4>`)
+    }
 
     if (state.place.id === "alaska_blocks") {
         state.population.subgroups = [];
