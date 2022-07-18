@@ -39,12 +39,17 @@ function datasetInfo(state) {
             "nd_sioux", "contracosta"
         ],
         units = state.unitsRecord.name,
-        dataset = "";
+        dataset = "",
+        icon = "<p><span style='font-size: 1.2em'>&#9432;</span> ";
 
-    if (acsLocations.includes(place.id.toLowerCase()) || state.units.id.includes("2019") || population.name !== "Population") {
-        dataset = `<p><span>&#9432;</span> ${populations.acs}`;
+    if (
+        acsLocations.includes(place.id.toLowerCase())
+        || state.units.id.includes("2019")
+        || population.name !== "Population"
+    ) {
+        dataset = populations.acs;
     } else if (["mt_pris_adj"].includes(place.id)) {
-        dataset = `<p><span>&#9432;</span> ${populations.census20adjMT}`;
+        dataset = populations.census20adjMT;
     } else if (
         [
             "rp_lax", "ca_butte", "sanluiso", "sanjoseca", "siskiyou", "redwood",
@@ -55,19 +60,21 @@ function datasetInfo(state) {
             "ca_millbrae", "ca_belmont", "ca_scvosa", "ca_west_sac", "ca_diamond_bar"
         ].includes(place.id)
     ) {
-        dataset = `<p><span>&#9432;</span> ${(units === "2020 Blocks") ? populations.redistpartners2020 : populations.mesa}`;
+        dataset = units === "2020 Blocks" ? populations.redistpartners2020 : populations.mesa;
+    } else if (["ny_nyc_test"].includes(place.id)) {
+        dataset = populations.redistpartners2020;
     } else if (["pasorobles"].includes(place.id)) {
-        dataset = `<p><span>&#9432;</span> ${populations.pasorobles}`;
+        dataset = populations.pasorobles;
     } else if (["ca_elkgrove"].includes(place.id)) {
-        dataset = `<p><span>&#9432;</span> ${populations.ca_elkgrove}`;
+        dataset = populations.ca_elkgrove;
     } else if (["az_pima"].includes(place.id)) {
-        dataset = `<p><span>&#9432;</span> ${populations.az_pima}`;
+        dataset = populations.az_pima;
     } else if (["az_maricopa"].includes(place.id)) {
-        dataset = `<p><span>&#9432;</span> ${populations.az_maricopa}`;
+        dataset = populations.az_maricopa;
     } else if (["ca_fpud"].includes(place.id)) {
-        dataset = `<p><span>&#9432;</span> ${populations.haystaq_2020}`;
+        dataset = populations.haystaq_2020;
     } else if (["nm_abq"].includes(place.id)) {
-        dataset = `<p><span>&#9432;</span> ${populations.research_polling}`;
+        dataset = populations.research_polling;
     
     // Cooperative strategies modules. I also wholeheartedly disagree with the
     // way this info message differentiation is being done; why don't we put this
@@ -75,9 +82,9 @@ function datasetInfo(state) {
     // after-the-fact and making it way harder to figure out? This is ridiculous
     // and certainly not the way it was intended to be written.
     } else if (["sbusd_5", "sbusd_7", "pvsd"].includes(place.id)) {
-        dataset = `<p><span>&#9432;</span> ${populations.cooperative_strategies}`;  
+        dataset = populations.cooperative_strategies;  
     } else if (["ca_watsonville", "ca_rohnert", "ca_brentwood"].includes(place.id)) {
-        dataset = `<p><span>&#9432;</span> ${populations.wagaman_2020}`;
+        dataset = populations.wagaman_2020;
     } else if (
         [
             "sacramento", "ca_goleta", "ca_santabarbara", "ca_marin", "ca_kings",
@@ -93,20 +100,24 @@ function datasetInfo(state) {
             "2020 Counties"
         ].includes(state.unitsRecord.name)
     ) {
-        dataset = `<p><span>&#9432;</span> ${populations.ndc_proj_2020}`;
-    } else if (["2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs", "2020 Counties", "2021 Precincts", "2022 Precincts"].includes(state.unitsRecord.name)) {
-        if (("2020 VTDs" === state.unitsRecord.name && ["virginia", "maryland", "pa_prison_adj"].includes(place.id)) ||
-            (
-                [
+        dataset = populations.ndc_proj_2020;
+    } else if ([
+                "2020 Block Groups", "2020 Blocks", "2020 Precincts", "2020 VTDs",
+                "2020 Counties", "2021 Precincts", "2022 Precincts"
+            ].includes(state.unitsRecord.name)
+        ) {
+            if (
+                "2020 VTDs" === state.unitsRecord.name
+                && ["virginia", "maryland", "pa_prison_adj"].includes(place.id)
+                || [
                     "california", "ca_SanDiego", "ca_contracosta", "ca_sutter",
                     "menlo_park", "marinco"
                 ].includes(state.place.id)
-            )
-        ) {
-            dataset = `<p><span>&#9432;</span> ${populations.census20adj}`;
-        } else if (["pa_adj"].includes(place.id)) {
-            dataset = `<p><span>&#9432;</span> ${populations.census20non_p_adj}`;
-        } else if (
+            ) {
+                dataset = populations.census20adj;
+            } else if (["pa_adj"].includes(place.id)) {
+                dataset = populations.census20non_p_adj;
+            } else if (
                 [
                     "san_dimas", "ccsanitation2", "ca_pasadena", "sacramento",
                     "ca_goleta", "ca_glendora", "arcadia", "la_mirada", "lakewood",
@@ -118,24 +129,25 @@ function datasetInfo(state) {
                     "ca_buellton", "ca_oceano"
                 ].includes(state.place.id)
             ) {
-          // 2020 - NDC - Prison
-          dataset = `<p><span>&#9432;</span> ${populations.ndc_prison_2020}`;
-        } else if (
-            [
-                "placentia", "anaheim", "ca_fresno_ci", "ca_cvista", "ca_stockton",
-                "ca_sonoma", "ca_poway", "ca_torrance", "navajoco", "buena_park"
-            ].includes(state.place.id)) {
-            // 2020 NDC un-adjusted population.
-            dataset = `<p><span>&#9432;</span> ${populations.ndc_2020}`;
-        } else {
-          // 2020 generic
-          dataset = `<p><span>&#9432;</span> ${populations.census20}`;
-        }
+                // 2020 - NDC - Prison
+                dataset = populations.ndc_prison_2020;
+            } else if (
+                [
+                    "placentia", "anaheim", "ca_fresno_ci", "ca_cvista", "ca_stockton",
+                    "ca_sonoma", "ca_poway", "ca_torrance", "navajoco", "buena_park"
+                ].includes(state.place.id)
+            ) {
+                // 2020 NDC un-adjusted population.
+                dataset = populations.ndc_2020;
+            } else {
+                // 2020 generic?
+                dataset = populations.census20;
+            }
     } else {
-        dataset = `<p><span>&#9432;</span> ${populations.census}`;
+        dataset = populations.census;
     }
 
-    return dataset + ` on <strong>${units}</strong>.</p>`;
+    return icon + dataset + ` on <strong>${units}</strong>.</p>`;
 }
 
 /**

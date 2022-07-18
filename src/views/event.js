@@ -157,7 +157,8 @@ commoncausepa: 'Pennsylvania',
   "west_sacramento": "California",
   "diamond_bar": "California",
   "drawabq": "New Mexico",
-  "worcestersd": "Massachusetts"
+  "worcestersd": "Massachusetts",
+  "nyc2022": "New York"
 };
 
 const validEventCodes = {
@@ -304,7 +305,8 @@ commoncausepa: 'pennsylvania',
   "west_sacramento": "ca_west_sac",
   "diamond_bar": "ca_diamond_bar",
   "drawabq": "nm_abq",
-  "worcestersd": "ma_worcester"
+  "worcestersd": "ma_worcester",
+  "nyc2022": "ny_nyc_test"
 };
 
 const blockPlans = {
@@ -392,7 +394,8 @@ const unitTypes = {
   "carlsbad2021": { no: 'Blocks' },
   "buellton": { no: 'Blocks' },
   "ocsd": { no: 'Blocks' },
-  "worcestersd": { no: "Blocks" }
+  "worcestersd": { no: "Blocks" },
+  "nyc2022": { no: "Blocks" }
 };
 
 const unitCounts = {
@@ -543,7 +546,8 @@ const hybrid_events = [
   "open_space_authority",
   "west_sacramento",
   "diamond_bar",
-  "drawabq"
+  "drawabq",
+  "nyc2022"
 ];
 
 const portal_events = [
@@ -1888,6 +1892,58 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       how-to guide for Districtr, visit our <a href=https://districtr.org/guide>Guide
       page.</a>
     </p>
+  `,
+  "nyc2022": `
+    <p>
+      Every ten years, local governments use new United States Census data to
+      redraw their district lines to reflect how local populations have changed.
+      This process, called redistricting, is important in ensuring that each City
+      Councilmember represents about the same number of constituents. Each newly
+      drawn New York City Council District will include between 168,000 to 177,000
+      people.
+    </p>
+    <p>
+      The 51 New York City Council Districts will be drawn by a Districting
+      Commission, which is composed of 15 Commissioners that reflect the geographic
+      and ethnic diversity of New York City. Five of the Commissioners were appointed
+      by the City Council's Majority Caucus, three were appointed by the City
+      Council's Minority Caucus, and Mayor Adams appointed the remaining seven.
+      To learn more about the Commission, please visit their
+      <a href=https://www1.nyc.gov/site/districting/index.page>website.</a>
+    </p>
+    <p>
+      Redistricting determines which neighborhoods and communities are grouped
+      together into a City Council District for purposes of electing a Councilmember.
+      In addition to Census data, the Districting Commission will be holding a
+      series of public hearings to discuss communities of interest.
+      <a href=https://www1.nyc.gov/site/districting/public-meetings-hearings/meetings.page>Click here</a>
+      to view the hearing schedule. 
+    </p>
+    <p>
+      You can draw your communities of interest using Districtr. Examples of
+      communities of interest can include neighborhood associations, areas where
+      many residents speak the same language, or even areas where the residents
+      use the same community facilities or resources. Communities can also be
+      defined by people who share common interests that need a voice in government.
+    </p>
+    <p><strong>
+      We need your help to build a community map and our new City Council District
+      map! Please use this tool to identify the boundaries of your community and 
+      provide your proposed city council district lines.
+    </strong></p>
+    <p>
+      Every map submitted to the New York City Districting Commission will be
+      carefully reviewed and included as part of the public record.
+    </p>
+    <p>
+      Get started by clicking the orange button to draw your community or the
+      purple button to draw your city council map. To share your map, click
+      "Save" in the upper right corner of the mapping module.
+    </p>
+    <p>
+      For a detailed how-to guide of Districtr, visit the
+      <a href=https://districtr.org/guide>User Guide</a>.
+    </p>
   `
 };
 
@@ -2717,6 +2773,18 @@ butte_county: [
       Redistricting Partners has supported cities, community college districts, school boards, 
       hospital districts, water boards, and other special districts. To learn more about their 
       team <a href='https://redistrictingpartners.com/about/' target=_blank>click here</a>.
+    `
+  ],
+  "nyc2022": [
+    `
+      This mapping module uses adjusted data obtained from the US Census Bureau
+      with processing by Redistricting Partners. <a href=https://latfor.state.ny.us/>
+      New York State Legislative Task Force on Demographic Research and Reapportionment</a>
+      conducted adjustments for incarcerated individuals. For the last decade,
+      Redistricting Partners has supported states, counties, cities, community
+      college districts, school boards, and other special districts drawing new
+      districts. To learn more about their team,
+      <a href=https://redistrictingpartners.com/about/>click here</a>.
     `
   ]
 };

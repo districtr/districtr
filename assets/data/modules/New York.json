@@ -772,5 +772,210 @@
         "pluralNoun": "State Senate Districts"
       }
     ]
+  },
+  {
+    "state": "New York",
+    "name": "New York City",
+    "id": "ny_nyc_test",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 8816959,
+              "min": 0,
+              "max": 5092
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 1784870,
+                "min": 0,
+                "max": 3634
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 1373629,
+                "min": 0,
+                "max": 2732
+              },
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 2494775,
+                "min": 0,
+                "max": 2261
+              },
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 2719681,
+                "min": 0,
+                "max": 3875
+              },
+              {
+                "key": "LF_20_AiAn",
+                "name": "American Indian / Alaska Native population",
+                "sum": 19215,
+                "min": 0,
+                "max": 104
+              },
+              {
+                "key": "LF_20_HoPI",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 3302,
+                "min": 0,
+                "max": 57
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 5442070,
+              "min": 0,
+              "max": 4385
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_Not Hispanic or Latino",
+                "name": "Not Hispanic or Latino population",
+                "sum": 4084553,
+                "min": 0,
+                "max": 4220
+              },
+              {
+                "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+                "name": "American Indian or Alaska Native Alone population",
+                "sum": 25158,
+                "min": 0,
+                "max": 230
+              },
+              {
+                "key": "CVAP_15-19_Asian Alone",
+                "name": "Asian Alone population",
+                "sum": 685662,
+                "min": 0,
+                "max": 1533
+              },
+              {
+                "key": "CVAP_15-19_Black or African American Alone",
+                "name": "Black or African American Alone population",
+                "sum": 1313528,
+                "min": 0,
+                "max": 2489
+              },
+              {
+                "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
+                "name": "Native Hawaiian or Other Pacific Islander Alone population",
+                "sum": 3197,
+                "min": 0,
+                "max": 225
+              },
+              {
+                "key": "CVAP_15-19_White Alone",
+                "name": "White Alone population",
+                "sum": 2042283,
+                "min": 0,
+                "max": 3925
+              },
+              {
+                "key": "CVAP_15-19_American Indian or Alaska Native and White",
+                "name": "American Indian or Alaska Native and White population",
+                "sum": 8708,
+                "min": 0,
+                "max": 230
+              },
+              {
+                "key": "CVAP_15-19_Asian and White",
+                "name": "Asian and White population",
+                "sum": 29652,
+                "min": 0,
+                "max": 171
+              },
+              {
+                "key": "CVAP_15-19_Black or African American and White",
+                "name": "Black or African American and White population",
+                "sum": 24991,
+                "min": 0,
+                "max": 460
+              },
+              {
+                "key": "CVAP_15-19_American Indian or Alaska Native and Black or African American",
+                "name": "American Indian or Alaska Native and Black or African American population",
+                "sum": 5587,
+                "min": 0,
+                "max": 225
+              },
+              {
+                "key": "CVAP_15-19_Remainder of Two or More Race Responses",
+                "name": "Remainder of Two or More Race Responses population",
+                "sum": 20105,
+                "min": 0,
+                "max": 395
+              },
+              {
+                "key": "CVAP_15-19_Hispanic or Latino",
+                "name": "Hispanic or Latino",
+                "sum": 1357266,
+                "min": 0,
+                "max": 1785
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -74.2588,
+            40.4766
+          ],
+          [
+            -73.7002,
+            40.9177
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ny_nyc_test_blocks"
+            },
+            "sourceLayer": "ny_nyc_test_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ny_nyc_test_blocks_points"
+            },
+            "sourceLayer": "ny_nyc_test_blocks_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council District",
+        "numberOfParts": 51,
+        "pluralNoun": "City Council Districts"
+      }
+    ]
   }
 ]
