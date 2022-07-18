@@ -435,7 +435,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderID, 
         counties = addCounties(map, COUNTIES_TILESET, layerAdder, stateName),
 
         // Add block group units to the map.
-        bgTileset = tilesets.find((t) => t.source.url.includes("blockgroups")),
+        bgTileset = tilesets.find((t) => t.source.url.includes("blockgroups") && !t.source.url.includes("points")),
         bgAreas = addBGs(map, bgTileset, layerAdder, borderID),
         bg_areas = bgAreas,
 
