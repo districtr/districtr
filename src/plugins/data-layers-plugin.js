@@ -287,7 +287,7 @@ export default function DataLayersPlugin(editor) {
 
     const demographicsOverlay = new OverlayContainer(
         "demographics",
-        demoLayers.filter(lyr => (!lyr.background && !lyr.id === "nyc_22_poponly_blocks") || (lyr.sourceLayer === "nyc_demo_bg_blockgroups")),
+        demoLayers.filter(lyr => (!lyr.background && lyr.id !== "nyc_22_poponly_blocks") || (lyr.sourceLayer === "nyc_demo_bg_blockgroups")),
         state.population,
         "Show population",
         false, // first only (one layer)?
