@@ -70,6 +70,7 @@ export default function ToolsPlugin(editor) {
             Object.keys(subtracted).forEach(skey => added[skey] -= subtracted[skey] || 0);
             return added;
           }
+          console.log(nycPlusMinus);
           fetch("//mggg.pythonanywhere.com/nyc-assist", {
             method: "POST",
             headers: {

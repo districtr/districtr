@@ -144,8 +144,8 @@ export default class Brush extends HoverWithRadius {
                     if (this.color === null || this.color === undefined) {
                       // handled in removal of old color (as if this was painting a new color over this)
                       // this.nycPlusMinus[String(Number(this.color))].removed.push(feature.properties.GEOINDEX || feature.properties.GEOID20);
-                    } else {
-                      this.nycPlusMinus[String(Number(this.color))].added.push(feature.properties.GEOINDEX || feature.properties.GEOID20);
+                    } else if (feature.properties.GEOINDEX) {
+                      this.nycPlusMinus[String(Number(this.color))].added.push(feature.properties.GEOINDEX);
                     }
                 }
 
@@ -162,7 +162,9 @@ export default class Brush extends HoverWithRadius {
                     if (!this.nycPlusMinus[String(Number(feature.state.color))]) {
                       this.nycPlusMinus[String(Number(feature.state.color))] = { added:[], removed:[] };
                     }
-                    this.nycPlusMinus[String(Number(feature.state.color))].removed.push(feature.properties.GEOINDEX || feature.properties.GEOID20);
+                    if (feature.properties.GEOINDEX) {
+                      this.nycPlusMinus[String(Number(feature.state.color))].removed.push(feature.properties.GEOINDEX);
+                    }
                 }
 
                 this.layer.setFeatureState(feature.id, {
@@ -262,6 +264,7 @@ export default class Brush extends HoverWithRadius {
         let listeners = this.listeners.colorfeature;
         let atomicAction = this.trackUndo[this.cursorUndo];
         let brushedColor = atomicAction.color;
+        this.nycPlusMinus = {};
         if (brushedColor || brushedColor === 0 || brushedColor === '0') {
             this.changedColors.add(brushedColor * 1);
             if (!this.nycPlusMinus[String(brushedColor * 1)]) {
@@ -275,19 +278,34 @@ export default class Brush extends HoverWithRadius {
             // eraser color "undefined" should act like a brush set to null
             let amendColor = atomicAction[fid].color;
             if ((amendColor === 0 || amendColor === '0') || amendColor) {
+                // had applied amendColor
                 amendColor = Number(atomicAction[fid].color);
                 if (isNaN(amendColor)) {
+                    // had applied eraser
                     amendColor = null;
                 }
             } else {
+                // had applied eraser
                 amendColor = null;
             }
             this.changedColors.add(amendColor);
             if (amendColor !== null && !this.nycPlusMinus[String(amendColor)]) {
               this.nycPlusMinus[String(amendColor)] = { added:[], removed:[] };
             }
+            if (amendColor !== null) {
+              // restore a color to this feature
+              this.nycPlusMinus[String(amendColor)].added.push(Number(
+                atomicAction[fid].properties.GEOINDEX
+              ));
+            }
+            if (brushedColor !== null) {
+              // remove the added color from this feature
+              this.nycPlusMinus[String(brushedColor)].removed.push(Number(
+                atomicAction[fid].properties.GEOINDEX
+              ));
+            }
 
-            // change map colors
+            // change map color to original
             let featureState = this.layer.getFeatureState(fid);
             this.layer.setFeatureState(fid, {
                 ...featureState,
@@ -349,6 +367,19 @@ export default class Brush extends HoverWithRadius {
             this.changedColors.add(amendColor);
             if (!this.nycPlusMinus[String(amendColor)]) {
               this.nycPlusMinus[String(amendColor)] = { added:[], removed:[] };
+            }
+
+            if (amendColor !== null || isNaN(amendColor)) {
+              // remove color from this feature
+              this.nycPlusMinus[String(amendColor)].removed.push(Number(
+                atomicAction[fid].properties.GEOINDEX
+              ));
+            }
+            if (brushedColor !== null) {
+              // re-add color to this feature
+              this.nycPlusMinus[String(brushedColor)].added.push(Number(
+                atomicAction[fid].properties.GEOINDEX
+              ));
             }
 
             // change map colors

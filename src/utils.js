@@ -2033,7 +2033,7 @@ export function spatial_abilities(id) {
     },
       nyc_popdemo: {
         number_markers: true,
-        shapefile: true,
+        shapefile: false,
         coalition: false,
         boundaries: [
           {
