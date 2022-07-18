@@ -75,7 +75,12 @@ function getPlanContext() {
             console.error(e);
         });
     } else {
-        return Promise.resolve(getContextFromStorage());
+        let storage = getContextFromStorage();
+        if (storage && storage.place && storage.place.id && storage.place.id.indexOf("nyc") > -1) {
+          storage.placeId = storage.place.id;
+          return loadPlanFromJSON(storage);
+        }
+        return Promise.resolve(storage);
     }
 }
 
@@ -244,7 +249,35 @@ function loadContext(context) {
             state.plan.assignment = context.assignment; // know loaded district assignments
         }
         let editor = new Editor(state, mapState, getPlugins(context));
-        editor.render();
+
+        if (context.place.id.indexOf("nyc") > -1 && Object.keys(window.nycKeeps).length) {
+          fetch("//mggg.pythonanywhere.com/nyc-assist", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ colors: window.nycKeeps }),
+          }).then(res => res.json()).then(tallies => {
+            function sumChanges(plusAndMinus) {
+              let added = JSON.parse(plusAndMinus['+']),
+                  subtracted = JSON.parse(plusAndMinus['-']);
+              Object.keys(subtracted).forEach(skey => added[skey] -= subtracted[skey] || 0);
+              return added;
+            }
+            Object.keys(tallies).forEach((part) => {
+              // add numbers to evaluation table
+              state.columnSets.forEach(columnSet => columnSet.update({
+                properties: sumChanges(tallies[part])
+              }, part));
+              // remove transparency on evaluation table
+              // document.body.className = '';
+              // render table
+              editor.render();
+            });
+          });
+        } else {
+          editor.render();
+        }
     });
 }
 

@@ -30,7 +30,9 @@ function popNumber(value) {
 function getCellStyle(value) {
     const background = getBackgroundColor(value);
     const color = value > 0.4 ? "white" : "black";
-    return `background: ${background}; color: ${color}`;
+    return (document.body.className === "nycmode")
+      ? `background: #ccc; color: transparent;`
+      : `background: ${background}; color: ${color}`;
 }
 
 function getCell(subgroup, part, width, decimals) {

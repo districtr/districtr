@@ -231,7 +231,7 @@ function addCounties(map, tileset, layerAdder, placeID) {
  */
 function addBGs(map, tileset, layerAdder, borderID) {
     // Manage exceptions.
-    let exceptions = ["yuma", "nwaz", "seaz", "maricopa", "phoenix"];
+    let exceptions = ["yuma", "nwaz", "seaz", "maricopa", "phoenix", "nyc_popdemo"];
     if (!exceptions.includes(borderID)) return null;
 
     // Otherwise, create a block groups layer.
@@ -276,7 +276,7 @@ function addCOIUnits(map, stateName) {
         clusterLayerAlreadyExists = clusterTileset ? existingSources.includes(clusterTileset.sourceLayer) : true,
         coiLayerAlreadyExists = coiTileset ? existingSources.includes(coiTileset.sourceLayer) : true,
         clusterUnits, coiUnits, clusterUnitsLines, coiUnitsLines;
-    
+
     // Add tileset sources.
     for (let tileset of tilesets) map.addSource(tileset.sourceLayer, tileset.source);
 
@@ -435,7 +435,7 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderID, 
         counties = addCounties(map, COUNTIES_TILESET, layerAdder, stateName),
 
         // Add block group units to the map.
-        bgTileset = tilesets.find((t) => t.source.url.includes("blockgroups")),
+        bgTileset = tilesets.find((t) => t.source.url.includes("blockgroups") && !t.source.url.includes("points")),
         bgAreas = addBGs(map, bgTileset, layerAdder, borderID),
         bg_areas = bgAreas,
 

@@ -154,7 +154,7 @@ input, textarea {
     user-select: text;
 }
 
-#save-popup {
+#save-popup, #demo-note-popup, #demo-note-popup-2 {
     display: none;
     visibility: hidden;
     top: 42px;
@@ -219,6 +219,22 @@ input, textarea {
         -webkit-box-sizing: inherit;
         box-sizing: inherit;
     }
+}
+
+#demo-note-popup {
+  top: auto;
+
+  &:before {
+    left: 144px;
+  }
+}
+
+#demo-note-popup-2 {
+  top: auto;
+
+  &:before {
+    left: 181px;
+  }
 }
 
 @media (max-width: 900px) {

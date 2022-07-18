@@ -1,4 +1,147 @@
 [
+{
+"name": "New York City",
+"id": "nyc_popdemo",
+"units": [
+  {
+    "id": "blocks20",
+    "name": "2020 Blocks",
+    "unitType": "Blocks",
+    "columnSets": [
+      {
+        "type": "population",
+        "name": "Population",
+        "total": {
+          "key": "TOTPOP",
+          "name": "Total population",
+          "sum": 8816959,
+          "min": 0,
+          "max": 5092
+        },
+        "subgroups": [
+          {
+            "key": "LF_20_AfAm",
+            "name": "Black population",
+            "sum": 1784870,
+            "min": 0,
+            "max": 3634
+          },
+          {
+            "key": "LF_20_Hispanic_or_Latino",
+            "name": "Hispanic population",
+            "sum": 2494775,
+            "min": 0,
+            "max": 2261
+          },
+          {
+            "key": "LF_20_Asian",
+            "name": "Asian population",
+            "sum": 1373629,
+            "min": 0,
+            "max": 2732
+          },
+          {
+            "key": "Others",
+            "name": "White/Other population",
+            "sum": 2742198,
+            "min": 0,
+            "max": 3878
+          }
+        ]
+      },
+      {
+        "type": "population",
+        "name": "Citizen Voting Age Population",
+        "total": {
+          "key": "CVAP_15-19_Total",
+          "name": "Citizen Voting Age Population",
+          "sum": 5442070,
+          "min": 0,
+          "max": 4385
+        },
+        "subgroups": [
+           {
+             "key": "CVAP_15-19_Black or African American Alone",
+             "name": "Black CVAP",
+             "sum": 1313528,
+             "min": 0,
+             "max": 2489
+           },
+           {
+             "key": "CVAP_15-19_Asian Alone",
+             "name": "Asian CVAP",
+             "sum": 685662,
+             "min": 0,
+             "max": 1533
+           },
+           {
+             "key": "CVAP_15-19_Hispanic or Latino",
+             "name": "Hispanic CVAP",
+             "sum": 1357266,
+             "min": 0,
+             "max": 1785
+           },
+           {
+             "key": "CVAP_Others",
+             "name": "White/Other CVAP",
+             "sum": 2070639,
+             "min": 0,
+             "max": 3925
+           }
+        ]
+      }
+    ],
+    "idColumn": {
+      "name": "Block FIPS code",
+      "key": "GEOINDEX"
+    },
+    "bounds": [
+      [
+        -74.2588,
+        40.4766
+      ],
+      [
+        -73.7002,
+        40.9177
+      ]
+    ],
+    "tilesets": [
+      {
+        "type": "fill",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://districtr.nyc_22_poponly_blocks?v=2"
+        },
+        "sourceLayer": "nyc_22_poponly_blocks"
+      },
+      {
+        "type": "circle",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://districtr.nyc_demo_bg_blockgroups_points?v=2"
+        },
+        "sourceLayer": "nyc_demo_bg_blockgroups_points"
+      },
+      {
+        "type": "fill",
+        "source": {
+          "type": "vector",
+          "url": "mapbox://districtr.nyc_demo_bg_blockgroups"
+        },
+        "sourceLayer": "nyc_demo_bg_blockgroups"
+      }
+    ]
+  }
+],
+"state": "New York",
+"districtingProblems": [
+  {
+    "name": "City Council",
+    "numberOfParts": 51,
+    "pluralNoun": "City Council Districts"
+  }
+]
+},
   {
     "units": [
       {

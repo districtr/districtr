@@ -22,7 +22,9 @@ function getBackgroundColor(value) {
 function getCellStyle(value) {
     const background = getBackgroundColor(value);
     const color = value > 0.4 ? "white" : "black";
-    return `background: ${background}; color: ${color}; width: 50%;`;
+    return (document.body.className === "nycmode")
+      ? `background: #ccc; color: transparent; width: 50%;`
+      : `background: ${background}; color: ${color}; width: 50%;`;
 }
 
 function getCell(value) {

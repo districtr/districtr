@@ -10,6 +10,13 @@ import { html } from "lit-html";
  * @returns {HTMLTemplateElement} Renderable lit-html template element.
  */
 export function toggle(label, checked, onChange, optionalId="", optionalClass="") {
+    let link = ''
+    if (label.indexOf("link:") > -1) {
+      link = html`<span>&nbsp;&nbsp;-&nbsp;&nbsp;<a href="${label.split(' link:')[1]}" target="_blank">
+        ⓘ
+      </a></span>`;
+      label = label.split(' link:')[0];
+    }
     return html`
         <label class="toolbar-checkbox ${optionalClass}">
             <input
@@ -18,7 +25,7 @@ export function toggle(label, checked, onChange, optionalId="", optionalClass=""
                 ?checked="${checked}"
                 @change="${e => onChange(e.target.checked)}"
             />
-            ${label}
+            ${label}${link}
         </label>
     `;
 }

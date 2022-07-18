@@ -71,17 +71,30 @@ export default class CommunityBrush extends Brush {
                       seenCounties.add(countyFIPS);
                   }
               } else {
-
-
+                // calculate final color(s)
                 let fullColors = this.layer.getAssignment(feature.id);
+                let addsColor = false;
                 if (this.color === null) {
                     fullColors = null;
                 } else if (fullColors === null || fullColors === undefined) {
                     fullColors = this.color;
+                    addsColor = true;
                 } else if (typeof fullColors === 'number' && fullColors !== this.color) {
                     fullColors = [fullColors, this.color];
+                    addsColor = true;
                 } else if (Array.isArray(fullColors) && !fullColors.includes(this.color)) {
                     fullColors.push(this.color);
+                    addsColor = true;
+                }
+
+                if (this.color !== null && addsColor && feature.properties && feature.properties.GEOINDEX) {
+                  // add this color if not an eraser
+                  if (!this.nycPlusMinus[String(this.color)]) {
+                    this.nycPlusMinus[String(this.color)] = { added:[], removed:[] };
+                  }
+                  this.nycPlusMinus[String(this.color)].added.push(Number(
+                    feature.properties.GEOINDEX
+                  ));
                 }
 
                 if (!this.trackUndo[this.cursorUndo][feature.id]) {
@@ -103,11 +116,29 @@ export default class CommunityBrush extends Brush {
                 }
 
                 if (Array.isArray(feature.state.color)) {
-                    feature.state.color.forEach((color) => {
-                        this.changedColors.add(Number(color));
+                    feature.state.color.forEach((oldColor) => {
+                        this.changedColors.add(Number(oldColor));
+                        if (this.color === null && feature.properties && feature.properties.GEOINDEX) {
+                          // eraser applies to each color
+                          if (!this.nycPlusMinus[String(oldColor)]) {
+                            this.nycPlusMinus[String(oldColor)] = { added:[], removed:[] };
+                          }
+                          this.nycPlusMinus[String(oldColor)].removed.push(Number(
+                            feature.properties.GEOINDEX
+                          ));
+                        }
                     });
                 } else if (feature.state.color || feature.state.color === 0 || feature.state.color === '0') {
                     this.changedColors.add(Number(feature.state.color));
+                    if (this.color === null && feature.properties && feature.properties.GEOINDEX) {
+                      // eraser applies to this one color
+                      if (!this.nycPlusMinus[String(feature.state.color)]) {
+                        this.nycPlusMinus[String(feature.state.color)] = { added:[], removed:[] };
+                      }
+                      this.nycPlusMinus[String(feature.state.color)].removed.push(Number(
+                        feature.properties.GEOINDEX
+                      ));
+                    }
                 }
 
                 this.layer.setFeatureState(feature.id, {
@@ -148,8 +179,12 @@ export default class CommunityBrush extends Brush {
         let listeners = this.listeners.colorfeature;
         let atomicAction = this.trackUndo[this.cursorUndo];
         let brushedColor = atomicAction.color;
+        this.nycPlusMinus = {};
         if (brushedColor || brushedColor === 0 || brushedColor === '0') {
             this.changedColors.add(brushedColor * 1);
+            if (!this.nycPlusMinus[String(brushedColor * 1)]) {
+              this.nycPlusMinus[String(brushedColor * 1)] = { added:[], removed:[] };
+            }
         }
         Object.keys(atomicAction).forEach((fid) => {
             if (fid === "color") {
@@ -157,10 +192,16 @@ export default class CommunityBrush extends Brush {
             }
             // eraser color "undefined" should act like a brush set to null
             let amendColor = atomicAction[fid].color;
-            if ((amendColor === 0 || amendColor === '0') || amendColor) {
+            if (amendColor === 0 || amendColor === '0' || amendColor) {
                 if (Array.isArray(amendColor)) {
                     amendColor.forEach((color) => {
-                        this.changedColors.add(amendColor);
+                        this.changedColors.add(color);
+                        if (brushedColor === null) {
+                          if (!this.nycPlusMinus[String(color)]) {
+                            this.nycPlusMinus[String(color)] = { added:[], removed:[] };
+                          }
+                          this.nycPlusMinus[String(color)].added.push(atomicAction[fid].properties.GEOINDEX);
+                        }
                     });
                 } else {
                     amendColor = Number(atomicAction[fid].color);
@@ -168,10 +209,20 @@ export default class CommunityBrush extends Brush {
                         amendColor = null;
                     } else {
                         this.changedColors.add(amendColor);
+                        if (brushedColor === null) {
+                          if (!this.nycPlusMinus[String(amendColor)]) {
+                            this.nycPlusMinus[String(amendColor)] = { added:[], removed:[] };
+                          }
+                          this.nycPlusMinus[String(amendColor)].added.push(atomicAction[fid].properties.GEOINDEX);
+                        }
                     }
                 }
             } else {
                 amendColor = null;
+            }
+
+            if (brushedColor !== null) {
+              this.nycPlusMinus[String(brushedColor * 1)].removed.push(atomicAction[fid].properties.GEOINDEX);
             }
 
             // change map colors
@@ -201,7 +252,7 @@ export default class CommunityBrush extends Brush {
 
         // locally store plan state
         for (let listener of this.listeners.colorend.concat(this.listeners.colorop)) {
-            listener(true, this.changedColors);
+            listener(true, this.changedColors, this.nycPlusMinus);
         }
         this.changedColors = new Set();
         for (let listener of this.listeners.undo) {
@@ -218,8 +269,12 @@ export default class CommunityBrush extends Brush {
         this.cursorUndo++;
         let atomicAction = this.trackUndo[this.cursorUndo];
         let brushedColor = atomicAction.color;
-        if (brushedColor || (brushedColor === 0 || brushedColor === '0')) {
+        this.nycPlusMinus = {};
+        if (brushedColor || brushedColor === 0 || brushedColor === '0') {
             this.changedColors.add(brushedColor * 1);
+            if (!this.nycPlusMinus[String(brushedColor * 1)]) {
+              this.nycPlusMinus[String(brushedColor * 1)] = { added:[], removed:[] };
+            }
         }
         let listeners = this.listeners.colorfeature;
         Object.keys(atomicAction).forEach((fid) => {
@@ -235,21 +290,40 @@ export default class CommunityBrush extends Brush {
                 if (Array.isArray(featureColor)) {
                     featureColor.forEach((color) => {
                         this.changedColors.add(color * 1);
+                        if (!this.nycPlusMinus[String(color)]) {
+                          this.nycPlusMinus[String(color)] = { added:[], removed:[] };
+                        }
+                        this.nycPlusMinus[String(color)].removed.push(
+                          atomicAction[fid].properties.GEOINDEX
+                        );
                     });
-                } else if (featureColor || (featureColor === 0 || featureColor === '0')) {
+                } else if (featureColor || featureColor === 0 || featureColor === '0') {
                     this.changedColors.add(featureColor * 1);
-                }
-            } else if (featureColor || (featureColor === 0 || featureColor === '0')) {
-                // re-apply brushedColor to existing feature
-                if (Array.isArray(featureColor)) {
-                    if (!featureColor.includes(brushedColor)) {
-                        finalColor = featureColor.concat([brushedColor]); // added color
-                    } else {
-                        finalColor = featureColor; // unchanged
+                    if (!this.nycPlusMinus[String(featureColor)]) {
+                      this.nycPlusMinus[String(featureColor)] = { added:[], removed:[] };
                     }
-                } else if (featureColor !== brushedColor) {
-                    // combined colors, first time blending
-                    finalColor = [featureColor, brushedColor];
+                    this.nycPlusMinus[String(featureColor)].removed.push(
+                      atomicAction[fid].properties.GEOINDEX
+                    );
+                }
+            } else {
+                if (atomicAction[fid].properties.GEOINDEX) {
+                  this.nycPlusMinus[String(brushedColor)].added.push(
+                    atomicAction[fid].properties.GEOINDEX
+                  );
+                }
+                if (featureColor || featureColor === 0 || featureColor === '0') {
+                  // re-apply brushedColor to existing feature
+                  if (Array.isArray(featureColor)) {
+                      if (!featureColor.includes(brushedColor)) {
+                          finalColor = featureColor.concat([brushedColor]); // added color
+                      } else {
+                          finalColor = featureColor; // unchanged
+                      }
+                  } else if (featureColor !== brushedColor) {
+                      // combined colors, first time blending
+                      finalColor = [featureColor, brushedColor];
+                  }
                 }
             }
 
@@ -277,7 +351,7 @@ export default class CommunityBrush extends Brush {
 
         // locally store plan state
         for (let listener of this.listeners.colorend.concat(this.listeners.colorop)) {
-            listener(true, this.changedColors);
+            listener(true, this.changedColors, this.nycPlusMinus);
         }
         this.changedColors = new Set();
         for (let listener of this.listeners.redo) {

@@ -2288,7 +2288,7 @@
         "id": "state",
         "default": "true"
       },
-      { "name": "Cities", "ids": ["islip", "ithacany"], "id": "loc" }
+      { "name": "Cities", "ids": ["nyc_demo_22", "nyc_popdemo", "islip", "ithacany"], "id": "loc" }
     ],
     "sections": [
       {

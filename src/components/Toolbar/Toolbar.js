@@ -58,7 +58,6 @@ export default class Toolbar {
           btn.className = "saved";
         };
 
-        console.log(window.location.href);
         if (spatial_abilities(this.state.place.id).portal && (window.location.href.includes("portal") || window.location.href.includes("qa-portal"))) {
             saved();
             renderSaveModal(this.state, savePlanToDB, window.location.href.includes("qa-portal"), new URLSearchParams(

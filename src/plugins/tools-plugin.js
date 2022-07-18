@@ -57,8 +57,40 @@ export default function ToolsPlugin(editor) {
                             ? ContiguityChecker(state, brush, false)
                             : null;
 
-    brush.on("colorop", (isUndoRedo, colorsAffected) => {
+    if (state.place.id.indexOf("nyc") > -1) {
+      window.nycmode = true;
+    }
+    brush.on("colorop", (isUndoRedo, colorsAffected, nycPlusMinus) => {
         savePlanToStorage(state.serialize());
+
+        if (window.nycmode) {
+          function sumChanges(plusAndMinus) {
+            let added = JSON.parse(plusAndMinus['+']),
+                subtracted = JSON.parse(plusAndMinus['-']);
+            Object.keys(subtracted).forEach(skey => added[skey] -= subtracted[skey] || 0);
+            return added;
+          }
+          console.log(nycPlusMinus);
+          fetch("//mggg.pythonanywhere.com/nyc-assist", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ colors: nycPlusMinus }),
+          }).then(res => res.json()).then(tallies => {
+            Object.keys(tallies).forEach((part) => {
+              // add numbers to evaluation table
+              state.columnSets.forEach(columnSet => columnSet.update({
+                properties: sumChanges(tallies[part])
+              }, part));
+              // remove transparency on evaluation table
+              document.body.className = '';
+              // render table
+              state.render();
+            });
+          });
+        }
+
         if (c_checker) {
             c_checker(state, colorsAffected);
         }
@@ -252,10 +284,10 @@ function getMenuItems(state) {
             name: "New plan",
             onClick: () => navigateTo("/new")
         },
-        {
-            name: "Print / PDF",
-            onClick: () => window.print()
-        },
+        // {
+        //     name: "Print / PDF",
+        //     onClick: () => window.print()
+        // },
         {
             name: `Export Districtr-JSON`,
             onClick: () => exportPlanAsJSON(state)

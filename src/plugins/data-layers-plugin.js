@@ -200,7 +200,37 @@ export default function DataLayersPlugin(editor) {
     //     addMyCOI(state, tab);
     // }
 
-    tab.addSection(() => html`<h4>Demographics</h4>`)
+    if (state.place.id === "nyc_popdemo") {
+        tab.addSection(() => html`<h4>
+          Demographics
+          - <button style="border: none; background: #fff; cursor: pointer;"
+            @click=${() => {
+              document.getElementById("demo-note-popup").className = document.getElementById("demo-note-popup").className.includes("show") ? "hide" : "show";
+            }}
+          >ⓘ</button>
+            <div id="demo-note-popup">
+              <button
+                  class="close-button"
+                  @click="${() => {
+                      document.getElementById("demo-note-popup").className = "hide";
+                  }}"
+              >
+                  X
+              </button>
+                <p style="font-weight: normal;font-size:11pt;">
+These demographics are prepared by the New York State Legislative Task Force on Demographic Research and Reapportionment (LATFOR), via Redistricting Partners.
+Full documentation on their process can be found at <a href="https://latfor.state.ny.us/data/?sec=2020amendpop" target="_blank">https://latfor.state.ny.us/data/?sec=2020amendpop</a>.
+<br/>
+The “White/Other” category contains the balance of residents who were not categorized by LATFOR as Black, Hispanic, or Asian.
+                </p>
+            </div>
+        </h4>
+        <p class="italic-note">
+          Shading is shown in small collections of blocks called block groups.
+        </p>`)
+    } else {
+      tab.addSection(() => html`<h4>Demographics</h4>`)
+    }
 
     if (state.place.id === "alaska_blocks") {
         state.population.subgroups = [];
@@ -213,9 +243,6 @@ export default function DataLayersPlugin(editor) {
             ${state.place.id === "ma_worcester" ? "(“Coalition” = Black + Hispanic)" : ""}
             ${demographicsOverlay.render()}
             ${vapOverlay ? vapOverlay.render() : null}
-            ${(abilities.coalition === false) ? "" : html`<p class="italic-note">*Use the coalition builder to define a collection
-            of racial and ethnic groups from the Census. In the other data layers below,
-            you'll be able to select the coalition you have defined.</p>`}
         `,
         {
             isOpen: false
@@ -255,6 +282,9 @@ export default function DataLayersPlugin(editor) {
         tab.addRevealSection(
             html`<h5>Coalition Builder</h5>`,
             (uiState, dispatch) => html`
+              <p class="italic-note">*Use the coalition builder to define a collection
+              of racial and ethnic groups from the Census. In the other data layers below,
+              you'll be able to select the coalition you have defined.</p>
               ${Parameter({
                   label: "",
                   element: html`<div style="margin-top:8px">
@@ -287,7 +317,7 @@ export default function DataLayersPlugin(editor) {
 
     const demographicsOverlay = new OverlayContainer(
         "demographics",
-        demoLayers.filter(lyr => !lyr.background),
+        demoLayers.filter(lyr => (!lyr.background && lyr.id !== "nyc_22_poponly_blocks") || (lyr.sourceLayer === "nyc_demo_bg_blockgroups")),
         state.population,
         "Show population",
         false, // first only (one layer)?
@@ -316,11 +346,11 @@ export default function DataLayersPlugin(editor) {
     if (state.cvap) {
         vapOverlay = new OverlayContainer(
             "cvap",
-            demoLayers.filter(lyr => !lyr.background),
+            demoLayers.filter(lyr => (!lyr.background && lyr.id !== "nyc_22_poponly_blocks") || (lyr.sourceLayer === "nyc_demo_bg_blockgroups")),
             state.cvap,
             "Show citizen voting age population (CVAP)",
             false,
-            (abilities.coalition === false) ? null : "Coalition citizen voting age population",
+            (abilities.coalition === false || state.place.id === "nyc_popdemo") ? null : "Coalition citizen voting age population",
             false,
             false
 
@@ -403,7 +433,7 @@ export default function DataLayersPlugin(editor) {
             </div>`
         );
     }
-    
+
     // This is clearly not the best way to handle any of this, but
     // we need to pull in a percent column set that is on precincts
     // in Pima County, AZ. Therefore, we'll check if the module is
