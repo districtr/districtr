@@ -204,23 +204,24 @@ export default function DataLayersPlugin(editor) {
         tab.addSection(() => html`<h4>
           Demographics
           - <button style="border: none; background: #fff; cursor: pointer;"
-            @mouseover=${() => {
-              document.getElementById("demo-note-popup").className = "show";
-            }}
-            @mouseout=${() => {
-              document.getElementById("demo-note-popup").className = "hide";
+            @click=${() => {
+              document.getElementById("demo-note-popup").className = document.getElementById("demo-note-popup").className.includes("show") ? "hide" : "show";
             }}
           >ⓘ</button>
             <div id="demo-note-popup">
+              <button
+                  class="close-button"
+                  @click="${() => {
+                      document.getElementById("demo-note-popup").className = "hide";
+                  }}"
+              >
+                  X
+              </button>
                 <p style="font-weight: normal;font-size:11pt;">
-                Redistricting Partners has prepared the groupings of race/ethnicity on census blocks,
-                following guidance from the Department of Justice and breaking down counts from larger geographies.
-                These are based on responses to the Decennial Census and the American Community Survey.
-                All individuals indicating Hispanic ethnicity are grouped as Hispanic.
-                <br/>
-                Among non-Hispanic respondents, Black and Black+White respondents are grouped as Black;
-                Asian and Asian+White respondents are grouped as Asian;
-                and the balance of respondents, who are mostly White-identified, are grouped as White/Other.
+These demographics are prepared by the New York State Legislative Task Force on Demographic Research and Reapportionment (LATFOR), via Redistricting Partners.
+Full documentation on their process can be found at <a href="https://latfor.state.ny.us/data/?sec=2020amendpop" target="_blank">https://latfor.state.ny.us/data/?sec=2020amendpop</a>.
+<br/>
+The “White/Other” category contains the balance of residents who were not categorized by LATFOR as Black, Hispanic, or Asian.
                 </p>
             </div>
         </h4>
@@ -242,9 +243,6 @@ export default function DataLayersPlugin(editor) {
             ${state.place.id === "ma_worcester" ? "(“Coalition” = Black + Hispanic)" : ""}
             ${demographicsOverlay.render()}
             ${vapOverlay ? vapOverlay.render() : null}
-            ${(abilities.coalition === false) ? "" : html`<p class="italic-note">*Use the coalition builder to define a collection
-            of racial and ethnic groups from the Census. In the other data layers below,
-            you'll be able to select the coalition you have defined.</p>`}
         `,
         {
             isOpen: false
@@ -284,6 +282,9 @@ export default function DataLayersPlugin(editor) {
         tab.addRevealSection(
             html`<h5>Coalition Builder</h5>`,
             (uiState, dispatch) => html`
+              <p class="italic-note">*Use the coalition builder to define a collection
+              of racial and ethnic groups from the Census. In the other data layers below,
+              you'll be able to select the coalition you have defined.</p>
               ${Parameter({
                   label: "",
                   element: html`<div style="margin-top:8px">

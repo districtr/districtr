@@ -2045,7 +2045,7 @@ export function spatial_abilities(id) {
           },
           {
             id: 'nyc_comm',
-            label: 'Official Community Areas link:https://communityprofiles.planning.nyc.gov/',
+            label: 'Community Boards link:https://communityprofiles.planning.nyc.gov/',
             path: 'current_districts/nyc/community',
             centroids: false,
             lineColor: '#700',
