@@ -87,7 +87,7 @@ export default class CommunityBrush extends Brush {
                     addsColor = true;
                 }
 
-                if (this.color !== null && addsColor && feature.properties && feature.properties.GEOINDEX) {
+                if (this.color !== null && addsColor && feature.properties && Object.keys(feature.properties).includes("GEOINDEX")) {
                   // add this color if not an eraser
                   if (!this.nycPlusMinus[String(this.color)]) {
                     this.nycPlusMinus[String(this.color)] = { added:[], removed:[] };
@@ -118,7 +118,7 @@ export default class CommunityBrush extends Brush {
                 if (Array.isArray(feature.state.color)) {
                     feature.state.color.forEach((oldColor) => {
                         this.changedColors.add(Number(oldColor));
-                        if (this.color === null && feature.properties && feature.properties.GEOINDEX) {
+                        if (this.color === null && feature.properties && Object.keys(feature.properties).includes("GEOINDEX")) {
                           // eraser applies to each color
                           if (!this.nycPlusMinus[String(oldColor)]) {
                             this.nycPlusMinus[String(oldColor)] = { added:[], removed:[] };
@@ -130,7 +130,7 @@ export default class CommunityBrush extends Brush {
                     });
                 } else if (feature.state.color || feature.state.color === 0 || feature.state.color === '0') {
                     this.changedColors.add(Number(feature.state.color));
-                    if (this.color === null && feature.properties && feature.properties.GEOINDEX) {
+                    if (this.color === null && feature.properties && Object.keys(feature.properties).includes("GEOINDEX")) {
                       // eraser applies to this one color
                       if (!this.nycPlusMinus[String(feature.state.color)]) {
                         this.nycPlusMinus[String(feature.state.color)] = { added:[], removed:[] };
@@ -307,7 +307,7 @@ export default class CommunityBrush extends Brush {
                     );
                 }
             } else {
-                if (atomicAction[fid].properties.GEOINDEX) {
+                if (Object.keys(atomicAction[fid].properties).includes("GEOINDEX")) {
                   this.nycPlusMinus[String(brushedColor)].added.push(
                     atomicAction[fid].properties.GEOINDEX
                   );

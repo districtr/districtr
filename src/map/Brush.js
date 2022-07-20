@@ -144,7 +144,7 @@ export default class Brush extends HoverWithRadius {
                     if (this.color === null || this.color === undefined) {
                       // handled in removal of old color (as if this was painting a new color over this)
                       // this.nycPlusMinus[String(Number(this.color))].removed.push(feature.properties.GEOINDEX || feature.properties.GEOID20);
-                    } else if (feature.properties.GEOINDEX) {
+                    } else if (Object.keys(feature.properties).includes("GEOINDEX")) {
                       this.nycPlusMinus[String(Number(this.color))].added.push(feature.properties.GEOINDEX);
                     }
                 }
@@ -162,7 +162,7 @@ export default class Brush extends HoverWithRadius {
                     if (!this.nycPlusMinus[String(Number(feature.state.color))]) {
                       this.nycPlusMinus[String(Number(feature.state.color))] = { added:[], removed:[] };
                     }
-                    if (feature.properties.GEOINDEX) {
+                    if (Object.keys(feature.properties).includes("GEOINDEX")) {
                       this.nycPlusMinus[String(Number(feature.state.color))].removed.push(feature.properties.GEOINDEX);
                     }
                 }
