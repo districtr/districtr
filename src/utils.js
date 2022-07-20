@@ -2033,8 +2033,9 @@ export function spatial_abilities(id) {
     },
       nyc_popdemo: {
         number_markers: true,
-        shapefile: false,
+        shapefile: true,
         coalition: true,
+        sideload: true,
         boundaries: [
           {
             id: 'nyc_district',

@@ -54,7 +54,17 @@ export default class Tooltip extends HoverWithRadius {
     }
     render() {
         let fs = this.hoveredFeatures;
-        if (fs.length && fs[0].properties.GEOINDEX) {
+        if (fs.length && Object.keys(fs[0].properties).includes("GEOINDEX")) {
+          if (!window.lastNYCinspect) {
+            window.lastNYCinspect = "";
+          }
+          const queryBlocks = fs.map(f => f.properties.GEOINDEX).sort();
+          if (queryBlocks.join(",") === window.lastNYCinspect) {
+            // inspect area has not changed
+            return;
+          }
+          window.lastNYCinspect = queryBlocks.join(",");
+
           fetch("//mggg.pythonanywhere.com/nyc-assist", {
             method: "POST",
             headers: {
@@ -62,7 +72,7 @@ export default class Tooltip extends HoverWithRadius {
             },
             body: JSON.stringify({ colors: {
               '-1': {
-                added: fs.map(f => f.properties.GEOINDEX),
+                added: queryBlocks,
                 removed: []
               }
             }}),
