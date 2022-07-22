@@ -1770,7 +1770,7 @@ export function spatial_abilities(id) {
       border: true,
       // find_unpainted: true,
     },
-    ma_worcester: {
+    ma_worcester_fix: {
       number_markers: true,
       coalition: false,
       border: true,

@@ -305,7 +305,7 @@ commoncausepa: 'pennsylvania',
   "west_sacramento": "ca_west_sac",
   "diamond_bar": "ca_diamond_bar",
   "drawabq": "nm_abq",
-  "worcestersd": "ma_worcester",
+  "worcestersd": "ma_worcester_fix",
   "nyc2022": "nyc_popdemo"
 };
 
@@ -406,7 +406,7 @@ const unitCounts = {
   prjusd: 2818,
   'pmc-districts': 7078,
   "pimaaz": 278,
-  "worcestersd": 2380
+  "worcestersd": 2288
 };
 
 const coi_events = [

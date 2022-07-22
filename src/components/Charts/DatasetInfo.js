@@ -32,7 +32,7 @@ function datasetInfo(state) {
             az_maricopa: "Uses <strong>2020 Decennial Census population</strong> with processing by Maricopa County Recorder’s Office",
             haystaq_2020: "Uses <strong>2020 Decennial Census population</strong> with processing by Haystaq",
             research_polling: "Uses <strong>2020 Decennial Census population</strong> with processing by Research & Polling",
-            nyc_2022: "Uses <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners",
+            nyc_2022: "Uses <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners"
         },
         acsLocations = [
             "wisco2019acs", "hall_ga", "grand_county_2", "mn2020acs", "nd_benson",
@@ -41,6 +41,8 @@ function datasetInfo(state) {
         ],
         units = state.unitsRecord.name,
         dataset = "";
+
+    console.dir(state);
 
     if (acsLocations.includes(place.id.toLowerCase()) || state.units.id.includes("2019") || population.name !== "Population") {
         dataset = `<p><span>&#9432;</span> ${populations.acs}`;
