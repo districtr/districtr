@@ -2979,8 +2979,9 @@
     ]
   },
   {
-    "name": "Worcester",
     "id": "ma_worcester_fix",
+    "state": "Massachusetts",
+    "name": "Worcester",
     "units": [
       {
         "id": "blocks",
@@ -3000,7 +3001,7 @@
             "subgroups": [
               {
                 "key": "NHANYPARTBLACKPOP20",
-                "name": "Any-part Black population",
+                "name": "Black population",
                 "sum": 31854,
                 "min": 0,
                 "max": 521
@@ -3046,6 +3047,20 @@
                 "sum": 82590,
                 "min": 0,
                 "max": 1031
+              },
+              {
+                "key": "NH2MOREPOP20",
+                "name": "Two or more races population",
+                "sum": 8777,
+                "min": 0,
+                "max": 98
+              },
+              {
+                "key": "NHOTHPOP20",
+                "name": "Other races population",
+                "sum": 2642,
+                "min": 0,
+                "max": 38
               }
             ]
           },
@@ -3062,7 +3077,7 @@
             "subgroups": [
               {
                 "key": "NHANYPARTBLACKVAP20",
-                "name": "Any-part Black population",
+                "name": "Black population",
                 "sum": 22418,
                 "min": 0,
                 "max": 335
@@ -3108,6 +3123,20 @@
                 "sum": 58003,
                 "min": 0,
                 "max": 697
+              },
+              {
+                "key": "NH2MOREVAP20",
+                "name": "Two or more races population",
+                "sum": 5877,
+                "min": 0,
+                "max": 69
+              },
+              {
+                "key": "NHOTHVAP20",
+                "name": "Other races population",
+                "sum": 1943,
+                "min": 0,
+                "max": 36
               }
             ]
           }
@@ -3146,7 +3175,6 @@
         ]
       }
     ],
-    "state": "Massachusetts",
     "districtingProblems": [
       {
         "name": "School Committee",
