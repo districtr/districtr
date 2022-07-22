@@ -2979,14 +2979,14 @@
     ]
   },
   {
-    "id": "ma_worcester",
+    "id": "ma_worcester_fix",
     "state": "Massachusetts",
     "name": "Worcester",
     "units": [
       {
-        "id": "blocks20",
+        "id": "blocks",
         "name": "2020 Blocks",
-        "unitType": "Blocks",
+        "unitType": "2020 Blocks",
         "columnSets": [
           {
             "type": "population",
@@ -2994,73 +2994,73 @@
             "total": {
               "key": "TOTPOP20",
               "name": "Total population",
-              "sum": 211421,
+              "sum": 206518,
               "min": 0,
               "max": 3258
             },
             "subgroups": [
               {
-                "key": "WPOP20",
-                "name": "White population",
-                "sum": 104850,
-                "min": 0,
-                "max": 2241
-              },
-              {
-                "key": "APBPOP20",
+                "key": "NHANYPARTBLACKPOP20",
                 "name": "Black population",
-                "sum": 37261,
+                "sum": 31854,
                 "min": 0,
-                "max": 542
+                "max": 521
               },
               {
-                "key": "HISP20",
-                "name": "Hispanic population",
-                "sum": 51224,
-                "min": 0,
-                "max": 568
-              },
-              {
-                "key": "ASIANPOP20",
+                "key": "NHASIANPOP20",
                 "name": "Asian population",
-                "sum": 14697,
+                "sum": 14562,
                 "min": 0,
                 "max": 341
               },
               {
-                "key": "AMINPOP20",
-                "name": "American Indian population",
-                "sum": 338,
+                "key": "HPOP20",
+                "name": "Hispanic population",
+                "sum": 50736,
+                "min": 0,
+                "max": 568
+              },
+              {
+                "key": "NHWHITEPOP20",
+                "name": "White population",
+                "sum": 101039,
+                "min": 0,
+                "max": 2241
+              },
+              {
+                "key": "NHAMINPOP20",
+                "name": "American Indian / Alaska Native population",
+                "sum": 336,
                 "min": 0,
                 "max": 8
               },
               {
-                "key": "NHPIPOP20",
-                "name": "Native Hawaiian and Pacific Islander population",
+                "key": "NHNHPIPOP20",
+                "name": "Native Hawaiian / Pacific Islander population",
                 "sum": 48,
                 "min": 0,
                 "max": 3
               },
               {
-                "key": "2MOREPOP20",
-                "name": "Two or more races",
-                "sum": 8960,
+                "key": "COALITIONPOP20",
+                "name": "Coalition population",
+                "sum": 82590,
+                "min": 0,
+                "max": 1031
+              },
+              {
+                "key": "NH2MOREPOP20",
+                "name": "Two or more races population",
+                "sum": 8777,
                 "min": 0,
                 "max": 98
               },
               {
-                "key": "OTHERPOP20",
-                "name": "Other races",
-                "sum": 2679,
+                "key": "NHOTHPOP20",
+                "name": "Other races population",
+                "sum": 2642,
                 "min": 0,
                 "max": 38
-              },
-              {
-                "key": "COPOP20",
-                "name": "Coalition population",
-                "sum": 83366,
-                "min": 0,
-                "max": 1031
               }
             ]
           },
@@ -3070,85 +3070,85 @@
             "total": {
               "key": "VAP20",
               "name": "Voting age population",
-              "sum": 169678,
+              "sum": 165525,
               "min": 0,
               "max": 3228
             },
             "subgroups": [
               {
-                "key": "WVAP20",
-                "name": "White population",
-                "sum": 92538,
+                "key": "NHANYPARTBLACKVAP20",
+                "name": "Black population",
+                "sum": 22418,
                 "min": 0,
-                "max": 2233
+                "max": 335
               },
               {
-                "key": "APBVAP20",
-                "name": "Black population",
-                "sum": 25895,
+                "key": "NHASIANVAP20",
+                "name": "Asian population",
+                "sum": 12135,
                 "min": 0,
-                "max": 351
+                "max": 337
               },
               {
                 "key": "HVAP20",
                 "name": "Hispanic population",
-                "sum": 35978,
+                "sum": 35585,
                 "min": 0,
                 "max": 505
               },
               {
-                "key": "AMINVAP20",
-                "name": "Native American population",
+                "key": "NHWHITEVAP20",
+                "name": "White population",
+                "sum": 89252,
+                "min": 0,
+                "max": 2233
+              },
+              {
+                "key": "NHAMINVAP20",
+                "name": "American Indian / Alaska Native population",
                 "sum": 279,
                 "min": 0,
                 "max": 8
               },
               {
-                "key": "NHPIVAP20",
-                "name": "Native Hawaiian and Pacific Islander population",
+                "key": "NHNHPIVAP20",
+                "name": "Native Hawaiian / Pacific Islander population",
                 "sum": 40,
                 "min": 0,
                 "max": 2
               },
               {
-                "key": "ASIANVAP20",
-                "name": "Asian population",
-                "sum": 12237,
+                "key": "COALITIONVAP20",
+                "name": "Coalition population",
+                "sum": 58003,
                 "min": 0,
-                "max": 337
+                "max": 697
               },
               {
-                "key": "OTHERVAP20",
-                "name": "Other races population",
-                "sum": 1967,
-                "min": 0,
-                "max": 36
-              },
-              {
-                "key": "2MOREVAP20",
+                "key": "NH2MOREVAP20",
                 "name": "Two or more races population",
-                "sum": 6006,
+                "sum": 5877,
                 "min": 0,
                 "max": 69
               },
               {
-                "key": "COVAP20",
-                "name": "Coalition population",
-                "sum": 58632,
+                "key": "NHOTHVAP20",
+                "name": "Other races population",
+                "sum": 1943,
                 "min": 0,
-                "max": 697
+                "max": 36
               }
             ]
           }
         ],
         "idColumn": {
-          "name": "Census Block GEOID",
+          "name": "2020 Blocks",
           "key": "GEOID20"
         },
         "bounds": [
           [
             -71.884,
-            42.21
+            42.2101
           ],
           [
             -71.7312,
@@ -3160,24 +3160,24 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ma_worcester_blocks20"
+              "url": "mapbox://districtr.ma_worcester_fix_blocks"
             },
-            "sourceLayer": "ma_worcester_blocks20"
+            "sourceLayer": "ma_worcester_fix_blocks"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.ma_worcester_blocks20_points"
+              "url": "mapbox://districtr.ma_worcester_fix_blocks_points"
             },
-            "sourceLayer": "ma_worcester_blocks20_points"
+            "sourceLayer": "ma_worcester_fix_blocks_points"
           }
         ]
       }
     ],
     "districtingProblems": [
       {
-        "name": "School Committe",
+        "name": "School Committee",
         "numberOfParts": 6,
         "pluralNoun": "School Committee Districts"
       }

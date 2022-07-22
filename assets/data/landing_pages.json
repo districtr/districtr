@@ -1540,7 +1540,7 @@
         "default": "true",
         "id": "state"
       },
-      { "name": "Cities", "ids": ["lowell", "ma_worcester"], "id": "loc" }
+      { "name": "Cities", "ids": ["lowell", "ma_worcester_fix"], "id": "loc" }
     ],
     "sections": [
       {

@@ -305,7 +305,7 @@ commoncausepa: 'pennsylvania',
   "west_sacramento": "ca_west_sac",
   "diamond_bar": "ca_diamond_bar",
   "drawabq": "nm_abq",
-  "worcestersd": "ma_worcester",
+  "worcestersd": "ma_worcester_fix",
   "nyc2022": "nyc_popdemo"
 };
 
@@ -406,7 +406,7 @@ const unitCounts = {
   prjusd: 2818,
   'pmc-districts': 7078,
   "pimaaz": 278,
-  "worcestersd": 2380
+  "worcestersd": 2288
 };
 
 const coi_events = [
@@ -2853,6 +2853,11 @@ export default () => {
             another option that satisfies the consent decree imposed on the City of
             Worcester by the federal district court. It is designated Plan 6.1
             because it was drafted on June 1, 2022.
+          </p>
+
+          <p>
+            <strong>Plan 7.19</strong> of proposed School Committee Districts
+            makes minimal changes to Plan 6.1.
           </p>
         `;
       }

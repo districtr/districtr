@@ -239,8 +239,8 @@ The “White/Other” category contains the balance of residents who were not ca
     tab.addRevealSection(
         html`<h5>${(state.population && !state.population.subgroups.length) ? "Population" : "Population by Race"}</h5>`,
         (uiState, dispatch) => html`
-            ${state.place.id === "lowell" ? "(“Coalition” = Asian + Hispanic)" : ""}
-            ${state.place.id === "ma_worcester" ? "(“Coalition” = Black + Hispanic)" : ""}
+            ${state.place.id === "lowell" ? "(\"Coalition\" = Asian + Hispanic)" : ""}
+            ${state.place.id === "ma_worcester_fix" ? "(\"Coalition\" = Black + Hispanic)" : ""}
             ${demographicsOverlay.render()}
             ${vapOverlay ? vapOverlay.render() : null}
         `,
