@@ -2856,7 +2856,7 @@ export default () => {
           </p>
 
           <p>
-            <strong>Plan 6.1</strong> of proposed School Committee Districts
+            <strong>Plan 7.19</strong> of proposed School Committee Districts
             makes minimal changes to Plan 6.1.
           </p>
         `;
