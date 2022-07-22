@@ -2854,6 +2854,11 @@ export default () => {
             Worcester by the federal district court. It is designated Plan 6.1
             because it was drafted on June 1, 2022.
           </p>
+
+          <p>
+            <strong>Plan 6.1</strong> of proposed School Committee Districts
+            makes minimal changes to Plan 6.1.
+          </p>
         `;
       }
 
