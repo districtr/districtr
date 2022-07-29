@@ -31651,6 +31651,197 @@
     ]
   },
   {
+    "id": "elkgrove_pl",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP20",
+              "name": "Total population",
+              "sum": 176561,
+              "min": 0,
+              "max": 770
+            },
+            "subgroups": [
+              {
+                "key": "WPOP20",
+                "name": "White population",
+                "sum": 51311,
+                "min": 0,
+                "max": 398
+              },
+              {
+                "key": "BPOP20",
+                "name": "Black population",
+                "sum": 17349,
+                "min": 0,
+                "max": 196
+              },
+              {
+                "key": "HISP20",
+                "name": "Hispanic population",
+                "sum": 33475,
+                "min": 0,
+                "max": 212
+              },
+              {
+                "key": "ASIANPOP20",
+                "name": "Asian population",
+                "sum": 58055,
+                "min": 0,
+                "max": 415
+              },
+              {
+                "key": "AMINPOP20",
+                "name": "American Indian population",
+                "sum": 525,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "NHPIPOP20",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 2448,
+                "min": 0,
+                "max": 54
+              },
+              {
+                "key": "2MOREPOP20",
+                "name": "Two or more races",
+                "sum": 12221,
+                "min": 0,
+                "max": 80
+              },
+              {
+                "key": "OTHERPOP20",
+                "name": "Other races",
+                "sum": 1177,
+                "min": 0,
+                "max": 13
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP20",
+              "name": "Voting age population",
+              "sum": 131831,
+              "min": 0,
+              "max": 586
+            },
+            "subgroups": [
+              {
+                "key": "WVAP20",
+                "name": "White voting age population",
+                "sum": 41896,
+                "min": 0,
+                "max": 330
+              },
+              {
+                "key": "BVAP20",
+                "name": "Black voting age population",
+                "sum": 13306,
+                "min": 0,
+                "max": 134
+              },
+              {
+                "key": "HVAP20",
+                "name": "Hispanic voting age population",
+                "sum": 22481,
+                "min": 0,
+                "max": 130
+              },
+              {
+                "key": "AMINVAP20",
+                "name": "Native American voting age population",
+                "sum": 391,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "NHPIVAP20",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 1899,
+                "min": 0,
+                "max": 48
+              },
+              {
+                "key": "ASIANVAP20",
+                "name": "Asian voting age population",
+                "sum": 43929,
+                "min": 0,
+                "max": 291
+              },
+              {
+                "key": "OTHERVAP20",
+                "name": "Other races voting age population",
+                "sum": 788,
+                "min": 0,
+                "max": 8
+              },
+              {
+                "key": "2MOREVAP20",
+                "name": "Two or more races voting age population",
+                "sum": 7141,
+                "min": 0,
+                "max": 38
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "BLOCKID20"
+        },
+        "bounds": [
+          [
+            -121.4881,
+            38.3614
+          ],
+          [
+            -121.2694,
+            38.4529
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_elkgrove_blocks20"
+            },
+            "sourceLayer": "ca_elkgrove_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_elkgrove_blocks20_points"
+            },
+            "sourceLayer": "ca_elkgrove_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "name": "Elk Grove",
+    "districtingProblems": [
+      {
+        "name": "Police Beats",
+        "numberOfParts": 4,
+        "pluralNoun": "Police Beats"
+      }
+    ]
+  },
+  {
     "units": [
       {
         "id": "blocks20",

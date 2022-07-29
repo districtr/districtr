@@ -353,7 +353,7 @@
           "ca_rohnert",
           "ca_millbrae",
           "ca_belmont",
-          "ca_elkgrove",
+          "ca_elkgrove", "elkgrove_pl",
           "ca_scvosa",
           "ca_west_sac",
           "ca_diamond_bar",
@@ -372,7 +372,7 @@
           "pvsd"
         ],
         "id": "schools"
-      } 
+      }
     ],
     "sections": [
       {

@@ -1238,6 +1238,28 @@ export function spatial_abilities(id) {
     number_markers: true,
     coalition: false,
   },
+  elkgrove_pl: {
+    border: true,
+    number_markers: true,
+    coalition: false,
+    boundaries: [
+      {
+        id: 'council_districts',
+        label: 'City Council Districts (enacted 2011)',
+        path: 'ca_elkgrove/city_council_districts'
+      },
+      {
+        id: 'city_limits_census_day_2020',
+        label: 'City Limits before Census Day 2020',
+        path: 'ca_elkgrove/city_limits_census_day_2020'
+      },
+      {
+        id: 'special_planning_areas',
+        label: 'Special Planning Areas',
+        path: 'ca_elkgrove/special_planning_areas'
+      }
+    ]
+  },
   ca_elkgrove: {
     border: true,
     number_markers: true,
