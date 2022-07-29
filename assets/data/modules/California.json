@@ -31949,6 +31949,169 @@
     ]
   },
   {
+  "units": [
+    {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "2020 Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "LF_20_Total",
+            "name": "Total population",
+            "sum": 327418,
+            "min": 0,
+            "max": 3002
+          },
+          "subgroups": [
+            {
+              "key": "LF_20_White",
+              "name": "White population",
+              "sum": 91766,
+              "min": 0,
+              "max": 1553
+            },
+            {
+              "key": "LF_20_AfAm",
+              "name": "Black population",
+              "sum": 19763,
+              "min": 0,
+              "max": 253
+            },
+            {
+              "key": "LF_20_Asian",
+              "name": "Asian population",
+              "sum": 23400,
+              "min": 0,
+              "max": 456
+            },
+            {
+              "key": "LF_20_Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 177798,
+              "min": 0,
+              "max": 1662
+            },
+            {
+              "key": "LF_20_AiAn",
+              "name": "American Indian population",
+              "sum": 1220,
+              "min": 0,
+              "max": 46
+            },
+            {
+              "key": "LF_20_HoPI",
+              "name": "Native Hawaiian and Pacific Islander population",
+              "sum": 987,
+              "min": 0,
+              "max": 16
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Citizen Voting Age Population",
+          "total": {
+            "key": "CVAP_15-19_Total",
+            "name": "Total population",
+            "sum": 225507,
+            "min": 0,
+            "max": 5096
+          },
+          "subgroups": [
+            {
+              "key": "CVAP_15-19_White Alone",
+              "name": "White population",
+              "sum": 83927,
+              "min": 0,
+              "max": 1038
+            },
+            {
+              "key": "CVAP_15-19_Black or African American Alone",
+              "name": "Black population",
+              "sum": 15567,
+              "min": 0,
+              "max": 300
+            },
+            {
+              "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+              "name": "American Indian population",
+              "sum": 821,
+              "min": 0,
+              "max": 147
+            },
+            {
+              "key": "CVAP_15-19_Asian Alone",
+              "name": "Asian population",
+              "sum": 17706,
+              "min": 0,
+              "max": 1431
+            },
+            {
+              "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
+              "name": "Native Hawaiian Pacific Islander population",
+              "sum": 578,
+              "min": 0,
+              "max": 54
+            },
+            {
+              "key": "CVAP_15-19_Hispanic or Latino",
+              "name": "Hispanic population",
+              "sum": 102310,
+              "min": 0,
+              "max": 2028
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Geo ID",
+        "key": "BLOCK"
+      },
+      "bounds": [
+        [
+          -117.5237,
+          33.8726
+        ],
+        [
+          -117.2788,
+          34.0194
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.ca_riverside_blocks20"
+          },
+          "sourceLayer": "ca_riverside_blocks20"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.ca_riverside_blocks20_points"
+          },
+          "sourceLayer": "ca_riverside_blocks20_points"
+        }
+      ]
+    }
+  ],
+  "id": "ca_riverside",
+  "state": "California",
+  "name": "City of Riverside",
+  "districtingProblems": [
+    {
+      "name": "City",
+      "numberOfParts": 7,
+      "pluralNoun": "Wards"
+    }
+  ]
+},
+  {
     "name": "West Sacramento",
     "state": "California",
     "units": [

@@ -357,6 +357,7 @@
           "ca_scvosa",
           "ca_west_sac",
           "ca_diamond_bar",
+          "ca_riverside",
           "ca_fpud"
         ],
         "id": "loc"
@@ -372,7 +373,7 @@
           "pvsd"
         ],
         "id": "schools"
-      } 
+      }
     ],
     "sections": [
       {

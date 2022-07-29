@@ -1222,6 +1222,26 @@ export function spatial_abilities(id) {
     number_markers: true,
     coalition: false,
   },
+  ca_riverside: {
+    border: true,
+    shapefile: true,
+    number_markers: true,
+    coalition: false,
+    boundaries: [
+      {
+        id: 'council_districts',
+        label: 'Current Wards (enacted 2012)',
+        path: 'current_districts/california/ca_riverside'
+      },
+      {
+        id: 'neighborhood',
+        label: 'Neighborhoods',
+        path: 'neighborhoods/california/ca_riverside',
+        namefield: 'Neighborho',
+        centroids: true,
+      }
+    ]
+  },
   ca_rohnert: {
     border: true,
     shapefile: true,

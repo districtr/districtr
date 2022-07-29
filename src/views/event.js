@@ -158,7 +158,8 @@ commoncausepa: 'Pennsylvania',
   "diamond_bar": "California",
   "drawabq": "New Mexico",
   "worcestersd": "Massachusetts",
-  "nyc2022": "New York"
+  "nyc2022": "New York",
+  riverside: "California",
 };
 
 const validEventCodes = {
@@ -306,7 +307,8 @@ commoncausepa: 'pennsylvania',
   "diamond_bar": "ca_diamond_bar",
   "drawabq": "nm_abq",
   "worcestersd": "ma_worcester_fix",
-  "nyc2022": "nyc_popdemo"
+  "nyc2022": "nyc_popdemo",
+  riverside: "ca_riverside",
 };
 
 const blockPlans = {
@@ -547,7 +549,8 @@ const hybrid_events = [
   "west_sacramento",
   "diamond_bar",
   "drawabq",
-  "nyc2022"
+  "nyc2022",
+  "riverside",
 ];
 
 const portal_events = [
@@ -591,6 +594,18 @@ const eventDescriptions = {
    <p>As part of this we work to empower historically under-represented BIPOC communities and other stakeholders across Minnesota to participate in the redistricting process to ensure they are seen and visible in our political boundaries, increasing their ability to elect officials that truly represent and listen to the community.</p>\
    <p>A community-focused, accessible, and transparent redistricting process is critical to ensuring that our communities have equitable representation and influence in our democracy so we too can thrive. This page is both the starting point and the home for creation of community maps developed through the Our Maps Minnesota Campaign. Through this campaign we work with communities to define themselves through the connections, issues and policies that are most important to them, and then enable them to create maps showing their communities for inclusion in our political maps.</p>",
    'micrc': "Welcome to the public mapping page for the Michigan Independent Citizen's Redistricting Commission!",
+   riverside: "<p>Every ten years, local governments, including the City of Riverside, use new US Census data to redraw their district or ward lines to reflect how local populations have changed. This important process, called redistricting, ensures that each City Councilmember represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a ward for purposes of electing a Councilmember. In addition to census data, officials conducting the redistricting process consider how to maintain “communities of interest” when redrawing district boundaries. Communities of interest are best defined by the people who live in them.</p>\
+   <p>Examples of communities of interest can include neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests and need a voice in government can define their own communities.</p>\
+   <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+   <p>Get started by clicking the orange button to draw your community or the purple button to draw your city council map. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Riverside.”</p>\
+   <p>When drawing wards, please consider the FAIR MAPS ACT required ranked criteria when drawing:\
+   <ul><li>Each ward must be relatively equal in size (the population difference between the smallest to largest district must be below 10%)</li>\
+   <li>Each ward must be contiguous (all pieces of a district must be connected; no hops, skips, or jumps)</li>\
+   <li>Wards must maintain “communities of interest” (like neighborhoods)</li>\
+   <li>Lines should be easily identifiable and understandable (use streets, rivers, or other identifiable geographies)</li>\
+   <li>Keep districts compact in appearance and function</li>\
+   </ul></p>\
+   <p>If you would like to learn more about how to draw maps, please consider attending one or more of the community outreach meetings hosted by the City throughout August, September and October 2022, with options of being in-person or online.</p>",
    mesaaz: "<p>Every 10 years, Mesans get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about the communities of Mesa so that the district lines can amplify the voices of residents.</p>\
       <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part of Mesa where people have a common interest that needs a voice in government.</p>\
       <p><strong>Mesa, we need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -1957,6 +1972,9 @@ const longAbout = {
   mesaaz: [
     "This mapping module uses the <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
+  riverside: [
+    "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",    
+  ],
   slo_county: [
     "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
@@ -2826,7 +2844,7 @@ export default () => {
           document.getElementById("eventHeadline").innerText = "Foothill-De Anza";
         } else if (eventCode === "nyc2022") {
           document.getElementById("introExplain").innerHTML = "";
-          document.getElementById("eventHeadline").innerText = "New York City Council Mapping Page";         
+          document.getElementById("eventHeadline").innerText = "New York City Council Mapping Page";
         } else if (eventCode === "pimaaz") {
           document.getElementById("districting-options-title").innerHTML = "<p>Click the purple box below to start with a blank map. If you’d prefer to start using the current district boundaries, click <a href='https://districtr.org/edit/113736?event=pimaaz' target=_blank>here</a>. After working, click “Save” in the upper right corner of the mapping module to save your work. Copy the URL shown in the “Save” box so that you can return to your map. To display your map on this page, either as a proposed plan or a draft, click the “Share to Gallery” button.</p><p><strong>Note: The maximum population deviation shown on the Population tab displays the maximum population deviation of any <u>single</u> district from ideal size.</strong> This isn’t the method used to calculate the 10 percent deviation statutory requirement. To ensure your plan has less than 10 percent deviation, hover over the District bars and sum the deviations (ignoring negative percentages) for the highest- and lowest-populated Districts.</p>";
           document.getElementById("about-section").innerHTML = document.getElementById("about-section").innerHTML.replace("<h2>About</h2>", "");
