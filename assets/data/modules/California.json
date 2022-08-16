@@ -31961,7 +31961,7 @@
           "total": {
             "key": "LF_20_Total",
             "name": "Total population",
-            "sum": 327418,
+            "sum": 316445,
             "min": 0,
             "max": 3002
           },
@@ -31969,42 +31969,42 @@
             {
               "key": "LF_20_White",
               "name": "White population",
-              "sum": 91766,
+              "sum": 87533,
               "min": 0,
               "max": 1553
             },
             {
               "key": "LF_20_AfAm",
               "name": "Black population",
-              "sum": 19763,
+              "sum": 19142,
               "min": 0,
               "max": 253
             },
             {
               "key": "LF_20_Asian",
               "name": "Asian population",
-              "sum": 23400,
+              "sum": 22457,
               "min": 0,
               "max": 456
             },
             {
               "key": "LF_20_Hispanic_or_Latino",
               "name": "Hispanic population",
-              "sum": 177798,
+              "sum": 173157,
               "min": 0,
               "max": 1662
             },
             {
               "key": "LF_20_AiAn",
               "name": "American Indian population",
-              "sum": 1220,
+              "sum": 1202,
               "min": 0,
               "max": 46
             },
             {
               "key": "LF_20_HoPI",
               "name": "Native Hawaiian and Pacific Islander population",
-              "sum": 987,
+              "sum": 953,
               "min": 0,
               "max": 16
             }
@@ -32016,7 +32016,7 @@
           "total": {
             "key": "CVAP_15-19_Total",
             "name": "Total population",
-            "sum": 225507,
+            "sum": 216724,
             "min": 0,
             "max": 5096
           },
@@ -32024,42 +32024,42 @@
             {
               "key": "CVAP_15-19_White Alone",
               "name": "White population",
-              "sum": 83927,
+              "sum": 80090,
               "min": 0,
               "max": 1038
             },
             {
               "key": "CVAP_15-19_Black or African American Alone",
               "name": "Black population",
-              "sum": 15567,
+              "sum": 14728,
               "min": 0,
               "max": 300
             },
             {
               "key": "CVAP_15-19_American Indian or Alaska Native Alone",
               "name": "American Indian population",
-              "sum": 821,
+              "sum": 804,
               "min": 0,
               "max": 147
             },
             {
               "key": "CVAP_15-19_Asian Alone",
               "name": "Asian population",
-              "sum": 17706,
+              "sum": 16870,
               "min": 0,
               "max": 1431
             },
             {
               "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
               "name": "Native Hawaiian Pacific Islander population",
-              "sum": 578,
+              "sum": 567,
               "min": 0,
               "max": 54
             },
             {
               "key": "CVAP_15-19_Hispanic or Latino",
               "name": "Hispanic population",
-              "sum": 102310,
+              "sum": 99165,
               "min": 0,
               "max": 2028
             }
@@ -32085,17 +32085,17 @@
           "type": "fill",
           "source": {
             "type": "vector",
-            "url": "mapbox://districtr.ca_riverside_blocks20"
+            "url": "mapbox://districtr.ca_riverside2_blocks20"
           },
-          "sourceLayer": "ca_riverside_blocks20"
+          "sourceLayer": "ca_riverside2_blocks20"
         },
         {
           "type": "circle",
           "source": {
             "type": "vector",
-            "url": "mapbox://districtr.ca_riverside_blocks20_points"
+            "url": "mapbox://districtr.ca_riverside2_blocks20_points"
           },
-          "sourceLayer": "ca_riverside_blocks20_points"
+          "sourceLayer": "ca_riverside2_blocks20_points"
         }
       ]
     }
