@@ -1,0 +1,23 @@
+{
+"type": "FeatureCollection",
+"name": "boston-council_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "DISTRICT": 1 }, "geometry": { "type": "Point", "coordinates": [ -71.015724886526215, 42.372647694547787 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 1 }, "geometry": { "type": "Point", "coordinates": [ -71.063820424189615, 42.37904201122889 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 1 }, "geometry": { "type": "Point", "coordinates": [ -71.053952750953499, 42.364761321141835 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 1 }, "geometry": { "type": "Point", "coordinates": [ -71.069212581202251, 42.392556626173629 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 2 }, "geometry": { "type": "Point", "coordinates": [ -71.049857878760449, 42.343180636216843 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 7 }, "geometry": { "type": "Point", "coordinates": [ -71.086877696554424, 42.320714784089262 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 8 }, "geometry": { "type": "Point", "coordinates": [ -71.090940302781846, 42.347170159679109 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 8 }, "geometry": { "type": "Point", "coordinates": [ -71.068943405209154, 42.368616091055593 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 3 }, "geometry": { "type": "Point", "coordinates": [ -71.056011776559416, 42.304468129080519 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 3 }, "geometry": { "type": "Point", "coordinates": [ -71.009867840251999, 42.31544101681898 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 3 }, "geometry": { "type": "Point", "coordinates": [ -70.965614197818539, 42.320577248344911 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 3 }, "geometry": { "type": "Point", "coordinates": [ -70.987200870586804, 42.324752769693085 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 6 }, "geometry": { "type": "Point", "coordinates": [ -71.141050143985012, 42.293094051927959 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 4 }, "geometry": { "type": "Point", "coordinates": [ -71.084163420921428, 42.289263713115567 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 9 }, "geometry": { "type": "Point", "coordinates": [ -71.146288700711125, 42.351894290717979 ] } },
+{ "type": "Feature", "properties": { "DISTRICT": 5 }, "geometry": { "type": "Point", "coordinates": [ -71.123086364266157, 42.264034482627522 ] } }
+]
+}

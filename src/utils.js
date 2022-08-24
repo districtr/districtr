@@ -1781,6 +1781,18 @@ export function spatial_abilities(id) {
       // shapefile: true,
       // find_unpainted: true,
     },
+    boston22: {
+      number_markers: true,
+      shapefile: true,
+      border: true,
+      boundaries: [{
+        id: 'council',
+        label: 'Current Districts',
+        path: 'boston-council',
+        namefield: 'DISTRICT',
+        centroids: true,
+      }],
+    },
     lowell: {
       neighborhoods: true,
       contiguity: 2,
