@@ -3182,5 +3182,127 @@
         "pluralNoun": "School Committee Districts"
       }
     ]
+  },
+  {
+    "state": "Massachusetts",
+    "units": [
+      {
+        "id": "precincts20",
+        "name": "2022 Precincts",
+        "unitType": "Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "SUM_P0010001",
+              "name": "Total population",
+              "sum": 675647,
+              "min": 0,
+              "max": 6175
+            },
+            "subgroups": [
+              {
+                "key": "SUM_P0020005",
+                "name": "White population",
+                "sum": 301464,
+                "min": 0,
+                "max": 4607
+              },
+              {
+                "key": "SUM_P0020006",
+                "name": "Black population",
+                "sum": 129264,
+                "min": 0,
+                "max": 2703
+              },
+              {
+                "key": "SUM_P0020002",
+                "name": "Hispanic population",
+                "sum": 126113,
+                "min": 0,
+                "max": 2418
+              },
+              {
+                "key": "SUM_P0020008",
+                "name": "Asian population",
+                "sum": 75588,
+                "min": 0,
+                "max": 2395
+              },
+              {
+                "key": "SUM_P0020009",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 251,
+                "min": 0,
+                "max": 24
+              },
+              {
+                "key": "SUM_P0020007",
+                "name": "American Indian population",
+                "sum": 989,
+                "min": 0,
+                "max": 30
+              },
+              {
+                "key": "SUM_P0020011",
+                "name": "Two or more races",
+                "sum": 32721,
+                "min": 0,
+                "max": 825
+              },
+              {
+                "key": "SUM_P0020010",
+                "name": "Other races",
+                "sum": 9257,
+                "min": 0,
+                "max": 417
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct code",
+          "key": "WDPCT"
+        },
+        "bounds": [
+          [
+            -71.1912,
+            42.2279
+          ],
+          [
+            -70.7488,
+            42.4008
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.boston22_precincts20"
+            },
+            "sourceLayer": "boston22_precincts20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.boston22_precincts20_points"
+            },
+            "sourceLayer": "boston22_precincts20_points"
+          }
+        ]
+      }
+    ],
+    "id": "boston22",
+    "name": "Boston",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 9,
+        "pluralNoun": "Council Districts"
+      }
+    ]
   }
 ]
