@@ -83,5 +83,5 @@ tests!
 
 One of the best ways to contribute to Districtr (or any open source project) is
 to report any bugs, problems, or points of confusion that you find. You can file
-an issue in
+an issue in 
 [this GitHub repository](https://github.com/districtr/districtr/issues).
