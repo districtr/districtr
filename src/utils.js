@@ -1791,6 +1791,14 @@ export function spatial_abilities(id) {
         path: 'boston-council',
         namefield: 'DISTRICT',
         centroids: true,
+        lineColor: '#007',
+        lineWidth: 2,
+      }, {
+        id: 'precincts',
+        label: 'Precinct Names',
+        path: 'boston-precincts',
+        namefield: 'DISTRICT',
+        centroids: true,
       }],
     },
     lowell: {
