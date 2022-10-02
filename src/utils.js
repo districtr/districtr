@@ -1455,7 +1455,7 @@ export function spatial_abilities(id) {
         id: 'districts',
         label: 'Current Districts',
         path: 'valparaiso/districts',
-        lineColor: '#87CEFA',
+        lineColor: '#80231c',
         lineWidth: 2.5,
       },
       {
