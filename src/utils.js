@@ -1446,6 +1446,27 @@ export function spatial_abilities(id) {
       }
     ]
   },
+  valparaiso: {
+    border: true,
+    number_markers: true,
+    shapefile: true,
+    boundaries: [
+      {
+        id: 'districts',
+        label: 'Current Districts',
+        path: 'valparaiso/districts',
+        lineColor: '#87CEFA',
+        lineWidth: 2.5,
+      },
+      {
+        id: 'precincts',
+        label: 'County Precincts',
+        path: 'valparaiso/precincts',
+        lineColor: '#227B22',
+        lineWidth: 2,
+      }
+    ]
+  },
   nm_abq: {
     border: true,
     number_markers: true,
