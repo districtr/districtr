@@ -146,7 +146,107 @@
               "max": 12
             }
           ]
-        }
+        },
+        {
+  "type": "election",
+  "name": "2020 Presidential",
+  "subgroups": [
+    {
+      "key": "G20PREDBID",
+      "name": "Democratic",
+      "sum": 11048,
+      "min": 0,
+      "max": 227
+    },
+    {
+      "key": "G20PRERTRU",
+      "name": "Republican",
+      "sum": 10035,
+      "min": 0,
+      "max": 348
+    }
+  ]
+},
+{
+  "type": "election",
+  "name": "2020 Governor",
+  "subgroups": [
+    {
+      "key": "G20GOVDMYE",
+      "name": "Democratic",
+      "sum": 8965,
+      "min": 0,
+      "max": 186
+    },
+    {
+      "key": "G20GOVRHOL",
+      "name": "Republican",
+      "sum": 10995,
+      "min": 0,
+      "max": 329
+    }
+  ]
+},
+{
+  "type": "election",
+  "name": "2018 Senate",
+  "subgroups": [
+    {
+      "key": "G18USSDDON",
+      "name": "Democratic",
+      "sum": 8983,
+      "min": 0,
+      "max": 190
+    },
+    {
+      "key": "G18USSRBRA",
+      "name": "Republican",
+      "sum": 6951,
+      "min": 0,
+      "max": 219
+    }
+  ]
+},
+{
+  "type": "election",
+  "name": "2016 Senate",
+  "subgroups": [
+    {
+      "key": "SEN16D",
+      "name": "Democratic",
+      "sum": 9221,
+      "min": 0,
+      "max": 216
+    },
+    {
+      "key": "SEN16R",
+      "name": "Republican",
+      "sum": 8510,
+      "min": 0,
+      "max": 267
+    }
+  ]
+},
+{
+  "type": "election",
+  "name": "2019 City Council combined",
+  "subgroups": [
+    {
+      "key": "COUNCIL_D",
+      "name": "Democratic",
+      "sum": 3991,
+      "min": 0,
+      "max": 69
+    },
+    {
+      "key": "COUNCIL_R",
+      "name": "Republican",
+      "sum": 4185,
+      "min": 0,
+      "max": 71
+    }
+  ]
+}
       ],
       "idColumn": {
         "name": "Block FIPS code",
@@ -167,17 +267,17 @@
           "type": "fill",
           "source": {
             "type": "vector",
-            "url": "mapbox://districtr.valparaiso_blocks20"
+            "url": "mapbox://districtr.valparaiso2_blocks20"
           },
-          "sourceLayer": "valparaiso_blocks20"
+          "sourceLayer": "valparaiso2_blocks20"
         },
         {
           "type": "circle",
           "source": {
             "type": "vector",
-            "url": "mapbox://districtr.valparaiso_blocks20_points"
+            "url": "mapbox://districtr.valparaiso2_blocks20_points"
           },
-          "sourceLayer": "valparaiso_blocks20_points"
+          "sourceLayer": "valparaiso2_blocks20_points"
         }
       ]
     }
