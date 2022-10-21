@@ -1,5 +1,296 @@
 [
   {
+  "name": "Valparaiso",
+  "state": "Indiana",
+  "id": "valparaiso",
+  "units": [
+    {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "2020 Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "TOTPOP",
+            "name": "Total population",
+            "sum": 34151,
+            "min": 0,
+            "max": 752
+          },
+          "subgroups": [
+            {
+              "key": "NH_WHITE",
+              "name": "White population",
+              "sum": 27216,
+              "min": 0,
+              "max": 576
+            },
+            {
+              "key": "NH_BLACK",
+              "name": "Black population",
+              "sum": 1345,
+              "min": 0,
+              "max": 80
+            },
+            {
+              "key": "HISP",
+              "name": "Hispanic population",
+              "sum": 3259,
+              "min": 0,
+              "max": 70
+            },
+            {
+              "key": "NH_ASIAN",
+              "name": "Asian population",
+              "sum": 777,
+              "min": 0,
+              "max": 28
+            },
+            {
+              "key": "NH_NHPI",
+              "name": "Native Hawaiian / Pacific Islander population",
+              "sum": 11,
+              "min": 0,
+              "max": 2
+            },
+            {
+              "key": "NH_AMIN",
+              "name": "American Indian population",
+              "sum": 51,
+              "min": 0,
+              "max": 3
+            },
+            {
+              "key": "NH_2MORE",
+              "name": "Two or more races",
+              "sum": 1323,
+              "min": 0,
+              "max": 42
+            },
+            {
+              "key": "NH_OTHER",
+              "name": "Other races",
+              "sum": 169,
+              "min": 0,
+              "max": 13
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Voting Age Population",
+          "total": {
+            "key": "VAP",
+            "name": "Total voting age population",
+            "sum": 27301,
+            "min": 0,
+            "max": 593
+          },
+          "subgroups": [
+            {
+              "key": "WVAP",
+              "name": "White voting age population",
+              "sum": 22513,
+              "min": 0,
+              "max": 494
+            },
+            {
+              "key": "BVAP",
+              "name": "Black voting age population",
+              "sum": 1006,
+              "min": 0,
+              "max": 51
+            },
+            {
+              "key": "HVAP",
+              "name": "Hispanic voting age population",
+              "sum": 2160,
+              "min": 0,
+              "max": 51
+            },
+            {
+              "key": "ASIANVAP",
+              "name": "Asian voting age population",
+              "sum": 637,
+              "min": 0,
+              "max": 26
+            },
+            {
+              "key": "NHPIVAP",
+              "name": "Native Hawaiian / Pacific Islander voting age population",
+              "sum": 8,
+              "min": 0,
+              "max": 1
+            },
+            {
+              "key": "AMINVAP",
+              "name": "American Indian voting age population",
+              "sum": 40,
+              "min": 0,
+              "max": 3
+            },
+            {
+              "key": "2MOREVAP",
+              "name": "Two or more races voting age population",
+              "sum": 826,
+              "min": 0,
+              "max": 34
+            },
+            {
+              "key": "OTHERVAP",
+              "name": "Other races voting age population",
+              "sum": 111,
+              "min": 0,
+              "max": 12
+            }
+          ]
+        },
+        {
+  "type": "election",
+  "name": "2020 Presidential",
+  "subgroups": [
+    {
+      "key": "G20PREDBID",
+      "name": "Democratic",
+      "sum": 11048,
+      "min": 0,
+      "max": 227
+    },
+    {
+      "key": "G20PRERTRU",
+      "name": "Republican",
+      "sum": 10035,
+      "min": 0,
+      "max": 348
+    }
+  ]
+},
+{
+  "type": "election",
+  "name": "2020 Governor",
+  "subgroups": [
+    {
+      "key": "G20GOVDMYE",
+      "name": "Democratic",
+      "sum": 8965,
+      "min": 0,
+      "max": 186
+    },
+    {
+      "key": "G20GOVRHOL",
+      "name": "Republican",
+      "sum": 10995,
+      "min": 0,
+      "max": 329
+    }
+  ]
+},
+{
+  "type": "election",
+  "name": "2018 Senate",
+  "subgroups": [
+    {
+      "key": "G18USSDDON",
+      "name": "Democratic",
+      "sum": 8983,
+      "min": 0,
+      "max": 190
+    },
+    {
+      "key": "G18USSRBRA",
+      "name": "Republican",
+      "sum": 6951,
+      "min": 0,
+      "max": 219
+    }
+  ]
+},
+{
+  "type": "election",
+  "name": "2016 Senate",
+  "subgroups": [
+    {
+      "key": "SEN16D",
+      "name": "Democratic",
+      "sum": 9221,
+      "min": 0,
+      "max": 216
+    },
+    {
+      "key": "SEN16R",
+      "name": "Republican",
+      "sum": 8510,
+      "min": 0,
+      "max": 267
+    }
+  ]
+},
+{
+  "type": "election",
+  "name": "2019 City Council combined",
+  "subgroups": [
+    {
+      "key": "COUNCIL_D",
+      "name": "Democratic",
+      "sum": 3991,
+      "min": 0,
+      "max": 69
+    },
+    {
+      "key": "COUNCIL_R",
+      "name": "Republican",
+      "sum": 4185,
+      "min": 0,
+      "max": 71
+    }
+  ]
+}
+      ],
+      "idColumn": {
+        "name": "Block FIPS code",
+        "key": "GEOID20"
+      },
+      "bounds": [
+        [
+          -87.1143,
+          41.4314
+        ],
+        [
+          -86.9785,
+          41.514
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.valparaiso2_blocks20"
+          },
+          "sourceLayer": "valparaiso2_blocks20"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.valparaiso2_blocks20_points"
+          },
+          "sourceLayer": "valparaiso2_blocks20_points"
+        }
+      ]
+    }
+  ],
+  "districtingProblems": [
+    {
+      "name": "City Council",
+      "numberOfParts": 5,
+      "pluralNoun": "Council Districts"
+    }
+  ]
+},
+  {
     "units": [
       {
         "id": "blockgroups",
