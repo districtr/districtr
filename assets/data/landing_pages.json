@@ -1108,7 +1108,7 @@
       },
       {
         "name": "Cities",
-        "ids": ["indianapolis_cc", "in_bloomington", "valparaiso"],
+        "ids": ["indianapolis_cc", "in_bloomington", "valparaiso", "gary"],
         "id": "loc"
       }
     ],
