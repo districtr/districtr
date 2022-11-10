@@ -445,7 +445,22 @@ The “White/Other” category contains the balance of residents who were not ca
       if (["az_pima"].includes(state.place.id)) {
           pctLayers = state.layers.filter(lyr => lyr.sourceId.includes("precincts"));
       }
-      const pctOverlay = new OverlayContainer(
+      let pctOverlay;
+      if (state.place.id === 'gary') {
+        let rentElec = new Election(
+            "Test",
+            state.pcts.subgroups,
+            state.parts,
+        );
+        pctOverlay = new PartisanOverlayContainer(
+          "partisan",
+          pctLayers,
+          [rentElec],
+          toolbar,
+          "Show % renter",
+        );
+      } else {
+        pctOverlay = new OverlayContainer(
           "pcts",
           pctLayers,
           state.pcts,
@@ -454,8 +469,28 @@ The “White/Other” category contains the balance of residents who were not ca
           false,
           null,
           true,
-      );
+        );
+      }
       tab.addSection(() => html`<div class="option-list__item">
+                ${state.place.id === 'gary' ? html`<div class="color-legend" id="color-renter" style="display: block;visibility: hidden;">
+                  <span class="gradientbar greenorange"></span>
+                  <br>
+                  <div class="notches" id="notches-vap">
+                      <span class="notch">|</span>
+                      <span class="notch">|</span>
+                      <span class="notch">|</span>
+                      <span class="notch">|</span>
+                      <span class="notch">|</span>
+                      <span class="notch">|</span>
+                  </div>
+                  <div id="percents-vap">
+                      <span class="square">0%</span>
+                      <span class="square">20%</span>
+                      <span class="square">40%</span>
+                      <span class="square">60%</span>
+                      <span class="square">80%</span>
+                      <span class="square">100%</span>
+                  </div>` : null}
                   ${pctOverlay.render()}
           </div>`
       );
