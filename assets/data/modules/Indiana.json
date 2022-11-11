@@ -150,7 +150,7 @@
           "name": "Percentages",
           "total": {
             "key": "Renter",
-            "name": "Renter population",
+            "name": "Renter households",
             "sum": 1,
             "min": 0,
             "max": 1
