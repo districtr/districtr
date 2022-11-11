@@ -149,26 +149,33 @@
           "type": "population",
           "name": "Percentages",
           "total": {
-            "key": "BLOCKCE20",
-            "name": "Total population",
+            "key": "Renter",
+            "name": "Renter population",
             "sum": 100,
             "min": 0,
             "max": 100
           },
           "subgroups": [
             {
-              "key": "B25003_002",
-              "name": "Owner count",
-              "sum": 16265,
+              "key": "lt5",
+              "name": "Population under 5",
+              "sum": 100,
               "min": 0,
-              "max": 621
+              "max": 100
             },
             {
-              "key": "B25003_003",
-              "name": "Renter count",
-              "sum": 15720,
-              "min": 9,
-              "max": 770
+              "key": "u18",
+              "name": "Population under 18",
+              "sum": 100,
+              "min": 0,
+              "max": 100
+            },
+            {
+              "key": "o65",
+              "name": "Population 65+",
+              "sum": 100,
+              "min": 0,
+              "max": 100
             }
           ]
         }
@@ -208,9 +215,9 @@
           "type": "fill",
           "source": {
             "type": "vector",
-            "url": "mapbox://districtr.gary_bg_blockgroups20"
+            "url": "mapbox://districtr.gary_bg3_blockgroups20"
           },
-          "sourceLayer": "gary_bg_blockgroups20"
+          "sourceLayer": "gary_bg3_blockgroups20"
         }
       ]
     }
