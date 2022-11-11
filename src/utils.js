@@ -1467,6 +1467,27 @@ export function spatial_abilities(id) {
       }
     ]
   },
+  gary: {
+    border: true,
+    number_markers: true,
+    shapefile: true,
+    boundaries: [
+      {
+        id: 'districts',
+        label: 'Current Districts',
+        path: 'gary/districts',
+        lineColor: '#80231c',
+        lineWidth: 2.5,
+      },
+      {
+        id: 'precincts',
+        label: 'Precincts',
+        path: 'gary/precincts',
+        lineColor: '#227B22',
+        lineWidth: 2,
+      }
+    ]
+  },
   nm_abq: {
     border: true,
     number_markers: true,
