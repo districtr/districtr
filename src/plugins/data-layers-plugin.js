@@ -446,17 +446,17 @@ The “White/Other” category contains the balance of residents who were not ca
           pctLayers = state.layers.filter(lyr => lyr.sourceId.includes("precincts"));
       }
       const pctOverlay = new OverlayContainer(
-          "pcts",
-          pctLayers,
-          state.pcts,
-          "Additional demographics",
-          false,
-          false,
-          null,
-          true,
+        "pcts",
+        pctLayers,
+        state.pcts,
+        "Additional demographics",
+        false,
+        false,
+        null,
+        true,
       );
       tab.addSection(() => html`<div class="option-list__item">
-                  ${pctOverlay.render()}
+              ${pctOverlay.render()}
           </div>`
       );
     }
