@@ -44,7 +44,7 @@
         "@rollup/plugin-commonjs": "^12.0.0",
         "@rollup/plugin-node-resolve": "^11.0.0",
         "babel-polyfill": "^6.26.0",
-        "browser-sync": "^2.26.14",
+        "browser-sync": "^2.27.10",
         "chai": "^4.3.4",
         "dotenv": "^8.6.0",
         "es5-ext": "^0.10.53",
