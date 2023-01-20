@@ -173,12 +173,19 @@ export default function DataLayersPlugin(editor) {
     }
 
     if (selectBoundaries && selectBoundaries.length) {
+
         tab.addRevealSection(
             'Boundaries',
             () => selectBoundaries.map((config, idx) => {
               if (config.unitType && !state.units.id.includes(config.unitType)) {
                 return "";
               }
+              
+              // Check if the problem name is in the config for the boundary, skip if they do not match.
+              if (config.problemName && state.problem.name !== config.problemName) {
+                return "";
+              }
+
               return addBoundaryLayer(config, state.map);
             }),
             {

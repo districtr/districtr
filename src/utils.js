@@ -2112,6 +2112,13 @@ export function spatial_abilities(id) {
       native_american: true,
       shapefile: true,
       // find_unpainted: true,
+      boundaries: [{
+        id: 'nyirc_assembly_plan',
+        label: 'NYIRC Draft Assembly Plan',
+        path: 'nyirc_assembly/nyirc_assembly_plan',
+        centroids: false,
+        problemName: 'State Assembly',
+      }]
     },
       nyc_popdemo: {
         number_markers: true,
