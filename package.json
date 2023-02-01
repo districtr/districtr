@@ -56,7 +56,7 @@
         "mocha": "^6.2.0",
         "mocha-junit-reporter": "^1.23.1",
         "mongodb-client-encryption": "^1.2.5",
-        "mongoose": "^5.13.7",
+        "mongoose": "^5.13.15",
         "node-fetch": "^2.6.1",
         "npm-run-all": "^4.1.5",
         "rollup": "^2.52.2",
