@@ -2660,7 +2660,7 @@
         "default": "true",
         "id": "state"
       },
-      { "name": "Cities", "ids": ["portlandor"], "id": "loc" },
+      { "name": "Cities", "ids": ["portland23"], "id": "loc" },
       { "name": "School Districts", "ids": ["salem_keizer"], "id": "schools" }
     ],
     "sections": [
