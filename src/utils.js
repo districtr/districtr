@@ -2437,6 +2437,41 @@ export function spatial_abilities(id) {
       contiguity: 2,
       border: true,
     },
+    portland23: {
+      number_markers: true,
+      // contiguity: 2,
+      border: true,
+      shapefile: true,
+      boundaries: [
+        {
+          id: 'precincts',
+          label: 'Precincts',
+          path: 'portland/precincts',
+          lineColor: '#80231c',
+          lineWidth: 1.5,
+          centroids: true,
+          namefield: "PRECINCTID",
+        },
+        {
+          id: 'neighborhood',
+          label: 'Neighborhoods',
+          path: 'portland/neighborhoods',
+          lineColor: '#227B22',
+          lineWidth: 2,
+          centroids: true,
+          namefield: "NAME"
+        },
+        {
+          id: 'schools',
+          label: 'School Districts',
+          path: 'portland/schools',
+          lineColor: '#AF00AF',
+          lineWidth: 2,
+          centroids: true,
+          namefield: "DISTNAME",
+        },
+      ],
+    },
     pennsylvania: {
       number_markers: true,
       county_brush: true,

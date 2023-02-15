@@ -1,0 +1,20 @@
+{
+"type": "FeatureCollection",
+"name": "schools_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "DISTNAME": "RIVERDALE" }, "geometry": { "type": "Point", "coordinates": [ -122.662786791487093, 45.444832025194756 ] } },
+{ "type": "Feature", "properties": { "DISTNAME": "CENTENNIAL" }, "geometry": { "type": "Point", "coordinates": [ -122.481433597683562, 45.475616263886437 ] } },
+{ "type": "Feature", "properties": { "DISTNAME": "PORTLAND" }, "geometry": { "type": "Point", "coordinates": [ -122.721112949426526, 45.559251392171596 ] } },
+{ "type": "Feature", "properties": { "DISTNAME": "DAVID DOUGLAS" }, "geometry": { "type": "Point", "coordinates": [ -122.538077315495428, 45.497037098558422 ] } },
+{ "type": "Feature", "properties": { "DISTNAME": "REYNOLDS" }, "geometry": { "type": "Point", "coordinates": [ -122.453226822591304, 45.55137388374532 ] } },
+{ "type": "Feature", "properties": { "DISTNAME": "LAKE OSWEGO" }, "geometry": { "type": "Point", "coordinates": [ -122.701381603950296, 45.409855584783941 ] } },
+{ "type": "Feature", "properties": { "DISTNAME": "NORTH CLACKAMAS" }, "geometry": { "type": "Point", "coordinates": [ -122.558484082189807, 45.42410871395316 ] } },
+{ "type": "Feature", "properties": { "DISTNAME": "BEAVERTON" }, "geometry": { "type": "Point", "coordinates": [ -122.760315230615092, 45.525629286492489 ] } },
+{ "type": "Feature", "properties": { "DISTNAME": "TIGARD-TUALATIN" }, "geometry": { "type": "Point", "coordinates": [ -122.786951674443969, 45.404868118983423 ] } },
+{ "type": "Feature", "properties": { "DISTNAME": "PARKROSE" }, "geometry": { "type": "Point", "coordinates": [ -122.563588903801644, 45.567028176828131 ] } },
+{ "type": "Feature", "properties": { "DISTNAME": "PARKROSE" }, "geometry": { "type": "Point", "coordinates": [ -122.564021163154194, 45.5416175881657 ] } },
+{ "type": "Feature", "properties": { "DISTNAME": "SCAPPOOSE" }, "geometry": { "type": "Point", "coordinates": [ -122.863580676537168, 45.693272561581672 ] } },
+{ "type": "Feature", "properties": { "DISTNAME": "BEAVERTON" }, "geometry": { "type": "Point", "coordinates": [ -122.824551416281594, 45.496291071507208 ] } }
+]
+}

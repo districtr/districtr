@@ -185,8 +185,8 @@
   "districtingProblems": [
     {
       "name": "City Council",
-      "numberOfParts": 5,
-      "pluralNoun": "Council Districts"
+      "numberOfParts": 4,
+      "pluralNoun": "Multi-Member Districts"
     }
   ]
 },

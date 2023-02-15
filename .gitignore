@@ -2,6 +2,7 @@
 dist/**
 .DS_Store
 .idea/
+*.qmd
 
 # Logs
 logs
