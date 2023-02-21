@@ -149,6 +149,10 @@
         "name": "Block FIPS code",
         "key": "GEOID20"
       },
+      "nameColumn": {
+        "name": "Precinct Code",
+        "key": "Precinct"
+      },
       "bounds": [
         [
           -122.8368,
@@ -164,17 +168,17 @@
           "type": "fill",
           "source": {
             "type": "vector",
-            "url": "mapbox://districtr.portland23_blocks20"
+            "url": "mapbox://districtr.portland23b_blocks20"
           },
-          "sourceLayer": "portland23_blocks20"
+          "sourceLayer": "portland23b_blocks20"
         },
         {
           "type": "circle",
           "source": {
             "type": "vector",
-            "url": "mapbox://districtr.portland23_blocks20_points"
+            "url": "mapbox://districtr.portland23b_blocks20_points"
           },
-          "sourceLayer": "portland23_blocks20_points"
+          "sourceLayer": "portland23b_blocks20_points"
         }
       ]
     }

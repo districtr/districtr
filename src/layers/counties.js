@@ -31,6 +31,9 @@ const COUNTIES_LAYER = {
 export function addCountyLayer(tab, state) {
     let startFill = window.location.search.includes("county=true") ? 0.4 : 0,
         statecode = String(stateNameToFips[(state.place.state || state.place.id).toLowerCase().replace("2020", "").replace("_bg", "")]);
+    if (state.place.id === "portland23") {
+      return;
+    }
     const counties = new Layer(
         state.map,
         {
@@ -49,6 +52,7 @@ export function addCountyLayer(tab, state) {
       alaska: 'Borough',
       alaska_blocks: 'Borough',
       louisiana: 'Parish',
+      portland23: 'Precinct',
     }[state.place.id];
 
     tab.addSection(

@@ -2,7 +2,7 @@ import { HoverWithRadius } from "./Hover";
 import { bindAll } from "../utils";
 
 export default class Brush extends HoverWithRadius {
-    constructor(layer, radius, color) {
+    constructor(layer, radius, color, placeID) {
         super(layer, radius);
 
         this.id = Math.random();
@@ -12,6 +12,7 @@ export default class Brush extends HoverWithRadius {
         this.locked = false;
         this.changedColors = new Set();
         this.nycPlusMinus = {};
+        this.placeID = placeID;
 
         this.listeners = {
             colorend: [],
@@ -105,6 +106,9 @@ export default class Brush extends HoverWithRadius {
                             name.splice(-1);
                             return name.join(" ");
                         };
+                    if (this.placeID === "portland23") {
+                      [countyProp, countyFIPS] = idSearch("Precinct", null);
+                    } else {
                     [countyProp, countyFIPS] = idSearch("GEOID10", 5)
                         || idSearch("GEOID", 5)
                         || idSearch("GEOID20", 5)
@@ -122,12 +126,16 @@ export default class Brush extends HoverWithRadius {
                         || idSearch("locality")
                         || idSearch("NAME", null, nameSplice)
                         || idSearch("NAME10", null, nameSplice)
+                        || idSearch("PRECINCTID")
                         || idSearch("Precinct", null, (val) => {
                             // Oregon
                             let name = val.split("_");
-                            name.splice(-1);
+                            if (name.length > 1) {
+                              name.splice(-1);
+                            }
                             return name.join("_");
                         });
+                    }
                     if (countyFIPS) {
                         seenCounties.add(countyFIPS);
                     }

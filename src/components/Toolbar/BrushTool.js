@@ -94,7 +94,7 @@ class BrushToolOptions {
         }
         // switches county borders visibility to match checkbox
         let countyLayer = document.getElementById("countyVisible");
-        if (this.brush.county_brush !== countyLayer.checked) {
+        if (countyLayer && (this.brush.county_brush !== countyLayer.checked)) {
             countyLayer.click();
         }
     }

@@ -3,8 +3,8 @@ import { bindAll } from "../utils";
 import { blendColors, changeColorLuminance } from "../colors";
 
 export default class CommunityBrush extends Brush {
-    constructor(layer, radius, color) {
-        super(layer, radius, color);
+    constructor(layer, radius, color, placeID) {
+        super(layer, radius, color, placeID);
 
         this.brush_type = "community";
 
@@ -44,29 +44,36 @@ export default class CommunityBrush extends Brush {
                           name.splice(-1);
                           return name.join(" ");
                       };
-                  [countyProp, countyFIPS] = idSearch("GEOID10", 5)
-                      || idSearch("GEOID", 5)
-                      || idSearch("GEOID20", 5)
-                      || idSearch("county_nam") // Michigan
-                      || idSearch("VTD", 5)
-                      || idSearch("VTDID", 5)
-                      // || idSearch("CNTYVTD", 3)
-                      || idSearch("Code", null, (precinct) => precinct.split(",")[0] + ",")
-                      || idSearch("COUNTYFP")
-                      || idSearch("COUNTYFP10")
-                      || idSearch("COUNTY")
-                      || idSearch("CTYNAME")
-                      || idSearch("CNTYNAME")
-                      || idSearch("cnty_nm")
-                      || idSearch("locality")
-                      || idSearch("NAME", null, nameSplice)
-                      || idSearch("NAME10", null, nameSplice)
-                      || idSearch("Precinct", null, (val) => {
-                          // Oregon
-                          let name = val.split("_");
-                          name.splice(-1);
-                          return name.join("_");
-                      });
+                      if (this.placeID === "portland23") {
+                        [countyProp, countyFIPS] = idSearch("Precinct", null);
+                      } else {
+                      [countyProp, countyFIPS] = idSearch("GEOID10", 5)
+                          || idSearch("GEOID", 5)
+                          || idSearch("GEOID20", 5)
+                          || idSearch("county_nam") // Michigan
+                          || idSearch("VTD", 5)
+                          || idSearch("VTDID", 5)
+                          // || idSearch("CNTYVTD", 3)
+                          || idSearch("Code", null, (precinct) => precinct.split(",")[0] + ",")
+                          || idSearch("COUNTYFP")
+                          || idSearch("COUNTYFP10")
+                          || idSearch("COUNTY")
+                          || idSearch("CTYNAME")
+                          || idSearch("CNTYNAME")
+                          || idSearch("cnty_nm")
+                          || idSearch("locality")
+                          || idSearch("NAME", null, nameSplice)
+                          || idSearch("NAME10", null, nameSplice)
+                          || idSearch("PRECINCTID")
+                          || idSearch("Precinct", null, (val) => {
+                              // Oregon
+                              let name = val.split("_");
+                              if (name.length > 1) {
+                                name.splice(-1);
+                              }
+                              return name.join("_");
+                          });
+                      }
                   if (countyFIPS) {
                       seenCounties.add(countyFIPS);
                   }

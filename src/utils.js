@@ -2441,6 +2441,7 @@ export function spatial_abilities(id) {
       number_markers: true,
       // contiguity: 2,
       border: true,
+      county_brush: true,
       shapefile: true,
       boundaries: [
         {
