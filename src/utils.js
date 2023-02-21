@@ -2454,7 +2454,7 @@ export function spatial_abilities(id) {
         },
         {
           id: 'neighborhood',
-          label: 'Neighborhoods',
+          label: 'Neighborhood Organizations link:https://rlisdiscovery.oregonmetro.gov/datasets/drcMetro::neighborhood-organizations-1/about',
           path: 'portland/neighborhoods',
           lineColor: '#227B22',
           lineWidth: 2,
