@@ -101,7 +101,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     let selectBoundaries = abilities.boundaries || [];
-    let showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA,
+    let showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA || (state.place.id === "portland23"),
           stateID = state.place.state.toLowerCase().replace(/\s+/g, ""),
           placeID = ["california", "ohio", "texas", "arizona"].includes(stateID) ? state.place.id : stateID;
     if (state.place.state === "Washington, DC") {
@@ -180,7 +180,7 @@ export default function DataLayersPlugin(editor) {
               if (config.unitType && !state.units.id.includes(config.unitType)) {
                 return "";
               }
-              
+
               // Check if the problem name is in the config for the boundary, skip if they do not match.
               if (config.problemName && state.problem.name !== config.problemName) {
                 return "";

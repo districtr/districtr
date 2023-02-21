@@ -219,7 +219,7 @@ function addCounties(map, tileset, layerAdder, placeID) {
             "==",
             ["get", "STATEFP"],
             String(stateNameToFips[placeID.toLowerCase().replace("2020", "").replace("_bg", "").replace("wisco2019acs", "wisconsin").replace("mnacs", "minnesota")])
-        ] : ["==", 1, 1],
+        ] : ["has", "PRECINCTID"],
     },
     layerAdder);
 }
@@ -436,12 +436,13 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderID, 
 
         counties = (borderID === "portland23")
           ? addCounties(map, {
+            ...COUNTIES_TILESET,
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.portland23_precincts"
+              "url": "mapbox://districtr.portland23b_precincts"
             },
-            "sourceLayer": "portland23_precincts"
+            "sourceLayer": "portland23b_precincts"
           }, layerAdder)
           : addCounties(map, COUNTIES_TILESET, layerAdder, stateName),
 

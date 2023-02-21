@@ -31,19 +31,26 @@ const COUNTIES_LAYER = {
 export function addCountyLayer(tab, state) {
     let startFill = window.location.search.includes("county=true") ? 0.4 : 0,
         statecode = String(stateNameToFips[(state.place.state || state.place.id).toLowerCase().replace("2020", "").replace("_bg", "")]);
-    if (state.place.id === "portland23") {
-      return;
-    }
     const counties = new Layer(
         state.map,
         {
-            ...COUNTIES_LAYER,
+            ...(
+              state.place.id === "portland23" ? {
+                ...COUNTIES_LAYER,
+                "source": {
+                  "type": "vector",
+                  "url": "mapbox://districtr.portland23b_precincts"
+                },
+                "source-layer": "portland23b_precincts"
+              }
+              : COUNTIES_LAYER
+            ),
             paint: { ...COUNTIES_LAYER.paint, "line-opacity": startFill },
-            filter: [
+            filter: state.place.id === "portland23" ? ["has", "PRECINCTID"] : [
                 "==",
                 ["get", "STATEFP"],
                 statecode
-            ]
+            ],
         },
         addBelowLabels
     );

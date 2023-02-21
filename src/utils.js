@@ -2444,15 +2444,15 @@ export function spatial_abilities(id) {
       county_brush: true,
       shapefile: true,
       boundaries: [
-        {
-          id: 'precincts',
-          label: 'Precincts',
-          path: 'portland/precincts',
-          lineColor: '#80231c',
-          lineWidth: 1.5,
-          centroids: true,
-          namefield: "PRECINCTID",
-        },
+        // {
+        //   id: 'precincts',
+        //   label: 'Precincts',
+        //   path: 'portland/precincts',
+        //   lineColor: '#80231c',
+        //   lineWidth: 1.5,
+        //   centroids: true,
+        //   namefield: "PRECINCTID",
+        // },
         {
           id: 'neighborhood',
           label: 'Neighborhood Organizations link:https://rlisdiscovery.oregonmetro.gov/datasets/drcMetro::neighborhood-organizations-1/about',
