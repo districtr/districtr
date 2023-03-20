@@ -126,12 +126,44 @@ export default function EvaluationPlugin(editor) {
     }
 
     if (state.vap) {
+      let mockColumnSet = state.vap;
+      if (spatial_abilities(state.place.id).coalition !== false && state.place.id === "portland23") {
+          let coalitionSubgroup = {
+              data: [],
+              key: 'coal',
+              name: "Coalition VAP population",
+              getAbbreviation: () => "Coalition",
+              getFractionInPart: function (p) {
+                console.log(state.vap.subgroups);
+                console.log(window.coalitionGroups);
+                  let fullsum = 0,
+                      selectSGs = state.vap.subgroups.filter(sg => window.coalitionGroups[sg.key]);
+                  selectSGs.forEach(sg => {
+                      fullsum += sg.sum;
+                      sg.data.forEach((val, idx) => this.data[idx] = (this.data[idx] || 0) + val);
+                  });
+                  this.sum = fullsum;
+                  let portion = 0;
+                  selectSGs.forEach((selected) => {
+                      portion += selected.getFractionInPart(p);
+                  });
+                  return portion;
+              },
+              sum: 0,
+              total: mockColumnSet.subgroups.length > 0 ? mockColumnSet.subgroups[0].total : 0
+          };
+          mockColumnSet = {
+              ...mockColumnSet,
+              subgroups: [].concat(mockColumnSet.subgroups.filter(x => x.total !== mockColumnSet.total_alt)).concat([coalitionSubgroup])
+          };
+      }
+
         tab.addRevealSection(
             "Voting Age Population by Race",
             (uiState, dispatch) =>
                 RacialBalanceTable(
                     "Voting Age Population by Race",
-                    state.vap,
+                    mockColumnSet,
                     state.activeParts,
                     uiState.charts["Voting Age Population by Race"],
                     dispatch

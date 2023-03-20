@@ -2441,18 +2441,18 @@ export function spatial_abilities(id) {
       number_markers: true,
       // contiguity: 2,
       border: true,
-      county_brush: true,
+      // county_brush: true,
       shapefile: true,
       boundaries: [
-        // {
-        //   id: 'precincts',
-        //   label: 'Precincts',
-        //   path: 'portland/precincts',
-        //   lineColor: '#80231c',
-        //   lineWidth: 1.5,
-        //   centroids: true,
-        //   namefield: "PRECINCTID",
-        // },
+        {
+          id: 'precincts',
+          label: 'Voter Precincts link:https://rlisdiscovery.oregonmetro.gov/datasets/drcMetro::voter-precincts-1/about',
+          path: 'portland/precincts2',
+          lineColor: '#80231c',
+          lineWidth: 1.5,
+          centroids: true,
+          namefield: "PRECINCTID",
+        },
         {
           id: 'neighborhood',
           label: 'Neighborhood Organizations link:https://rlisdiscovery.oregonmetro.gov/datasets/drcMetro::neighborhood-organizations-1/about',
@@ -2464,7 +2464,7 @@ export function spatial_abilities(id) {
         },
         {
           id: 'schools',
-          label: 'School Districts',
+          label: 'School Districts link:https://rlisdiscovery.oregonmetro.gov/datasets/drcMetro::school-districts-1/about',
           path: 'portland/schools',
           lineColor: '#AF00AF',
           lineWidth: 2,
