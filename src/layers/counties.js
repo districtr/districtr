@@ -62,9 +62,11 @@ export function addCountyLayer(tab, state) {
       portland23: 'Precinct',
     }[state.place.id];
 
+    let source = (state.place.id === 'portland23') ? 'link:https://rlisdiscovery.oregonmetro.gov/datasets/drcMetro::voter-precincts-1/about' : '';
+
     tab.addSection(
         () => html`
-            ${toggle(`Show ${alt_counties || "County"} Boundaries`, false, checked =>
+            ${toggle(`Show ${alt_counties || "County"} Boundaries ${source}`, false, checked =>
                 counties.setOpacity(
                     checked ? COUNTIES_LAYER.paint["fill-opacity"] : 0
                 ),

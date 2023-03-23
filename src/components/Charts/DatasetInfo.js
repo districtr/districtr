@@ -32,7 +32,8 @@ function datasetInfo(state) {
             az_maricopa: "Uses <strong>2020 Decennial Census population</strong> with processing by Maricopa County Recorder’s Office",
             haystaq_2020: "Uses <strong>2020 Decennial Census population</strong> with processing by Haystaq",
             research_polling: "Uses <strong>2020 Decennial Census population</strong> with processing by Research & Polling",
-            nyc_2022: "Uses <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners"
+            nyc_2022: "Uses <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners",
+            flo: "Uses <strong>2020 Decennial Census</strong> population with processing by FLO-Analytics"
         },
         acsLocations = [
             "wisco2019acs", "hall_ga", "grand_county_2", "mn2020acs", "nd_benson",
@@ -50,6 +51,8 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${populations.census20adjMT}`;
     } else if ("nyc_popdemo" === place.id) {
         dataset = `<p><span>&#9432;</span> ${populations.nyc_2022}`;
+    } else if ("portland23" === place.id) {
+        dataset = `<p><span>&#9432;</span> ${populations.flo}`;
     } else if (
         [
             "rp_lax", "ca_butte", "sanluiso", "sanjoseca", "siskiyou", "redwood",

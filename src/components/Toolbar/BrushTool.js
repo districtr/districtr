@@ -119,7 +119,9 @@ class BrushToolOptions {
     }
 }
 
-const CountyBrush = (county_brush, toggle, alt_counties) => html`
+const CountyBrush = (county_brush, toggle, alt_counties) => {
+  const source = (alt_counties === 'precincts') ? html`<br/><small>Note that some Voter Precincts are not contiguous and will not align with Census Blocks.</small>` : '';
+  return html`
     <div class="ui-option">
         <label class="toolbar-checkbox">
             <input
@@ -130,9 +132,11 @@ const CountyBrush = (county_brush, toggle, alt_counties) => html`
                 @change=${toggle}
             />
             Paint ${alt_counties || "counties"}
+            ${source}
         </label>
     </div>
 `;
+}
 
 const BrushLock = (locked, toggle, options) => html`
     <div class="ui-option">
