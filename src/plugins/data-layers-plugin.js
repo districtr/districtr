@@ -101,7 +101,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     let selectBoundaries = abilities.boundaries || [];
-    let showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA,
+    let showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA || (state.place.id === "portland23"),
           stateID = state.place.state.toLowerCase().replace(/\s+/g, ""),
           placeID = ["california", "ohio", "texas", "arizona"].includes(stateID) ? state.place.id : stateID;
     if (state.place.state === "Washington, DC") {
@@ -180,7 +180,7 @@ export default function DataLayersPlugin(editor) {
               if (config.unitType && !state.units.id.includes(config.unitType)) {
                 return "";
               }
-              
+
               // Check if the problem name is in the config for the boundary, skip if they do not match.
               if (config.problemName && state.problem.name !== config.problemName) {
                 return "";
@@ -298,6 +298,12 @@ The “White/Other” category contains the balance of residents who were not ca
                       ${state.population.subgroups.filter(sg => !sg.total_alt).map(sg => html`<div style="display:inline-block;border:1px solid silver;padding:4px;border-radius:4px;cursor:pointer;">
                           ${toggle(sg.name.replace(" population", ""), false, checked => {
                               window.coalitionGroups[sg.key] = checked;
+                              if (state.vap) {
+                                state.vap.subgroups.filter(vap_sg => vap_sg.name.includes(sg.name.replace(" population", ""))).forEach(
+                                  (vap_sg) =>
+                                    window.coalitionGroups[vap_sg.key] = checked
+                                );
+                              }
                               window.coalitionGroups[vapEquivalents[sg.key]] = checked;
                               coalitionOverlays.forEach(cat => cat.overlay.repaint());
                               render(coalitionPivot(uiState, dispatch), document.getElementById("coalition-table"));

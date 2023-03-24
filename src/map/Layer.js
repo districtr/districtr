@@ -99,7 +99,7 @@ export default class Layer {
                 "all",
                 ["has", countyProp]
             ];
-        if (["COUNTY", "CTYNAME", "CNTYNAME", "COUNTYFP", "COUNTYFP10", "cnty_nm", "county_nam", "locality"].includes(countyProp)) {
+        if (["COUNTY", "CTYNAME", "CNTYNAME", "COUNTYFP", "COUNTYFP10", "cnty_nm", "county_nam", "locality", "Precinct"].includes(countyProp)) {
             filterStrings.push(["==", ["get", countyProp], fips]);
         } else if (typeof fips === 'number') {
             // 35059 - 35060 * 10^6 (for numeric ids)

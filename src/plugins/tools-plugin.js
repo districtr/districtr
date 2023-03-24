@@ -20,8 +20,8 @@ export default function ToolsPlugin(editor) {
     const { state, toolbar } = editor;
     const showVRA = (state.plan.problem.type !== "community") && (spatial_abilities(state.place.id).vra_effectiveness);
     const brush = (state.problem.type === 'community')
-        ? new CommunityBrush(state.units, 20, 0)
-        : new Brush(state.units, 20, 0);
+        ? new CommunityBrush(state.units, 20, 0, state.place.id)
+        : new Brush(state.units, 20, 0, state.place.id);
     brush.on("colorfeature", state.update);
     brush.on("colorend", state.render);
     brush.on("colorend", toolbar.unsave);
@@ -36,6 +36,7 @@ export default function ToolsPlugin(editor) {
       alaska: 'boroughs',
       alaska_blocks: 'boroughs',
       louisiana: 'parishes',
+      portland23: 'precincts',
     }[state.place.id];
     let brushOptions = {
         community: (state.problem.type === "community"),

@@ -2437,6 +2437,42 @@ export function spatial_abilities(id) {
       contiguity: 2,
       border: true,
     },
+    portland23: {
+      number_markers: true,
+      // contiguity: 2,
+      border: true,
+      county_brush: true,
+      shapefile: true,
+      boundaries: [
+        // {
+        //   id: 'precincts',
+        //   label: 'Voter Precincts link:https://rlisdiscovery.oregonmetro.gov/datasets/drcMetro::voter-precincts-1/about',
+        //   path: 'portland/precincts2',
+        //   lineColor: '#80231c',
+        //   lineWidth: 1.5,
+        //   centroids: true,
+        //   namefield: "PRECINCTID",
+        // },
+        {
+          id: 'neighborhood',
+          label: 'Neighborhood Organizations link:https://rlisdiscovery.oregonmetro.gov/datasets/drcMetro::neighborhood-organizations-1/about',
+          path: 'portland/neighborhoods',
+          lineColor: '#227B22',
+          lineWidth: 2,
+          centroids: true,
+          namefield: "NAME"
+        },
+        {
+          id: 'schools',
+          label: 'School Districts link:https://rlisdiscovery.oregonmetro.gov/datasets/drcMetro::school-districts-1/about',
+          path: 'portland/schools',
+          lineColor: '#AF00AF',
+          lineWidth: 2,
+          centroids: true,
+          namefield: "DISTNAME",
+        },
+      ],
+    },
     pennsylvania: {
       number_markers: true,
       county_brush: true,

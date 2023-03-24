@@ -1,5 +1,200 @@
 [
   {
+  "units": [
+    {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "2020 Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "P0020001",
+            "name": "Total population",
+            "sum": 652503,
+            "min": 0,
+            "max": 1399
+          },
+          "subgroups": [
+            {
+              "key": "P0020005",
+              "name": "White population",
+              "sum": 433445,
+              "min": 0,
+              "max": 1021
+            },
+            {
+              "key": "P0020006",
+              "name": "Black population",
+              "sum": 36975,
+              "min": 0,
+              "max": 252
+            },
+            {
+              "key": "P0020002",
+              "name": "Hispanic population",
+              "sum": 72336,
+              "min": 0,
+              "max": 597
+            },
+            {
+              "key": "P0020008",
+              "name": "Asian population",
+              "sum": 52245,
+              "min": 0,
+              "max": 370
+            },
+            {
+              "key": "P0020009",
+              "name": "Native Hawaiian / Pacific Islander population",
+              "sum": 3755,
+              "min": 0,
+              "max": 58
+            },
+            {
+              "key": "P0020007",
+              "name": "American Indian population",
+              "sum": 4273,
+              "min": 0,
+              "max": 191
+            },
+            {
+              "key": "P0020011",
+              "name": "Two or more races",
+              "sum": 45356,
+              "min": 0,
+              "max": 79
+            },
+            {
+              "key": "P0020010",
+              "name": "Other races",
+              "sum": 4118,
+              "min": 0,
+              "max": 17
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Voting Age Population",
+          "total": {
+            "key": "P0040001",
+            "name": "Total voting age population",
+            "sum": 541274,
+            "min": 0,
+            "max": 1276
+          },
+          "subgroups": [
+            {
+              "key": "P0040005",
+              "name": "White voting age population",
+              "sum": 375429,
+              "min": 0,
+              "max": 979
+            },
+            {
+              "key": "P0040006",
+              "name": "Black voting age population",
+              "sum": 28379,
+              "min": 0,
+              "max": 162
+            },
+            {
+              "key": "P0040002",
+              "name": "Hispanic voting age population",
+              "sum": 52271,
+              "min": 0,
+              "max": 357
+            },
+            {
+              "key": "P0040008",
+              "name": "Asian voting age population",
+              "sum": 44187,
+              "min": 0,
+              "max": 312
+            },
+            {
+              "key": "P0040009",
+              "name": "Native Hawaiian / Pacific Islander voting age population",
+              "sum": 2675,
+              "min": 0,
+              "max": 36
+            },
+            {
+              "key": "P0040007",
+              "name": "American Indian voting age population",
+              "sum": 3609,
+              "min": 0,
+              "max": 190
+            },
+            {
+              "key": "P0040011",
+              "name": "Two or more races voting age population",
+              "sum": 31411,
+              "min": 0,
+              "max": 79
+            },
+            {
+              "key": "P0040010",
+              "name": "Other races voting age population",
+              "sum": 3313,
+              "min": 0,
+              "max": 17
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Block FIPS code",
+        "key": "GEOID20"
+      },
+      "nameColumn": {
+        "name": "Precinct Code",
+        "key": "Precinct"
+      },
+      "bounds": [
+        [
+          -122.8368,
+          45.4325
+        ],
+        [
+          -122.472,
+          45.6529
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.portland23b_blocks20"
+          },
+          "sourceLayer": "portland23b_blocks20"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.portland23b_blocks20_points"
+          },
+          "sourceLayer": "portland23b_blocks20_points"
+        }
+      ]
+    }
+  ],
+  "id": "portland23",
+  "name": "Portland",
+  "state": "Oregon",
+  "districtingProblems": [
+    {
+      "name": "City Council",
+      "numberOfParts": 4,
+      "pluralNoun": "Multi-Member Districts"
+    }
+  ]
+},
+  {
     "state": "Oregon",
     "name": "Portland",
     "units": [
@@ -7,6 +202,7 @@
         "id": "precincts",
         "name": "Precincts",
         "unitType": "Precincts",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
