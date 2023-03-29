@@ -160,6 +160,7 @@ commoncausepa: 'Pennsylvania',
   "worcestersd": "Massachusetts",
   "nyc2022": "New York",
   riverside: "California",
+  portland2023: "Oregon",
 };
 
 const validEventCodes = {
@@ -309,6 +310,7 @@ commoncausepa: 'pennsylvania',
   "worcestersd": "ma_worcester_fix",
   "nyc2022": "nyc_popdemo",
   riverside: "ca_riverside",
+  portland2023: "portland23",
 };
 
 const blockPlans = {
@@ -551,6 +553,7 @@ const hybrid_events = [
   "drawabq",
   "nyc2022",
   "riverside",
+  "portland2023",
 ];
 
 const portal_events = [
@@ -606,6 +609,11 @@ const eventDescriptions = {
    <li>Keep districts compact in appearance and function</li>\
    </ul></p>\
    <p>If you would like to learn more about how to draw maps, please consider attending one or more of the community outreach meetings hosted by the City throughout August, September and October 2022, with options of being in-person or online.</p>",
+   portland2023: "<p>In 2022, the City of Portland voted to district the city into four areas using 2020 Census data and appointed an Independent District Commission to gather community input and to create four districts of relatively equal size. These districts must, as nearly as practicable, be compact, contiguous, use existing geographic or political boundaries, not divide communities of common interest, be connected by transportation links and be of equal population. In addition, districts may not be drawn for the purpose of diluting the strength of any language or ethnic minority group or be drawn for the purpose of favoring any political party.</p>\
+   <p>Examples of communities of common interest can include groups such as neighborhood associations or planning zones, areas where many residents may speak the same language, or even areas where the residents use the same community facilities. People who have common interests can define their own communities.</p>\
+   <p>We need your help to build maps! Please use this tool to identify the boundaries of your community and to draw maps of all four districts.</p>\
+   <p>Each map submitted will be reviewed and included as part of the public record.</p>\
+   <p>Get started by clicking on one of the buttons below. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure to use the tag “#Portland2023”.</p>",
    mesaaz: "<p>Every 10 years, Mesans get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about the communities of Mesa so that the district lines can amplify the voices of residents.</p>\
       <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part of Mesa where people have a common interest that needs a voice in government.</p>\
       <p><strong>Mesa, we need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -1973,7 +1981,10 @@ const longAbout = {
     "This mapping module uses the <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners. The data was prepared by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
   riverside: [
-    "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",    
+    "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
+  ],
+  portland2023: [
+    "This mapping module uses the official 2020 Census data and other data layers. FLO Analytics is working with the Independent District Commission to assist them in creating four districts for the City of Portland. More information on FLO can be found <a href='https://www.flo-analytics.com/' target='_blank'>here</a>."
   ],
   slo_county: [
     "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
