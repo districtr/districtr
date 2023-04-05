@@ -1603,6 +1603,11 @@ export function spatial_abilities(id) {
       find_unpainted: true,
       load_coi: false,
     },
+    jeffersoncoco: {
+      number_markers: true,
+      border: true,
+      shapefile: true,
+    },
     connecticut: {
       county_brush: true,
       native_american: true,
@@ -2633,6 +2638,11 @@ export function spatial_abilities(id) {
       portal: {
         endpoint: 'https://portal.utah-mapping.org',
       },
+    },
+    cacheco: {
+      number_markers: true,
+      border: true,
+      shapefile: true,
     },
       'grand_county_2': {
         portal: {

@@ -1,5 +1,196 @@
 [
   {
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "TOTPOP20",
+              "name": "Total population",
+              "sum": 582910,
+              "min": 0,
+              "max": 1202
+            },
+            "subgroups": [
+              {
+                "key": "WPOP20",
+                "name": "White population",
+                "sum": 435245,
+                "min": 0,
+                "max": 970
+              },
+              {
+                "key": "BPOP20",
+                "name": "Black population",
+                "sum": 6653,
+                "min": 0,
+                "max": 100
+              },
+              {
+                "key": "HISP20",
+                "name": "Hispanic population",
+                "sum": 91514,
+                "min": 0,
+                "max": 761
+              },
+              {
+                "key": "ASIANPOP20",
+                "name": "Asian population",
+                "sum": 17694,
+                "min": 0,
+                "max": 89
+              },
+              {
+                "key": "NHPIPOP20",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 464,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "AMINPOP20",
+                "name": "American Indian population",
+                "sum": 2898,
+                "min": 0,
+                "max": 101
+              },
+              {
+                "key": "2MOREPOP20",
+                "name": "Two or more races",
+                "sum": 25626,
+                "min": 0,
+                "max": 55
+              },
+              {
+                "key": "OTHERPOP20",
+                "name": "Other races",
+                "sum": 2816,
+                "min": 0,
+                "max": 55
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "VAP20",
+              "name": "Total voting age population",
+              "sum": 469066,
+              "min": 0,
+              "max": 1102
+            },
+            "subgroups": [
+              {
+                "key": "WVAP20",
+                "name": "White voting age population",
+                "sum": 362646,
+                "min": 0,
+                "max": 803
+              },
+              {
+                "key": "BVAP20",
+                "name": "Black voting age population",
+                "sum": 5268,
+                "min": 0,
+                "max": 100
+              },
+              {
+                "key": "HVAP20",
+                "name": "Hispanic voting age population",
+                "sum": 64628,
+                "min": 0,
+                "max": 471
+              },
+              {
+                "key": "ASIANVAP20",
+                "name": "Asian voting age population",
+                "sum": 14583,
+                "min": 0,
+                "max": 83
+              },
+              {
+                "key": "NHPIVAP20",
+                "name": "Native Hawaiian / Pacific Islander voting age population",
+                "sum": 366,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "AMINVAP20",
+                "name": "American Indian voting age population",
+                "sum": 2348,
+                "min": 0,
+                "max": 100
+              },
+              {
+                "key": "2MOREVAP20",
+                "name": "Two or more races voting age population",
+                "sum": 17085,
+                "min": 0,
+                "max": 42
+              },
+              {
+                "key": "OTHERVAP20",
+                "name": "Other races voting age population",
+                "sum": 2142,
+                "min": 0,
+                "max": 55
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -105.3992,
+            39.1295
+          ],
+          [
+            -105.0487,
+            39.9144
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.jeffersoncoco_blocks20"
+            },
+            "sourceLayer": "jeffersoncoco_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.jeffersoncoco_blocks20_points"
+            },
+            "sourceLayer": "jeffersoncoco_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "id": "jeffersoncoco",
+    "state": "Colorado",
+    "name": "Jefferson County",
+    "districtingProblems": [
+      {
+        "name": "County Commission",
+        "numberOfParts": 3,
+        "pluralNoun": "County Commission Districts"
+      }
+    ]
+  },
+  {
     "state": "Colorado",
     "units": [
       {
