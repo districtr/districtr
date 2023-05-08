@@ -2844,6 +2844,7 @@ const proposals_by_event = {
   butte_county: true,
   "worcestersd": true,
   nyc2022: true,
+  jeffco2023: true,
 };
 
 export default () => {
