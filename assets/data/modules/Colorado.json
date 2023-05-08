@@ -2,161 +2,92 @@
   {
     "units": [
       {
-        "id": "blocks20",
-        "name": "2020 Blocks",
-        "unitType": "2020 Blocks",
+        "id": "precincts23",
+        "name": "2023 Precincts",
+        "unitType": "2023 Precincts",
         "columnSets": [
           {
             "type": "population",
             "name": "Population",
             "total": {
-              "key": "TOTPOP20",
+              "key": "POP_ADJ",
               "name": "Total population",
-              "sum": 582910,
+              "sum": 583912,
               "min": 0,
-              "max": 1202
+              "max": 4079
             },
             "subgroups": [
               {
-                "key": "WPOP20",
+                "key": "NHWHITE",
                 "name": "White population",
-                "sum": 435245,
+                "sum": 435213,
                 "min": 0,
-                "max": 970
+                "max": 2985
               },
               {
-                "key": "BPOP20",
+                "key": "NHBLACK",
                 "name": "Black population",
-                "sum": 6653,
+                "sum": 6650,
                 "min": 0,
-                "max": 100
+                "max": 155
               },
               {
-                "key": "HISP20",
+                "key": "HISPANIC",
                 "name": "Hispanic population",
-                "sum": 91514,
+                "sum": 91504,
                 "min": 0,
-                "max": 761
+                "max": 1695
               },
               {
-                "key": "ASIANPOP20",
+                "key": "NHASIAN",
                 "name": "Asian population",
-                "sum": 17694,
+                "sum": 17689,
                 "min": 0,
-                "max": 89
+                "max": 320
               },
               {
-                "key": "NHPIPOP20",
-                "name": "Native Hawaiian / Pacific Islander population",
+                "key": "NHAMERI",
+                "name": "American Indian population",
+                "sum": 2896,
+                "min": 0,
+                "max": 103
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
                 "sum": 464,
                 "min": 0,
-                "max": 14
+                "max": 26
               },
               {
-                "key": "AMINPOP20",
-                "name": "American Indian population",
-                "sum": 2898,
-                "min": 0,
-                "max": 101
-              },
-              {
-                "key": "2MOREPOP20",
+                "key": "NHMULTI",
                 "name": "Two or more races",
-                "sum": 25626,
+                "sum": 25615,
                 "min": 0,
-                "max": 55
+                "max": 206
               },
               {
-                "key": "OTHERPOP20",
+                "key": "NHOTHER",
                 "name": "Other races",
-                "sum": 2816,
+                "sum": 2815,
                 "min": 0,
-                "max": 55
-              }
-            ]
-          },
-          {
-            "type": "population",
-            "name": "Voting Age Population",
-            "total": {
-              "key": "VAP20",
-              "name": "Total voting age population",
-              "sum": 469066,
-              "min": 0,
-              "max": 1102
-            },
-            "subgroups": [
-              {
-                "key": "WVAP20",
-                "name": "White voting age population",
-                "sum": 362646,
-                "min": 0,
-                "max": 803
-              },
-              {
-                "key": "BVAP20",
-                "name": "Black voting age population",
-                "sum": 5268,
-                "min": 0,
-                "max": 100
-              },
-              {
-                "key": "HVAP20",
-                "name": "Hispanic voting age population",
-                "sum": 64628,
-                "min": 0,
-                "max": 471
-              },
-              {
-                "key": "ASIANVAP20",
-                "name": "Asian voting age population",
-                "sum": 14583,
-                "min": 0,
-                "max": 83
-              },
-              {
-                "key": "NHPIVAP20",
-                "name": "Native Hawaiian / Pacific Islander voting age population",
-                "sum": 366,
-                "min": 0,
-                "max": 9
-              },
-              {
-                "key": "AMINVAP20",
-                "name": "American Indian voting age population",
-                "sum": 2348,
-                "min": 0,
-                "max": 100
-              },
-              {
-                "key": "2MOREVAP20",
-                "name": "Two or more races voting age population",
-                "sum": 17085,
-                "min": 0,
-                "max": 42
-              },
-              {
-                "key": "OTHERVAP20",
-                "name": "Other races voting age population",
-                "sum": 2142,
-                "min": 0,
-                "max": 55
+                "max": 70
               }
             ]
           }
         ],
         "idColumn": {
-          "name": "Block FIPS code",
-          "key": "GEOID20"
+          "name": "Precinct Code",
+          "key": "COUNTYPREC"
         },
         "bounds": [
           [
-            -105.3992,
-            39.1295
+            -105.3999,
+            39.1293
           ],
           [
-            -105.0487,
-            39.9144
+            -105.0486,
+            39.9143
           ]
         ],
         "tilesets": [
@@ -164,17 +95,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.jeffersoncoco_blocks20"
+              "url": "mapbox://districtr.jeffco2023_precincts23"
             },
-            "sourceLayer": "jeffersoncoco_blocks20"
+            "sourceLayer": "jeffco2023_precincts23"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.jeffersoncoco_blocks20_points"
+              "url": "mapbox://districtr.jeffco2023_precincts23_points"
             },
-            "sourceLayer": "jeffersoncoco_blocks20_points"
+            "sourceLayer": "jeffco2023_precincts23_points"
           }
         ]
       }
