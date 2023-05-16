@@ -426,7 +426,8 @@
         "ids": ["colorado"],
         "default": "true",
         "id": "state"
-      }
+      },
+      { "name": "Counties", "ids": ["jeffersoncoco"], "id": "county" }
     ],
     "sections": [
       {

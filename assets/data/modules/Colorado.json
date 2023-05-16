@@ -1,5 +1,127 @@
 [
   {
+    "units": [
+      {
+        "id": "precincts23",
+        "name": "2023 Precincts",
+        "unitType": "2023 Precincts",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "POP_ADJ",
+              "name": "Total population",
+              "sum": 583912,
+              "min": 0,
+              "max": 4079
+            },
+            "subgroups": [
+              {
+                "key": "NHWHITE",
+                "name": "White population",
+                "sum": 435213,
+                "min": 0,
+                "max": 2985
+              },
+              {
+                "key": "NHBLACK",
+                "name": "Black population",
+                "sum": 6650,
+                "min": 0,
+                "max": 155
+              },
+              {
+                "key": "HISPANIC",
+                "name": "Hispanic population",
+                "sum": 91504,
+                "min": 0,
+                "max": 1695
+              },
+              {
+                "key": "NHASIAN",
+                "name": "Asian population",
+                "sum": 17689,
+                "min": 0,
+                "max": 320
+              },
+              {
+                "key": "NHAMERI",
+                "name": "American Indian population",
+                "sum": 2896,
+                "min": 0,
+                "max": 103
+              },
+              {
+                "key": "NHPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 464,
+                "min": 0,
+                "max": 26
+              },
+              {
+                "key": "NHMULTI",
+                "name": "Two or more races",
+                "sum": 25615,
+                "min": 0,
+                "max": 206
+              },
+              {
+                "key": "NHOTHER",
+                "name": "Other races",
+                "sum": 2815,
+                "min": 0,
+                "max": 70
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Precinct Code",
+          "key": "COUNTYPREC"
+        },
+        "bounds": [
+          [
+            -105.3999,
+            39.1293
+          ],
+          [
+            -105.0486,
+            39.9143
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.jeffco2023_precincts23"
+            },
+            "sourceLayer": "jeffco2023_precincts23"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.jeffco2023_precincts23_points"
+            },
+            "sourceLayer": "jeffco2023_precincts23_points"
+          }
+        ]
+      }
+    ],
+    "id": "jeffersoncoco",
+    "name": "Jefferson County",
+    "state": "Colorado",
+    "districtingProblems": [
+      {
+        "name": "County Commission",
+        "numberOfParts": 3,
+        "pluralNoun": "County Commission Districts"
+      }
+    ]
+  },
+  {
     "state": "Colorado",
     "units": [
       {

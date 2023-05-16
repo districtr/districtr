@@ -161,6 +161,7 @@ commoncausepa: 'Pennsylvania',
   "nyc2022": "New York",
   riverside: "California",
   portland2023: "Oregon",
+  jeffco2023: "Colorado",
 };
 
 const validEventCodes = {
@@ -311,6 +312,7 @@ commoncausepa: 'pennsylvania',
   "nyc2022": "nyc_popdemo",
   riverside: "ca_riverside",
   portland2023: "portland23",
+  jeffco2023: "jeffersoncoco",
 };
 
 const blockPlans = {
@@ -554,6 +556,7 @@ const hybrid_events = [
   "nyc2022",
   "riverside",
   "portland2023",
+  "jeffco2023",
 ];
 
 const portal_events = [
@@ -614,6 +617,18 @@ const eventDescriptions = {
    <p>We need your help to build maps! Please use this tool to identify the boundaries of your community and to draw maps of all four districts.</p>\
    <p>Each map submitted will be reviewed and included as part of the public record.</p>\
    <p>Get started by clicking on one of the buttons below. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure to use the tag “#Portland2023”.</p>",
+   jeffco2023: "<p>Redistricting is the process of drawing lines for districts from which public officials are elected. When done correctly (and fairly) the districts will accurately reflect population changes, racial diversity, communities of interest, and provide an equal voice to all county residents.</p>\
+   <p>In 2023, Jefferson County is required to redraw our three county commissioner districts to reflect changes from the 2020 U.S. Census. The Clerk and Recorder’s office would like to ensure that members of the public have a voice in the process and that the districts accurately reflect our community. The districts must be equal in size and contiguous. They should also be compact, use existing geographic or political boundaries, and not divide communities of interest.</p>\
+   <p>A community of interest is a group of people with a common set of concerns that may be affected by county policies. People can define their own common interest but here are some examples:\
+   <ul>\
+   <li>A group of residents who have a shared race, religion, ethnicity, ancestry, history, or language. </li>\
+   <li>Residents who have been working together to keep a local health clinic or shelter open. </li>\
+   <li>Community members who are working together to advocate for wildfire mitigation policies in their neighborhood. </li>\
+   <li>Neighbors who are advocating for changes to zoning or traffic patterns. </li>\
+   <li>Parents of middle school aged children who are all planning on going to the same high school. </li>\
+   </ul></p>\
+   <p>We need your help to make sure your community is reflected in the new maps! Please use this tool to identify the boundaries of your community and/or to draw maps for all three districts. </p>\
+   <p>Each map submitted will be included as part of the public record. Get started by clicking on one of the buttons below. To share your map, click “save” in the upper right corner of the mapping module. To pin your map to this page so that others can see it be sure to tag #JeffCo2023.</p>",
    mesaaz: "<p>Every 10 years, Mesans get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about the communities of Mesa so that the district lines can amplify the voices of residents.</p>\
       <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part of Mesa where people have a common interest that needs a voice in government.</p>\
       <p><strong>Mesa, we need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -1986,6 +2001,9 @@ const longAbout = {
   portland2023: [
     "This mapping module uses the official 2020 Census data and other data layers. FLO Analytics is working with the Independent District Commission to assist them in creating four districts for the City of Portland. More information on FLO can be found <a href='https://www.flo-analytics.com/' target='_blank'>here</a>."
   ],
+  jeffco2023: [
+    "This mapping module uses official 2020 Census data, data compiled by the state of Colorado, and other data layers. The Jefferson County Clerk and Recorder’s office seeks to create an equitable, transparent, and modern redistricting process that gives residents the opportunity to have a say in the policies that impact their lives."
+  ],
   slo_county: [
     "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
   ],
@@ -2826,6 +2844,7 @@ const proposals_by_event = {
   butte_county: true,
   "worcestersd": true,
   nyc2022: true,
+  jeffco2023: true,
 };
 
 export default () => {
