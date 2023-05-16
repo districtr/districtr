@@ -3209,7 +3209,7 @@
         "default": "true",
         "id": "state"
       },
-      { "name": "Counties", "ids": ["grand_county_3", "cacheco"], "id": "county" }
+      { "name": "Counties", "ids": ["grand_county_3"], "id": "county" }
     ],
     "sections": [
       {
