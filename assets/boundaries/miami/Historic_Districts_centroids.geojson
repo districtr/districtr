@@ -1,0 +1,19 @@
+{
+"type": "FeatureCollection",
+"name": "Historic_Districts_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "HD_NAME": "Spring Garden" }, "geometry": { "type": "Point", "coordinates": [ -80.210142405498829, 25.781943489125833 ] } },
+{ "type": "Feature", "properties": { "HD_NAME": "Bayside" }, "geometry": { "type": "Point", "coordinates": [ -80.180355441301671, 25.840084324792191 ] } },
+{ "type": "Feature", "properties": { "HD_NAME": "Morningside" }, "geometry": { "type": "Point", "coordinates": [ -80.182794154164526, 25.828599000957301 ] } },
+{ "type": "Feature", "properties": { "HD_NAME": "Buena Vista East" }, "geometry": { "type": "Point", "coordinates": [ -80.193648480438171, 25.817390607539213 ] } },
+{ "type": "Feature", "properties": { "HD_NAME": "Beverly Terrace" }, "geometry": { "type": "Point", "coordinates": [ -80.189886495439325, 25.807776653351016 ] } },
+{ "type": "Feature", "properties": { "HD_NAME": "Lummus Park" }, "geometry": { "type": "Point", "coordinates": [ -80.20154885507884, 25.776873927839311 ] } },
+{ "type": "Feature", "properties": { "HD_NAME": "South River Drive" }, "geometry": { "type": "Point", "coordinates": [ -80.201375463991184, 25.772496388449376 ] } },
+{ "type": "Feature", "properties": { "HD_NAME": "MiMo" }, "geometry": { "type": "Point", "coordinates": [ -80.183959167237902, 25.832193326873522 ] } },
+{ "type": "Feature", "properties": { "HD_NAME": "Palm Grove" }, "geometry": { "type": "Point", "coordinates": [ -80.186646855337997, 25.838411645524879 ] } },
+{ "type": "Feature", "properties": { "HD_NAME": "Downtown Miami Commercial Historic District" }, "geometry": { "type": "Point", "coordinates": [ -80.191682366797494, 25.774590868501988 ] } },
+{ "type": "Feature", "properties": { "HD_NAME": "Buena Vista Post Office/Moore Furniture Building" }, "geometry": { "type": "Point", "coordinates": [ -80.19173240328297, 25.813870971968374 ] } },
+{ "type": "Feature", "properties": { "HD_NAME": "Riverview Historic District" }, "geometry": { "type": "Point", "coordinates": [ -80.210280456547366, 25.770071038551645 ] } }
+]
+}

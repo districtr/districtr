@@ -1643,8 +1643,34 @@ export function spatial_abilities(id) {
     },
     miamifl: {
       number_markers: true,
-      neighborhoods: true,
       border: true,
+      shapefile: true,
+      boundaries: [
+        {
+          id: 'current_districts',
+          label: 'Current Districts',
+          path: 'miami/Miami_City_District',
+        },
+        {
+          id: 'neighborhoods',
+          label: `Neighborhoods`,
+          path: 'miami/Miami_Neighborhoods_Shapefile',
+          centroids: true,
+          namefield: 'LABEL'
+        },
+        {
+          id: 'historic_districts',
+          label: 'Historic Districts',
+          path: 'miami/Historic_Districts',
+          centroids: true,
+          namefield: 'HD_NAME'
+        },
+        {
+          id: 'revitalization',
+          label: 'Neighborhood Revitalization Districts',
+          path: 'miami/Neighborhood_Revitalization_District',
+        },
+      ]
     },
     miamidade: {
       number_markers: true,

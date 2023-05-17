@@ -162,6 +162,7 @@ commoncausepa: 'Pennsylvania',
   riverside: "California",
   portland2023: "Oregon",
   jeffco2023: "Colorado",
+  miami2023: "Florida",
 };
 
 const validEventCodes = {
@@ -313,6 +314,7 @@ commoncausepa: 'pennsylvania',
   riverside: "ca_riverside",
   portland2023: "portland23",
   jeffco2023: "jeffersoncoco",
+  miami2023: "miamifl",
 };
 
 const blockPlans = {
@@ -321,6 +323,7 @@ const blockPlans = {
 
 const unitTypes = {
   "pmc-demo": {no: '2011 Wards'},
+  miami2023: {no: 'Blocks'},
   pmc: {no: '2011 Wards'},
   'pmc-districts': {no: ['2011 Wards', 'Block Groups']},
   powercoalition: {no: 'Precincts'},
@@ -557,6 +560,7 @@ const hybrid_events = [
   "riverside",
   "portland2023",
   "jeffco2023",
+  "miami2023",
 ];
 
 const portal_events = [
@@ -629,6 +633,12 @@ const eventDescriptions = {
    </ul></p>\
    <p>We need your help to make sure your community is reflected in the new maps! Please use this tool to identify the boundaries of your community and/or to draw maps for all three districts. </p>\
    <p>Each map submitted will be included as part of the public record. Get started by clicking on one of the buttons below. To share your map, click “save” in the upper right corner of the mapping module. To pin your map to this page so that others can see it be sure to tag #JeffCo2023.</p>",
+   miami2023: "<p>Every ten years, as the population of Miami changes, new census data is used to redraw Miami commission district boundaries. This process, called redistricting, is important in ensuring that each Commissioner represents about the same number of constituents. Redistricting also determines which neighborhoods and communities are grouped together into a district for purposes of electing a City Commissioner. In addition to Census data, when redrawing district boundaries officials should consider how to maintain communities of interest, as well as how people can physically reach each other (proximity and natural boundaries).</p>\
+   <p>Examples of communities of interest can include neighborhoods, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. People who have common interests that need a voice in government define their own communities.</p>\
+   <p>This website can be an aid to help us all understand our communities and determine the boundaries that we’ll use for our representation in city government. Right now Miami has five separate districts and each is represented on the City Commission by a single person. Each district commissioner has a vote in city laws.</p>\
+   <p>You are invited to develop your own ideas of how the City’s commission districts should be drawn. We hope this online tool can help.</p>\
+   <p>Two scenarios are presented. One scenario uses the five districts we currently use in Miami. The second scenario imagines eleven districts in the City.</p>\
+   <p>Get started by clicking the red button. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “Miami2023”.</p>",
    mesaaz: "<p>Every 10 years, Mesans get the chance to help reshape their City Council districts following the decennial U.S. Census. It’s important to know about the communities of Mesa so that the district lines can amplify the voices of residents.</p>\
       <p>Examples of communities can include homeowner associations (HOAs) or registered neighborhoods,  areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part of Mesa where people have a common interest that needs a voice in government.</p>\
       <p><strong>Mesa, we need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
@@ -2003,6 +2013,9 @@ const longAbout = {
   ],
   jeffco2023: [
     "This mapping module uses official 2020 Census data, data compiled by the state of Colorado, and other data layers. The Jefferson County Clerk and Recorder’s office seeks to create an equitable, transparent, and modern redistricting process that gives residents the opportunity to have a say in the policies that impact their lives."
+  ],
+  miami2023: [
+    "This website is sponsored by a coalition of civic organizations from all districts of Miami.  The group One Grove requested this site on behalf of the neighborhoods, chats, organizations, PTAs, civic groups, and individuals that choose to participate.  We hope your ideas and voice can be amplified so that your neighbors and our elected officials can hear."
   ],
   slo_county: [
     "This mapping module uses the <strong>official Redistricting Database for California</strong>, published by the Statewide Database with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported cities, community college districts, school boards, hospital districts, water boards, and other special districts. To learn more about their team <a href='https://redistrictingpartners.com/about/'>click here</a>.",
