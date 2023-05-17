@@ -183,6 +183,7 @@
         "name": "Blocks",
         "id": "blocks",
         "unitType": "Blocks",
+        "hideOnDefault": true,
         "columnSets": [
           {
             "type": "population",
