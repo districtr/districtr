@@ -318,7 +318,8 @@ commoncausepa: 'pennsylvania',
 };
 
 const blockPlans = {
-  powercoalition: [9439, 9446]
+  powercoalition: [9439, 9446],
+  miami2023: [185197, 185105, 185068],
 };
 
 const unitTypes = {
