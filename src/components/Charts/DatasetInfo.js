@@ -35,6 +35,7 @@ function datasetInfo(state) {
             nyc_2022: "Uses <strong>2020 Decennial Census</strong> population with processing by Redistricting Partners",
             flo: "Uses <strong>2020 Decennial Census</strong> population with processing by FLO-Analytics",
             jeffersoncoco: "Uses <strong>prison-adjusted 2020 Decennial Census population</strong> with processing by Jefferson County",
+            miami2023: "Uses <strong>2020 Decennial Census population</strong> with processing by One Grove",
         },
         acsLocations = [
             "wisco2019acs", "hall_ga", "grand_county_2", "mn2020acs", "nd_benson",
@@ -50,6 +51,8 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${populations.census20adjMT}`;
     } else if ("nyc_popdemo" === place.id) {
         dataset = `<p><span>&#9432;</span> ${populations.nyc_2022}`;
+    } else if ("miamifl" === place.id) {
+        dataset = `<p><span>&#9432;</span> ${populations.miami2023}`;
     } else if ("portland23" === place.id) {
         dataset = `<p><span>&#9432;</span> ${populations.flo}`;
     } else if ("jeffersoncoco" === place.id) {

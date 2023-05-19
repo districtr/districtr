@@ -1652,8 +1652,15 @@ export function spatial_abilities(id) {
           path: 'miami/Miami_City_District',
         },
         {
-          id: 'neighborhoods',
+          id: 'neighborhoods2',
           label: `Neighborhoods`,
+          path: 'miami/neighborhoods',
+          centroids: true,
+          namefield: 'Mel_Hood'
+        },
+        {
+          id: 'neighborhoods',
+          label: `City of Miami Planning Areas`,
           path: 'miami/Miami_Neighborhoods_Shapefile',
           centroids: true,
           namefield: 'LABEL'
