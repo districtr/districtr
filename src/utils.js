@@ -2091,6 +2091,48 @@ export function spatial_abilities(id) {
       find_unpainted: true,
       contiguity: 2,
     },
+      reno: {
+        number_markers: true,
+        shapefile: true,
+        border: true,
+        boundaries: [{
+          id: 'neighborhood',
+          label: 'Neighborhoods',
+          path: 'reno/neighborhoods',
+          centroids: true,
+          namefield: 'NAME',
+          lineColor: 'darkgreen',
+        }, {
+          id: 'bid',
+          label: 'Business Improvement District',
+          path: 'reno/bid',
+        }, {
+          id: 'spd',
+          label: 'Special Planning Districts',
+          path: 'reno/spd',
+        }, {
+          id: 'schools',
+          label: 'Elementary School Districts',
+          path: 'reno/elementary',
+          centroids: true,
+          namefield: 'NAME',
+          lineColor: 'darkblue',
+        }, {
+          id: 'schools',
+          label: 'Middle School Districts',
+          path: 'reno/middle',
+          centroids: true,
+          namefield: 'NAME',
+          lineColor: 'darkblue',
+        }, {
+          id: 'schools',
+          label: 'High School Districts',
+          path: 'reno/high',
+          centroids: true,
+          namefield: 'NAME',
+          lineColor: 'darkblue',
+        }],
+      },
     newhampshire: {
       number_markers: true,
       shapefile: true,

@@ -2050,6 +2050,11 @@
         "ids": ["nevada"],
         "id": "state",
         "default": "true"
+      },
+      {
+        "name": "Cities",
+        "ids": ["reno"],
+        "id": "loc"
       }
     ],
     "sections": [

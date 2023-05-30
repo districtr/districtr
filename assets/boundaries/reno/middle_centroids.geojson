@@ -1,0 +1,22 @@
+{
+"type": "FeatureCollection",
+"name": "middle_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "DESERT SKIES MS" }, "geometry": { "type": "Point", "coordinates": [ -119.780081079131108, 39.607772599422752 ] } },
+{ "type": "Feature", "properties": { "NAME": "COLD SPRINGS" }, "geometry": { "type": "Point", "coordinates": [ -119.892365540349843, 39.768540859916278 ] } },
+{ "type": "Feature", "properties": { "NAME": "SWOPE" }, "geometry": { "type": "Point", "coordinates": [ -119.847962410410531, 39.494232380987718 ] } },
+{ "type": "Feature", "properties": { "NAME": "CLAYTON" }, "geometry": { "type": "Point", "coordinates": [ -119.838923423174734, 39.551446568335294 ] } },
+{ "type": "Feature", "properties": { "NAME": "DEPOALI" }, "geometry": { "type": "Point", "coordinates": [ -119.71372306228804, 39.432769123231594 ] } },
+{ "type": "Feature", "properties": { "NAME": "HERZ" }, "geometry": { "type": "Point", "coordinates": [ -119.809001790655444, 39.336315690188457 ] } },
+{ "type": "Feature", "properties": { "NAME": "SPARKS" }, "geometry": { "type": "Point", "coordinates": [ -119.762486374204315, 39.550468678309748 ] } },
+{ "type": "Feature", "properties": { "NAME": "SPARKS" }, "geometry": { "type": "Point", "coordinates": [ -119.747113324744788, 39.534579051777605 ] } },
+{ "type": "Feature", "properties": { "NAME": "SPARKS" }, "geometry": { "type": "Point", "coordinates": [ -119.740869332282884, 39.534228629069105 ] } },
+{ "type": "Feature", "properties": { "NAME": "SPARKS" }, "geometry": { "type": "Point", "coordinates": [ -119.739845247932578, 39.533933534146527 ] } },
+{ "type": "Feature", "properties": { "NAME": "VAUGHN" }, "geometry": { "type": "Point", "coordinates": [ -119.780345487944061, 39.51727805726081 ] } },
+{ "type": "Feature", "properties": { "NAME": "PINE" }, "geometry": { "type": "Point", "coordinates": [ -119.762977203945979, 39.477852179149892 ] } },
+{ "type": "Feature", "properties": { "NAME": "BILLINGHURST" }, "geometry": { "type": "Point", "coordinates": [ -119.94240394374502, 39.481937962495145 ] } },
+{ "type": "Feature", "properties": { "NAME": "O'BRIEN" }, "geometry": { "type": "Point", "coordinates": [ -119.842034281017646, 39.643132308548623 ] } },
+{ "type": "Feature", "properties": { "NAME": "TRANER" }, "geometry": { "type": "Point", "coordinates": [ -119.790570588922506, 39.55038890825395 ] } }
+]
+}

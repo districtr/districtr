@@ -53,7 +53,7 @@ function datasetInfo(state) {
         dataset = `<p><span>&#9432;</span> ${populations.nyc_2022}`;
     } else if ("miamifl" === place.id) {
         dataset = `<p><span>&#9432;</span> ${populations.miami2023}`;
-    } else if ("portland23" === place.id) {
+    } else if (["portland23", "reno"].includes(place.id)) {
         dataset = `<p><span>&#9432;</span> ${populations.flo}`;
     } else if ("jeffersoncoco" === place.id) {
         dataset = `<p><span>&#9432;</span> ${populations.jeffersoncoco}`;
