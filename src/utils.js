@@ -2118,14 +2118,14 @@ export function spatial_abilities(id) {
           namefield: 'NAME',
           lineColor: 'darkblue',
         }, {
-          id: 'schools',
+          id: 'schools2',
           label: 'Middle School Districts',
           path: 'reno/middle',
           centroids: true,
           namefield: 'NAME',
           lineColor: 'darkblue',
         }, {
-          id: 'schools',
+          id: 'schools3',
           label: 'High School Districts',
           path: 'reno/high',
           centroids: true,
