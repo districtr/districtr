@@ -1,5 +1,196 @@
 [
   {
+  "units": [
+    {
+      "id": "blocks",
+      "name": "2020 Blocks",
+      "unitType": "2020 Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "P0010001",
+            "name": "Total population",
+            "sum": 264165,
+            "min": 0,
+            "max": 1626
+          },
+          "subgroups": [
+            {
+              "key": "P0020005",
+              "name": "White population",
+              "sum": 152015,
+              "min": 0,
+              "max": 978
+            },
+            {
+              "key": "P0020006",
+              "name": "Black population",
+              "sum": 7575,
+              "min": 0,
+              "max": 132
+            },
+            {
+              "key": "P0020002",
+              "name": "Hispanic population",
+              "sum": 66980,
+              "min": 0,
+              "max": 627
+            },
+            {
+              "key": "P0020008",
+              "name": "Asian population",
+              "sum": 18344,
+              "min": 0,
+              "max": 189
+            },
+            {
+              "key": "P0020007",
+              "name": "American Indian population",
+              "sum": 1881,
+              "min": 0,
+              "max": 32
+            },
+            {
+              "key": "P0020009",
+              "name": "Native Hawaiian and Pacific Islander population",
+              "sum": 1917,
+              "min": 0,
+              "max": 48
+            },
+            {
+              "key": "P0020011",
+              "name": "Two or more races",
+              "sum": 14064,
+              "min": 0,
+              "max": 114
+            },
+            {
+              "key": "P0020010",
+              "name": "Other races",
+              "sum": 1389,
+              "min": 0,
+              "max": 27
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Voting Age Population",
+          "total": {
+            "key": "P0040001",
+            "name": "Voting age population",
+            "sum": 210602,
+            "min": 0,
+            "max": 1397
+          },
+          "subgroups": [
+            {
+              "key": "P0040005",
+              "name": "White voting age population",
+              "sum": 129849,
+              "min": 0,
+              "max": 873
+            },
+            {
+              "key": "P0040006",
+              "name": "Black voting age population",
+              "sum": 5980,
+              "min": 0,
+              "max": 126
+            },
+            {
+              "key": "P0040002",
+              "name": "Hispanic voting age population",
+              "sum": 46017,
+              "min": 0,
+              "max": 413
+            },
+            {
+              "key": "P0040007",
+              "name": "Native American voting age population",
+              "sum": 1564,
+              "min": 0,
+              "max": 32
+            },
+            {
+              "key": "P0040009",
+              "name": "Native Hawaiian and Pacific Islander voting age population",
+              "sum": 1332,
+              "min": 0,
+              "max": 34
+            },
+            {
+              "key": "P0040008",
+              "name": "Asian voting age population",
+              "sum": 15339,
+              "min": 0,
+              "max": 143
+            },
+            {
+              "key": "P0040010",
+              "name": "Other races voting age population",
+              "sum": 1106,
+              "min": 0,
+              "max": 27
+            },
+            {
+              "key": "P0040011",
+              "name": "Two or more races voting age population",
+              "sum": 9415,
+              "min": 0,
+              "max": 107
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "ID",
+        "key": "GEOID20"
+      },
+      "bounds": [
+        [
+          -120.0023,
+          39.3794
+        ],
+        [
+          -119.6958,
+          39.7229
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.reno_blocks"
+          },
+          "sourceLayer": "reno_blocks"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.reno_blocks_points"
+          },
+          "sourceLayer": "reno_blocks_points"
+        }
+      ]
+    }
+  ],
+  "state": "Nevada",
+  "id": "reno",
+  "name": "Reno",
+  "districtingProblems": [
+    {
+      "name": "City Council",
+      "numberOfParts": 6,
+      "pluralNoun": "Wards"
+    }
+  ]
+},
+  {
     "state": "Nevada",
     "name": "Nevada",
     "units": [
