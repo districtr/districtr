@@ -2096,11 +2096,18 @@ export function spatial_abilities(id) {
         shapefile: true,
         border: true,
         boundaries: [{
+          id: 'ward',
+          label: 'City Ward Districts (2011)',
+          path: 'reno/wards',
+          lineColor: 'orangered',
+          lineWidth: 1.25,
+        }, {
           id: 'neighborhood',
           label: 'Neighborhoods',
           path: 'reno/neighborhoods',
           centroids: true,
           namefield: 'NAME',
+          lineWidth: 0.75,
           lineColor: 'darkgreen',
         }, {
           id: 'bid',
