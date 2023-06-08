@@ -2097,7 +2097,7 @@ export function spatial_abilities(id) {
         border: true,
         boundaries: [{
           id: 'ward',
-          label: 'City Ward Districts (2011)',
+          label: 'City Ward Districts (2021)',
           path: 'reno/wards',
           lineColor: 'orangered',
           lineWidth: 1.25,
