@@ -1616,7 +1616,7 @@
           },
           {
             "type": "election",
-            "name": "2018 Senate",
+            "name": "2018 Governor",
             "subgroups": [
               {
                 "key": "WalkerR_18",
@@ -1636,7 +1636,7 @@
           },
           {
             "type": "election",
-            "name": "2018 Governor",
+            "name": "2018 Senate",
             "subgroups": [
               {
                 "key": "VukmirR_18",
