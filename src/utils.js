@@ -420,6 +420,14 @@ export function spatial_abilities(id) {
       sideload: true,
       // find_unpainted: true,
     },
+    belmontredwood: {
+      number_markers: true,
+      shapefile: true,
+      border: true,
+      boundaries: [
+
+      ],
+    },
     ca_SanDiego: {
       number_markers: true,
       shapefile: true,
