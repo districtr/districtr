@@ -424,9 +424,14 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       border: true,
-      boundaries: [
-
-      ],
+      boundaries: [{
+        id: 'neighborhood',
+        label: 'Neighborhoods',
+        path: 'belmont/neighborhoods',
+        centroids: true,
+        namefield: 'HOA_BNDRY',
+        lineColor: 'darkgreen',
+      }],
     },
     ca_SanDiego: {
       number_markers: true,

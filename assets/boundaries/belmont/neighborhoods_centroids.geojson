@@ -1,0 +1,23 @@
+{
+"type": "FeatureCollection",
+"name": "neighborhoods_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Highway 101" }, "geometry": { "type": "Point", "coordinates": [ -122.269120346764495, 37.525149117940771 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Harbor Industrial Area" }, "geometry": { "type": "Point", "coordinates": [ -122.268996603701169, 37.520312711715185 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Notre Dame de Namur" }, "geometry": { "type": "Point", "coordinates": [ -122.285346187498206, 37.517032251242057 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Farallon" }, "geometry": { "type": "Point", "coordinates": [ -122.267719169969567, 37.533701715353089 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "East of 101" }, "geometry": { "type": "Point", "coordinates": [ -122.272807114598976, 37.531084906317183 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Downtown" }, "geometry": { "type": "Point", "coordinates": [ -122.274900633581282, 37.515254972717869 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Seaport" }, "geometry": { "type": "Point", "coordinates": [ -122.236083858307808, 37.524353248077389 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Sterling Downs" }, "geometry": { "type": "Point", "coordinates": [ -122.277745553833924, 37.526568293261242 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Redwood Shores" }, "geometry": { "type": "Point", "coordinates": [ -122.25456011119384, 37.534022828269649 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Belmont Heights" }, "geometry": { "type": "Point", "coordinates": [ -122.314117149156914, 37.506127177711853 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Plateau-Skymont" }, "geometry": { "type": "Point", "coordinates": [ -122.318879389459696, 37.515243469751496 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Western Hills" }, "geometry": { "type": "Point", "coordinates": [ -122.300236338067577, 37.505887023020428 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Homeview" }, "geometry": { "type": "Point", "coordinates": [ -122.271753146118812, 37.522318498266749 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "McDougal" }, "geometry": { "type": "Point", "coordinates": [ -122.286753484062416, 37.511644003004712 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Cipriani" }, "geometry": { "type": "Point", "coordinates": [ -122.304334352141879, 37.51746166187823 ] } },
+{ "type": "Feature", "properties": { "HOA_BNDRY": "Central" }, "geometry": { "type": "Point", "coordinates": [ -122.28878602284999, 37.521499749528836 ] } }
+]
+}
