@@ -164,7 +164,7 @@
   "districtingProblems": [
     {
       "name": "School",
-      "numberOfParts": 6,
+      "numberOfParts": 5,
       "pluralNoun": "Trustee Districts"
     }
   ]
