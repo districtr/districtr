@@ -164,6 +164,7 @@ commoncausepa: 'Pennsylvania',
   jeffco2023: "Colorado",
   miami2023: "Florida",
   reno2023: "Nevada",
+  brssd: "California",
 };
 
 const validEventCodes = {
@@ -317,6 +318,7 @@ commoncausepa: 'pennsylvania',
   jeffco2023: "jeffersoncoco",
   miami2023: "miamifl",
   reno2023: "reno",
+  brssd: "belmontredwood",
 };
 
 const blockPlans = {
@@ -565,6 +567,7 @@ const hybrid_events = [
   "jeffco2023",
   "miami2023",
   "reno2023",
+  "brssd",
 ];
 
 const portal_events = [
@@ -625,6 +628,20 @@ const eventDescriptions = {
    <p>We need your help to build maps! Please use this tool to identify the boundaries of your community and to draw maps of all four districts.</p>\
    <p>Each map submitted will be reviewed and included as part of the public record.</p>\
    <p>Get started by clicking on one of the buttons below. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure to use the tag “#Portland2023”.</p>",
+   brssd: "<p>The Belmont-Redwood Shores School District is in the process of moving from an at-large election system to a by-district trustee election system. To draw these new trustee areas, we need to hear from you! It’s important the district knows about your community as the lines are being drawn, so the trustee area lines can amplify the voices of residents.\
+   Learn more on our <a href='https://www.brssd.org/cvra-by-trustee-area' target='_blank'>website</a>.</p>\
+   <p>Examples of communities can include neighborhoods, areas where many residents speak the same language, or areas where the residents use the same school facilities.</p>\
+   <p>We need your help to build a community map and our new by-district trustee map! Please use this tool to identify the boundaries of your community and provide draft trustee boundary lines.</p>\
+   <p>Every map submitted will be carefully reviewed by professional demographers, staff and the current Board of Trustees, who are in-charge of drawing the trustee boundary map.</p>\
+   <p>Get started by clicking the orange or purple button to draw your community of interest or a trustee-area districted map. To share your map, click “Save” in the upper right corner of the mapping module, select “Share Now,” and then click on the “Share to Gallery” button. A “Team” or “Plan” name is encouraged but optional.</p>\
+   <p><u>Each by-district map must follow this set of ranked Districting Criteria</u>:\
+   <ul>\
+   <li>Relatively equal in size – total deviation is under 10%</li>\
+   <li>Contiguous – trustee areas are one whole piece and don’t jump from one area of the district to another with gaps in between</li>\
+   <li>Maintain “<i>communities of interest</i>”</li>\
+   <li>Easily identifiable and understandable lines, following city, natural (rivers, mountains), and man-made boundaries (main thoroughfares, highways)</li>\
+   <li>Keep trustee areas compact – trustee areas should be more circular or rectangular, and not snaking lines or ribbons</li>\
+   </ul>",
    reno2023: "<p>The City of Reno is moving from five to six wards as a result of state legislation enacted during the 2017 state legislative session. The City must follow federal and state laws and use the City Council-adopted principles for redistricting. The wards must be nearly equal in population with up to a 5 percent total deviation allowed. See <a href='http://www.reno.gov/Redistricting' target='_blank'>Reno.Gov/Redistricting</a> for more information about the requirements that must be followed.</p>\
 <p>We need your help to build the maps! Please use this tool to submit your feedback. You can draw maps for the wards or identify the boundaries of your community, known as a community of interest (COI). Each map submitted will be reviewed and included as part of the public record.</p>\
 <p>Get started by clicking on one of the buttons below. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure to use the tag “#Reno2023”.</p>\
@@ -2024,6 +2041,9 @@ const longAbout = {
   ],
   portland2023: [
     "This mapping module uses the official 2020 Census data and other data layers. FLO Analytics is working with the Independent District Commission to assist them in creating four districts for the City of Portland. More information on FLO can be found <a href='https://www.flo-analytics.com/' target='_blank'>here</a>."
+  ],
+  brssd: [
+    "This mapping module uses data obtained from the US Census Bureau with processing by Redistricting Partners. For the last decade, Redistricting Partners has supported states, counties, cities, community college districts, school boards, and other special districts drawing new districts. To learn more about their team, <a href='https://redistrictingpartners.com/about/' target='_blank'>click here</a>.",
   ],
   reno2023: [
     "This mapping module uses the official 2020 Census data and other data layers from the City of Reno. FLO Analytics is working with the City to assist them in creating six wards for the City Council. More information on FLO can be found <a href='https://www.flo-analytics.com/' target='_blank'>here</a>."

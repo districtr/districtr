@@ -1,5 +1,175 @@
 [
   {
+  "name": "Belmont-Redwood Shores School District",
+  "units": [
+    {
+      "id": "blocks",
+      "name": "2020 Blocks",
+      "unitType": "2020 Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "Population",
+            "name": "Total population",
+            "sum": 40725,
+            "min": 0,
+            "max": 1270
+          },
+          "subgroups": [
+            {
+              "key": "NH_White",
+              "name": "White population",
+              "sum": 23300,
+              "min": 0,
+              "max": 774
+            },
+            {
+              "key": "NH_AfAm",
+              "name": "Black population",
+              "sum": 699,
+              "min": 0,
+              "max": 68
+            },
+            {
+              "key": "Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 4405,
+              "min": 0,
+              "max": 195
+            },
+            {
+              "key": "NH_Asian",
+              "name": "Asian population",
+              "sum": 10147,
+              "min": 0,
+              "max": 336
+            },
+            {
+              "key": "NH_AiAn",
+              "name": "American Indian population",
+              "sum": 56,
+              "min": 0,
+              "max": 5
+            },
+            {
+              "key": "NH_HOPI",
+              "name": "Native Hawaiian and Pacific Islander population",
+              "sum": 238,
+              "min": 0,
+              "max": 27
+            },
+            {
+              "key": "NH_Others",
+              "name": "Other races",
+              "sum": 1276,
+              "min": 0,
+              "max": 101
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Voting Age Population",
+          "total": {
+            "key": "CVAP_15-19_Total",
+            "name": "Voting age population",
+            "sum": 26991,
+            "min": 0,
+            "max": 796
+          },
+          "subgroups": [
+            {
+              "key": "CVAP_15-19_White Alone",
+              "name": "White voting age population",
+              "sum": 14556,
+              "min": 0,
+              "max": 409
+            },
+            {
+              "key": "CVAP_15-19_Black or African American Alone",
+              "name": "Black voting age population",
+              "sum": 409,
+              "min": 0,
+              "max": 36
+            },
+            {
+              "key": "CVAP_15-19_Hispanic or Latino",
+              "name": "Hispanic voting age population",
+              "sum": 2651,
+              "min": 0,
+              "max": 121
+            },
+            {
+              "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+              "name": "Native American voting age population",
+              "sum": 93,
+              "min": 0,
+              "max": 21
+            },
+            {
+              "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
+              "name": "Native Hawaiian and Pacific Islander voting age population",
+              "sum": 288,
+              "min": 0,
+              "max": 61
+            },
+            {
+              "key": "CVAP_15-19_Asian Alone",
+              "name": "Asian voting age population",
+              "sum": 8014,
+              "min": 0,
+              "max": 404
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "ID",
+        "key": "GEOID20"
+      },
+      "bounds": [
+        [
+          -122.3342,
+          37.4763
+        ],
+        [
+          -122.1498,
+          37.5774
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.belmontredwood_blocks"
+          },
+          "sourceLayer": "belmontredwood_blocks"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.belmontredwood_blocks_points"
+          },
+          "sourceLayer": "belmontredwood_blocks_points"
+        }
+      ]
+    }
+  ],
+  "state": "California",
+  "id": "belmontredwood",
+  "districtingProblems": [
+    {
+      "name": "School",
+      "numberOfParts": 5,
+      "pluralNoun": "Trustee Districts"
+    }
+  ]
+},
+  {
     "id": "modesto",
     "name": "City of Modesto",
     "state": "California",
