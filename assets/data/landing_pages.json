@@ -358,13 +358,15 @@
           "ca_west_sac",
           "ca_diamond_bar",
           "ca_riverside",
-          "ca_fpud"
+          "ca_fpud",
+          "lagunaniguel"
         ],
         "id": "loc"
       },
       {
-        "name": "School Districts",
+        "name": "School and Transit Districts",
         "ids": [
+          "actransit",
           "napaschools",
           "sbusd_7",
           "sbusd_5",

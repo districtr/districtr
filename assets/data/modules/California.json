@@ -1,5 +1,310 @@
 [
   {
+  "name": "Laguna Niguel",
+  "id": "lagunaniguel",
+  "state": "California",
+  "units": [
+    {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "2020 Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "Population",
+            "name": "Total population",
+            "sum": 66572,
+            "min": 0,
+            "max": 1618
+          },
+          "subgroups": [
+            {
+              "key": "NH_White",
+              "name": "White population",
+              "sum": 48418,
+              "min": 0,
+              "max": 975
+            },
+            {
+              "key": "NH_AfAm",
+              "name": "Black population",
+              "sum": 803,
+              "min": 0,
+              "max": 35
+            },
+            {
+              "key": "Hispanic_or_Latino",
+              "name": "Hispanic population",
+              "sum": 9130,
+              "min": 0,
+              "max": 501
+            },
+            {
+              "key": "NH_Asian",
+              "name": "Asian population",
+              "sum": 5806,
+              "min": 0,
+              "max": 217
+            },
+            {
+              "key": "NH_HOPI",
+              "name": "Native Hawaiian / Pacific Islander population",
+              "sum": 93,
+              "min": 0,
+              "max": 7
+            },
+            {
+              "key": "NH_AiAn",
+              "name": "American Indian population",
+              "sum": 118,
+              "min": 0,
+              "max": 7
+            },
+            {
+              "key": "NH_Others",
+              "name": "Other races",
+              "sum": 3007,
+              "min": 0,
+              "max": 278
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Citizen Voting Age Population",
+          "total": {
+            "key": "CVAP_15-19_Total",
+            "name": "Total citizen voting age population",
+            "sum": 51053,
+            "min": 0,
+            "max": 1506
+          },
+          "subgroups": [
+            {
+              "key": "CVAP_15-19_White Alone",
+              "name": "White citizen voting age population",
+              "sum": 36941,
+              "min": 0,
+              "max": 792
+            },
+            {
+              "key": "CVAP_15-19_Black or African American Alone",
+              "name": "Black citizen voting age population",
+              "sum": 940,
+              "min": 0,
+              "max": 111
+            },
+            {
+              "key": "CVAP_15-19_Hispanic or Latino",
+              "name": "Hispanic citizen voting age population",
+              "sum": 5980,
+              "min": 0,
+              "max": 298
+            },
+            {
+              "key": "CVAP_15-19_Asian Alone",
+              "name": "Asian citizen voting age population",
+              "sum": 5396,
+              "min": 0,
+              "max": 345
+            },
+            {
+              "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
+              "name": "Native Hawaiian / Pacific Islander citizen voting age population",
+              "sum": 77,
+              "min": 0,
+              "max": 17
+            },
+            {
+              "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+              "name": "American Indian citizen voting age population",
+              "sum": 24,
+              "min": 0,
+              "max": 24
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Block FIPS code",
+        "key": "GEOID20"
+      },
+      "bounds": [
+        [
+          -117.7402,
+          33.4871
+        ],
+        [
+          -117.6725,
+          33.5714
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.lagunaniguel_blocks20"
+          },
+          "sourceLayer": "lagunaniguel_blocks20"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.lagunaniguel_blocks20_points"
+          },
+          "sourceLayer": "lagunaniguel_blocks20_points"
+        }
+      ]
+    }
+  ],
+  "districtingProblems": [
+    {
+      "name": "City Council",
+      "numberOfParts": 5,
+      "pluralNoun": "Council Districts"
+    }
+  ]
+},
+  {
+  "name": "AC Transit",
+  "id": "actransit",
+  "units": [
+    {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "2020 Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "Population Total",
+            "name": "Total population",
+            "sum": 1575598,
+            "min": 0,
+            "max": 2563
+          },
+          "subgroups": [
+            {
+              "key": "Population White",
+              "name": "White population",
+              "sum": 404283,
+              "min": 0,
+              "max": 883
+            },
+            {
+              "key": "Population Black",
+              "name": "Black population",
+              "sum": 194640,
+              "min": 0,
+              "max": 629
+            },
+            {
+              "key": "Population Latino",
+              "name": "Hispanic population",
+              "sum": 428189,
+              "min": 0,
+              "max": 1300
+            },
+            {
+              "key": "Population Asian",
+              "name": "Asian population",
+              "sum": 483067,
+              "min": 0,
+              "max": 1382
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Citizen Voting Age Population",
+          "total": {
+            "key": "CVAP Total",
+            "name": "Total citizen voting age population",
+            "sum": 1028196,
+            "min": 0,
+            "max": 1664
+          },
+          "subgroups": [
+            {
+              "key": "CVAP White",
+              "name": "White citizen voting age population",
+              "sum": 363965,
+              "min": 0,
+              "max": 908
+            },
+            {
+              "key": "CVAP Black",
+              "name": "Black citizen voting age population",
+              "sum": 157596,
+              "min": 0,
+              "max": 665
+            },
+            {
+              "key": "CVAP Latino",
+              "name": "Hispanic citizen voting age population",
+              "sum": 197366,
+              "min": 0,
+              "max": 836
+            },
+            {
+              "key": "CVAP Asian",
+              "name": "Asian citizen voting age population",
+              "sum": 281578,
+              "min": 0,
+              "max": 734
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Block FIPS code",
+        "key": "BLOCK20"
+      },
+      "bounds": [
+        [
+          -122.4416,
+          37.4542
+        ],
+        [
+          -121.8701,
+          38.0288
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.actransit_blocks20"
+          },
+          "sourceLayer": "actransit_blocks20"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.actransit_blocks20_points"
+          },
+          "sourceLayer": "actransit_blocks20_points"
+        }
+      ]
+    }
+  ],
+  "state": "California",
+  "districtingProblems": [
+    {
+      "name": "City Council",
+      "numberOfParts": 5,
+      "pluralNoun": "Wards"
+    }
+  ]
+},
+  {
   "name": "Belmont-Redwood Shores School District",
   "units": [
     {
