@@ -299,7 +299,7 @@
   "districtingProblems": [
     {
       "name": "City Council",
-      "numberOfParts": 5,
+      "numberOfParts": 7,
       "pluralNoun": "Wards"
     }
   ]
