@@ -165,6 +165,8 @@ commoncausepa: 'Pennsylvania',
   miami2023: "Florida",
   reno2023: "Nevada",
   brssd: "California",
+  actransit: "California",
+  lagunaniguel: "California",
 };
 
 const validEventCodes = {
@@ -319,6 +321,8 @@ commoncausepa: 'pennsylvania',
   miami2023: "miamifl",
   reno2023: "reno",
   brssd: "belmontredwood",
+  actransit: "actransit",
+  lagunaniguel: "lagunaniguel",
 };
 
 const blockPlans = {
@@ -568,6 +572,8 @@ const hybrid_events = [
   "miami2023",
   "reno2023",
   "brssd",
+  "actransit",
+  "lagunaniguel",
 ];
 
 const portal_events = [
@@ -2023,7 +2029,15 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       For a detailed how-to guide of Districtr, visit the
       <a href=https://districtr.org/guide>User Guide</a>.
     </p>
-  `
+  `,
+  actransit: '<p>Every 10 years, Californians get the chance to help reshape their districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+ <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+     <p>Get started by clicking one of the buttons below. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “ACTransit” (any capitalization) is entered.</p>',
+   lagunaniguel: '<p>Every 10 years, Californians get the chance to help reshape their districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
+  <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
+      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
+      <p>Get started by clicking one of the buttons below. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “LagunaNiguel” (any capitalization) is entered.</p>',
 };
 
 const longAbout = {
@@ -2883,7 +2897,27 @@ butte_county: [
       districts. To learn more about their team,
       <a href=https://redistrictingpartners.com/about/>click here</a>.
     `
-  ]
+  ],
+  actransit: [
+    `
+    This mapping module uses the official Redistricting Database for California,
+    published by the Statewide Database with processing by Redistricting Partners.
+    For the last decade, Redistricting Partners has supported cities, community
+    college districts, school boards, hospital districts, water boards, and other
+    special districts. To learn more about their team
+    <a href='https://redistrictingpartners.com/about/' target=_blank>click here.</a>
+    `
+  ],
+  lagunaniguel: [
+    `
+    This mapping module uses the official Redistricting Database for California,
+    published by the Statewide Database with processing by Redistricting Partners.
+    For the last decade, Redistricting Partners has supported cities, community
+    college districts, school boards, hospital districts, water boards, and other
+    special districts. To learn more about their team
+    <a href='https://redistrictingpartners.com/about/' target=_blank>click here.</a>
+    `
+  ],
 };
 
 const proposals_by_event = {
