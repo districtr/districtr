@@ -2030,10 +2030,24 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       <a href=https://districtr.org/guide>User Guide</a>.
     </p>
   `,
-  actransit: '<p>Every 10 years, Californians get the chance to help reshape their districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
- <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
-     <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-     <p>Get started by clicking one of the buttons below. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “ACTransit” (any capitalization) is entered.</p>',
+  actransit: `
+  <p>The redistricting process aims to change AC Transit&#39;s existing election system. Currently, there
+  are five wards and two at-large seats on the District&#39;s Board of Directors. However, this process
+  will shift to a new system with seven wards for elections, and the at-large seats on the Board
+  will be removed. This means that each ward will represent a smaller population within a single
+  ward.</p>
+  <p>Redistricting also determines which communities are grouped together into a ward. A
+“Communities of interest” is an adjoining population which shares common social and
+economic interests that should be included within a single ward for purposes of its effective
+and fair representation.</p>
+<p>A “Community of Interest” is a designation that is more subjective than the demographic
+information collected through the census. As a result, the District is calling upon residents to
+help describe the Communities of Interest with which they identify. <strong>Your feedback matters!</strong></p>
+<p><strong>You can also submit your own plan for how to draw seven wards.</strong>
+Every plan submitted will be carefully reviewed and included as part of the public record.</p>
+<p>Get started by clicking the purple or red button. To share your map, click “Save” in the upper
+right corner of the mapping module. To pin your map to this page, be sure the tag “ACTransit”.</p>
+  `,
    laguna_niguel: `<p>The City of Laguna Niguel is in the process of moving from an at-large election system to a by-
 district election system. To draw these new districts we need to hear from you as it’s important to
 know about your community so that the district lines can amplify the voices of residents. Learn
@@ -2926,12 +2940,8 @@ butte_county: [
   ],
   actransit: [
     `
-    This mapping module uses the official Redistricting Database for California,
-    published by the Statewide Database with processing by Redistricting Partners.
-    For the last decade, Redistricting Partners has supported cities, community
-    college districts, school boards, hospital districts, water boards, and other
-    special districts. To learn more about their team
-    <a href='https://redistrictingpartners.com/about/' target=_blank>click here.</a>
+    This mapping model uses the official Redistricting Database of California, published by the
+    Statewide Database with processing by Wagaman Strategies.
     `
   ],
   laguna_niguel: [
@@ -3087,6 +3097,12 @@ export default () => {
       document.getElementById("partner-link-a").href = "https://webcms.pima.gov/";
       document.getElementById("partnership-a").src = "/assets/partners-pimaaz.jpg";
       document.getElementById("partnership-a").style.marginRight = 0;
+      document.getElementById("partnership-b").style.display = "none";
+    }
+    if (eventCode === "actransit") {
+      document.getElementById("partnership-icons").style.display = "block";
+      document.getElementById("partner-link-a").href = "https://www.actransit.org";
+      document.getElementById("partnership-a").src = "/assets/partners-actransit.png";
       document.getElementById("partnership-b").style.display = "none";
     }
 
