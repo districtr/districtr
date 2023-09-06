@@ -166,7 +166,7 @@ commoncausepa: 'Pennsylvania',
   reno2023: "Nevada",
   brssd: "California",
   actransit: "California",
-  lagunaniguel: "California",
+  laguna_niguel: "California",
 };
 
 const validEventCodes = {
@@ -322,7 +322,7 @@ commoncausepa: 'pennsylvania',
   reno2023: "reno",
   brssd: "belmontredwood",
   actransit: "actransit",
-  lagunaniguel: "lagunaniguel",
+  laguna_niguel: "lagunaniguel",
 };
 
 const blockPlans = {
@@ -573,7 +573,7 @@ const hybrid_events = [
   "reno2023",
   "brssd",
   "actransit",
-  "lagunaniguel",
+  "laguna_niguel",
 ];
 
 const portal_events = [
@@ -2034,10 +2034,36 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
  <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
      <p>Get started by clicking one of the buttons below. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “ACTransit” (any capitalization) is entered.</p>',
-   lagunaniguel: '<p>Every 10 years, Californians get the chance to help reshape their districts following the decennial U.S. Census. It’s important to know about communities so that the district lines can amplify the voices of residents.</p>\
-  <p>Examples of communities can include cities, neighborhood associations or planning zones, areas where many residents speak the same language, or even areas where the residents use the same community facilities. It’s basically any part where people have a common interest that needs a voice in government.</p>\
-      <p><strong>We need your help to build a community map! Please use this tool to identify the boundaries of your community and share what makes it a community.</strong></p>\
-      <p>Get started by clicking one of the buttons below. To share your map, click “Save” in the upper right corner of the mapping module. To pin your map to this page, be sure the tag “LagunaNiguel” (any capitalization) is entered.</p>',
+   laguna_niguel: `<p>The City of Laguna Niguel is in the process of moving from an at-large election system to a by-
+district election system. To draw these new districts we need to hear from you as it’s important to
+know about your community so that the district lines can amplify the voices of residents. Learn
+more at districting Laguna Niguel <a href="https://cityoflagunaniguel.org/districting" target="_blank">here</a>.</p>
+<p>Link for City’s Districting Page: <a href="https://cityoflagunaniguel.org/districting" target="_blank">https://cityoflagunaniguel.org/districting</a></p>
+<p>Examples of communities can include neighborhoods, areas where many residents speak the
+same language, or areas where the residents use the same community facilities. It’s basically any
+area of the city where people have a common interest that needs a voice in government.</p>
+<p><strong>We need your help to build a community map and our new city council district map! Please
+use this tool to identify the boundaries of your community and provide your proposed city
+council district lines.</strong></p>
+<p>Every map submitted will be carefully reviewed by professional demographers and decision
+makers who are charged with drawing the City Council District Map.</p>
+<p>Each by-district map must follow this set of ranked Districting Criteria:
+<ul>
+  <li>Relatively equal in size – total deviation is under 10%</li>
+  <li>Contiguous – city council districts are one whole piece and don’t jump from one
+area of the city to another with gaps in between</li>
+  <li>Maintain “communities of interest”</li>
+  <li>Easily identifiable and understandable lines, following natural (rivers, mountains)
+and man-made boundaries (main thoroughfares, highways)</li>
+<li>Keep districts compact – districts should be more circular or rectangular, and not
+snaking lines or ribbons</li>
+</ul></p>
+<p>Get started by clicking the orange or purple button to draw your community of interest or a city
+council district map. To share your map, click “Save” in the upper right corner of the mapping
+module. To pin your map to this page, be sure the tag “Laguna_Niguel” (any capitalization) is
+entered.</p>
+`,
+
 };
 
 const longAbout = {
@@ -2908,9 +2934,9 @@ butte_county: [
     <a href='https://redistrictingpartners.com/about/' target=_blank>click here.</a>
     `
   ],
-  lagunaniguel: [
+  laguna_niguel: [
     `
-    This mapping module uses the official Redistricting Database for California,
+    This mapping module uses the <strong>official Redistricting Database for California</strong>,
     published by the Statewide Database with processing by Redistricting Partners.
     For the last decade, Redistricting Partners has supported cities, community
     college districts, school boards, hospital districts, water boards, and other
