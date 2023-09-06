@@ -2044,7 +2044,9 @@ and fair representation.</p>
 information collected through the census. As a result, the District is calling upon residents to
 help describe the Communities of Interest with which they identify. <strong>Your feedback matters!</strong></p>
 <p><strong>You can also submit your own plan for how to draw seven wards.</strong>
-Every plan submitted will be carefully reviewed and included as part of the public record.</p>
+Every plan submitted will be carefully reviewed and included as part of the public record.
+For more information, <a href="https://www.actransit.org/redistricting" target="_blank">visit this link</a>.
+</p>
 <p>Get started by clicking the purple or red button. To share your map, click “Save” in the upper
 right corner of the mapping module. To pin your map to this page, be sure the tag “ACTransit”.</p>
   `,
@@ -2063,7 +2065,7 @@ council district lines.</strong></p>
 makers who are charged with drawing the City Council District Map.</p>
 <p>Each by-district map must follow this set of ranked Districting Criteria:
 <ul>
-  <li>Relatively equal in size – total deviation is under 10%</li>
+  <li>Relatively equal in population – total deviation is under 10%</li>
   <li>Contiguous – city council districts are one whole piece and don’t jump from one
 area of the city to another with gaps in between</li>
   <li>Maintain “communities of interest”</li>
