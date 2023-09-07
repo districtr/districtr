@@ -420,6 +420,24 @@ export function spatial_abilities(id) {
       sideload: true,
       // find_unpainted: true,
     },
+    lagunaniguel: {
+      number_markers: true,
+      shapefile: true,
+      border: true,
+    },
+    actransit: {
+      number_markers: true,
+      shapefile: true,
+      border: true,
+      boundaries: [{
+        id: 'places',
+        label: 'Census Places',
+        path: 'actransit/places',
+        centroids: true,
+        namefield: 'Place',
+        lineColor: 'darkgreen',
+      }],
+    },
     belmontredwood: {
       number_markers: true,
       shapefile: true,
