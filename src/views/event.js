@@ -2050,35 +2050,55 @@ For more information, <a href="https://www.actransit.org/redistricting" target="
 <p>Get started by clicking the purple or red button. To share your map, click “Save” in the upper
 right corner of the mapping module. To pin your map to this page, be sure the tag “ACTransit”.</p>
   `,
-   laguna_niguel: `<p>The City of Laguna Niguel is in the process of moving from an at-large election system to a by-
-district election system. To draw these new districts we need to hear from you as it’s important to
-know about your community so that the district lines can amplify the voices of residents. Learn
-more at districting Laguna Niguel <a href="https://cityoflagunaniguel.org/districting" target="_blank">here</a>.</p>
-<p>Link for City’s Districting Page: <a href="https://cityoflagunaniguel.org/districting" target="_blank">https://cityoflagunaniguel.org/districting</a></p>
-<p>Examples of communities can include neighborhoods, areas where many residents speak the
-same language, or areas where the residents use the same community facilities. It’s basically any
-area of the city where people have a common interest that needs a voice in government.</p>
-<p><strong>We need your help to build a community map and our new city council district map! Please
-use this tool to identify the boundaries of your community and provide your proposed city
-council district lines.</strong></p>
-<p>Every map submitted will be carefully reviewed by professional demographers and decision
-makers who are charged with drawing the City Council District Map.</p>
-<p>Each by-district map must follow this set of ranked Districting Criteria:
+   laguna_niguel: `<p>The City of Laguna Niguel is in the process of transitioning from an at-large election system to a district-based election system. Beginning in
+ 2024, voters will vote for one City Council Member who lives in their
+ district. This will replace the City's current system of at-large citywide
+ elections in which voters have the ability to vote for all City Council
+ Members.</p>
+ <p>To learn more about Districting in Laguna Niguel, please click
+  <a href="https://cityoflagunaniguel.org/districting" target="_blank">here</a></p>
+<p>The City will need your help in making the change from at-large to
+district-based elections.</p>
+<p>One of the City's primary goals when drawing City Council Districts is
+to draw lines that respect neighborhoods and communities of interest.
+To assist the City with drawing these new districts, we need to hear
+from you (Laguna Niguel residents) as it is important to know about
+your neighborhood/community so that the district lines can amplify the
+voices of residents.</p>
+<p>Examples of communities can include neighborhoods, HOAs, areas
+where many residents speak the same language, or areas where
+residents use the same community facilities. It’s basically any area of
+the city where people have a common interest that needs a voice in
+government.</p>
+<p><strong>We want your help to build a community map and the new City
+Council District map! Please use this tool to identify the
+boundaries of your community, and to provide your proposed
+City Council district lines.</strong></p>
+<p>
+Every   map   submitted   will   be   reviewed   by   the   City   Council   and
+professional demographers.  The City Council serves as the ultimate
+decision maker in the final City Council District Map.
+</p>
+<p>
+Each by-district map must follow this set of ranked Districting Criteria:
 <ul>
-  <li>Relatively equal in population – total deviation is under 10%</li>
-  <li>Contiguous – city council districts are one whole piece and don’t jump from one
-area of the city to another with gaps in between</li>
-  <li>Maintain “communities of interest”</li>
-  <li>Easily identifiable and understandable lines, following natural (rivers, mountains)
-and man-made boundaries (main thoroughfares, highways)</li>
-<li>Keep districts compact – districts should be more circular or rectangular, and not
-snaking lines or ribbons</li>
-</ul></p>
-<p>Get started by clicking the orange or purple button to draw your community of interest or a city
-council district map. To share your map, click “Save” in the upper right corner of the mapping
-module. To pin your map to this page, be sure the tag “Laguna_Niguel” (any capitalization) is
-entered.</p>
-`,
+<li>Relatively   equal   in   population   (2020   census   data)   –   Total
+deviation is under 10%.</li>
+<li>Contiguous – City Council districts are one whole piece and don’t
+jump from one area of the city to another with gaps in between.</li>
+<li>Maintain “communities of interest.”</li>
+<li>Easily   identifiable   and   understandable   lines,   following   natural
+(mountains,   canyons)   and   man-made   boundaries   (main
+thoroughfares, highways).</li>
+<li>Keep districts compact – Districts should be more circular or
+rectangular, and not snaking lines or ribbons.</li>
+</ul>
+</p>
+<p>Get started by clicking the orange or purple button to draw your
+community of interest or a City Council District map. To share your
+map, click “Save” in the upper right corner of the mapping module. To
+pin your map to this page, be sure the tag “Laguna_Niguel” (any
+capitalization) is entered.</p>`,
 
 };
 
@@ -2949,11 +2969,7 @@ butte_county: [
   laguna_niguel: [
     `
     This mapping module uses the <strong>official Redistricting Database for California</strong>,
-    published by the Statewide Database with processing by Redistricting Partners.
-    For the last decade, Redistricting Partners has supported cities, community
-    college districts, school boards, hospital districts, water boards, and other
-    special districts. To learn more about their team
-    <a href='https://redistrictingpartners.com/about/' target=_blank>click here.</a>
+    published by the Statewide Database of the 2020 Census Data.
     `
   ],
 };
