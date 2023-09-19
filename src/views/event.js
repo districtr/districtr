@@ -2075,8 +2075,7 @@ Council District map! Please use this tool to identify the
 boundaries of your community, and to provide your proposed
 City Council district lines.</strong></p>
 <p>
-Every   map   submitted   will   be   reviewed   by   the   City   Council   and
-professional demographers.  The City Council serves as the ultimate
+Every   map   submitted   will   be   reviewed   by   the   City   Council.  The City Council serves as the ultimate
 decision maker in the final City Council District Map.
 </p>
 <p>
