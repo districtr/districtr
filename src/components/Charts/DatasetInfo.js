@@ -65,7 +65,7 @@ function datasetInfo(state) {
             "napacounty2021", "napa_boe", "santa_clara_h2o", "ca_oakland",
             "ca_martinez", "ca_humboldt", "carpinteria", "modesto", "santarosa",
             "ca_millbrae", "ca_belmont", "ca_scvosa", "ca_west_sac", "ca_diamond_bar", "ca_riverside",
-            "belmontredwood", "lagunaniguel",
+            "belmontredwood", "lagunaniguel", "lagunaniguel2",
         ].includes(place.id)
     ) {
         dataset = `<p><span>&#9432;</span> ${(units === "2020 Blocks") ? populations.redistpartners2020 : populations.mesa}`;

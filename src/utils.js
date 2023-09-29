@@ -425,6 +425,11 @@ export function spatial_abilities(id) {
       shapefile: true,
       border: true,
     },
+    lagunaniguel2: {
+      number_markers: true,
+      shapefile: true,
+      border: true,
+    },
     actransit: {
       number_markers: true,
       shapefile: true,

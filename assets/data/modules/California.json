@@ -1,5 +1,168 @@
 [
   {
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population",
+              "name": "Total population",
+              "sum": 67969,
+              "min": 0,
+              "max": 2120
+            },
+            "subgroups": [
+              {
+                "key": "White",
+                "name": "White population",
+                "sum": 45351,
+                "min": 0,
+                "max": 1127
+              },
+              {
+                "key": "AfAm",
+                "name": "Black population",
+                "sum": 796,
+                "min": 0,
+                "max": 64
+              },
+              {
+                "key": "Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 10923,
+                "min": 0,
+                "max": 1156
+              },
+              {
+                "key": "Asian",
+                "name": "Asian population",
+                "sum": 6734,
+                "min": 0,
+                "max": 326
+              },
+              {
+                "key": "HoPI",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 71,
+                "min": 0,
+                "max": 5
+              },
+              {
+                "key": "AiAn",
+                "name": "American Indian population",
+                "sum": 119,
+                "min": 0,
+                "max": 6
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total citizen voting age population",
+              "sum": 51053,
+              "min": 0,
+              "max": 1506
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_White Alone",
+                "name": "White citizen voting age population",
+                "sum": 36941,
+                "min": 0,
+                "max": 792
+              },
+              {
+                "key": "CVAP_15-19_Black or African American Alone",
+                "name": "Black citizen voting age population",
+                "sum": 940,
+                "min": 0,
+                "max": 111
+              },
+              {
+                "key": "CVAP_15-19_Hispanic or Latino",
+                "name": "Hispanic citizen voting age population",
+                "sum": 5980,
+                "min": 0,
+                "max": 298
+              },
+              {
+                "key": "CVAP_15-19_Asian Alone",
+                "name": "Asian citizen voting age population",
+                "sum": 5396,
+                "min": 0,
+                "max": 345
+              },
+              {
+                "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
+                "name": "Native Hawaiian / Pacific Islander citizen voting age population",
+                "sum": 77,
+                "min": 0,
+                "max": 17
+              },
+              {
+                "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+                "name": "American Indian citizen voting age population",
+                "sum": 24,
+                "min": 0,
+                "max": 24
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -117.7402,
+            33.4871
+          ],
+          [
+            -117.6725,
+            33.5714
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lagunaniguel2_blocks20"
+            },
+            "sourceLayer": "lagunaniguel2_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lagunaniguel2_blocks20_points"
+            },
+            "sourceLayer": "lagunaniguel2_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "name": "Laguna Niguel",
+    "id": "lagunaniguel2",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
   "name": "Laguna Niguel",
   "id": "lagunaniguel",
   "state": "California",

@@ -322,7 +322,7 @@ commoncausepa: 'pennsylvania',
   reno2023: "reno",
   brssd: "belmontredwood",
   actransit: "actransit",
-  laguna_niguel: "lagunaniguel",
+  laguna_niguel: "lagunaniguel2",
 };
 
 const blockPlans = {
