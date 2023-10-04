@@ -13,7 +13,7 @@
             "total": {
               "key": "Population",
               "name": "Total population",
-              "sum": 67969,
+              "sum": 64417,
               "min": 0,
               "max": 2120
             },
@@ -21,42 +21,42 @@
               {
                 "key": "White",
                 "name": "White population",
-                "sum": 45351,
+                "sum": 42842,
                 "min": 0,
                 "max": 1127
               },
               {
                 "key": "AfAm",
                 "name": "Black population",
-                "sum": 796,
+                "sum": 777,
                 "min": 0,
                 "max": 64
               },
               {
                 "key": "Hispanic_or_Latino",
                 "name": "Hispanic population",
-                "sum": 10923,
+                "sum": 10537,
                 "min": 0,
                 "max": 1156
               },
               {
                 "key": "Asian",
                 "name": "Asian population",
-                "sum": 6734,
+                "sum": 6309,
                 "min": 0,
                 "max": 326
               },
               {
                 "key": "HoPI",
                 "name": "Native Hawaiian / Pacific Islander population",
-                "sum": 71,
+                "sum": 68,
                 "min": 0,
                 "max": 5
               },
               {
                 "key": "AiAn",
                 "name": "American Indian population",
-                "sum": 119,
+                "sum": 115,
                 "min": 0,
                 "max": 6
               }
@@ -68,7 +68,7 @@
             "total": {
               "key": "CVAP_15-19_Total",
               "name": "Total citizen voting age population",
-              "sum": 51053,
+              "sum": 48210,
               "min": 0,
               "max": 1506
             },
@@ -76,44 +76,44 @@
               {
                 "key": "CVAP_15-19_White Alone",
                 "name": "White citizen voting age population",
-                "sum": 36941,
+                "sum": 34909,
                 "min": 0,
                 "max": 792
               },
               {
                 "key": "CVAP_15-19_Black or African American Alone",
                 "name": "Black citizen voting age population",
-                "sum": 940,
+                "sum": 891,
                 "min": 0,
                 "max": 111
               },
               {
                 "key": "CVAP_15-19_Hispanic or Latino",
                 "name": "Hispanic citizen voting age population",
-                "sum": 5980,
+                "sum": 5595,
                 "min": 0,
                 "max": 298
               },
               {
                 "key": "CVAP_15-19_Asian Alone",
                 "name": "Asian citizen voting age population",
-                "sum": 5396,
+                "sum": 5052,
                 "min": 0,
                 "max": 345
               },
               {
                 "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
                 "name": "Native Hawaiian / Pacific Islander citizen voting age population",
-                "sum": 77,
+                "sum": 60,
                 "min": 0,
-                "max": 17
+                "max": 12
               },
               {
                 "key": "CVAP_15-19_American Indian or Alaska Native Alone",
                 "name": "American Indian citizen voting age population",
-                "sum": 24,
+                "sum": 0,
                 "min": 0,
-                "max": 24
+                "max": 0
               }
             ]
           }
@@ -137,17 +137,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.lagunaniguel2_blocks20"
+              "url": "mapbox://districtr.lagunaniguel3_blocks20"
             },
-            "sourceLayer": "lagunaniguel2_blocks20"
+            "sourceLayer": "lagunaniguel3_blocks20"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.lagunaniguel2_blocks20_points"
+              "url": "mapbox://districtr.lagunaniguel3_blocks20_points"
             },
-            "sourceLayer": "lagunaniguel2_blocks20_points"
+            "sourceLayer": "lagunaniguel3_blocks20_points"
           }
         ]
       }
