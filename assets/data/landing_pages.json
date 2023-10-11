@@ -168,11 +168,18 @@
             "plans": [
               {
                 "id": "congress",
-                "name": "Congressional Plan"
+                "name": "Congressional Plan",
+                "on_eval": false
               },
               {
                 "id": "state_legislature",
-                "name": "State Legislative Plan"
+                "name": "State Legislative Plan",
+                "on_eval": "false"
+              },
+              {
+                "id": "congress_2020vtd",
+                "name": "Congressional Plan",
+                "on_eval": "true"
               }
             ]
           }
@@ -735,11 +742,13 @@
             "plans": [
               {
                 "id": "congress_2020vtd",
-                "name": "Congressional Plan"
+                "name": "Congressional Plan",
+                "on_eval": "true"
               },
               {
                 "id": "state_sen",
-                "name": "State Senate Plan"
+                "name": "State Senate Plan",
+                "on_eval": "false"
               }
             ]
           }
@@ -1147,15 +1156,18 @@
             "plans": [
               {
                 "id": "congress_2020vtd",
-                "name": "Congressional Plan"
+                "name": "Congressional Plan",
+                "on_eval": "true"
               },
               {
                 "id": "state_sen2020vtd",
-                "name": "State Senate Plan"
+                "name": "State Senate Plan",
+                "on_eval": "true"
               },
               {
                 "id": "state_house",
-                "name": "State House Plan"
+                "name": "State House Plan",
+                "on_eval": "false"
               }
             ]
           }
@@ -1367,16 +1379,19 @@
             "title": "Enacted Plans",
             "plans": [
               {
-                "id": "congress",
-                "name": "Congressional Plan"
+                "id": "congress_2020vtd",
+                "name": "Congressional Plan",
+                "on_eval": "true"
               },
               {
                 "id": "state_sen",
-                "name": "State Senate Plan"
+                "name": "State Senate Plan",
+                "on_eval": "false"
               },
               {
                 "id": "state_house",
-                "name": "State House Plan"
+                "name": "State House Plan",
+                "on_eval": "false"
               }
             ]
           }
@@ -1588,7 +1603,14 @@
             "plans": [
               {
                 "id": "congress",
-                "name": "Congressional Plan"
+                "name": "Congressional Plan",
+                "on_eval": "false"
+              },
+              {
+                "id": "congress_2020vtd",
+                "name": "Congressional Plan",
+                "on_eval": "true"
+                
               }
             ]
           }
@@ -1803,11 +1825,18 @@
             "plans": [
               {
                 "id": "congress",
-                "name": "Congressional Plan"
+                "name": "Congressional Plan",
+                "on_eval": "false"
               },
               {
                 "id": "state_sen",
-                "name": "State Senate Plan"
+                "name": "State Senate Plan",
+                "on_eval": "false"
+              },
+              {
+                "id": "congress_2020vtd",
+                "name": "Congressional Plan",
+                "on_eval": "true"
               }
             ]
           }
@@ -2032,11 +2061,13 @@
             "plans": [
               {
                 "id": "congress_2020vtd",
-                "name": "Congressional Plan"
+                "name": "Congressional Plan",
+                "on_eval": "true"
               },
               {
                 "id": "state_sen2020vtd",
-                "name": "State Senate Plan"
+                "name": "State Senate Plan",
+                "on_eval": "true"
               }
             ]
           }
@@ -3171,15 +3202,18 @@
             "plans": [
               {
                 "id": "congress_2020vtd",
-                "name": "Congressional Plan"
+                "name": "Congressional Plan",
+                "on_eval": "true"
               },
               {
                 "id": "state_sen2020vtd",
-                "name": "State Senate Plan"
+                "name": "State Senate Plan",
+                "on_eval": "true"
               },
               {
                 "id": "state_house",
-                "name": "State House Plan"
+                "name": "State House Plan",
+                "on_eval": "false"
               }
             ]
           }
@@ -3392,15 +3426,18 @@
             "plans": [
               {
                 "id": "congress_2020vtd",
-                "name": "Congressional Plan"
+                "name": "Congressional Plan",
+                "on_eval": "true"
               },
               {
                 "id": "state_sen2020vtd",
-                "name": "State Senate Plan"
+                "name": "State Senate Plan",
+                "on_eval": "true"
               },
               {
                 "id": "house_2011",
-                "name": "2011 Enacted House of Delegates Plan"
+                "name": "2011 Enacted House of Delegates Plan",
+                "on_eval": "false"
               }
             ]
           },
@@ -3409,11 +3446,13 @@
             "plans": [
               {
                 "id": "cong_2016",
-                "name": "2016 Remedial Congressional Plan"
+                "name": "2016 Remedial Congressional Plan",
+                "on_eval": "false"
               },
               {
                 "id": "house_2019",
-                "name": "2019 Remedial House of Delegates Plan"
+                "name": "2019 Remedial House of Delegates Plan",
+                "on_eval": "false"
               }
             ]
           }
@@ -3656,15 +3695,18 @@
             "plans": [
               {
                 "id": "congress_2020vtd",
-                "name": "Congressional Plan"
+                "name": "Congressional Plan",
+                "on_eval": "true"
               },
               {
-                "id": "statesen_2020wards",
-                "name": "State Senate Plan (2019 Population)"
+                "id": "statesen_2020vtd",
+                "name": "State Senate Plan",
+                "on_eval": "true"
               },
               {
                 "id": "assembly_2020wards",
-                "name": "State Assembly Plan (2019 Population)"
+                "name": "State Assembly Plan (2019 Population)",
+                "on_eval": "false"
               }
             ]
           }
@@ -3845,15 +3887,18 @@
             "plans": [
               {
                 "id": "congress_2020vtd",
-                "name": "Congressional Plan"
+                "name": "Congressional Plan",
+                "on_eval": true
               },
               {
                 "id": "state_sen2020vtd",
-                "name": "State Senate Plan"
+                "name": "State Senate Plan",
+                "on_eval": true
               },
               {
                 "id": "tx-state-house",
-                "name": "State House Plan"
+                "name": "State House Plan",
+                "on_eval": false
               }
             ]
           }
