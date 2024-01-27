@@ -118,6 +118,7 @@ export function savePlanToDB(state, eventCode, planName, callback, forceNotScrat
                 // screenshot
                 if (
                   (state.place.id === state.place.state.toLowerCase() &&
+                  (state.place.state.toLowerCase() !== 'michigan') &&
                   ["blockgroups20", "vtds20"].includes(state.unitsRecord.id))
                     || ["new_mexico", "new_mexico_portal"].includes(state.place.id)
                 ) {
