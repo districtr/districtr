@@ -456,6 +456,11 @@ export function spatial_abilities(id) {
         lineColor: 'darkgreen',
       }],
     },
+    drycreek: {
+      number_markers: true,
+      shapefile: true,
+      border: true,
+    },
     ca_SanDiego: {
       number_markers: true,
       shapefile: true,

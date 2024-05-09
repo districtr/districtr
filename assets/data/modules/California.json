@@ -1,5 +1,175 @@
 [
   {
+  "state": "California",
+  "id": "drycreek",
+  "units": [
+    {
+      "id": "blocks",
+      "name": "2020 Blocks",
+      "unitType": "2020 Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "PPA_Population",
+            "name": "Total population",
+            "sum": 55342,
+            "min": 0,
+            "max": 1057
+          },
+          "subgroups": [
+            {
+              "key": "PPA_White",
+              "name": "White population",
+              "sum": 33112,
+              "min": 0,
+              "max": 491
+            },
+            {
+              "key": "PPA_AfAm",
+              "name": "Black population",
+              "sum": 2253,
+              "min": 0,
+              "max": 96
+            },
+            {
+              "key": "PPA_Hispanic_Origin",
+              "name": "Hispanic population",
+              "sum": 8439,
+              "min": 0,
+              "max": 382
+            },
+            {
+              "key": "PPA_Asian",
+              "name": "Asian population",
+              "sum": 7109,
+              "min": 0,
+              "max": 203
+            },
+            {
+              "key": "PPA_AiAn",
+              "name": "American Indian population",
+              "sum": 239,
+              "min": 0,
+              "max": 15
+            },
+            {
+              "key": "PPA_HoPI",
+              "name": "Native Hawaiian and Pacific Islander population",
+              "sum": 275,
+              "min": 0,
+              "max": 11
+            },
+            {
+              "key": "PPA_Other",
+              "name": "Other races",
+              "sum": 297,
+              "min": 0,
+              "max": 10
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Voting Age Population",
+          "total": {
+            "key": "CVAP_16_20_Total",
+            "name": "Voting age population",
+            "sum": 38991,
+            "min": 0,
+            "max": 641
+          },
+          "subgroups": [
+            {
+              "key": "CVAP_16_20_White Alone",
+              "name": "White voting age population",
+              "sum": 25916,
+              "min": 0,
+              "max": 458
+            },
+            {
+              "key": "CVAP_16_20_Black or African American Alone",
+              "name": "Black voting age population",
+              "sum": 1693,
+              "min": 0,
+              "max": 63
+            },
+            {
+              "key": "CVAP_16_20_Hispanic or Latino",
+              "name": "Hispanic voting age population",
+              "sum": 5280,
+              "min": 0,
+              "max": 192
+            },
+            {
+              "key": "CVAP_16_20_American Indian or Alaska Native Alone",
+              "name": "Native American voting age population",
+              "sum": 148,
+              "min": 0,
+              "max": 16
+            },
+            {
+              "key": "CVAP_16_20_Native Hawaiian or Other Pacific Islander Alone",
+              "name": "Native Hawaiian and Pacific Islander voting age population",
+              "sum": 392,
+              "min": 0,
+              "max": 61
+            },
+            {
+              "key": "CVAP_16_20_Asian Alone",
+              "name": "Asian voting age population",
+              "sum": 4450,
+              "min": 0,
+              "max": 110
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "ID",
+        "key": "BLOCK"
+      },
+      "bounds": [
+        [
+          -121.3647,
+          38.7023
+        ],
+        [
+          -121.3018,
+          38.7818
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.drycreek_blocks"
+          },
+          "sourceLayer": "drycreek_blocks"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.drycreek_blocks_points"
+          },
+          "sourceLayer": "drycreek_blocks_points"
+        }
+      ]
+    }
+  ],
+  "name": "Dry Creek Joint Elementary School District",
+  "districtingProblems": [
+    {
+      "name": "Trustee Districts",
+      "numberOfParts": 3,
+      "pluralNoun": "Trustee Districts"
+    }
+  ]
+},
+  {
     "state": "California",
     "units": [
       {
