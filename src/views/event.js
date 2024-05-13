@@ -167,6 +167,7 @@ commoncausepa: 'Pennsylvania',
   brssd: "California",
   actransit: "California",
   laguna_niguel: "California",
+  drycreek: "California",
 };
 
 const validEventCodes = {
@@ -323,6 +324,7 @@ commoncausepa: 'pennsylvania',
   brssd: "belmontredwood",
   actransit: "actransit",
   laguna_niguel: "lagunaniguel2",
+  drycreek: "drycreek",
 };
 
 const blockPlans = {
@@ -574,6 +576,7 @@ const hybrid_events = [
   "brssd",
   "actransit",
   "laguna_niguel",
+  "drycreek",
 ];
 
 const portal_events = [
@@ -2098,7 +2101,39 @@ community of interest or a City Council District map. To share your
 map, click “Save” in the upper right corner of the mapping module. To
 pin your map to this page, be sure the tag “Laguna_Niguel” (any
 capitalization) is entered.</p>`,
-
+drycreek: `<p>The Dry Creek Joint Elementary School District is in the process of moving
+from an at-large election system to a by-district trustee election system. To
+draw these new trustee areas, we need to hear from you! It’s important the
+district knows about your community as the lines are being drawn, so the
+trustee area lines can amplify the voices of residents. Learn more on
+our <a href="https://drycreekschoolsus.finalsite.com/about-us/board-of-trustees-districting" target="_blank">website</a>.</p>
+<p>Examples of communities can include neighborhoods, areas where many
+residents speak the same language, or areas where the residents use the
+same school facilities.</p>
+<p>We need your help to build a community map and our new by-district
+trustee map! Please use this tool to identify the boundaries of your
+community and provide draft trustee boundary maps.</p>
+<p>Every map submitted will be carefully reviewed by professional
+demographers, staff and the current Board of Trustees, who are in charge
+of drawing the trustee boundary map.</p>
+<p>Get started by clicking the orange or purple button to draw your
+community of interest or a trustee-area districted map. To share your map,
+click “Save” in the upper right corner of the mapping module, select
+“Share Now,” and then click on the “Share to Gallery” button. A “Team” or
+“Plan” name is encouraged but optional.</p>
+<p><u>Each by-district map must follow this set of ranked Districting Criteria:</u>
+<ul>
+<li>Relatively equal in size – total deviation is under 10%</li>
+<li>Contiguous – trustee areas are one whole piece and don’t jump from
+one area of the district to another with gaps in between</li>
+<li>Maintain “<i>communities of interest</i>”</li>
+<li>Easily identifiable and understandable lines, following city, natural
+(rivers, mountains), and man-made boundaries (main thoroughfares,
+highways)</li>
+<li>Keep trustee areas compact – trustee areas should be more circular
+or rectangular, and not snaking lines or ribbons</li>
+</ul></p>
+`,
 };
 
 const longAbout = {
@@ -2966,6 +3001,12 @@ butte_county: [
     `
   ],
   laguna_niguel: [
+    `
+    This mapping module uses the <strong>official Redistricting Database for California</strong>,
+    published by the Statewide Database of the 2020 Census Data.
+    `
+  ],
+  drycreek: [
     `
     This mapping module uses the <strong>official Redistricting Database for California</strong>,
     published by the Statewide Database of the 2020 Census Data.
