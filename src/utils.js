@@ -460,6 +460,12 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       border: true,
+      boundaries: [{
+        id: 'county',
+        label: 'County Line',
+        path: 'drycreek/county',
+        lineColor: 'darkgreen',
+      }]
     },
     ca_SanDiego: {
       number_markers: true,
