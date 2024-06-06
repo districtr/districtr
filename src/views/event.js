@@ -168,6 +168,7 @@ commoncausepa: 'Pennsylvania',
   actransit: "California",
   laguna_niguel: "California",
   drycreek: "California",
+  hard: "California",
 };
 
 const validEventCodes = {
@@ -325,6 +326,7 @@ commoncausepa: 'pennsylvania',
   actransit: "actransit",
   laguna_niguel: "lagunaniguel2",
   drycreek: "drycreek",
+  hard: "haywardhard"
 };
 
 const blockPlans = {
@@ -577,6 +579,7 @@ const hybrid_events = [
   "actransit",
   "laguna_niguel",
   "drycreek",
+  "hard",
 ];
 
 const portal_events = [
@@ -2101,6 +2104,7 @@ community of interest or a City Council District map. To share your
 map, click “Save” in the upper right corner of the mapping module. To
 pin your map to this page, be sure the tag “Laguna_Niguel” (any
 capitalization) is entered.</p>`,
+hard: `<p>Hayward Area Recreation And Park District</p>`,
 drycreek: `<p>The Dry Creek Joint Elementary School District is in the process of moving
 from an at-large election system to a by-district trustee election system. To
 draw these new trustee areas, we need to hear from you! It’s important the
@@ -3007,6 +3011,12 @@ butte_county: [
     `
   ],
   drycreek: [
+    `
+    This mapping module uses the <strong>official Redistricting Database for California</strong>,
+    published by the Statewide Database of the 2020 Census Data.
+    `
+  ],
+  hard: [
     `
     This mapping module uses the <strong>official Redistricting Database for California</strong>,
     published by the Statewide Database of the 2020 Census Data.

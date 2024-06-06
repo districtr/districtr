@@ -1,5 +1,175 @@
 [
   {
+  "name": "Hayward Area Recreation And Park District",
+  "units": [
+    {
+      "id": "blocks20",
+      "name": "2020 Blocks",
+      "unitType": "2020 Blocks",
+      "columnSets": [
+        {
+          "type": "population",
+          "name": "Population",
+          "total": {
+            "key": "PPA_Population",
+            "name": "Total population",
+            "sum": 52975,
+            "min": 0,
+            "max": 100
+          },
+          "subgroups": [
+            {
+              "key": "PPA_White",
+              "name": "White population",
+              "sum": 38215,
+              "min": 0,
+              "max": 100
+            },
+            {
+              "key": "PPA_AfAm",
+              "name": "Black population",
+              "sum": 19046,
+              "min": 0,
+              "max": 99
+            },
+            {
+              "key": "PPA_Hispanic_Origin",
+              "name": "Hispanic population",
+              "sum": 51190,
+              "min": 0,
+              "max": 100
+            },
+            {
+              "key": "PPA_Asian",
+              "name": "Asian population",
+              "sum": 48601,
+              "min": 0,
+              "max": 100
+            },
+            {
+              "key": "PPA_HoPI",
+              "name": "Native Hawaiian / Pacific Islander population",
+              "sum": 6219,
+              "min": 0,
+              "max": 87
+            },
+            {
+              "key": "PPA_AiAn",
+              "name": "American Indian population",
+              "sum": 689,
+              "min": 0,
+              "max": 10
+            },
+            {
+              "key": "PPA_Other",
+              "name": "Other population",
+              "sum": 1811,
+              "min": 0,
+              "max": 29
+            }
+          ]
+        },
+        {
+          "type": "population",
+          "name": "Citizen Voting Age Population",
+          "total": {
+            "key": "CVAP_16_20_Total",
+            "name": "Total citizen voting age population",
+            "sum": 58739,
+            "min": 0,
+            "max": 100
+          },
+          "subgroups": [
+            {
+              "key": "CVAP_16_20_White Alone",
+              "name": "White citizen voting age population",
+              "sum": 35704,
+              "min": 0,
+              "max": 100
+            },
+            {
+              "key": "CVAP_16_20_Black or African American Alone",
+              "name": "Black citizen voting age population",
+              "sum": 17274,
+              "min": 0,
+              "max": 99
+            },
+            {
+              "key": "CVAP_16_20_Hispanic or Latino",
+              "name": "Hispanic citizen voting age population",
+              "sum": 35621,
+              "min": 0,
+              "max": 100
+            },
+            {
+              "key": "CVAP_16_20_Asian Alone",
+              "name": "Asian citizen voting age population",
+              "sum": 34750,
+              "min": 0,
+              "max": 99
+            },
+            {
+              "key": "CVAP_16_20_American Indian or Alaska Native Alone",
+              "name": "American Indian citizen voting age population",
+              "sum": 801,
+              "min": 0,
+              "max": 39
+            },
+            {
+              "key": "CVAP_16_20_Native Hawaiian or Other Pacific Islander Alone",
+              "name": "Native Hawaiian / Pacific Islander citizen voting age population",
+              "sum": 2880,
+              "min": 0,
+              "max": 75
+            }
+          ]
+        }
+      ],
+      "idColumn": {
+        "name": "Block FIPS code",
+        "key": "BLOCK"
+      },
+      "bounds": [
+        [
+          -122.1673,
+          37.5596
+        ],
+        [
+          -121.931,
+          37.8001
+        ]
+      ],
+      "tilesets": [
+        {
+          "type": "fill",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.haywardhard_blocks20"
+          },
+          "sourceLayer": "haywardhard_blocks20"
+        },
+        {
+          "type": "circle",
+          "source": {
+            "type": "vector",
+            "url": "mapbox://districtr.haywardhard_blocks20_points"
+          },
+          "sourceLayer": "haywardhard_blocks20_points"
+        }
+      ]
+    }
+  ],
+  "id": "haywardhard",
+  "state": "California",
+  "districtingProblems": [
+    {
+      "name": "Board of Directors",
+      "numberOfParts": 5,
+      "pluralNoun": "Board Districts"
+    }
+  ]
+},
+  {
   "state": "California",
   "id": "drycreek",
   "units": [
