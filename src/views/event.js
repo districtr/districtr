@@ -3040,7 +3040,7 @@ export default () => {
         ? window.location.search.split("event=")[1].split("&")[0]
         : window.location.pathname.split("/").slice(-1)[0]
     );
-    const eventCode = og_eventCode.toLowerCase();
+    const eventCode = og_eventCode.toLowerCase().replace(/\./g, '');
 
     if (validEventCodes[eventCode]) {
         document.getElementById("eventHeadline").innerText = og_eventCode;

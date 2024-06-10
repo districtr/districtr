@@ -11,61 +11,54 @@
           "type": "population",
           "name": "Population",
           "total": {
-            "key": "PPA_Population",
+            "key": "Total_Population",
             "name": "Total population",
-            "sum": 52975,
+            "sum": 309883,
             "min": 0,
-            "max": 100
+            "max": 2202
           },
           "subgroups": [
             {
-              "key": "PPA_White",
+              "key": "NH_White",
               "name": "White population",
-              "sum": 38215,
+              "sum": 60071,
               "min": 0,
-              "max": 100
+              "max": 552
             },
             {
-              "key": "PPA_AfAm",
+              "key": "NH_AfAm",
               "name": "Black population",
-              "sum": 19046,
+              "sum": 26290,
               "min": 0,
-              "max": 99
+              "max": 500
             },
             {
-              "key": "PPA_Hispanic_Origin",
+              "key": "Hispanic_or_Latino",
               "name": "Hispanic population",
-              "sum": 51190,
+              "sum": 115089,
               "min": 0,
-              "max": 100
+              "max": 1300
             },
             {
-              "key": "PPA_Asian",
+              "key": "NH_Asian",
               "name": "Asian population",
-              "sum": 48601,
+              "sum": 85718,
               "min": 0,
-              "max": 100
+              "max": 878
             },
             {
-              "key": "PPA_HoPI",
+              "key": "NH_HoPI",
               "name": "Native Hawaiian / Pacific Islander population",
               "sum": 6219,
               "min": 0,
               "max": 87
             },
             {
-              "key": "PPA_AiAn",
+              "key": "NH_AiAn",
               "name": "American Indian population",
               "sum": 689,
               "min": 0,
               "max": 10
-            },
-            {
-              "key": "PPA_Other",
-              "name": "Other population",
-              "sum": 1811,
-              "min": 0,
-              "max": 29
             }
           ]
         },
@@ -73,52 +66,52 @@
           "type": "population",
           "name": "Citizen Voting Age Population",
           "total": {
-            "key": "CVAP_16_20_Total",
+            "key": "CVAP_16-20_Total",
             "name": "Total citizen voting age population",
-            "sum": 58739,
+            "sum": 196292,
             "min": 0,
-            "max": 100
+            "max": 1500
           },
           "subgroups": [
             {
-              "key": "CVAP_16_20_White Alone",
+              "key": "CVAP_16-20_White Alone",
               "name": "White citizen voting age population",
-              "sum": 35704,
+              "sum": 58407,
               "min": 0,
-              "max": 100
+              "max": 465
             },
             {
-              "key": "CVAP_16_20_Black or African American Alone",
+              "key": "CVAP_16-20_Black or African American Alone",
               "name": "Black citizen voting age population",
-              "sum": 17274,
+              "sum": 22741,
               "min": 0,
-              "max": 99
+              "max": 451
             },
             {
-              "key": "CVAP_16_20_Hispanic or Latino",
+              "key": "CVAP_16-20_Hispanic or Latino",
               "name": "Hispanic citizen voting age population",
-              "sum": 35621,
+              "sum": 53733,
               "min": 0,
-              "max": 100
+              "max": 810
             },
             {
-              "key": "CVAP_16_20_Asian Alone",
+              "key": "CVAP_16-20_Asian Alone",
               "name": "Asian citizen voting age population",
-              "sum": 34750,
+              "sum": 50168,
               "min": 0,
-              "max": 99
+              "max": 552
             },
             {
-              "key": "CVAP_16_20_American Indian or Alaska Native Alone",
+              "key": "CVAP_16-20_American Indian or Alaska Native Alone",
               "name": "American Indian citizen voting age population",
               "sum": 801,
               "min": 0,
               "max": 39
             },
             {
-              "key": "CVAP_16_20_Native Hawaiian or Other Pacific Islander Alone",
+              "key": "CVAP_16-20_Native Hawaiian or Other Pacific Islander Alone",
               "name": "Native Hawaiian / Pacific Islander citizen voting age population",
-              "sum": 2880,
+              "sum": 2914,
               "min": 0,
               "max": 75
             }
@@ -144,17 +137,17 @@
           "type": "fill",
           "source": {
             "type": "vector",
-            "url": "mapbox://districtr.haywardhard_blocks20"
+            "url": "mapbox://districtr.haywardhard2_blocks20"
           },
-          "sourceLayer": "haywardhard_blocks20"
+          "sourceLayer": "haywardhard2_blocks20"
         },
         {
           "type": "circle",
           "source": {
             "type": "vector",
-            "url": "mapbox://districtr.haywardhard_blocks20_points"
+            "url": "mapbox://districtr.haywardhard2_blocks20_points"
           },
-          "sourceLayer": "haywardhard_blocks20_points"
+          "sourceLayer": "haywardhard2_blocks20_points"
         }
       ]
     }
