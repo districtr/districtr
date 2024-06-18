@@ -168,6 +168,7 @@ commoncausepa: 'Pennsylvania',
   actransit: "California",
   laguna_niguel: "California",
   drycreek: "California",
+  hard: "California",
 };
 
 const validEventCodes = {
@@ -325,6 +326,7 @@ commoncausepa: 'pennsylvania',
   actransit: "actransit",
   laguna_niguel: "lagunaniguel2",
   drycreek: "drycreek",
+  hard: "haywardhard"
 };
 
 const blockPlans = {
@@ -577,6 +579,7 @@ const hybrid_events = [
   "actransit",
   "laguna_niguel",
   "drycreek",
+  "hard",
 ];
 
 const portal_events = [
@@ -2101,6 +2104,39 @@ community of interest or a City Council District map. To share your
 map, click “Save” in the upper right corner of the mapping module. To
 pin your map to this page, be sure the tag “Laguna_Niguel” (any
 capitalization) is entered.</p>`,
+hard: `<p>The Hayward Area Recreation and Park District (H.A.R.D.) is in the process of
+moving from an at-large election system to a by-district election system. To
+draw these new election districts, we need to hear from you! Your insights about
+your community are important as we establish these boundaries to ensure the
+voices of residents are heard. Learn more about this process on our
+<a href="https://www.haywardrec.org" target="_blank">website</a>.</p>
+<p>Some examples of community insights can include neighborhoods where many
+residents speak the same language, or areas where the residents use the same
+school facilities.</p>
+<p>Here's how you can help us create a community map and our new by-election
+district map! Please use this tool to outline the boundaries of your community
+and provide draft election district maps.</p>
+<p>To get started, click the orange or purple button to draw your community of
+interest or a district map. To share your map, click &quot;Save&quot; in the upper right
+corner of the mapping module, select &quot;Share Now,&quot; and then click the &quot;Share to
+Gallery&quot; button. You can add a &quot;Team&quot; or &quot;Plan&quot; name, though it is optional.</p>
+<p>
+<u>Each by-district map must follow this set of ranked Districting Criteria:</u>
+<ul>
+<li>Relatively equal in size – total deviation is under 10%</li>
+<li>Contiguous – election districts must be a single, unbroken piece without
+gaps.</li>
+<li>Maintain “<i>communities of interest</i>”</li>
+<li>Follow easily identifiable and understandable lines, such as city limits,
+natural boundaries (rivers, mountains), and man-made boundaries (main
+thoroughfares, highways).</li>
+<li>Keep election districts compact – districts should be more circular or
+rectangular, avoiding irregular or ribbon-like shapes.</li>
+</ul>
+</p>
+<p>Every map submitted will be carefully reviewed by professional
+demographers, staff, and the current Board of Directors, who are responsible
+for drawing the boundary map.</p>`,
 drycreek: `<p>The Dry Creek Joint Elementary School District is in the process of moving
 from an at-large election system to a by-district trustee election system. To
 draw these new trustee areas, we need to hear from you! It’s important the
@@ -3012,6 +3048,12 @@ butte_county: [
     published by the Statewide Database of the 2020 Census Data.
     `
   ],
+  hard: [
+    `
+    This mapping module uses the <strong>official Redistricting Database for California</strong>,
+    published by the Statewide Database of the 2020 Census Data.
+    `
+  ],
 };
 
 const proposals_by_event = {
@@ -3030,7 +3072,7 @@ export default () => {
         ? window.location.search.split("event=")[1].split("&")[0]
         : window.location.pathname.split("/").slice(-1)[0]
     );
-    const eventCode = og_eventCode.toLowerCase();
+    const eventCode = og_eventCode.toLowerCase().replace(/\./g, '');
 
     if (validEventCodes[eventCode]) {
         document.getElementById("eventHeadline").innerText = og_eventCode;

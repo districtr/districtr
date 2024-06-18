@@ -364,7 +364,7 @@
         "id": "loc"
       },
       {
-        "name": "School and Transit Districts",
+        "name": "School and Other Districts",
         "ids": [
           "actransit",
           "drycreek",
@@ -374,7 +374,8 @@
           "oxnarduhsd",
           "marinco",
           "pvsd",
-          "belmontredwood"
+          "belmontredwood",
+          "haywardhard"
         ],
         "id": "schools"
       }
