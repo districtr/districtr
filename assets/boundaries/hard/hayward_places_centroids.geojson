@@ -1,0 +1,14 @@
+{
+"type": "FeatureCollection",
+"name": "hayward_places_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "NAME": "Hayward" }, "geometry": { "type": "Point", "coordinates": [ -122.104162204273734, 37.627365774279916 ] } },
+{ "type": "Feature", "properties": { "NAME": "Ashland" }, "geometry": { "type": "Point", "coordinates": [ -122.115937100041435, 37.694196907779997 ] } },
+{ "type": "Feature", "properties": { "NAME": "Castro Valley" }, "geometry": { "type": "Point", "coordinates": [ -122.062647506817328, 37.708850757076512 ] } },
+{ "type": "Feature", "properties": { "NAME": "Cherryland" }, "geometry": { "type": "Point", "coordinates": [ -122.103776746547553, 37.679216037831452 ] } },
+{ "type": "Feature", "properties": { "NAME": "Fairview" }, "geometry": { "type": "Point", "coordinates": [ -122.04720200293778, 37.675828535876342 ] } },
+{ "type": "Feature", "properties": { "NAME": "San Lorenzo" }, "geometry": { "type": "Point", "coordinates": [ -122.133405351799311, 37.673268992602658 ] } },
+{ "type": "Feature", "properties": { "NAME": "Sunol" }, "geometry": { "type": "Point", "coordinates": [ -121.884696783933592, 37.590032151732252 ] } }
+]
+}

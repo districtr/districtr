@@ -471,6 +471,17 @@ export function spatial_abilities(id) {
       number_markers: true,
       shapefile: true,
       border: true,
+      boundaries: [{
+        id: 'places',
+        label: 'Census Places',
+        path: 'hard/hayward_places',
+        lineColor: 'darkblue',
+        lineWidth: 2,
+        centroids: true,
+        namefield: 'NAME',
+        // fill: true,
+        // fill_alt: true,
+      }],
     },
     ca_SanDiego: {
       number_markers: true,
