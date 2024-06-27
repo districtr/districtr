@@ -3038,20 +3038,17 @@ butte_county: [
   ],
   laguna_niguel: [
     `
-    This mapping module uses the <strong>official Redistricting Database for California</strong>,
-    published by the Statewide Database of the 2020 Census Data.
+    This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.
     `
   ],
   drycreek: [
     `
-    This mapping module uses the <strong>official Redistricting Database for California</strong>,
-    published by the Statewide Database of the 2020 Census Data.
+    This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.
     `
   ],
   hard: [
     `
-    This mapping module uses the <strong>official Redistricting Database for California</strong>,
-    published by the Statewide Database of the 2020 Census Data.
+This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.
     `
   ],
 };
