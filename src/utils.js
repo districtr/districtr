@@ -601,6 +601,11 @@ export function spatial_abilities(id) {
       border: true,
       sideload: false
     },
+    losaltos: {
+      shapefile: true,
+      number_markers: true,
+      border: true,
+    },
     modesto: {
       coalition: false,
       shapefile: false,
