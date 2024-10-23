@@ -191,7 +191,7 @@ async function validateUnits(unit, index, plan) {
 
         let res;
         try {
-            res = await fetch(`https://api.mapbox.com/v4/${tset}?secure&access_token=${mbPublicKey}`);
+            res = await fetch(`https://api.mapbox.com/v4/${tset}?access_token=${mbPublicKey}`);
         } catch(e) {
             console.error("No internet to validate MapBox");
             process.exit(1);
