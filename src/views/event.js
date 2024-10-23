@@ -169,7 +169,7 @@ commoncausepa: 'Pennsylvania',
   laguna_niguel: "California",
   drycreek: "California",
   hard: "California",
-  foster: "California",
+  foster_city: "California",
   los_altos: "California",
 };
 
@@ -329,7 +329,7 @@ commoncausepa: 'pennsylvania',
   laguna_niguel: "lagunaniguel2",
   drycreek: "drycreek",
   hard: "haywardhard",
-  foster: "foster",
+  foster_city: "foster",
   los_altos: "losaltos",
 };
 
@@ -2143,7 +2143,7 @@ rectangular, avoiding irregular or ribbon-like shapes.</li>
 <p>Every map submitted will be carefully reviewed by professional
 demographers, staff, and the current Board of Directors, who are responsible
 for drawing the boundary map.</p>`,
-foster: `<p>Foster City is in the process of moving from an at-large election system to a
+foster_city: `<p>Foster City is in the process of moving from an at-large election system to a
 by-district election system. To draw these new election districts for the
 City Council, we need to hear from you! It’s important the City knows
 about your community as the lines are being drawn, so the city council
@@ -3129,7 +3129,7 @@ This mapping module uses the <strong>official redistricting data for California<
   ],
   los_altos: [`This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`
   ],
-  foster: [`This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`
+  foster_city: [`This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`
   ],
 };
 
