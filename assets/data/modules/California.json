@@ -1,5 +1,167 @@
 [
   {
+    "name": "Foster City",
+    "id": "foster",
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "PPA_Population",
+              "name": "Total population",
+              "sum": 31668,
+              "min": 0,
+              "max": 1314
+            },
+            "subgroups": [
+              {
+                "key": "PPA_White",
+                "name": "White population",
+                "sum": 16646,
+                "min": 0,
+                "max": 881
+              },
+              {
+                "key": "PPA_AfAm",
+                "name": "Black population",
+                "sum": 184,
+                "min": 0,
+                "max": 15
+              },
+              {
+                "key": "PPA_Hispanic_Origin",
+                "name": "Hispanic population",
+                "sum": 1553,
+                "min": 0,
+                "max": 65
+              },
+              {
+                "key": "PPA_Asian",
+                "name": "Asian population",
+                "sum": 11147,
+                "min": 0,
+                "max": 284
+              },
+              {
+                "key": "PPA_HoPI",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 37,
+                "min": 0,
+                "max": 3
+              },
+              {
+                "key": "PPA_AiAn",
+                "name": "American Indian population",
+                "sum": 30,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "PPA_Other",
+                "name": "Other population",
+                "sum": 189,
+                "min": 0,
+                "max": 14
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "PPA_CVAP_19",
+              "name": "Total citizen voting age population",
+              "sum": 20081,
+              "min": 0,
+              "max": 696
+            },
+            "subgroups": [
+              {
+                "key": "PPA_NH_Wht_CVAP_19",
+                "name": "White citizen voting age population",
+                "sum": 13105,
+                "min": 0,
+                "max": 560
+              },
+              {
+                "key": "PPA_NH_Blk_CVAP_19",
+                "name": "Black citizen voting age population",
+                "sum": 205,
+                "min": 0,
+                "max": 36
+              },
+              {
+                "key": "PPA_Hsp_CVAP_19",
+                "name": "Hispanic citizen voting age population",
+                "sum": 838,
+                "min": 0,
+                "max": 39
+              },
+              {
+                "key": "PPA_NH_Asn_CVAP_19",
+                "name": "Asian citizen voting age population",
+                "sum": 5614,
+                "min": 0,
+                "max": 145
+              },
+              {
+                "key": "PPA_NH_Hwn_CVAP_19",
+                "name": "Native Hawaiian / Pacific Islander citizen voting age population",
+                "sum": 5614,
+                "min": 0,
+                "max": 145
+              },
+              {
+                "key": "PPA_NH_Ind_CVAP_19",
+                "name": "American Indian citizen voting age population",
+                "sum": 4,
+                "min": 0,
+                "max": 4
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "Block"
+        },
+        "bounds": [
+          [
+            -122.1297,
+            37.3297
+          ],
+          [
+            -122.0617,
+            37.4064
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://mapmelder.cm2mha6h87yev1un2zmulocy8-08zt2"
+            },
+            "sourceLayer": "mapmelder.cm2mha6h87yev1un2zmulocy8-08zt2",
+          }
+       ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
     "name": "Los Altos",
     "id": "losaltos",
     "state": "California",
