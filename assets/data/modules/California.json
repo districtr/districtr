@@ -15,59 +15,59 @@
             "total": {
               "key": "PPA_Population",
               "name": "Total population",
-              "sum": 31668,
+              "sum": 33842,
               "min": 0,
-              "max": 1314
+              "max": 1593
             },
             "subgroups": [
               {
                 "key": "PPA_White",
                 "name": "White population",
-                "sum": 16646,
+                "sum": 10742,
                 "min": 0,
-                "max": 881
+                "max": 405
               },
               {
                 "key": "PPA_AfAm",
                 "name": "Black population",
-                "sum": 184,
+                "sum": 489,
                 "min": 0,
-                "max": 15
+                "max": 22
               },
               {
                 "key": "PPA_Hispanic_Origin",
                 "name": "Hispanic population",
-                "sum": 1553,
+                "sum": 2438,
                 "min": 0,
-                "max": 65
+                "max": 129
               },
               {
                 "key": "PPA_Asian",
                 "name": "Asian population",
-                "sum": 11147,
+                "sum": 17992,
                 "min": 0,
-                "max": 284
+                "max": 968
               },
               {
                 "key": "PPA_HoPI",
                 "name": "Native Hawaiian / Pacific Islander population",
-                "sum": 37,
+                "sum": 179,
                 "min": 0,
-                "max": 3
+                "max": 13
               },
               {
                 "key": "PPA_AiAn",
                 "name": "American Indian population",
-                "sum": 30,
+                "sum": 31,
                 "min": 0,
-                "max": 4
+                "max": 5
               },
               {
                 "key": "PPA_Other",
                 "name": "Other population",
-                "sum": 189,
+                "sum": 260,
                 "min": 0,
-                "max": 14
+                "max": 17
               }
             ]
           },
@@ -77,45 +77,45 @@
             "total": {
               "key": "PPA_CVAP_19",
               "name": "Total citizen voting age population",
-              "sum": 20081,
+              "sum": 19710,
               "min": 0,
-              "max": 696
+              "max": 626
             },
             "subgroups": [
               {
                 "key": "PPA_NH_Wht_CVAP_19",
                 "name": "White citizen voting age population",
-                "sum": 13105,
+                "sum": 9216,
                 "min": 0,
-                "max": 560
+                "max": 335
               },
               {
                 "key": "PPA_NH_Blk_CVAP_19",
                 "name": "Black citizen voting age population",
-                "sum": 205,
+                "sum": 578,
                 "min": 0,
-                "max": 36
+                "max": 62
               },
               {
                 "key": "PPA_Hsp_CVAP_19",
                 "name": "Hispanic citizen voting age population",
-                "sum": 838,
+                "sum": 1645,
                 "min": 0,
-                "max": 39
+                "max": 118
               },
               {
                 "key": "PPA_NH_Asn_CVAP_19",
                 "name": "Asian citizen voting age population",
-                "sum": 5614,
+                "sum": 7638,
                 "min": 0,
-                "max": 145
+                "max": 339
               },
               {
                 "key": "PPA_NH_Hwn_CVAP_19",
                 "name": "Native Hawaiian / Pacific Islander citizen voting age population",
-                "sum": 5614,
+                "sum": 30,
                 "min": 0,
-                "max": 145
+                "max": 11
               },
               {
                 "key": "PPA_NH_Ind_CVAP_19",
@@ -146,10 +146,18 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://mapmelder.cm2mha6h87yev1un2zmulocy8-08zt2"
+              "url": "mapbox://mapmelder.7ddpvagu"
             },
-            "sourceLayer": "fostercity"
-          }
+            "sourceLayer": "foster_blocks20"
+          },
+{
+ "type": "circle",
+ "source": {
+  "type": "vector",
+  "url": "mapbox://mapmelder.8k9ceecb"
+ },
+ "sourceLayer": "foster_blocks20_points"
+}
        ]
       }
     ],
