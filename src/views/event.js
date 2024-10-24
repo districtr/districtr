@@ -584,7 +584,7 @@ const hybrid_events = [
   "laguna_niguel",
   "drycreek",
   "hard",
-  "foster",
+  "foster_city",
   "los_altos",
 ];
 
