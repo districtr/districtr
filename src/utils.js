@@ -606,6 +606,11 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
     },
+    foster: {
+      shapefile: false,
+      number_markers: false,
+      border: true,
+    },
     modesto: {
       coalition: false,
       shapefile: false,

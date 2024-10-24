@@ -169,6 +169,7 @@ commoncausepa: 'Pennsylvania',
   laguna_niguel: "California",
   drycreek: "California",
   hard: "California",
+  foster_city: "California",
   los_altos: "California",
 };
 
@@ -328,6 +329,7 @@ commoncausepa: 'pennsylvania',
   laguna_niguel: "lagunaniguel2",
   drycreek: "drycreek",
   hard: "haywardhard",
+  foster_city: "foster",
   los_altos: "losaltos",
 };
 
@@ -582,6 +584,7 @@ const hybrid_events = [
   "laguna_niguel",
   "drycreek",
   "hard",
+  "foster_city",
   "los_altos",
 ];
 
@@ -2140,6 +2143,38 @@ rectangular, avoiding irregular or ribbon-like shapes.</li>
 <p>Every map submitted will be carefully reviewed by professional
 demographers, staff, and the current Board of Directors, who are responsible
 for drawing the boundary map.</p>`,
+foster_city: `<p>Foster City is in the process of moving from an at-large election system to a
+by-district election system. To draw these new election districts for the
+City Council, we need to hear from you! It’s important the City knows
+about your community as the lines are being drawn, so the city council
+district lines can amplify the voices of residents.</p>
+<p>Examples of communities can include neighborhoods, areas where many
+residents speak the same language, or areas where the residents use the
+same public facilities.</p>
+<p>We need your help to build a community map and our new by-election
+district map! Please use this tool to identify the boundaries of your
+community and provide draft election district maps.</p>
+<p>Every map submitted will be carefully reviewed by professional
+demographers, staff and the current City Council, who are in charge of
+drawing the boundary map.</p>
+<p>Get started by clicking the orange or purple button to draw your
+community of interest or a districted map. To share your map, click “Save”
+in the upper right corner of the mapping module, select “Share Now,” and
+then click on the “Share to Gallery” button. A “Team” or “Plan” name is
+encouraged but optional.</p>
+<p><u>Each by-district map must follow this set of ranked Districting Criteria:</u>
+<ul>
+<li>Relatively equal in size – total deviation is under 10%</li>
+<li>Contiguous – election districts are one whole piece and don’t jump
+from one area of the district to another with gaps in between</li>
+<li>Maintain <i>communities of interest</i></li>
+<li>Easily identifiable and understandable lines, following natural
+(rivers, mountains) and man-made boundaries (main thoroughfares,
+highways)</li>
+<li>Keep election districts compact – election districts should be more
+circular or rectangular, and not snaking lines or ribbons</li>
+</ul>
+</p>`,
 los_altos: `<p>The City of Los Altos is in the process of moving from an at-
 large election system to a by-district election system. To
 draw these new election districts, we need to hear from you!
@@ -3093,6 +3128,8 @@ This mapping module uses the <strong>official redistricting data for California<
     `
   ],
   los_altos: [`This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`
+  ],
+  foster_city: [`This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`
   ],
 };
 
