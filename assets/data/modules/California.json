@@ -145,14 +145,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.2879,
-            37.5331
-          ],
-          [
-            -122.2446,
-            37.5759
-          ]
+          [-122.2879, 37.5331],
+          [-122.2446, 37.5759]
         ],
         "tilesets": [
           {
@@ -259,54 +253,61 @@
             "type": "population",
             "name": "Citizen Voting Age Population",
             "total": {
-              "key": "PPA_CVAP_19",
+              "key": "CVAP_18-22",
               "name": "Total citizen voting age population",
-              "sum": 19710,
+              "sum": 19027,
               "min": 0,
-              "max": 626
+              "max": 508
             },
             "subgroups": [
               {
-                "key": "PPA_NH_Wht_CVAP_19",
+                "key": "CVAP_18-22_NH_Wht",
                 "name": "White citizen voting age population",
-                "sum": 9216,
+                "sum": 8348,
                 "min": 0,
-                "max": 335
+                "max": 311
               },
               {
-                "key": "PPA_NH_Blk_CVAP_19",
+                "key": "CVAP_18-22_NH_Blk",
                 "name": "Black citizen voting age population",
-                "sum": 578,
+                "sum": 496,
                 "min": 0,
-                "max": 62
+                "max": 66
               },
               {
-                "key": "PPA_Hsp_CVAP_19",
+                "key": "CVAP_18-22_Hsp",
                 "name": "Hispanic citizen voting age population",
-                "sum": 1645,
+                "sum": 1557,
                 "min": 0,
-                "max": 118
+                "max": 72
               },
               {
-                "key": "PPA_NH_Asn_CVAP_19",
+                "key": "CVAP_18-22_NH_Asn",
                 "name": "Asian citizen voting age population",
-                "sum": 7638,
+                "sum": 7880,
                 "min": 0,
-                "max": 339
+                "max": 289
               },
               {
-                "key": "PPA_NH_Hwn_CVAP_19",
-                "name": "Native Hawaiian / Pacific Islander citizen voting age population",
-                "sum": 30,
-                "min": 0,
-                "max": 11
-              },
-              {
-                "key": "PPA_NH_Ind_CVAP_19",
+                "key": "CVAP_18-22_NH_Ind",
                 "name": "American Indian citizen voting age population",
-                "sum": 4,
+                "sum": 8,
                 "min": 0,
                 "max": 4
+              },
+              {
+                "key": "CVAP_18-22_NH_OthMR",
+                "name": "Other / Multiple Race citizen voting age population",
+                "sum": 167,
+                "min": 0,
+                "max": 27
+              },
+              {
+                "key": "CVAP_18-22_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander citizen voting age population",
+                "sum": 50,
+                "min": 0,
+                "max": 14
               }
             ]
           }
@@ -316,33 +317,27 @@
           "key": "ID"
         },
         "bounds": [
-          [
-            -122.28789,
-           37.533119
-          ],
-          [
-            -122.2446,
-            37.575879
-          ]
+          [-122.28789, 37.533119],
+          [-122.2446, 37.575879]
         ],
         "tilesets": [
           {
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://mapmelder.7ddpvagu"
+              "url": "mapbox://districtr.foster_blocks20"
             },
             "sourceLayer": "foster_blocks20"
           },
-{
- "type": "circle",
- "source": {
-  "type": "vector",
-  "url": "mapbox://mapmelder.8k9ceecb"
- },
- "sourceLayer": "foster_blocks20_points"
-}
-       ]
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.foster_blocks20_points"
+            },
+            "sourceLayer": "foster_blocks20_points"
+          }
+        ]
       }
     ],
     "districtingProblems": [
@@ -479,14 +474,8 @@
           "key": "BLOCK"
         },
         "bounds": [
-          [
-            -122.1297,
-            37.3297
-          ],
-          [
-            -122.0617,
-            37.4064
-          ]
+          [-122.1297, 37.3297],
+          [-122.0617, 37.4064]
         ],
         "tilesets": [
           {
@@ -517,338 +506,326 @@
     ]
   },
   {
-  "name": "Hayward Area Recreation And Park District",
-  "units": [
-    {
-      "id": "blocks20",
-      "name": "2020 Blocks",
-      "unitType": "2020 Blocks",
-      "columnSets": [
-        {
-          "type": "population",
-          "name": "Population",
-          "total": {
-            "key": "Total_Population",
-            "name": "Total population",
-            "sum": 309883,
-            "min": 0,
-            "max": 2202
+    "name": "Hayward Area Recreation And Park District",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Total_Population",
+              "name": "Total population",
+              "sum": 309883,
+              "min": 0,
+              "max": 2202
+            },
+            "subgroups": [
+              {
+                "key": "NH_White",
+                "name": "White population",
+                "sum": 60071,
+                "min": 0,
+                "max": 552
+              },
+              {
+                "key": "NH_AfAm",
+                "name": "Black population",
+                "sum": 26290,
+                "min": 0,
+                "max": 500
+              },
+              {
+                "key": "Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 115089,
+                "min": 0,
+                "max": 1300
+              },
+              {
+                "key": "NH_Asian",
+                "name": "Asian population",
+                "sum": 85718,
+                "min": 0,
+                "max": 878
+              },
+              {
+                "key": "NH_HoPI",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 6219,
+                "min": 0,
+                "max": 87
+              },
+              {
+                "key": "NH_AiAn",
+                "name": "American Indian population",
+                "sum": 689,
+                "min": 0,
+                "max": 10
+              }
+            ]
           },
-          "subgroups": [
-            {
-              "key": "NH_White",
-              "name": "White population",
-              "sum": 60071,
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_16-20_Total",
+              "name": "Total citizen voting age population",
+              "sum": 196292,
               "min": 0,
-              "max": 552
+              "max": 1500
             },
-            {
-              "key": "NH_AfAm",
-              "name": "Black population",
-              "sum": 26290,
-              "min": 0,
-              "max": 500
-            },
-            {
-              "key": "Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 115089,
-              "min": 0,
-              "max": 1300
-            },
-            {
-              "key": "NH_Asian",
-              "name": "Asian population",
-              "sum": 85718,
-              "min": 0,
-              "max": 878
-            },
-            {
-              "key": "NH_HoPI",
-              "name": "Native Hawaiian / Pacific Islander population",
-              "sum": 6219,
-              "min": 0,
-              "max": 87
-            },
-            {
-              "key": "NH_AiAn",
-              "name": "American Indian population",
-              "sum": 689,
-              "min": 0,
-              "max": 10
-            }
-          ]
-        },
-        {
-          "type": "population",
-          "name": "Citizen Voting Age Population",
-          "total": {
-            "key": "CVAP_16-20_Total",
-            "name": "Total citizen voting age population",
-            "sum": 196292,
-            "min": 0,
-            "max": 1500
-          },
-          "subgroups": [
-            {
-              "key": "CVAP_16-20_White Alone",
-              "name": "White citizen voting age population",
-              "sum": 58407,
-              "min": 0,
-              "max": 465
-            },
-            {
-              "key": "CVAP_16-20_Black or African American Alone",
-              "name": "Black citizen voting age population",
-              "sum": 22741,
-              "min": 0,
-              "max": 451
-            },
-            {
-              "key": "CVAP_16-20_Hispanic or Latino",
-              "name": "Hispanic citizen voting age population",
-              "sum": 53733,
-              "min": 0,
-              "max": 810
-            },
-            {
-              "key": "CVAP_16-20_Asian Alone",
-              "name": "Asian citizen voting age population",
-              "sum": 50168,
-              "min": 0,
-              "max": 552
-            },
-            {
-              "key": "CVAP_16-20_American Indian or Alaska Native Alone",
-              "name": "American Indian citizen voting age population",
-              "sum": 801,
-              "min": 0,
-              "max": 39
-            },
-            {
-              "key": "CVAP_16-20_Native Hawaiian or Other Pacific Islander Alone",
-              "name": "Native Hawaiian / Pacific Islander citizen voting age population",
-              "sum": 2914,
-              "min": 0,
-              "max": 75
-            }
-          ]
-        }
-      ],
-      "idColumn": {
-        "name": "Block FIPS code",
-        "key": "BLOCK"
-      },
-      "bounds": [
-        [
-          -122.1673,
-          37.5596
+            "subgroups": [
+              {
+                "key": "CVAP_16-20_White Alone",
+                "name": "White citizen voting age population",
+                "sum": 58407,
+                "min": 0,
+                "max": 465
+              },
+              {
+                "key": "CVAP_16-20_Black or African American Alone",
+                "name": "Black citizen voting age population",
+                "sum": 22741,
+                "min": 0,
+                "max": 451
+              },
+              {
+                "key": "CVAP_16-20_Hispanic or Latino",
+                "name": "Hispanic citizen voting age population",
+                "sum": 53733,
+                "min": 0,
+                "max": 810
+              },
+              {
+                "key": "CVAP_16-20_Asian Alone",
+                "name": "Asian citizen voting age population",
+                "sum": 50168,
+                "min": 0,
+                "max": 552
+              },
+              {
+                "key": "CVAP_16-20_American Indian or Alaska Native Alone",
+                "name": "American Indian citizen voting age population",
+                "sum": 801,
+                "min": 0,
+                "max": 39
+              },
+              {
+                "key": "CVAP_16-20_Native Hawaiian or Other Pacific Islander Alone",
+                "name": "Native Hawaiian / Pacific Islander citizen voting age population",
+                "sum": 2914,
+                "min": 0,
+                "max": 75
+              }
+            ]
+          }
         ],
-        [
-          -121.931,
-          37.8001
-        ]
-      ],
-      "tilesets": [
-        {
-          "type": "fill",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.haywardhard2_blocks20"
-          },
-          "sourceLayer": "haywardhard2_blocks20"
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "BLOCK"
         },
-        {
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.haywardhard2_blocks20_points"
+        "bounds": [
+          [-122.1673, 37.5596],
+          [-121.931, 37.8001]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.haywardhard2_blocks20"
+            },
+            "sourceLayer": "haywardhard2_blocks20"
           },
-          "sourceLayer": "haywardhard2_blocks20_points"
-        }
-      ]
-    }
-  ],
-  "id": "haywardhard",
-  "state": "California",
-  "districtingProblems": [
-    {
-      "name": "Board of Directors",
-      "numberOfParts": 5,
-      "pluralNoun": "Board Districts"
-    }
-  ]
-},
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.haywardhard2_blocks20_points"
+            },
+            "sourceLayer": "haywardhard2_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "id": "haywardhard",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "Board of Directors",
+        "numberOfParts": 5,
+        "pluralNoun": "Board Districts"
+      }
+    ]
+  },
   {
-  "state": "California",
-  "id": "drycreek",
-  "units": [
-    {
-      "id": "blocks",
-      "name": "2020 Blocks",
-      "unitType": "2020 Blocks",
-      "columnSets": [
-        {
-          "type": "population",
-          "name": "Population",
-          "total": {
-            "key": "PPA_Population",
-            "name": "Total population",
-            "sum": 55342,
-            "min": 0,
-            "max": 1057
+    "state": "California",
+    "id": "drycreek",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "PPA_Population",
+              "name": "Total population",
+              "sum": 55342,
+              "min": 0,
+              "max": 1057
+            },
+            "subgroups": [
+              {
+                "key": "PPA_White",
+                "name": "White population",
+                "sum": 33112,
+                "min": 0,
+                "max": 491
+              },
+              {
+                "key": "PPA_AfAm",
+                "name": "Black population",
+                "sum": 2253,
+                "min": 0,
+                "max": 96
+              },
+              {
+                "key": "PPA_Hispanic_Origin",
+                "name": "Hispanic population",
+                "sum": 8439,
+                "min": 0,
+                "max": 382
+              },
+              {
+                "key": "PPA_Asian",
+                "name": "Asian population",
+                "sum": 7109,
+                "min": 0,
+                "max": 203
+              },
+              {
+                "key": "PPA_AiAn",
+                "name": "American Indian population",
+                "sum": 239,
+                "min": 0,
+                "max": 15
+              },
+              {
+                "key": "PPA_HoPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 275,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "PPA_Other",
+                "name": "Other races",
+                "sum": 297,
+                "min": 0,
+                "max": 10
+              }
+            ]
           },
-          "subgroups": [
-            {
-              "key": "PPA_White",
-              "name": "White population",
-              "sum": 33112,
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "CVAP_16_20_Total",
+              "name": "Voting age population",
+              "sum": 38991,
               "min": 0,
-              "max": 491
+              "max": 641
             },
-            {
-              "key": "PPA_AfAm",
-              "name": "Black population",
-              "sum": 2253,
-              "min": 0,
-              "max": 96
-            },
-            {
-              "key": "PPA_Hispanic_Origin",
-              "name": "Hispanic population",
-              "sum": 8439,
-              "min": 0,
-              "max": 382
-            },
-            {
-              "key": "PPA_Asian",
-              "name": "Asian population",
-              "sum": 7109,
-              "min": 0,
-              "max": 203
-            },
-            {
-              "key": "PPA_AiAn",
-              "name": "American Indian population",
-              "sum": 239,
-              "min": 0,
-              "max": 15
-            },
-            {
-              "key": "PPA_HoPI",
-              "name": "Native Hawaiian and Pacific Islander population",
-              "sum": 275,
-              "min": 0,
-              "max": 11
-            },
-            {
-              "key": "PPA_Other",
-              "name": "Other races",
-              "sum": 297,
-              "min": 0,
-              "max": 10
-            }
-          ]
-        },
-        {
-          "type": "population",
-          "name": "Voting Age Population",
-          "total": {
-            "key": "CVAP_16_20_Total",
-            "name": "Voting age population",
-            "sum": 38991,
-            "min": 0,
-            "max": 641
-          },
-          "subgroups": [
-            {
-              "key": "CVAP_16_20_White Alone",
-              "name": "White voting age population",
-              "sum": 25916,
-              "min": 0,
-              "max": 458
-            },
-            {
-              "key": "CVAP_16_20_Black or African American Alone",
-              "name": "Black voting age population",
-              "sum": 1693,
-              "min": 0,
-              "max": 63
-            },
-            {
-              "key": "CVAP_16_20_Hispanic or Latino",
-              "name": "Hispanic voting age population",
-              "sum": 5280,
-              "min": 0,
-              "max": 192
-            },
-            {
-              "key": "CVAP_16_20_American Indian or Alaska Native Alone",
-              "name": "Native American voting age population",
-              "sum": 148,
-              "min": 0,
-              "max": 16
-            },
-            {
-              "key": "CVAP_16_20_Native Hawaiian or Other Pacific Islander Alone",
-              "name": "Native Hawaiian and Pacific Islander voting age population",
-              "sum": 392,
-              "min": 0,
-              "max": 61
-            },
-            {
-              "key": "CVAP_16_20_Asian Alone",
-              "name": "Asian voting age population",
-              "sum": 4450,
-              "min": 0,
-              "max": 110
-            }
-          ]
-        }
-      ],
-      "idColumn": {
-        "name": "ID",
-        "key": "BLOCK"
-      },
-      "bounds": [
-        [
-          -121.3647,
-          38.7023
+            "subgroups": [
+              {
+                "key": "CVAP_16_20_White Alone",
+                "name": "White voting age population",
+                "sum": 25916,
+                "min": 0,
+                "max": 458
+              },
+              {
+                "key": "CVAP_16_20_Black or African American Alone",
+                "name": "Black voting age population",
+                "sum": 1693,
+                "min": 0,
+                "max": 63
+              },
+              {
+                "key": "CVAP_16_20_Hispanic or Latino",
+                "name": "Hispanic voting age population",
+                "sum": 5280,
+                "min": 0,
+                "max": 192
+              },
+              {
+                "key": "CVAP_16_20_American Indian or Alaska Native Alone",
+                "name": "Native American voting age population",
+                "sum": 148,
+                "min": 0,
+                "max": 16
+              },
+              {
+                "key": "CVAP_16_20_Native Hawaiian or Other Pacific Islander Alone",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 392,
+                "min": 0,
+                "max": 61
+              },
+              {
+                "key": "CVAP_16_20_Asian Alone",
+                "name": "Asian voting age population",
+                "sum": 4450,
+                "min": 0,
+                "max": 110
+              }
+            ]
+          }
         ],
-        [
-          -121.3018,
-          38.7818
-        ]
-      ],
-      "tilesets": [
-        {
-          "type": "fill",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.drycreek_blocks"
-          },
-          "sourceLayer": "drycreek_blocks"
+        "idColumn": {
+          "name": "ID",
+          "key": "BLOCK"
         },
-        {
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.drycreek_blocks_points"
+        "bounds": [
+          [-121.3647, 38.7023],
+          [-121.3018, 38.7818]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.drycreek_blocks"
+            },
+            "sourceLayer": "drycreek_blocks"
           },
-          "sourceLayer": "drycreek_blocks_points"
-        }
-      ]
-    }
-  ],
-  "name": "Dry Creek Joint Elementary School District",
-  "districtingProblems": [
-    {
-      "name": "Trustee Districts",
-      "numberOfParts": 5,
-      "pluralNoun": "Trustee Districts"
-    }
-  ]
-},
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.drycreek_blocks_points"
+            },
+            "sourceLayer": "drycreek_blocks_points"
+          }
+        ]
+      }
+    ],
+    "name": "Dry Creek Joint Elementary School District",
+    "districtingProblems": [
+      {
+        "name": "Trustee Districts",
+        "numberOfParts": 5,
+        "pluralNoun": "Trustee Districts"
+      }
+    ]
+  },
   {
     "state": "California",
     "units": [
@@ -973,14 +950,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -117.7402,
-            33.4871
-          ],
-          [
-            -117.6725,
-            33.5714
-          ]
+          [-117.7402, 33.4871],
+          [-117.6725, 33.5714]
         ],
         "tilesets": [
           {
@@ -1013,480 +984,462 @@
     ]
   },
   {
-  "name": "Laguna Niguel",
-  "id": "lagunaniguel",
-  "state": "California",
-  "units": [
-    {
-      "id": "blocks20",
-      "name": "2020 Blocks",
-      "unitType": "2020 Blocks",
-      "columnSets": [
-        {
-          "type": "population",
-          "name": "Population",
-          "total": {
-            "key": "Population",
-            "name": "Total population",
-            "sum": 66572,
-            "min": 0,
-            "max": 1618
+    "name": "Laguna Niguel",
+    "id": "lagunaniguel",
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population",
+              "name": "Total population",
+              "sum": 66572,
+              "min": 0,
+              "max": 1618
+            },
+            "subgroups": [
+              {
+                "key": "NH_White",
+                "name": "White population",
+                "sum": 48418,
+                "min": 0,
+                "max": 975
+              },
+              {
+                "key": "NH_AfAm",
+                "name": "Black population",
+                "sum": 803,
+                "min": 0,
+                "max": 35
+              },
+              {
+                "key": "Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 9130,
+                "min": 0,
+                "max": 501
+              },
+              {
+                "key": "NH_Asian",
+                "name": "Asian population",
+                "sum": 5806,
+                "min": 0,
+                "max": 217
+              },
+              {
+                "key": "NH_HOPI",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 93,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NH_AiAn",
+                "name": "American Indian population",
+                "sum": 118,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "NH_Others",
+                "name": "Other races",
+                "sum": 3007,
+                "min": 0,
+                "max": 278
+              }
+            ]
           },
-          "subgroups": [
-            {
-              "key": "NH_White",
-              "name": "White population",
-              "sum": 48418,
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total citizen voting age population",
+              "sum": 51053,
               "min": 0,
-              "max": 975
+              "max": 1506
             },
-            {
-              "key": "NH_AfAm",
-              "name": "Black population",
-              "sum": 803,
-              "min": 0,
-              "max": 35
-            },
-            {
-              "key": "Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 9130,
-              "min": 0,
-              "max": 501
-            },
-            {
-              "key": "NH_Asian",
-              "name": "Asian population",
-              "sum": 5806,
-              "min": 0,
-              "max": 217
-            },
-            {
-              "key": "NH_HOPI",
-              "name": "Native Hawaiian / Pacific Islander population",
-              "sum": 93,
-              "min": 0,
-              "max": 7
-            },
-            {
-              "key": "NH_AiAn",
-              "name": "American Indian population",
-              "sum": 118,
-              "min": 0,
-              "max": 7
-            },
-            {
-              "key": "NH_Others",
-              "name": "Other races",
-              "sum": 3007,
-              "min": 0,
-              "max": 278
-            }
-          ]
-        },
-        {
-          "type": "population",
-          "name": "Citizen Voting Age Population",
-          "total": {
-            "key": "CVAP_15-19_Total",
-            "name": "Total citizen voting age population",
-            "sum": 51053,
-            "min": 0,
-            "max": 1506
-          },
-          "subgroups": [
-            {
-              "key": "CVAP_15-19_White Alone",
-              "name": "White citizen voting age population",
-              "sum": 36941,
-              "min": 0,
-              "max": 792
-            },
-            {
-              "key": "CVAP_15-19_Black or African American Alone",
-              "name": "Black citizen voting age population",
-              "sum": 940,
-              "min": 0,
-              "max": 111
-            },
-            {
-              "key": "CVAP_15-19_Hispanic or Latino",
-              "name": "Hispanic citizen voting age population",
-              "sum": 5980,
-              "min": 0,
-              "max": 298
-            },
-            {
-              "key": "CVAP_15-19_Asian Alone",
-              "name": "Asian citizen voting age population",
-              "sum": 5396,
-              "min": 0,
-              "max": 345
-            },
-            {
-              "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
-              "name": "Native Hawaiian / Pacific Islander citizen voting age population",
-              "sum": 77,
-              "min": 0,
-              "max": 17
-            },
-            {
-              "key": "CVAP_15-19_American Indian or Alaska Native Alone",
-              "name": "American Indian citizen voting age population",
-              "sum": 24,
-              "min": 0,
-              "max": 24
-            }
-          ]
-        }
-      ],
-      "idColumn": {
-        "name": "Block FIPS code",
-        "key": "GEOID20"
-      },
-      "bounds": [
-        [
-          -117.7402,
-          33.4871
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_White Alone",
+                "name": "White citizen voting age population",
+                "sum": 36941,
+                "min": 0,
+                "max": 792
+              },
+              {
+                "key": "CVAP_15-19_Black or African American Alone",
+                "name": "Black citizen voting age population",
+                "sum": 940,
+                "min": 0,
+                "max": 111
+              },
+              {
+                "key": "CVAP_15-19_Hispanic or Latino",
+                "name": "Hispanic citizen voting age population",
+                "sum": 5980,
+                "min": 0,
+                "max": 298
+              },
+              {
+                "key": "CVAP_15-19_Asian Alone",
+                "name": "Asian citizen voting age population",
+                "sum": 5396,
+                "min": 0,
+                "max": 345
+              },
+              {
+                "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
+                "name": "Native Hawaiian / Pacific Islander citizen voting age population",
+                "sum": 77,
+                "min": 0,
+                "max": 17
+              },
+              {
+                "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+                "name": "American Indian citizen voting age population",
+                "sum": 24,
+                "min": 0,
+                "max": 24
+              }
+            ]
+          }
         ],
-        [
-          -117.6725,
-          33.5714
-        ]
-      ],
-      "tilesets": [
-        {
-          "type": "fill",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.lagunaniguel_blocks20"
-          },
-          "sourceLayer": "lagunaniguel_blocks20"
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
         },
-        {
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.lagunaniguel_blocks20_points"
+        "bounds": [
+          [-117.7402, 33.4871],
+          [-117.6725, 33.5714]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lagunaniguel_blocks20"
+            },
+            "sourceLayer": "lagunaniguel_blocks20"
           },
-          "sourceLayer": "lagunaniguel_blocks20_points"
-        }
-      ]
-    }
-  ],
-  "districtingProblems": [
-    {
-      "name": "City Council",
-      "numberOfParts": 5,
-      "pluralNoun": "Council Districts"
-    }
-  ]
-},
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.lagunaniguel_blocks20_points"
+            },
+            "sourceLayer": "lagunaniguel_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
   {
-  "name": "AC Transit",
-  "id": "actransit",
-  "units": [
-    {
-      "id": "blocks20",
-      "name": "2020 Blocks",
-      "unitType": "2020 Blocks",
-      "columnSets": [
-        {
-          "type": "population",
-          "name": "Population",
-          "total": {
-            "key": "Population Total",
-            "name": "Total population",
-            "sum": 1575598,
-            "min": 0,
-            "max": 2563
+    "name": "AC Transit",
+    "id": "actransit",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population Total",
+              "name": "Total population",
+              "sum": 1575598,
+              "min": 0,
+              "max": 2563
+            },
+            "subgroups": [
+              {
+                "key": "Population White",
+                "name": "White population",
+                "sum": 404283,
+                "min": 0,
+                "max": 883
+              },
+              {
+                "key": "Population Black",
+                "name": "Black population",
+                "sum": 194640,
+                "min": 0,
+                "max": 629
+              },
+              {
+                "key": "Population Latino",
+                "name": "Hispanic population",
+                "sum": 428189,
+                "min": 0,
+                "max": 1300
+              },
+              {
+                "key": "Population Asian",
+                "name": "Asian population",
+                "sum": 483067,
+                "min": 0,
+                "max": 1382
+              }
+            ]
           },
-          "subgroups": [
-            {
-              "key": "Population White",
-              "name": "White population",
-              "sum": 404283,
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP Total",
+              "name": "Total citizen voting age population",
+              "sum": 1028196,
               "min": 0,
-              "max": 883
+              "max": 1664
             },
-            {
-              "key": "Population Black",
-              "name": "Black population",
-              "sum": 194640,
-              "min": 0,
-              "max": 629
-            },
-            {
-              "key": "Population Latino",
-              "name": "Hispanic population",
-              "sum": 428189,
-              "min": 0,
-              "max": 1300
-            },
-            {
-              "key": "Population Asian",
-              "name": "Asian population",
-              "sum": 483067,
-              "min": 0,
-              "max": 1382
-            }
-          ]
-        },
-        {
-          "type": "population",
-          "name": "Citizen Voting Age Population",
-          "total": {
-            "key": "CVAP Total",
-            "name": "Total citizen voting age population",
-            "sum": 1028196,
-            "min": 0,
-            "max": 1664
-          },
-          "subgroups": [
-            {
-              "key": "CVAP White",
-              "name": "White citizen voting age population",
-              "sum": 363965,
-              "min": 0,
-              "max": 908
-            },
-            {
-              "key": "CVAP Black",
-              "name": "Black citizen voting age population",
-              "sum": 157596,
-              "min": 0,
-              "max": 665
-            },
-            {
-              "key": "CVAP Latino",
-              "name": "Hispanic citizen voting age population",
-              "sum": 197366,
-              "min": 0,
-              "max": 836
-            },
-            {
-              "key": "CVAP Asian",
-              "name": "Asian citizen voting age population",
-              "sum": 281578,
-              "min": 0,
-              "max": 734
-            }
-          ]
-        }
-      ],
-      "idColumn": {
-        "name": "Block FIPS code",
-        "key": "BLOCK20"
-      },
-      "bounds": [
-        [
-          -122.4416,
-          37.4542
+            "subgroups": [
+              {
+                "key": "CVAP White",
+                "name": "White citizen voting age population",
+                "sum": 363965,
+                "min": 0,
+                "max": 908
+              },
+              {
+                "key": "CVAP Black",
+                "name": "Black citizen voting age population",
+                "sum": 157596,
+                "min": 0,
+                "max": 665
+              },
+              {
+                "key": "CVAP Latino",
+                "name": "Hispanic citizen voting age population",
+                "sum": 197366,
+                "min": 0,
+                "max": 836
+              },
+              {
+                "key": "CVAP Asian",
+                "name": "Asian citizen voting age population",
+                "sum": 281578,
+                "min": 0,
+                "max": 734
+              }
+            ]
+          }
         ],
-        [
-          -121.8701,
-          38.0288
-        ]
-      ],
-      "tilesets": [
-        {
-          "type": "fill",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.actransit_blocks20"
-          },
-          "sourceLayer": "actransit_blocks20"
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "BLOCK20"
         },
-        {
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.actransit_blocks20_points"
+        "bounds": [
+          [-122.4416, 37.4542],
+          [-121.8701, 38.0288]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.actransit_blocks20"
+            },
+            "sourceLayer": "actransit_blocks20"
           },
-          "sourceLayer": "actransit_blocks20_points"
-        }
-      ]
-    }
-  ],
-  "state": "California",
-  "districtingProblems": [
-    {
-      "name": "City Council",
-      "numberOfParts": 7,
-      "pluralNoun": "Wards"
-    }
-  ]
-},
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.actransit_blocks20_points"
+            },
+            "sourceLayer": "actransit_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 7,
+        "pluralNoun": "Wards"
+      }
+    ]
+  },
   {
-  "name": "Belmont-Redwood Shores School District",
-  "units": [
-    {
-      "id": "blocks",
-      "name": "2020 Blocks",
-      "unitType": "2020 Blocks",
-      "columnSets": [
-        {
-          "type": "population",
-          "name": "Population",
-          "total": {
-            "key": "Population",
-            "name": "Total population",
-            "sum": 40725,
-            "min": 0,
-            "max": 1270
+    "name": "Belmont-Redwood Shores School District",
+    "units": [
+      {
+        "id": "blocks",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population",
+              "name": "Total population",
+              "sum": 40725,
+              "min": 0,
+              "max": 1270
+            },
+            "subgroups": [
+              {
+                "key": "NH_White",
+                "name": "White population",
+                "sum": 23300,
+                "min": 0,
+                "max": 774
+              },
+              {
+                "key": "NH_AfAm",
+                "name": "Black population",
+                "sum": 699,
+                "min": 0,
+                "max": 68
+              },
+              {
+                "key": "Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 4405,
+                "min": 0,
+                "max": 195
+              },
+              {
+                "key": "NH_Asian",
+                "name": "Asian population",
+                "sum": 10147,
+                "min": 0,
+                "max": 336
+              },
+              {
+                "key": "NH_AiAn",
+                "name": "American Indian population",
+                "sum": 56,
+                "min": 0,
+                "max": 5
+              },
+              {
+                "key": "NH_HOPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 238,
+                "min": 0,
+                "max": 27
+              },
+              {
+                "key": "NH_Others",
+                "name": "Other races",
+                "sum": 1276,
+                "min": 0,
+                "max": 101
+              }
+            ]
           },
-          "subgroups": [
-            {
-              "key": "NH_White",
-              "name": "White population",
-              "sum": 23300,
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Voting age population",
+              "sum": 26991,
               "min": 0,
-              "max": 774
+              "max": 796
             },
-            {
-              "key": "NH_AfAm",
-              "name": "Black population",
-              "sum": 699,
-              "min": 0,
-              "max": 68
-            },
-            {
-              "key": "Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 4405,
-              "min": 0,
-              "max": 195
-            },
-            {
-              "key": "NH_Asian",
-              "name": "Asian population",
-              "sum": 10147,
-              "min": 0,
-              "max": 336
-            },
-            {
-              "key": "NH_AiAn",
-              "name": "American Indian population",
-              "sum": 56,
-              "min": 0,
-              "max": 5
-            },
-            {
-              "key": "NH_HOPI",
-              "name": "Native Hawaiian and Pacific Islander population",
-              "sum": 238,
-              "min": 0,
-              "max": 27
-            },
-            {
-              "key": "NH_Others",
-              "name": "Other races",
-              "sum": 1276,
-              "min": 0,
-              "max": 101
-            }
-          ]
-        },
-        {
-          "type": "population",
-          "name": "Voting Age Population",
-          "total": {
-            "key": "CVAP_15-19_Total",
-            "name": "Voting age population",
-            "sum": 26991,
-            "min": 0,
-            "max": 796
-          },
-          "subgroups": [
-            {
-              "key": "CVAP_15-19_White Alone",
-              "name": "White voting age population",
-              "sum": 14556,
-              "min": 0,
-              "max": 409
-            },
-            {
-              "key": "CVAP_15-19_Black or African American Alone",
-              "name": "Black voting age population",
-              "sum": 409,
-              "min": 0,
-              "max": 36
-            },
-            {
-              "key": "CVAP_15-19_Hispanic or Latino",
-              "name": "Hispanic voting age population",
-              "sum": 2651,
-              "min": 0,
-              "max": 121
-            },
-            {
-              "key": "CVAP_15-19_American Indian or Alaska Native Alone",
-              "name": "Native American voting age population",
-              "sum": 93,
-              "min": 0,
-              "max": 21
-            },
-            {
-              "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
-              "name": "Native Hawaiian and Pacific Islander voting age population",
-              "sum": 288,
-              "min": 0,
-              "max": 61
-            },
-            {
-              "key": "CVAP_15-19_Asian Alone",
-              "name": "Asian voting age population",
-              "sum": 8014,
-              "min": 0,
-              "max": 404
-            }
-          ]
-        }
-      ],
-      "idColumn": {
-        "name": "ID",
-        "key": "GEOID20"
-      },
-      "bounds": [
-        [
-          -122.3342,
-          37.4763
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_White Alone",
+                "name": "White voting age population",
+                "sum": 14556,
+                "min": 0,
+                "max": 409
+              },
+              {
+                "key": "CVAP_15-19_Black or African American Alone",
+                "name": "Black voting age population",
+                "sum": 409,
+                "min": 0,
+                "max": 36
+              },
+              {
+                "key": "CVAP_15-19_Hispanic or Latino",
+                "name": "Hispanic voting age population",
+                "sum": 2651,
+                "min": 0,
+                "max": 121
+              },
+              {
+                "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+                "name": "Native American voting age population",
+                "sum": 93,
+                "min": 0,
+                "max": 21
+              },
+              {
+                "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
+                "name": "Native Hawaiian and Pacific Islander voting age population",
+                "sum": 288,
+                "min": 0,
+                "max": 61
+              },
+              {
+                "key": "CVAP_15-19_Asian Alone",
+                "name": "Asian voting age population",
+                "sum": 8014,
+                "min": 0,
+                "max": 404
+              }
+            ]
+          }
         ],
-        [
-          -122.1498,
-          37.5774
-        ]
-      ],
-      "tilesets": [
-        {
-          "type": "fill",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.belmontredwood_blocks"
-          },
-          "sourceLayer": "belmontredwood_blocks"
+        "idColumn": {
+          "name": "ID",
+          "key": "GEOID20"
         },
-        {
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.belmontredwood_blocks_points"
+        "bounds": [
+          [-122.3342, 37.4763],
+          [-122.1498, 37.5774]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.belmontredwood_blocks"
+            },
+            "sourceLayer": "belmontredwood_blocks"
           },
-          "sourceLayer": "belmontredwood_blocks_points"
-        }
-      ]
-    }
-  ],
-  "state": "California",
-  "id": "belmontredwood",
-  "districtingProblems": [
-    {
-      "name": "School",
-      "numberOfParts": 5,
-      "pluralNoun": "Trustee Districts"
-    }
-  ]
-},
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.belmontredwood_blocks_points"
+            },
+            "sourceLayer": "belmontredwood_blocks_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "id": "belmontredwood",
+    "districtingProblems": [
+      {
+        "name": "School",
+        "numberOfParts": 5,
+        "pluralNoun": "Trustee Districts"
+      }
+    ]
+  },
   {
     "id": "modesto",
     "name": "City of Modesto",
@@ -1606,14 +1559,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -121.113,
-            37.4788
-          ],
-          [
-            -120.9012,
-            37.7118
-          ]
+          [-121.113, 37.4788],
+          [-120.9012, 37.7118]
         ],
         "tilesets": [
           {
@@ -3285,14 +3232,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -120.023,
-            34.3947
-          ],
-          [
-            -119.5903,
-            34.5252
-          ]
+          [-120.023, 34.3947],
+          [-119.5903, 34.5252]
         ],
         "tilesets": [
           {
@@ -11378,14 +11319,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -121.2798,
-            39.0052
-          ],
-          [
-            -120.0038,
-            39.5269
-          ]
+          [-121.2798, 39.0052],
+          [-120.0038, 39.5269]
         ],
         "tilesets": [
           {
@@ -12013,14 +11948,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -120.6095,
-            35.1018
-          ],
-          [
-            -120.5513,
-            35.1468
-          ]
+          [-120.6095, 35.1018],
+          [-120.5513, 35.1468]
         ],
         "tilesets": [
           {
@@ -13889,14 +13818,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -119.1095,
-            34.1914
-          ],
-          [
-            -118.9578,
-            34.2526
-          ]
+          [-119.1095, 34.1914],
+          [-118.9578, 34.2526]
         ],
         "tilesets": [
           {
@@ -14720,14 +14643,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.2293,
-            37.4169
-          ],
-          [
-            -122.0815,
-            37.5343
-          ]
+          [-122.2293, 37.4169],
+          [-122.0815, 37.5343]
         ],
         "tilesets": [
           {
@@ -15754,14 +15671,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -122.1492,
-            37.4542
-          ],
-          [
-            -121.8701,
-            37.6067
-          ]
+          [-122.1492, 37.4542],
+          [-121.8701, 37.6067]
         ],
         "tilesets": [
           {
@@ -16193,14 +16104,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -117.7353,
-            33.9243
-          ],
-          [
-            -117.6001,
-            34.0484
-          ]
+          [-117.7353, 33.9243],
+          [-117.6001, 34.0484]
         ],
         "tilesets": [
           {
@@ -16839,14 +16744,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -120.634,
-            35.0953
-          ],
-          [
-            -120.5877,
-            35.1175
-          ]
+          [-120.634, 35.0953],
+          [-120.5877, 35.1175]
         ],
         "tilesets": [
           {
@@ -17205,14 +17104,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -120.6386,
-            35.1055
-          ],
-          [
-            -120.6044,
-            35.1344
-          ]
+          [-120.6386, 35.1055],
+          [-120.6044, 35.1344]
         ],
         "tilesets": [
           {
@@ -17445,14 +17338,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -120.6386,
-            35.1055
-          ],
-          [
-            -120.6044,
-            35.1344
-          ]
+          [-120.6386, 35.1055],
+          [-120.6044, 35.1344]
         ],
         "tilesets": [
           {
@@ -17701,14 +17588,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -120.2104,
-            34.6061
-          ],
-          [
-            -120.1764,
-            34.6291
-          ]
+          [-120.2104, 34.6061],
+          [-120.1764, 34.6291]
         ],
         "tilesets": [
           {
@@ -19209,14 +19090,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -117.8287,
-            34.0186
-          ],
-          [
-            -117.7112,
-            34.1126
-          ]
+          [-117.8287, 34.0186],
+          [-117.7112, 34.1126]
         ],
         "tilesets": [
           {
@@ -19844,14 +19719,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -117.0112,
-            32.7675
-          ],
-          [
-            -116.8957,
-            32.831
-          ]
+          [-117.0112, 32.7675],
+          [-116.8957, 32.831]
         ],
         "tilesets": [
           {
@@ -20098,14 +19967,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -117.3597,
-            33.0605
-          ],
-          [
-            -117.2159,
-            33.1826
-          ]
+          [-117.3597, 33.0605],
+          [-117.2159, 33.1826]
         ],
         "tilesets": [
           {
@@ -20721,14 +20584,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -117.3129,
-            32.9993
-          ],
-          [
-            -117.1957,
-            33.089
-          ]
+          [-117.3129, 32.9993],
+          [-117.1957, 33.089]
         ],
         "tilesets": [
           {
@@ -21161,14 +21018,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -118.0374,
-            33.8098
-          ],
-          [
-            -117.9762,
-            33.8956
-          ]
+          [-118.0374, 33.8098],
+          [-117.9762, 33.8956]
         ],
         "tilesets": [
           {
@@ -21943,14 +21794,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -120.6531,
-            37.6335
-          ],
-          [
-            -119.1995,
-            38.4358
-          ]
+          [-120.6531, 37.6335],
+          [-119.1995, 38.4358]
         ],
         "tilesets": [
           {
@@ -21972,133 +21817,127 @@
         ]
       },
       {
-      "id": "blocks20",
-      "name": "2020 Blocks",
-      "unitType": "2020 Blocks",
-      "columnSets": [
-        {
-          "type": "population",
-          "name": "Population",
-          "total": {
-            "key": "LF_20_Total",
-            "name": "Total population",
-            "sum": 53011,
-            "min": 0,
-            "max": 484
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 53011,
+              "min": 0,
+              "max": 484
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 5985,
+                "min": 0,
+                "max": 70
+              },
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 41708,
+                "min": 0,
+                "max": 419
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 209,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 725,
+                "min": 0,
+                "max": 32
+              }
+            ]
           },
-          "subgroups": [
-            {
-              "key": "LF_20_Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 5985,
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total VAP",
+              "sum": 42627,
               "min": 0,
-              "max": 70
+              "max": 2490
             },
-            {
-              "key": "LF_20_White",
-              "name": "White population",
-              "sum": 41708,
-              "min": 0,
-              "max": 419
-            },
-            {
-              "key": "LF_20_AfAm",
-              "name": "Black population",
-              "sum": 209,
-              "min": 0,
-              "max": 9
-            },
-            {
-              "key": "LF_20_Asian",
-              "name": "Asian population",
-              "sum": 725,
-              "min": 0,
-              "max": 32
-            }
-          ]
-        },
-        {
-          "type": "population",
-          "name": "Voting Age Population",
-          "total": {
-            "key": "CVAP_15-19_Total",
-            "name": "Total VAP",
-            "sum": 42627,
-            "min": 0,
-            "max": 2490
-          },
-          "subgroups": [
-            {
-              "key": "CVAP_15-19_AfAm",
-              "name": "Black population",
-              "sum": 753,
-              "min": 0,
-              "max": 651
-            },
-            {
-              "key": "CVAP_15-19_Asian",
-              "name": "Asian population",
-              "sum": 202,
-              "min": 0,
-              "max": 66
-            },
-            {
-              "key": "CVAP_15-19_Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 3877,
-              "min": 0,
-              "max": 791
-            },
-            {
-              "key": "CVAP_15-19_AiAn",
-              "name": "American Indian population",
-              "sum": 410,
-              "min": 0,
-              "max": 71
-            },
-            {
-              "key": "CVAP_15-19_Hawaiian_API",
-              "name": "Native Hawaiian Pacific Islander population",
-              "sum": 65,
-              "min": 0,
-              "max": 35
-            }
-          ]
-        }
-      ],
-      "idColumn": {
-        "name": "Geo ID",
-        "key": "GEOID20"
-      },
-      "bounds": [
-        [
-          -120.6533,
-          37.6337
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 753,
+                "min": 0,
+                "max": 651
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 202,
+                "min": 0,
+                "max": 66
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 3877,
+                "min": 0,
+                "max": 791
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 410,
+                "min": 0,
+                "max": 71
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 65,
+                "min": 0,
+                "max": 35
+              }
+            ]
+          }
         ],
-        [
-          -119.1962,
-          38.4335
-        ]
-      ],
-      "tilesets": [
-        {
-          "type": "fill",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.ca_tuolumne_blocks20"
-          },
-          "sourceLayer": "ca_tuolumne_blocks20"
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
         },
-        {
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.ca_tuolumne_blocks20_points"
+        "bounds": [
+          [-120.6533, 37.6337],
+          [-119.1962, 38.4335]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_tuolumne_blocks20"
+            },
+            "sourceLayer": "ca_tuolumne_blocks20"
           },
-          "sourceLayer": "ca_tuolumne_blocks20_points"
-        }
-      ]
-    }
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_tuolumne_blocks20_points"
+            },
+            "sourceLayer": "ca_tuolumne_blocks20_points"
+          }
+        ]
+      }
     ],
     "id": "ca_tuolumne",
     "districtingProblems": [
@@ -22212,14 +22051,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -122.6469,
-            38.1537
-          ],
-          [
-            -122.1033,
-            38.8643
-          ]
+          [-122.6469, 38.1537],
+          [-122.1033, 38.8643]
         ],
         "tilesets": [
           {
@@ -22340,14 +22173,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.6464,
-            38.1549
-          ],
-          [
-            -122.0927,
-            38.8642
-          ]
+          [-122.6464, 38.1549],
+          [-122.0927, 38.8642]
         ],
         "tilesets": [
           {
@@ -22483,14 +22310,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -122.6469,
-            38.1537
-          ],
-          [
-            -122.1033,
-            38.8643
-          ]
+          [-122.6469, 38.1537],
+          [-122.1033, 38.8643]
         ],
         "tilesets": [
           {
@@ -22611,14 +22432,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.6464,
-            38.1549
-          ],
-          [
-            -122.0927,
-            38.8642
-          ]
+          [-122.6464, 38.1549],
+          [-122.0927, 38.8642]
         ],
         "tilesets": [
           {
@@ -22747,14 +22562,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.2029,
-            36.893
-          ],
-          [
-            -121.2081,
-            37.4847
-          ]
+          [-122.2029, 36.893],
+          [-121.2081, 37.4847]
         ],
         "tilesets": [
           {
@@ -22890,14 +22699,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.3559,
-            37.6317
-          ],
-          [
-            -122.1148,
-            37.8854
-          ]
+          [-122.3559, 37.6317],
+          [-122.1148, 37.8854]
         ],
         "tilesets": [
           {
@@ -23012,14 +22815,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.3467,
-            37.6954
-          ],
-          [
-            -122.1148,
-            37.8854
-          ]
+          [-122.3467, 37.6954],
+          [-122.1148, 37.8854]
         ],
         "tilesets": [
           {
@@ -23152,14 +22949,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.1585,
-            37.9536
-          ],
-          [
-            -122.0752,
-            38.047
-          ]
+          [-122.1585, 37.9536],
+          [-122.0752, 38.047]
         ],
         "tilesets": [
           {
@@ -23281,14 +23072,8 @@
           "key": "GEOID10"
         },
         "bounds": [
-          [
-            -122.1585,
-            37.9536
-          ],
-          [
-            -122.0752,
-            38.0475
-          ]
+          [-122.1585, 37.9536],
+          [-122.0752, 38.0475]
         ],
         "tilesets": [
           {
@@ -23437,14 +23222,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.0694,
-            39.2956
-          ],
-          [
-            -121.0767,
-            40.152
-          ]
+          [-122.0694, 39.2956],
+          [-121.0767, 40.152]
         ],
         "tilesets": [
           {
@@ -23582,14 +23361,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -124.482,
-            40.0012
-          ],
-          [
-            -123.406,
-            41.4658
-          ]
+          [-124.482, 40.0012],
+          [-123.406, 41.4658]
         ],
         "tilesets": [
           {
@@ -23704,14 +23477,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -124.482,
-            40.0012
-          ],
-          [
-            -123.406,
-            41.4658
-          ]
+          [-124.482, 40.0012],
+          [-123.406, 41.4658]
         ],
         "tilesets": [
           {
@@ -23844,14 +23611,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -120.1944,
-            34.7887
-          ],
-          [
-            -117.6165,
-            35.7984
-          ]
+          [-120.1944, 34.7887],
+          [-117.6165, 35.7984]
         ],
         "tilesets": [
           {
@@ -23966,14 +23727,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -120.1944,
-            34.7887
-          ],
-          [
-            -117.6165,
-            35.7984
-          ]
+          [-120.1944, 34.7887],
+          [-117.6165, 35.7984]
         ],
         "tilesets": [
           {
@@ -24094,14 +23849,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -119.5427,
-            34.3815
-          ],
-          [
-            -119.4801,
-            34.4136
-          ]
+          [-119.5427, 34.3815],
+          [-119.4801, 34.4136]
         ],
         "tilesets": [
           {
@@ -24123,133 +23872,127 @@
         ]
       },
       {
-      "id": "blocks20",
-      "name": "2020 Blocks",
-      "unitType": "2020 Blocks",
-      "columnSets": [
-        {
-          "type": "population",
-          "name": "Population",
-          "total": {
-            "key": "LF_20_Total",
-            "name": "Total population",
-            "sum": 13293,
-            "min": 0,
-            "max": 666
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 13293,
+              "min": 0,
+              "max": 666
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 6485,
+                "min": 0,
+                "max": 544
+              },
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 5885,
+                "min": 0,
+                "max": 364
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 75,
+                "min": 0,
+                "max": 7
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 299,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "key": "LF_20_AiAn",
+                "name": "American Indian population",
+                "sum": 36,
+                "min": 0,
+                "max": 5
+              }
+            ]
           },
-          "subgroups": [
-            {
-              "key": "LF_20_Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 6485,
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total VAP",
+              "sum": 8876,
               "min": 0,
-              "max": 544
+              "max": 514
             },
-            {
-              "key": "LF_20_White",
-              "name": "White population",
-              "sum": 5885,
-              "min": 0,
-              "max": 364
-            },
-            {
-              "key": "LF_20_AfAm",
-              "name": "Black population",
-              "sum": 75,
-              "min": 0,
-              "max": 7
-            },
-            {
-              "key": "LF_20_Asian",
-              "name": "Asian population",
-              "sum": 299,
-              "min": 0,
-              "max": 20
-            },
-            {
-              "key": "LF_20_AiAn",
-              "name": "American Indian population",
-              "sum": 36,
-              "min": 0,
-              "max": 5
-            }
-          ]
-        },
-        {
-          "type": "population",
-          "name": "Voting Age Population",
-          "total": {
-            "key": "CVAP_15-19_Total",
-            "name": "Total VAP",
-            "sum": 8876,
-            "min": 0,
-            "max": 514
-          },
-          "subgroups": [
-            {
-              "key": "CVAP_15-19_AfAm",
-              "name": "Black population",
-              "sum": 42,
-              "min": 0,
-              "max": 10
-            },
-            {
-              "key": "CVAP_15-19_Asian",
-              "name": "Asian population",
-              "sum": 167,
-              "min": 0,
-              "max": 19
-            },
-            {
-              "key": "CVAP_15-19_Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 2642,
-              "min": 0,
-              "max": 233
-            },
-            {
-              "key": "CVAP_15-19_AiAn",
-              "name": "American Indian population",
-              "sum": 3,
-              "min": 0,
-              "max": 1
-            }
-          ]
-        }
-      ],
-      "idColumn": {
-        "name": "Geo ID",
-        "key": "GEOID20"
-      },
-      "bounds": [
-        [
-          -119.5427,
-          34.3815
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 42,
+                "min": 0,
+                "max": 10
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 167,
+                "min": 0,
+                "max": 19
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 2642,
+                "min": 0,
+                "max": 233
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 3,
+                "min": 0,
+                "max": 1
+              }
+            ]
+          }
         ],
-        [
-          -119.4801,
-          34.4136
-        ]
-      ],
-      "tilesets": [
-        {
-          "type": "fill",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.carpinteria_blocks20"
-          },
-          "sourceLayer": "carpinteria_blocks20"
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
         },
-        {
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.carpinteria_blocks20_points"
+        "bounds": [
+          [-119.5427, 34.3815],
+          [-119.4801, 34.4136]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.carpinteria_blocks20"
+            },
+            "sourceLayer": "carpinteria_blocks20"
           },
-          "sourceLayer": "carpinteria_blocks20_points"
-        }
-      ]
-    }
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.carpinteria_blocks20_points"
+            },
+            "sourceLayer": "carpinteria_blocks20_points"
+          }
+        ]
+      }
     ],
     "name": "Carpinteria",
     "id": "carpinteria",
@@ -24338,14 +24081,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -118.6682,
-            33.7037
-          ],
-          [
-            -118.1553,
-            34.3373
-          ]
+          [-118.6682, 33.7037],
+          [-118.1553, 34.3373]
         ],
         "tilesets": [
           {
@@ -24367,125 +24104,119 @@
         ]
       },
       {
-      "id": "blocks20",
-      "name": "2020 Blocks",
-      "unitType": "2020 Blocks",
-      "columnSets": [
-        {
-          "type": "population",
-          "name": "Population",
-          "total": {
-            "key": "LF_20_Total",
-            "name": "Total population",
-            "sum": 3912125,
-            "min": 0,
-            "max": 8732
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 3912125,
+              "min": 0,
+              "max": 8732
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 1835916,
+                "min": 0,
+                "max": 2452
+              },
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 1126412,
+                "min": 0,
+                "max": 2208
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 329225,
+                "min": 0,
+                "max": 1318
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 454365,
+                "min": 0,
+                "max": 3867
+              },
+              {
+                "key": "LF_20_AiAn",
+                "name": "American Indian population",
+                "sum": 6614,
+                "min": 0,
+                "max": 42
+              }
+            ]
           },
-          "subgroups": [
-            {
-              "key": "LF_20_Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 1835916,
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total CVAP",
+              "sum": 2360823,
               "min": 0,
-              "max": 2452
+              "max": 5751
             },
-            {
-              "key": "LF_20_White",
-              "name": "White population",
-              "sum": 1126412,
-              "min": 0,
-              "max": 2208
-            },
-            {
-              "key": "LF_20_AfAm",
-              "name": "Black population",
-              "sum": 329225,
-              "min": 0,
-              "max": 1318
-            },
-            {
-              "key": "LF_20_Asian",
-              "name": "Asian population",
-              "sum": 454365,
-              "min": 0,
-              "max": 3867
-            },
-            {
-              "key": "LF_20_AiAn",
-              "name": "American Indian population",
-              "sum": 6614,
-              "min": 0,
-              "max": 42
-            }
-          ]
-        },
-        {
-          "type": "population",
-          "name": "Citizen Voting Age Population",
-          "total": {
-            "key": "CVAP_15-19_Total",
-            "name": "Total CVAP",
-            "sum": 2360823,
-            "min": 0,
-            "max": 5751
-          },
-          "subgroups": [
-            {
-              "key": "CVAP_15-19_AfAm",
-              "name": "Black population",
-              "sum": 266333,
-              "min": 0,
-              "max": 1533
-            },
-            {
-              "key": "CVAP_15-19_Asian",
-              "name": "Asian population",
-              "sum": 276996,
-              "min": 0,
-              "max": 1929
-            },
-            {
-              "key": "CVAP_15-19_Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 838897,
-              "min": 0,
-              "max": 1591
-            },
-            {
-              "key": "CVAP_15-19_AiAn",
-              "name": "American Indian population",
-              "sum": 6263,
-              "min": 0,
-              "max": 109
-            }
-          ]
-        }
-      ],
-      "idColumn": {
-        "name": "Geo ID",
-        "key": "GEOID20"
-      },
-      "bounds": [
-        [
-          -118.6682,
-          33.7037
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 266333,
+                "min": 0,
+                "max": 1533
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 276996,
+                "min": 0,
+                "max": 1929
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 838897,
+                "min": 0,
+                "max": 1591
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 6263,
+                "min": 0,
+                "max": 109
+              }
+            ]
+          }
         ],
-        [
-          -118.1553,
-          34.3373
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-118.6682, 33.7037],
+          [-118.1553, 34.3373]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.rp_lax_blocks20"
+            },
+            "sourceLayer": "rp_lax_blocks20"
+          }
         ]
-      ],
-      "tilesets": [
-        {
-          "type": "fill",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.rp_lax_blocks20"
-          },
-          "sourceLayer": "rp_lax_blocks20"
-        }
-      ]
-    }
+      }
     ],
     "state": "California",
     "districtingProblems": [
@@ -24601,14 +24332,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -118.249,
-            33.7149
-          ],
-          [
-            -118.0632,
-            33.8855
-          ]
+          [-118.249, 33.7149],
+          [-118.0632, 33.8855]
         ],
         "tilesets": [
           {
@@ -24639,257 +24364,245 @@
     ]
   },
   {
-  "units": [
-    {
-      "id": "blocks",
-      "name": "Blocks",
-      "unitType": "Blocks",
-      "hideOnDefault": true,
-      "columnSets": [
-        {
-          "type": "population",
-          "name": "Population",
-          "total": {
-            "key": "ACS_15-19_Total",
-            "name": "Total population",
-            "sum": 111248,
-            "min": 0,
-            "max": 1439
+    "units": [
+      {
+        "id": "blocks",
+        "name": "Blocks",
+        "unitType": "Blocks",
+        "hideOnDefault": true,
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "ACS_15-19_Total",
+              "name": "Total population",
+              "sum": 111248,
+              "min": 0,
+              "max": 1439
+            },
+            "subgroups": [
+              {
+                "key": "ACS_15-19_AfAm",
+                "name": "Black population",
+                "sum": 1856,
+                "min": 0,
+                "max": 81
+              },
+              {
+                "key": "ACS_15-19_Asian",
+                "name": "Asian population",
+                "sum": 26771,
+                "min": 0,
+                "max": 520
+              },
+              {
+                "key": "ACS_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 26498,
+                "min": 0,
+                "max": 612
+              }
+            ]
           },
-          "subgroups": [
-            {
-              "key": "ACS_15-19_AfAm",
-              "name": "Black population",
-              "sum": 1856,
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 69576,
               "min": 0,
-              "max": 81
+              "max": 848
             },
-            {
-              "key": "ACS_15-19_Asian",
-              "name": "Asian population",
-              "sum": 26771,
-              "min": 0,
-              "max": 520
-            },
-            {
-              "key": "ACS_15-19_Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 26498,
-              "min": 0,
-              "max": 612
-            }
-          ]
-        },
-        {
-          "type": "population",
-          "name": "Citizen Voting Age Population",
-          "total": {
-            "key": "CVAP_15-19_Total",
-            "name": "Total population",
-            "sum": 69576,
-            "min": 0,
-            "max": 848
-          },
-          "subgroups": [
-            {
-              "key": "CVAP_15-19_AfAm",
-              "name": "Black population",
-              "sum": 1357,
-              "min": 0,
-              "max": 24
-            },
-            {
-              "key": "CVAP_15-19_AiAn",
-              "name": "American Indian population",
-              "sum": 168,
-              "min": 0,
-              "max": 37
-            },
-            {
-              "key": "CVAP_15-19_Asian",
-              "name": "Asian population",
-              "sum": 15268,
-              "min": 0,
-              "max": 252
-            },
-            {
-              "key": "CVAP_15-19_Hawaiian_API",
-              "name": "Native Hawaiian Pacific Islander population",
-              "sum": 962,
-              "min": 0,
-              "max": 32
-            },
-            {
-              "key": "CVAP_15-19_Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 10752,
-              "min": 0,
-              "max": 353
-            }
-          ]
-        }
-      ],
-      "idColumn": {
-        "name": "Geo ID",
-        "key": "GEOID20"
-      },
-      "bounds": [
-        [
-          -122.3549,
-          37.5128
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 1357,
+                "min": 0,
+                "max": 24
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 168,
+                "min": 0,
+                "max": 37
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 15268,
+                "min": 0,
+                "max": 252
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 962,
+                "min": 0,
+                "max": 32
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 10752,
+                "min": 0,
+                "max": 353
+              }
+            ]
+          }
         ],
-        [
-          -122.2746,
-          37.5923
-        ]
-      ],
-      "tilesets": [
-        {
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.sanmateo_city_blocks_points"
-          },
-          "sourceLayer": "sanmateo_city_blocks_points"
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
         },
-        {
-          "type": "fill",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.sanmateo_city_blocks"
-          },
-          "sourceLayer": "sanmateo_city_blocks"
-        }
-      ]
-    },
-    {
-      "id": "blocks20",
-      "name": "2020 Blocks",
-      "unitType": "Blocks",
-      "columnSets": [
-        {
-          "type": "population",
-          "name": "Population",
-          "total": {
-            "key": "LF_20_Total",
-            "name": "Total population",
-            "sum": 105806,
-            "min": 0,
-            "max": 1563
-          },
-          "subgroups": [
-            {
-              "key": "LF_20_White",
-              "name": "White population",
-              "sum": 40555,
-              "min": 0,
-              "max": 771
-            },
-            {
-              "key": "LF_20_AfAm",
-              "name": "Black population",
-              "sum": 1726,
-              "min": 0,
-              "max": 28
-            },
-            {
-              "key": "LF_20_Asian",
-              "name": "Asian population",
-              "sum": 27790,
-              "min": 0,
-              "max": 538
-            },
-            {
-              "key": "LF_20_Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 27256,
-              "min": 0,
-              "max": 663
-            }
-          ]
-        },
-        {
-          "type": "population",
-          "name": "Citizen Voting Age Population",
-          "total": {
-            "key": "CVAP_15-19_Total",
-            "name": "Total population",
-            "sum": 64826,
-            "min": 0,
-            "max": 848
-          },
-          "subgroups": [
-            {
-              "key": "CVAP_15-19_AfAm",
-              "name": "Black population",
-              "sum": 1275,
-              "min": 0,
-              "max": 24
-            },
-            {
-              "key": "CVAP_15-19_AiAn",
-              "name": "American Indian population",
-              "sum": 166,
-              "min": 0,
-              "max": 37
-            },
-            {
-              "key": "CVAP_15-19_Asian",
-              "name": "Asian population",
-              "sum": 14043,
-              "min": 0,
-              "max": 252
-            },
-            {
-              "key": "CVAP_15-19_Hawaiian_API",
-              "name": "Native Hawaiian Pacific Islander population",
-              "sum": 961,
-              "min": 0,
-              "max": 32
-            },
-            {
-              "key": "CVAP_15-19_Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 10236,
-              "min": 0,
-              "max": 353
-            }
-          ]
-        }
-      ],
-      "idColumn": {
-        "name": "Geo ID",
-        "key": "GEOID20"
-      },
-      "bounds": [
-        [
-          -122.355,
-          37.5126
+        "bounds": [
+          [-122.3549, 37.5128],
+          [-122.2746, 37.5923]
         ],
-        [
-          -122.275,
-          37.6021
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanmateo_city_blocks_points"
+            },
+            "sourceLayer": "sanmateo_city_blocks_points"
+          },
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanmateo_city_blocks"
+            },
+            "sourceLayer": "sanmateo_city_blocks"
+          }
         ]
-      ],
-      "tilesets": [
-        {
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.sanmateo_city_blocks20_points?v=3"
+      },
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 105806,
+              "min": 0,
+              "max": 1563
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 40555,
+                "min": 0,
+                "max": 771
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 1726,
+                "min": 0,
+                "max": 28
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 27790,
+                "min": 0,
+                "max": 538
+              },
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 27256,
+                "min": 0,
+                "max": 663
+              }
+            ]
           },
-          "sourceLayer": "sanmateo_city_blocks20_points"
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 64826,
+              "min": 0,
+              "max": 848
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_AfAm",
+                "name": "Black population",
+                "sum": 1275,
+                "min": 0,
+                "max": 24
+              },
+              {
+                "key": "CVAP_15-19_AiAn",
+                "name": "American Indian population",
+                "sum": 166,
+                "min": 0,
+                "max": 37
+              },
+              {
+                "key": "CVAP_15-19_Asian",
+                "name": "Asian population",
+                "sum": 14043,
+                "min": 0,
+                "max": 252
+              },
+              {
+                "key": "CVAP_15-19_Hawaiian_API",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 961,
+                "min": 0,
+                "max": 32
+              },
+              {
+                "key": "CVAP_15-19_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 10236,
+                "min": 0,
+                "max": 353
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "GEOID20"
         },
-        {
-          "type": "fill",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.sanmateo_city_blocks20?v=3"
+        "bounds": [
+          [-122.355, 37.5126],
+          [-122.275, 37.6021]
+        ],
+        "tilesets": [
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanmateo_city_blocks20_points?v=3"
+            },
+            "sourceLayer": "sanmateo_city_blocks20_points"
           },
-          "sourceLayer": "sanmateo_city_blocks20"
-        }
-      ]
-    }
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanmateo_city_blocks20?v=3"
+            },
+            "sourceLayer": "sanmateo_city_blocks20"
+          }
+        ]
+      }
     ],
     "state": "California",
     "name": "San Mateo (City)",
@@ -27648,14 +27361,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -117.9439,
-            33.6919
-          ],
-          [
-            -117.8303,
-            33.784
-          ]
+          [-117.9439, 33.6919],
+          [-117.8303, 33.784]
         ],
         "tilesets": [
           {
@@ -31045,14 +30752,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -116.1946,
-            34.0779
-          ],
-          [
-            -115.9743,
-            34.2518
-          ]
+          [-116.1946, 34.0779],
+          [-115.9743, 34.2518]
         ],
         "tilesets": [
           {
@@ -31211,14 +30912,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.8344,
-            38.3643
-          ],
-          [
-            -122.57,
-            38.5082
-          ]
+          [-122.8344, 38.3643],
+          [-122.57, 38.5082]
         ],
         "tilesets": [
           {
@@ -31456,14 +31151,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -118.0374,
-            33.8098
-          ],
-          [
-            -117.9762,
-            33.8956
-          ]
+          [-118.0374, 33.8098],
+          [-117.9762, 33.8956]
         ],
         "tilesets": [
           {
@@ -31717,14 +31406,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -121.6889,
-            39.0872
-          ],
-          [
-            -121.5989,
-            39.1782
-          ]
+          [-121.6889, 39.0872],
+          [-121.5989, 39.1782]
         ],
         "tilesets": [
           {
@@ -31831,14 +31514,8 @@
           "key": "BLOCK20"
         },
         "bounds": [
-          [
-            -121.76,
-            37.8888
-          ],
-          [
-            -121.6779,
-            37.9712
-          ]
+          [-121.76, 37.8888],
+          [-121.6779, 37.9712]
         ],
         "tilesets": [
           {
@@ -31937,14 +31614,8 @@
           "key": "BLOCK20"
         },
         "bounds": [
-          [
-            -122.732,
-            38.3143
-          ],
-          [
-            -122.6667,
-            38.3724
-          ]
+          [-122.732, 38.3143],
+          [-122.6667, 38.3724]
         ],
         "tilesets": [
           {
@@ -32044,14 +31715,8 @@
           "key": "BLOCK20"
         },
         "bounds": [
-          [
-            -121.8273,
-            36.8843
-          ],
-          [
-            -121.7324,
-            37.0192
-          ]
+          [-121.8273, 36.8843],
+          [-121.7324, 37.0192]
         ],
         "tilesets": [
           {
@@ -32220,14 +31885,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -120.023,
-            34.3947
-          ],
-          [
-            -119.5903,
-            34.5252
-          ]
+          [-120.023, 34.3947],
+          [-119.5903, 34.5252]
         ],
         "tilesets": [
           {
@@ -32399,14 +32058,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -120.023,
-            34.3947
-          ],
-          [
-            -119.5903,
-            34.5252
-          ]
+          [-120.023, 34.3947],
+          [-119.5903, 34.5252]
         ],
         "tilesets": [
           {
@@ -32574,14 +32227,8 @@
           "key": "Block"
         },
         "bounds": [
-          [
-            -119.0998,
-            34.1563
-          ],
-          [
-            -118.8659,
-            34.2609
-          ]
+          [-119.0998, 34.1563],
+          [-118.8659, 34.2609]
         ],
         "tilesets": [
           {
@@ -32759,14 +32406,8 @@
           "key": "GEOID"
         },
         "bounds": [
-          [
-            -119.2657,
-            34.0466
-          ],
-          [
-            -118.8659,
-            34.3425
-          ]
+          [-119.2657, 34.0466],
+          [-118.8659, 34.3425]
         ],
         "tilesets": [
           {
@@ -32909,14 +32550,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.4249,
-            37.5816
-          ],
-          [
-            -122.3725,
-            37.615
-          ]
+          [-122.4249, 37.5816],
+          [-122.3725, 37.615]
         ],
         "tilesets": [
           {
@@ -33099,14 +32734,8 @@
           "key": "BLOCKID20"
         },
         "bounds": [
-          [
-            -121.4881,
-            38.3614
-          ],
-          [
-            -121.2694,
-            38.4529
-          ]
+          [-121.4881, 38.3614],
+          [-121.2694, 38.4529]
         ],
         "tilesets": [
           {
@@ -33247,14 +32876,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.3289,
-            37.4971
-          ],
-          [
-            -122.2611,
-            37.5342
-          ]
+          [-122.3289, 37.4971],
+          [-122.2611, 37.5342]
         ],
         "tilesets": [
           {
@@ -33397,14 +33020,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -122.046,
-            36.893
-          ],
-          [
-            -121.2084,
-            37.4847
-          ]
+          [-122.046, 36.893],
+          [-121.2084, 37.4847]
         ],
         "tilesets": [
           {
@@ -33437,168 +33054,162 @@
     ]
   },
   {
-  "units": [
-    {
-      "id": "blocks20",
-      "name": "2020 Blocks",
-      "unitType": "2020 Blocks",
-      "columnSets": [
-        {
-          "type": "population",
-          "name": "Population",
-          "total": {
-            "key": "LF_20_Total",
-            "name": "Total population",
-            "sum": 316445,
-            "min": 0,
-            "max": 3002
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "LF_20_Total",
+              "name": "Total population",
+              "sum": 316445,
+              "min": 0,
+              "max": 3002
+            },
+            "subgroups": [
+              {
+                "key": "LF_20_White",
+                "name": "White population",
+                "sum": 87533,
+                "min": 0,
+                "max": 1553
+              },
+              {
+                "key": "LF_20_AfAm",
+                "name": "Black population",
+                "sum": 19142,
+                "min": 0,
+                "max": 253
+              },
+              {
+                "key": "LF_20_Asian",
+                "name": "Asian population",
+                "sum": 22457,
+                "min": 0,
+                "max": 456
+              },
+              {
+                "key": "LF_20_Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 173157,
+                "min": 0,
+                "max": 1662
+              },
+              {
+                "key": "LF_20_AiAn",
+                "name": "American Indian population",
+                "sum": 1202,
+                "min": 0,
+                "max": 46
+              },
+              {
+                "key": "LF_20_HoPI",
+                "name": "Native Hawaiian and Pacific Islander population",
+                "sum": 953,
+                "min": 0,
+                "max": 16
+              }
+            ]
           },
-          "subgroups": [
-            {
-              "key": "LF_20_White",
-              "name": "White population",
-              "sum": 87533,
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_15-19_Total",
+              "name": "Total population",
+              "sum": 216724,
               "min": 0,
-              "max": 1553
+              "max": 5096
             },
-            {
-              "key": "LF_20_AfAm",
-              "name": "Black population",
-              "sum": 19142,
-              "min": 0,
-              "max": 253
-            },
-            {
-              "key": "LF_20_Asian",
-              "name": "Asian population",
-              "sum": 22457,
-              "min": 0,
-              "max": 456
-            },
-            {
-              "key": "LF_20_Hispanic_or_Latino",
-              "name": "Hispanic population",
-              "sum": 173157,
-              "min": 0,
-              "max": 1662
-            },
-            {
-              "key": "LF_20_AiAn",
-              "name": "American Indian population",
-              "sum": 1202,
-              "min": 0,
-              "max": 46
-            },
-            {
-              "key": "LF_20_HoPI",
-              "name": "Native Hawaiian and Pacific Islander population",
-              "sum": 953,
-              "min": 0,
-              "max": 16
-            }
-          ]
-        },
-        {
-          "type": "population",
-          "name": "Citizen Voting Age Population",
-          "total": {
-            "key": "CVAP_15-19_Total",
-            "name": "Total population",
-            "sum": 216724,
-            "min": 0,
-            "max": 5096
-          },
-          "subgroups": [
-            {
-              "key": "CVAP_15-19_White Alone",
-              "name": "White population",
-              "sum": 80090,
-              "min": 0,
-              "max": 1038
-            },
-            {
-              "key": "CVAP_15-19_Black or African American Alone",
-              "name": "Black population",
-              "sum": 14728,
-              "min": 0,
-              "max": 300
-            },
-            {
-              "key": "CVAP_15-19_American Indian or Alaska Native Alone",
-              "name": "American Indian population",
-              "sum": 804,
-              "min": 0,
-              "max": 147
-            },
-            {
-              "key": "CVAP_15-19_Asian Alone",
-              "name": "Asian population",
-              "sum": 16870,
-              "min": 0,
-              "max": 1431
-            },
-            {
-              "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
-              "name": "Native Hawaiian Pacific Islander population",
-              "sum": 567,
-              "min": 0,
-              "max": 54
-            },
-            {
-              "key": "CVAP_15-19_Hispanic or Latino",
-              "name": "Hispanic population",
-              "sum": 99165,
-              "min": 0,
-              "max": 2028
-            }
-          ]
-        }
-      ],
-      "idColumn": {
-        "name": "Geo ID",
-        "key": "BLOCK"
-      },
-      "bounds": [
-        [
-          -117.5237,
-          33.8726
+            "subgroups": [
+              {
+                "key": "CVAP_15-19_White Alone",
+                "name": "White population",
+                "sum": 80090,
+                "min": 0,
+                "max": 1038
+              },
+              {
+                "key": "CVAP_15-19_Black or African American Alone",
+                "name": "Black population",
+                "sum": 14728,
+                "min": 0,
+                "max": 300
+              },
+              {
+                "key": "CVAP_15-19_American Indian or Alaska Native Alone",
+                "name": "American Indian population",
+                "sum": 804,
+                "min": 0,
+                "max": 147
+              },
+              {
+                "key": "CVAP_15-19_Asian Alone",
+                "name": "Asian population",
+                "sum": 16870,
+                "min": 0,
+                "max": 1431
+              },
+              {
+                "key": "CVAP_15-19_Native Hawaiian or Other Pacific Islander Alone",
+                "name": "Native Hawaiian Pacific Islander population",
+                "sum": 567,
+                "min": 0,
+                "max": 54
+              },
+              {
+                "key": "CVAP_15-19_Hispanic or Latino",
+                "name": "Hispanic population",
+                "sum": 99165,
+                "min": 0,
+                "max": 2028
+              }
+            ]
+          }
         ],
-        [
-          -117.2788,
-          34.0194
-        ]
-      ],
-      "tilesets": [
-        {
-          "type": "fill",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.ca_riverside2_blocks20"
-          },
-          "sourceLayer": "ca_riverside2_blocks20"
+        "idColumn": {
+          "name": "Geo ID",
+          "key": "BLOCK"
         },
-        {
-          "type": "circle",
-          "source": {
-            "type": "vector",
-            "url": "mapbox://districtr.ca_riverside2_blocks20_points"
+        "bounds": [
+          [-117.5237, 33.8726],
+          [-117.2788, 34.0194]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_riverside2_blocks20"
+            },
+            "sourceLayer": "ca_riverside2_blocks20"
           },
-          "sourceLayer": "ca_riverside2_blocks20_points"
-        }
-      ]
-    }
-  ],
-  "id": "ca_riverside",
-  "state": "California",
-  "name": "City of Riverside",
-  "districtingProblems": [
-    {
-      "name": "City",
-      "numberOfParts": 7,
-      "pluralNoun": "Wards"
-    }
-  ]
-},
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.ca_riverside2_blocks20_points"
+            },
+            "sourceLayer": "ca_riverside2_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "id": "ca_riverside",
+    "state": "California",
+    "name": "City of Riverside",
+    "districtingProblems": [
+      {
+        "name": "City",
+        "numberOfParts": 7,
+        "pluralNoun": "Wards"
+      }
+    ]
+  },
   {
     "name": "West Sacramento",
     "state": "California",
@@ -33710,14 +33321,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -121.5894,
-            38.5016
-          ],
-          [
-            -121.5062,
-            38.6046
-          ]
+          [-121.5894, 38.5016],
+          [-121.5062, 38.6046]
         ],
         "tilesets": [
           {
@@ -33859,14 +33464,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -117.8639,
-            33.9607
-          ],
-          [
-            -117.767,
-            34.0428
-          ]
+          [-117.8639, 33.9607],
+          [-117.767, 34.0428]
         ],
         "tilesets": [
           {
@@ -34044,14 +33643,8 @@
           "key": "GEOID20"
         },
         "bounds": [
-          [
-            -117.3975,
-            33.3146
-          ],
-          [
-            -117.1784,
-            33.47
-          ]
+          [-117.3975, 33.3146],
+          [-117.1784, 33.47]
         ],
         "tilesets": [
           {
