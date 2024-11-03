@@ -1,6 +1,190 @@
 [
   {
     "name": "Foster City",
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "PPA_Population",
+              "name": "Total population",
+              "sum": 33842,
+              "min": 0,
+              "max": 1593
+            },
+            "subgroups": [
+              {
+                "key": "PPA_White",
+                "name": "White population",
+                "sum": 10742,
+                "min": 0,
+                "max": 405
+              },
+              {
+                "key": "PPA_AfAm",
+                "name": "Black population",
+                "sum": 489,
+                "min": 0,
+                "max": 22
+              },
+              {
+                "key": "PPA_Hispanic_Origin",
+                "name": "Hispanic population",
+                "sum": 2438,
+                "min": 0,
+                "max": 129
+              },
+              {
+                "key": "PPA_Asian",
+                "name": "Asian population",
+                "sum": 17992,
+                "min": 0,
+                "max": 968
+              },
+              {
+                "key": "PPA_HoPI",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 179,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "PPA_AiAn",
+                "name": "American Indian population",
+                "sum": 31,
+                "min": 0,
+                "max": 5
+              },
+              {
+                "key": "PPA_2_or_more_Races",
+                "name": "Two or more races population",
+                "sum": 1711,
+                "min": 0,
+                "max": 65
+              },
+              {
+                "key": "PPA_Other",
+                "name": "Other population",
+                "sum": 260,
+                "min": 0,
+                "max": 17
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_18-22",
+              "name": "Total citizen voting age population",
+              "sum": 19027,
+              "min": 0,
+              "max": 508
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_18-22_NH_Wht",
+                "name": "White citizen voting age population",
+                "sum": 8348,
+                "min": 0,
+                "max": 311
+              },
+              {
+                "key": "CVAP_18-22_NH_Blk",
+                "name": "Black citizen voting age population",
+                "sum": 496,
+                "min": 0,
+                "max": 66
+              },
+              {
+                "key": "CVAP_18-22_Hsp",
+                "name": "Hispanic citizen voting age population",
+                "sum": 1557,
+                "min": 0,
+                "max": 72
+              },
+              {
+                "key": "CVAP_18-22_NH_Asn",
+                "name": "Asian citizen voting age population",
+                "sum": 7880,
+                "min": 0,
+                "max": 289
+              },
+              {
+                "key": "CVAP_18-22_NH_Ind",
+                "name": "American Indian citizen voting age population",
+                "sum": 8,
+                "min": 0,
+                "max": 4
+              },
+              {
+                "key": "CVAP_18-22_NH_OthMR",
+                "name": "Other / Multiple Race citizen voting age population",
+                "sum": 167,
+                "min": 0,
+                "max": 27
+              },
+              {
+                "key": "CVAP_18-22_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander citizen voting age population",
+                "sum": 50,
+                "min": 0,
+                "max": 14
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [
+            -122.2879,
+            37.5331
+          ],
+          [
+            -122.2446,
+            37.5759
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.foster2_blocks20"
+            },
+            "sourceLayer": "foster2_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.foster2_blocks20_points"
+            },
+            "sourceLayer": "foster2_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "id": "foster2",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
+    "name": "Foster City",
     "id": "foster",
     "state": "California",
     "units": [
