@@ -124,7 +124,11 @@
         "default": "true",
         "id": "state"
       },
-      { "name": "Counties", "ids": ["maricopa", "yuma", "navajoco", "az_pima", "az_maricopa"], "id": "counties" },
+      {
+        "name": "Counties",
+        "ids": ["maricopa", "yuma", "navajoco", "az_pima", "az_maricopa"],
+        "id": "counties"
+      },
       {
         "name": "Cities",
         "ids": ["phoenix", "mesaaz", "glendaleaz"],
@@ -361,8 +365,8 @@
           "ca_fpud",
           "lagunaniguel2",
           "losaltos",
-          "foster"
-       ],
+          "foster2"
+        ],
         "id": "loc"
       },
       {
@@ -1549,7 +1553,11 @@
         "default": "true",
         "id": "state"
       },
-      { "name": "Cities", "ids": ["lowell", "boston22", "ma_worcester_fix"], "id": "loc" }
+      {
+        "name": "Cities",
+        "ids": ["lowell", "boston22", "ma_worcester_fix"],
+        "id": "loc"
+      }
     ],
     "sections": [
       {
@@ -2302,7 +2310,11 @@
         "id": "state",
         "default": "true"
       },
-      { "name": "Cities", "ids": ["nyc_demo_22", "nyc_popdemo", "islip", "ithacany"], "id": "loc" }
+      {
+        "name": "Cities",
+        "ids": ["nyc_demo_22", "nyc_popdemo", "islip", "ithacany"],
+        "id": "loc"
+      }
     ],
     "sections": [
       {
