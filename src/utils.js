@@ -636,6 +636,8 @@ export function spatial_abilities(id) {
       border: true,
     },
     foster: {
+      shapefile: true,
+      number_markers: true,
       border: true,
     },
     foster2: {
