@@ -645,6 +645,16 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
     },
+    sonomacity: {
+      shapefile: true,
+      number_markers: true,
+      border: true,
+    },
+    healdsburg: {
+      shapefile: true,
+      number_markers: true,
+      border: true,
+    },
     modesto: {
       coalition: false,
       shapefile: false,

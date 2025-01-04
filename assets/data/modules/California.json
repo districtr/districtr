@@ -1,5 +1,326 @@
 [
   {
+    "name": "Healdsburg",
+    "id": "healdsburg",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "PPA_Population",
+              "name": "Total population",
+              "sum": 11360,
+              "min": 0,
+              "max": 441
+            },
+            "subgroups": [
+              {
+                "key": "PPA_White",
+                "name": "White population",
+                "sum": 6643,
+                "min": 0,
+                "max": 389
+              },
+              {
+                "key": "PPA_AfAm",
+                "name": "Black population",
+                "sum": 53,
+                "min": 0,
+                "max": 6
+              },
+              {
+                "key": "PPA_Hispanic_Origin",
+                "name": "Hispanic population",
+                "sum": 3934,
+                "min": 0,
+                "max": 273
+              },
+              {
+                "key": "PPA_Asian",
+                "name": "Asian population",
+                "sum": 164,
+                "min": 0,
+                "max": 9
+              },
+              {
+                "key": "PPA_HoPI",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 12,
+                "min": 0,
+                "max": 3
+              },
+              {
+                "key": "PPA_AiAn",
+                "name": "American Indian population",
+                "sum": 60,
+                "min": 0,
+                "max": 5
+              },
+              {
+                "key": "PPA_Other",
+                "name": "Other population",
+                "sum": 60,
+                "min": 0,
+                "max": 7
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_18-22",
+              "name": "Total citizen voting age population",
+              "sum": 8758,
+              "min": 0,
+              "max": 530
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_18-22_NH_Wht",
+                "name": "White citizen voting age population",
+                "sum": 6614,
+                "min": 0,
+                "max": 536
+              },
+              {
+                "key": "CVAP_18-22_NH_Blk",
+                "name": "Black citizen voting age population",
+                "sum": 2,
+                "min": 0,
+                "max": 1
+              },
+              {
+                "key": "CVAP_18-22_Hsp",
+                "name": "Hispanic citizen voting age population",
+                "sum": 1667,
+                "min": 0,
+                "max": 106
+              },
+              {
+                "key": "CVAP_18-22_NH_Asn",
+                "name": "Asian citizen voting age population",
+                "sum": 187,
+                "min": 0,
+                "max": 13
+              },
+              {
+                "key": "CVAP_18-22_NH_Ind",
+                "name": "American Indian citizen voting age population",
+                "sum": 16,
+                "min": 0,
+                "max": 6
+              },
+              {
+                "key": "CVAP_18-22_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander citizen voting age population",
+                "sum": 30,
+                "min": 0,
+                "max": 8
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "Block"
+        },
+        "bounds": [
+          [-122.9028, 38.5812],
+          [-122.8425, 38.6569]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.healdsburg_blocks20"
+            },
+            "sourceLayer": "healdsburg_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.healdsburg_blocks20_points"
+            },
+            "sourceLayer": "healdsburg_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
+    "name": "Sonoma",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "PPA_Population",
+              "name": "Total population",
+              "sum": 10761,
+              "min": 0,
+              "max": 520
+            },
+            "subgroups": [
+              {
+                "key": "PPA_White",
+                "name": "White population",
+                "sum": 7773,
+                "min": 0,
+                "max": 398
+              },
+              {
+                "key": "PPA_AfAm",
+                "name": "Black population",
+                "sum": 69,
+                "min": 0,
+                "max": 11
+              },
+              {
+                "key": "PPA_Hispanic_Origin",
+                "name": "Hispanic population",
+                "sum": 2079,
+                "min": 0,
+                "max": 158
+              },
+              {
+                "key": "PPA_Asian",
+                "name": "Asian population",
+                "sum": 315,
+                "min": 0,
+                "max": 34
+              },
+              {
+                "key": "PPA_HoPI",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 24,
+                "min": 0,
+                "max": 3
+              },
+              {
+                "key": "PPA_AiAn",
+                "name": "American Indian population",
+                "sum": 31,
+                "min": 0,
+                "max": 3
+              },
+              {
+                "key": "PPA_Other",
+                "name": "Other population",
+                "sum": 43,
+                "min": 0,
+                "max": 5
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_18-22",
+              "name": "Total citizen voting age population",
+              "sum": 9253,
+              "min": 0,
+              "max": 343
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_18-22_NH_Wht",
+                "name": "White citizen voting age population",
+                "sum": 7730,
+                "min": 0,
+                "max": 351
+              },
+              {
+                "key": "CVAP_18-22_NH_Blk",
+                "name": "Black citizen voting age population",
+                "sum": 120,
+                "min": 0,
+                "max": 69
+              },
+              {
+                "key": "CVAP_18-22_Hsp",
+                "name": "Hispanic citizen voting age population",
+                "sum": 1058,
+                "min": 0,
+                "max": 101
+              },
+              {
+                "key": "CVAP_18-22_NH_Asn",
+                "name": "Asian citizen voting age population",
+                "sum": 167,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "key": "CVAP_18-22_NH_Hwn",
+                "name": "Native Hawaiian / Pacific Islander citizen voting age population",
+                "sum": 10,
+                "min": 0,
+                "max": 6
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "Block"
+        },
+        "bounds": [
+          [-122.4816, 38.2745],
+          [-122.4337, 38.3075]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sonomacity_blocks20"
+            },
+            "sourceLayer": "sonomacity_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sonomacity_blocks20_points"
+            },
+            "sourceLayer": "sonomacity_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "id": "sonomacity",
+    "state": "California",
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "numberOfParts": 5,
+        "pluralNoun": "Council Districts"
+      }
+    ]
+  },
+  {
     "name": "Foster City",
     "state": "California",
     "units": [
