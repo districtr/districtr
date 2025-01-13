@@ -175,6 +175,8 @@ const stateForEvent = {
   hard: "California",
   foster_city: "California",
   los_altos: "California",
+  sonoma: "California",
+  healdsburg: "California",
 };
 
 const validEventCodes = {
@@ -377,6 +379,8 @@ const validEventCodes = {
   hard: "haywardhard",
   foster_city: "foster2",
   los_altos: "losaltos",
+  sonoma: "sonomacity",
+  healdsburg: "healdsburg",
 };
 
 const blockPlans = {
@@ -632,6 +636,8 @@ const hybrid_events = [
   "hard",
   "foster_city",
   "los_altos",
+  "sonoma",
+  "healdsburg",
 ];
 
 const portal_events = ["open-maps", "fyi"];
@@ -2285,6 +2291,73 @@ by-district election system. To draw these new election districts for the
 City Council, we need to hear from you! It’s important the City knows
 about your community as the lines are being drawn, so the city council
 district lines can amplify the voices of residents.</p>
+<p>Examples of communities can include neighborhoods, areas where many
+residents speak the same language, or areas where the residents use the
+same public facilities.</p>
+<p>We need your help to build a community map and our new by-election
+district map! Please use this tool to identify the boundaries of your
+community and provide draft election district maps.</p>
+<p>Every map submitted will be carefully reviewed by professional
+demographers, staff and the current City Council, who are in charge of
+drawing the boundary map.</p>
+<p>Get started by clicking the orange or purple button to draw your
+community of interest or a districted map. To share your map, click “Save”
+in the upper right corner of the mapping module, select “Share Now,” and
+then click on the “Share to Gallery” button. A “Team” or “Plan” name is
+encouraged but optional.</p>
+<p><u>Each by-district map must follow this set of ranked Districting Criteria:</u>
+<ul>
+<li>Relatively equal in size – total deviation is under 10%</li>
+<li>Contiguous – election districts are one whole piece and don’t jump
+from one area of the district to another with gaps in between</li>
+<li>Maintain <i>communities of interest</i></li>
+<li>Easily identifiable and understandable lines, following natural
+(rivers, mountains) and man-made boundaries (main thoroughfares,
+highways)</li>
+<li>Keep election districts compact – election districts should be more
+circular or rectangular, and not snaking lines or ribbons</li>
+</ul>
+</p>`,
+  sonoma: `<p>The City of Sonoma is in the process of moving from an at-large election system to a
+by-district election system. To draw these new election districts for the
+City Council, we need to hear from you! It’s important the City knows
+about your community as the lines are being drawn, so the city council
+district lines can amplify the voices of residents.
+Learn more <a href="https://www.sonomacity.org/transition-to-district-based-elections/">on our website.</a>
+</p>
+<p>Examples of communities can include neighborhoods, areas where many
+residents speak the same language, or areas where the residents use the
+same public facilities.</p>
+<p>We need your help to build a community map and our new by-election
+district map! Please use this tool to identify the boundaries of your
+community and provide draft election district maps.</p>
+<p>Every map submitted will be carefully reviewed by professional
+demographers, staff and the current City Council, who are in charge of
+drawing the boundary map.</p>
+<p>Get started by clicking the orange or purple button to draw your
+community of interest or a districted map. To share your map, click “Save”
+in the upper right corner of the mapping module, select “Share Now,” and
+then click on the “Share to Gallery” button. A “Team” or “Plan” name is
+encouraged but optional.</p>
+<p><u>Each by-district map must follow this set of ranked Districting Criteria:</u>
+<ul>
+<li>Relatively equal in size – total deviation is under 10%</li>
+<li>Contiguous – election districts are one whole piece and don’t jump
+from one area of the district to another with gaps in between</li>
+<li>Maintain <i>communities of interest</i></li>
+<li>Easily identifiable and understandable lines, following natural
+(rivers, mountains) and man-made boundaries (main thoroughfares,
+highways)</li>
+<li>Keep election districts compact – election districts should be more
+circular or rectangular, and not snaking lines or ribbons</li>
+</ul>
+</p>`,
+  healdsburg: `<p>The City of Healdsburg is in the process of moving from an at-large election system to a
+by-district election system. To draw these new election districts for the
+City Council, we need to hear from you! It’s important the City knows
+about your community as the lines are being drawn, so the city council
+district lines can amplify the voices of residents.
+Learn more on <a href="https://healdsburg.gov/1152/Transition-to-District-Elections">our website.</a></p>
 <p>Examples of communities can include neighborhoods, areas where many
 residents speak the same language, or areas where the residents use the
 same public facilities.</p>
