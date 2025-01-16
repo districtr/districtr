@@ -325,6 +325,11 @@
     "districtingProblems": [
       {
         "name": "City Council",
+        "numberOfParts": 4,
+        "pluralNoun": "City Council Districts"
+      },
+      {
+        "name": "City Council",
         "numberOfParts": 5,
         "pluralNoun": "City Council Districts"
       }
