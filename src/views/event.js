@@ -2318,24 +2318,39 @@ highways)</li>
 circular or rectangular, and not snaking lines or ribbons</li>
 </ul>
 </p>`,
-  sonoma: `<p>The City of Sonoma is in the process of moving from an at-large election system to a
+  sonoma: `<div style="background-color:#eee; margin-bottom: 3px; padding: 4px; font-style: italic;">
+  Este sitio web no tiene una función de traducción incorporada,
+  <a href="https://www.sonomacity.org/districtr-in-spanish/">haga clic aquí</a>
+  para obtener instrucciones sobre cómo usar la función de traducción de su navegador y para leer la información a continuación en español.
+</div>
+<p>The City of Sonoma is in the process of moving from an at-large election system to a
 by-district election system. To draw these new election districts for the
 City Council, we need to hear from you! It’s important the City knows
-about your community as the lines are being drawn, so the city council
+about your community as the lines are being drawn so the City Council
 district lines can amplify the voices of residents.
 Learn more <a href="https://www.sonomacity.org/transition-to-district-based-elections/">on our website.</a>
 </p>
-<p>Examples of communities can include neighborhoods, areas where many
-residents speak the same language, or areas where the residents use the
-same public facilities.</p>
-<p>We need your help to build a community map and our new by-election
-district map! Please use this tool to identify the boundaries of your
-community and provide draft election district maps.</p>
+<p>
+The Sonoma City Council will be considering two options for the district maps:
+<ul>
+<li>A <b>4-district map</b> with an <b>"at-large" mayor</b>.</li>
+<li>A <b>5-district map</b> where the role of mayor is decided by the City Council annually, as it is currently.</li>
+</ul>
+</p>
+<p>
+We’re asking for your help with two things:
+<ol>
+<li><b>Identifying communities of interest</b>: A community of interest is a group of people in a geographic area who share common social or economic interests. Examples of communities can include neighborhoods, areas where many residents speak the same language, or areas where the residents use the same public facilities.
+<ul><li>For more information about communities of interest and to access a worksheet to help identify yours, visit: <a href="https://www.sonomacity.org/community-of-interest/">https://www.sonomacity.org/community-of-interest/</a>
+</li></ul></li>
+<li><b>Providing draft district maps</b>: Use our online tool to identify the boundaries of your community or submit your ideas for election district maps.</li>
+</ul>
+</p>
 <p>Every map submitted will be carefully reviewed by professional
-demographers, staff and the current City Council, who are in charge of
+demographers, staff, and the current City Council, who are in charge of
 drawing the boundary map.</p>
 <p>Get started by clicking the orange or purple button to draw your
-community of interest or a districted map. To share your map, click “Save”
+community of interest or a district map. To share your map, click “Save”
 in the upper right corner of the mapping module, select “Share Now,” and
 then click on the “Share to Gallery” button. A “Team” or “Plan” name is
 encouraged but optional.</p>
