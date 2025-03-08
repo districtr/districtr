@@ -655,6 +655,16 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
     },
+    gilroy: {
+      shapefile: true,
+      number_markers: true,
+      border: true,
+    },
+    calicity: {
+      shapefile: true,
+      number_markers: true,
+      border: true,
+    },
     modesto: {
       coalition: false,
       shapefile: false,
