@@ -177,6 +177,8 @@ const stateForEvent = {
   los_altos: "California",
   sonoma: "California",
   healdsburg: "California",
+  gilroy: "California",
+  california_city: "California",
 };
 
 const validEventCodes = {
@@ -381,6 +383,8 @@ const validEventCodes = {
   los_altos: "losaltos",
   sonoma: "sonomacity",
   healdsburg: "healdsburg",
+  gilroy: "gilroy",
+  california_city: "calicity",
 };
 
 const blockPlans = {
@@ -638,6 +642,8 @@ const hybrid_events = [
   "los_altos",
   "sonoma",
   "healdsburg",
+  "gilroy",
+  "california_city",
 ];
 
 const portal_events = ["open-maps", "fyi"];
@@ -2400,6 +2406,71 @@ highways)</li>
 circular or rectangular, and not snaking lines or ribbons</li>
 </ul>
 </p>`,
+  gilroy: `<p>The City of Gilroy is in the process of moving from an at-large election system to a
+by-district election system. To draw these new election districts for the
+City Council, we need to hear from you! It’s important the City knows
+about your community as the lines are being drawn, so the city council
+district lines can amplify the voices of residents.
+Learn more <a href="https://www.cityofgilroy.org/1069/Transition-to-District-Based-Elections">on our website.</a></p>
+<p>Examples of communities can include neighborhoods, areas where many
+residents speak the same language, or areas where the residents use the
+same public facilities.</p>
+<p>We need your help to build a community map and our new by-election
+district map! Please use this tool to identify the boundaries of your
+community and provide draft election district maps.</p>
+<p>Every map submitted will be carefully reviewed by professional
+demographers, staff and the current City Council, who are in charge of
+drawing the boundary map.</p>
+<p>Get started by clicking the orange or purple button to draw your
+community of interest or a districted map. To share your map, click “Save”
+in the upper right corner of the mapping module, select “Share Now,” and
+then click on the “Share to Gallery” button. A “Team” or “Plan” name is
+encouraged but optional.</p>
+<p><u>Each by-district map must follow this set of ranked Districting Criteria:</u>
+<ul>
+<li>Relatively equal in size – total deviation is under 10%</li>
+<li>Contiguous – election districts are one whole piece and don’t jump
+from one area of the district to another with gaps in between</li>
+<li>Maintain <i>communities of interest</i></li>
+<li>Easily identifiable and understandable lines, following natural
+(rivers, mountains) and man-made boundaries (main thoroughfares,
+highways)</li>
+<li>Keep election districts compact – election districts should be more
+circular or rectangular, and not snaking lines or ribbons</li>
+</ul>
+</p>`,
+  california_city: `<p>The City of California City is in the process of moving from an at-large election system to a
+by-district election system. To draw these new election districts for the
+City Council, we need to hear from you! It’s important the City knows
+about your community as the lines are being drawn, so the city council
+district lines can amplify the voices of residents.</p>
+<p>Examples of communities can include neighborhoods, areas where many
+residents speak the same language, or areas where the residents use the
+same public facilities.</p>
+<p>We need your help to build a community map and our new by-election
+district map! Please use this tool to identify the boundaries of your
+community and provide draft election district maps.</p>
+<p>Every map submitted will be carefully reviewed by professional
+demographers, staff and the current City Council, who are in charge of
+drawing the boundary map.</p>
+<p>Get started by clicking the orange or purple button to draw your
+community of interest or a districted map. To share your map, click “Save”
+in the upper right corner of the mapping module, select “Share Now,” and
+then click on the “Share to Gallery” button. A “Team” or “Plan” name is
+encouraged but optional.</p>
+<p><u>Each by-district map must follow this set of ranked Districting Criteria:</u>
+<ul>
+<li>Relatively equal in size – total deviation is under 10%</li>
+<li>Contiguous – election districts are one whole piece and don’t jump
+from one area of the district to another with gaps in between</li>
+<li>Maintain <i>communities of interest</i></li>
+<li>Easily identifiable and understandable lines, following natural
+(rivers, mountains) and man-made boundaries (main thoroughfares,
+highways)</li>
+<li>Keep election districts compact – election districts should be more
+circular or rectangular, and not snaking lines or ribbons</li>
+</ul>
+</p>`,
   los_altos: `<p>The City of Los Altos is in the process of moving from an at-
 large election system to a by-district election system. To
 draw these new election districts, we need to hear from you!
@@ -3335,30 +3406,34 @@ const longAbout = {
     `,
   ],
   actransit: [
-    `
-    This mapping model uses the official Redistricting Database of California, published by the
-    Statewide Database with processing by Wagaman Strategies.
-    `,
+    `This mapping model uses the official Redistricting Database of California, published by the
+    Statewide Database with processing by Wagaman Strategies.`,
   ],
   laguna_niguel: [
-    `
-    This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.
-    `,
+    `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
   ],
   drycreek: [
-    `
-    This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.
-    `,
+    `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
   ],
   hard: [
-    `
-This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.
-    `,
+    `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
   ],
   los_altos: [
     `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
   ],
   foster_city: [
+    `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
+  ],
+  sonoma: [
+    `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
+  ],
+  healdsburg: [
+    `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
+  ],
+  gilroy: [
+    `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
+  ],
+  california_city: [
     `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
   ],
 };
