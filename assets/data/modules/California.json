@@ -12,7 +12,7 @@
             "type": "population",
             "name": "Population",
             "total": {
-              "key": "PPA_Population",
+              "key": "PPA_Popula",
               "name": "Total population",
               "sum": 12939,
               "min": 0,
@@ -34,7 +34,7 @@
                 "max": 119
               },
               {
-                "key": "PPA_Hispanic_Origin",
+                "key": "PPA_Hispan",
                 "name": "Hispanic population",
                 "sum": 4228,
                 "min": 0,
@@ -82,42 +82,42 @@
             },
             "subgroups": [
               {
-                "key": "CVAP_18-22_NH_Wht",
+                "key": "CVAP_18-_6",
                 "name": "White citizen voting age population",
                 "sum": 3660,
                 "min": 0,
                 "max": 138
               },
               {
-                "key": "CVAP_18-22_NH_Blk",
+                "key": "CVAP_18-_4",
                 "name": "Black citizen voting age population",
                 "sum": 2302,
                 "min": 0,
                 "max": 289
               },
               {
-                "key": "CVAP_18-22_Hsp",
+                "key": "CVAP_18-_7",
                 "name": "Hispanic citizen voting age population",
                 "sum": 2562,
                 "min": 0,
                 "max": 117
               },
               {
-                "key": "CVAP_18-22_NH_Ind",
+                "key": "CVAP_18-_2",
                 "name": "American Indian voting age population",
                 "sum": 97,
                 "min": 0,
                 "max": 22
               },
               {
-                "key": "CVAP_18-22_NH_Asn",
+                "key": "CVAP_18-_3",
                 "name": "Asian citizen voting age population",
                 "sum": 124,
                 "min": 0,
                 "max": 5
               },
               {
-                "key": "CVAP_18-22_NH_Hwn",
+                "key": "CVAP_18-_5",
                 "name": "Native Hawaiian / Pacific Islander citizen voting age population",
                 "sum": 10,
                 "min": 0,
@@ -128,7 +128,7 @@
         ],
         "idColumn": {
           "name": "Block FIPS code",
-          "key": "GEOID20"
+          "key": "BLOCK"
         },
         "bounds": [
           [-118.1327, 35.0126],
@@ -139,17 +139,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.calicity_blocks20"
+              "url": "mapbox://districtr.calicity2_blocks20"
             },
-            "sourceLayer": "calicity_blocks20"
+            "sourceLayer": "calicity2_blocks20"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.calicity_blocks20_points"
+              "url": "mapbox://districtr.calicity2_blocks20_points"
             },
-            "sourceLayer": "calicity_blocks20_points"
+            "sourceLayer": "calicity2_blocks20_points"
           }
         ]
       }
