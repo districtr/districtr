@@ -331,11 +331,6 @@
         "name": "City Council",
         "numberOfParts": 6,
         "pluralNoun": "Council Districts"
-      },
-      {
-        "name": "City Council",
-        "numberOfParts": 7,
-        "pluralNoun": "Council Districts"
       }
     ]
   },

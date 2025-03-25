@@ -2406,7 +2406,50 @@ highways)</li>
 circular or rectangular, and not snaking lines or ribbons</li>
 </ul>
 </p>`,
-  gilroy: `<p>The City of Gilroy is in the process of moving from an at-large election system to a
+  gilroy_ES: `<p>La ciudad de Gilroy está en proceso de transición de un sistema de elecciones generales a un
+sistema de elecciones por distritos. Para trazar estos nuevos distritos electorales para el Concejo
+Municipal, necesitamos escuchar su opinión! Es importante que la Ciudad conozca a su
+comunidad mientras se delinean los distritos, para que las líneas de los distritos del Concejo
+Municipal amplifiquen las voces de los residentes.
+</p>
+<p>Para más información,visite nuestro <a href="https://www.cityofgilroy.org/1069/Transition-to-District-Based-Elections">sitio web</a>.
+</p>
+<p>Ejemplos de comunidades pueden incluir vecindarios, áreas donde muchos residentes hablan el
+mismo idioma o zonas donde los residentes utilizan las mismas instalaciones públicas.
+</p>
+<p>Necesitamos de su ayuda para crear un mapa comunitario y un nuevo mapa de distritos para las
+elecciones parciales. Utilice nuestra herramienta en línea para identificar los límites de su
+comunidad y proporcionar sus ideas para los mapas de distritos electorales.
+</p>
+<p>Cada mapa presentado será revisado cuidadosamente por demógrafos profesionales, personal y
+el actual Concejo Municipal, quienes están a cargo de delinear los límites del mapa.
+</p>
+<p>Comience haciendo clic en el botón naranja o morado para dibujar su comunidad de interés o un
+mapa del distrito. Para compartir su mapa, haga clic en “Save” en la esquina superior derecha del
+módulo de mapeo, seleccione “Share Now” y luego haga clic en el botón “Share to Gallery”. Se
+recomienda agregar un nombre de “Grupo” o “Plan”, pero esto es opcional.
+</p>
+<p><u>Cada mapa de distrito debe seguir este conjunto de criterios de distritación</u>, clasificados de la
+siguiente manera:
+<ul>
+<li>Tamaño relativamente igual: la desviación total debe ser inferior al 10%</li>
+<li>Contigüidad – los distritos electorales deben formar una sola unidad y no estar
+fragmentados en áreas separadas.</li>
+<li>Mantener las <i>comunidades de interés</i></li>
+<li>Líneas fácilmente identificables y comprensibles, siguiendo límites naturales (ríos,
+montañas) y artificiales (vías principales, carreteras)</li>
+<li>Mantener los distritos electorales compactos: los distritos electorales deben tener formas
+más circulares o rectangulares, evitando diseños alargados o irregulares.</li>
+</ul>
+</p>
+<p>Displáce hacia abajo para empezar a dibujar su mapa o su comunidad de interés.</p>
+  `,
+  gilroy: `
+  <div style="background-color:#eee; margin-bottom: 3px; padding: 4px; font-style: italic;">
+  <a href="?event=gilroy&lang=es">Haga clic aquí</a>
+  para obtener instrucciones sobre cómo usar la función de traducción de su navegador y para leer la información a continuación en español.
+</div>
+  <p>The City of Gilroy is in the process of moving from an at-large election system to a
 by-district election system. To draw these new election districts for the
 City Council, we need to hear from you! It’s important the City knows
 about your community as the lines are being drawn, so the city council
@@ -4173,7 +4216,12 @@ export default () => {
     // document.getElementById("eventCode").innerText = og_eventCode;
     if (eventDescriptions[eventCode]) {
       let desc = document.createElement("div");
-      desc.innerHTML = eventDescriptions[eventCode];
+      if (window.location.search.indexOf("lang=es") > -1) {
+        desc.innerHTML =
+          eventDescriptions[eventCode + "_ES"] || eventDescriptions[eventCode];
+      } else {
+        desc.innerHTML = eventDescriptions[eventCode];
+      }
       document.getElementById("event-description").prepend(desc);
     }
     if (longAbout[eventCode]) {
