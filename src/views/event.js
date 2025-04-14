@@ -2471,7 +2471,7 @@ then click on the “Share to Gallery” button. A “Team” or “Plan” name
 encouraged but optional.</p>
 <p><u>Each by-district map must follow this set of ranked Districting Criteria:</u>
 <ul>
-<li>Relatively equal in size – total deviation is under 10%</li>
+<li>Relatively equal in size – <i>top-to-bottom deviation under 10%</i>. To ensure the top-to-bottom deviation is under 10%, it's enough to confirm that each district has a deviation of no more than 5% from ideal size (just be sure the "MAX. POPULATION DEVIATION" under the population bars is < 5%).  As long as nothing goes over by more than 5% and nothing goes under by more than 5%, this ensures that the top-to-bottom deviation stays under 10%, which is the usual legal standard for local redistricting.</li>
 <li>Contiguous – election districts are one whole piece and don’t jump
 from one area of the district to another with gaps in between</li>
 <li>Maintain <i>communities of interest</i></li>
