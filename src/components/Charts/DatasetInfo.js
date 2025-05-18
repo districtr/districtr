@@ -135,6 +135,7 @@ function datasetInfo(state) {
       "healdsburg",
       "gilroy",
       "calicity",
+      "sanjose_east",
     ].includes(place.id)
   ) {
     dataset = `<p><span>&#9432;</span> ${units === "2020 Blocks" ? populations.redistpartners2020 : populations.mesa}`;

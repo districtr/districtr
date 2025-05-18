@@ -179,6 +179,7 @@ const stateForEvent = {
   healdsburg: "California",
   gilroy: "California",
   california_city: "California",
+  esuhsd: "California",
 };
 
 const validEventCodes = {
@@ -385,6 +386,7 @@ const validEventCodes = {
   healdsburg: "healdsburg",
   gilroy: "gilroy",
   california_city: "calicity",
+  esuhsd: "sanjose_east",
 };
 
 const blockPlans = {
@@ -644,6 +646,7 @@ const hybrid_events = [
   "healdsburg",
   "gilroy",
   "california_city",
+  "esuhsd",
 ];
 
 const portal_events = ["open-maps", "fyi"];
@@ -3477,6 +3480,9 @@ const longAbout = {
     `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
   ],
   california_city: [
+    `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
+  ],
+  esuhsd: [
     `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
   ],
 };

@@ -665,6 +665,11 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
     },
+    sanjose_east: {
+      shapefile: true,
+      number_markers: true,
+      border: true,
+    },
     modesto: {
       coalition: false,
       shapefile: false,
