@@ -669,6 +669,16 @@ export function spatial_abilities(id) {
       shapefile: true,
       number_markers: true,
       border: true,
+      boundaries: [
+        {
+          id: "districts",
+          label: "Current District Boundaries",
+          path: "school_districts/california/sanjose_east",
+          lineColor: "purple",
+          centroids: true,
+          namefield: "name",
+        },
+      ],
     },
     modesto: {
       coalition: false,
