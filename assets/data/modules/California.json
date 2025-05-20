@@ -1,5 +1,169 @@
 [
   {
+    "id": "sanjose_east",
+    "state": "California",
+    "name": "East Side Union High School District",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "Population",
+              "name": "Total population",
+              "sum": 538121,
+              "min": 0,
+              "max": 1914
+            },
+            "subgroups": [
+              {
+                "key": "NH_White",
+                "name": "White population",
+                "sum": 89159,
+                "min": 0,
+                "max": 739
+              },
+              {
+                "key": "NH_AfAm",
+                "name": "Black population",
+                "sum": 16349,
+                "min": 0,
+                "max": 181
+              },
+              {
+                "key": "Hispanic_or_Latino",
+                "name": "Hispanic population",
+                "sum": 203712,
+                "min": 0,
+                "max": 1178
+              },
+              {
+                "key": "NH_Asian",
+                "name": "Asian population",
+                "sum": 216259,
+                "min": 0,
+                "max": 1238
+              },
+              {
+                "key": "NH_HOPI",
+                "name": "Native Hawaiian / Pacific Islander population",
+                "sum": 2502,
+                "min": 0,
+                "max": 25
+              },
+              {
+                "key": "NH_AiAn",
+                "name": "American Indian population",
+                "sum": 1183,
+                "min": 0,
+                "max": 14
+              },
+              {
+                "key": "NH_Others",
+                "name": "Other population",
+                "sum": 99546,
+                "min": 0,
+                "max": 621
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Citizen Voting Age Population",
+            "total": {
+              "key": "CVAP_18-22_Total",
+              "name": "Total citizen voting age population",
+              "sum": 347394,
+              "min": 0,
+              "max": 1798
+            },
+            "subgroups": [
+              {
+                "key": "CVAP_18-22_White Alone",
+                "name": "White citizen voting age population",
+                "sum": 64843,
+                "min": 0,
+                "max": 790
+              },
+              {
+                "key": "CVAP_18-22_Black or African American Alone",
+                "name": "Black citizen voting age population",
+                "sum": 10411,
+                "min": 0,
+                "max": 195
+              },
+              {
+                "key": "CVAP_18-22_Hispanic or Latino",
+                "name": "Hispanic citizen voting age population",
+                "sum": 99558,
+                "min": 0,
+                "max": 612
+              },
+              {
+                "key": "CVAP_18-22_American Indian or Alaska Native Alone",
+                "name": "American Indian voting age population",
+                "sum": 919,
+                "min": 0,
+                "max": 48
+              },
+              {
+                "key": "CVAP_18-22_Asian Alone",
+                "name": "Asian citizen voting age population",
+                "sum": 162110,
+                "min": 0,
+                "max": 815
+              },
+              {
+                "key": "CVAP_18-22_Native Hawaiian or Other Pacific Islander Alone",
+                "name": "Native Hawaiian / Pacific Islander citizen voting age population",
+                "sum": 1487,
+                "min": 0,
+                "max": 128
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block FIPS code",
+          "key": "GEOID20"
+        },
+        "bounds": [
+          [-121.9432, 37.2077],
+          [-121.5866, 37.4259]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanjose_east_blocks20"
+            },
+            "sourceLayer": "sanjose_east_blocks20"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.sanjose_east_blocks20_points"
+            },
+            "sourceLayer": "sanjose_east_blocks20_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "Board of Trustees",
+        "numberOfParts": 5,
+        "pluralNoun": "Trustee Areas"
+      }
+    ]
+  },
+  {
     "state": "California",
     "id": "calicity",
     "units": [

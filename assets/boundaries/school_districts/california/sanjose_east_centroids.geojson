@@ -1,0 +1,21 @@
+{
+"type": "FeatureCollection",
+"name": "sanjose_east_centroids",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "name": "Andrew Hill" }, "geometry": { "type": "Point", "coordinates": [ -121.835504798195231, 37.284517769502244 ] } },
+{ "type": "Feature", "properties": { "name": "Evergreen Valley" }, "geometry": { "type": "Point", "coordinates": [ -121.74957337460846, 37.318608855114022 ] } },
+{ "type": "Feature", "properties": { "name": "Independence" }, "geometry": { "type": "Point", "coordinates": [ -121.938405883405238, 37.406353770712059 ] } },
+{ "type": "Feature", "properties": { "name": "Independence" }, "geometry": { "type": "Point", "coordinates": [ -121.880644586849854, 37.380964254838744 ] } },
+{ "type": "Feature", "properties": { "name": "James Lick" }, "geometry": { "type": "Point", "coordinates": [ -121.743721320522198, 37.368158646462369 ] } },
+{ "type": "Feature", "properties": { "name": "Mount Pleasant" }, "geometry": { "type": "Point", "coordinates": [ -121.787929097608227, 37.349961535544651 ] } },
+{ "type": "Feature", "properties": { "name": "Mt Pleasant - Evergreen" }, "geometry": { "type": "Point", "coordinates": [ -121.78789179233118, 37.334239034954756 ] } },
+{ "type": "Feature", "properties": { "name": "Oak Grove" }, "geometry": { "type": "Point", "coordinates": [ -121.778818691224544, 37.254484699048042 ] } },
+{ "type": "Feature", "properties": { "name": "Piedmont Hills" }, "geometry": { "type": "Point", "coordinates": [ -121.827480846911286, 37.406218180736658 ] } },
+{ "type": "Feature", "properties": { "name": "Santa Teresa" }, "geometry": { "type": "Point", "coordinates": [ -121.810947688436698, 37.234566330233925 ] } },
+{ "type": "Feature", "properties": { "name": "Silver Creek" }, "geometry": { "type": "Point", "coordinates": [ -121.775462840388172, 37.286642863074292 ] } },
+{ "type": "Feature", "properties": { "name": "SC - EV" }, "geometry": { "type": "Point", "coordinates": [ -121.72931598545216, 37.282264551446346 ] } },
+{ "type": "Feature", "properties": { "name": "William C. Overfelt" }, "geometry": { "type": "Point", "coordinates": [ -121.823489959420627, 37.333348191478926 ] } },
+{ "type": "Feature", "properties": { "name": "Yerba Buena" }, "geometry": { "type": "Point", "coordinates": [ -121.850504433490428, 37.313312082044455 ] } }
+]
+}

@@ -665,6 +665,21 @@ export function spatial_abilities(id) {
       number_markers: true,
       border: true,
     },
+    sanjose_east: {
+      shapefile: true,
+      number_markers: true,
+      border: true,
+      boundaries: [
+        {
+          id: "districts",
+          label: "Attendance Boundaries",
+          path: "school_districts/california/sanjose_east",
+          lineColor: "purple",
+          centroids: true,
+          namefield: "name",
+        },
+      ],
+    },
     modesto: {
       coalition: false,
       shapefile: false,
