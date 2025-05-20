@@ -2485,6 +2485,21 @@ highways)</li>
 circular or rectangular, and not snaking lines or ribbons</li>
 </ul>
 </p>`,
+  esuhsd: `<p>The East Side Union High School District is in the process of moving from an at-large election system to a by-trustee area election system. To draw these new election areas for the Board of Trustees, we need to hear from you! It’s important the District knows about your community as the lines are being drawn, so the trustee area lines can amplify the voices of residents. Learn more <a href="https://www.esuhsd.org/By-District-Trustee-Elections/index.html" target="_blank">on our website</a>.</p>
+<p>Examples of communities can include neighborhoods, school attendance boundaries, areas where many residents speak the same language, or areas where the residents use the same public facilities.</p>
+<p>We need your help to build a community map and our new by-trustee area map! Please use this tool to identify the boundaries of your community and provide draft election area maps.</p>
+<p>Every map submitted will be carefully reviewed by professional demographers, staff and the current Board of Trustees, who are in charge of drawing the boundary map.
+<p>Get started by clicking the orange or purple button to draw your community of interest or a districted map. To share your map, click “Save” in the upper right corner of the mapping module, select “Share Now,” and then click on the “Share to Gallery” button. A “Team” or “Plan” name is encouraged but optional.</p>
+<p><u>Each by-trustee area map must follow this set of ranked Districting Criteria:</u>
+<ul>
+<li>Relatively equal in size – top-to-bottom deviation under 10%. To ensure the top-to-bottom deviation is under 10%, it's enough to confirm that each area has a deviation of no more than 5% from ideal size (just be sure the "MAX. POPULATION DEVIATION" under the population bars is < 5%). As long as nothing goes over by more than 5% and nothing goes under by more than 5%, this ensures that the top-to-bottom deviation stays under 10%, which is the usual legal standard for local redistricting.
+</li>
+<li>Contiguous – election areas are one whole piece and don’t jump from one area of the district to another with gaps in between</li>
+<li>Maintain <i>communities of interest</i></li>
+<li>Easily identifiable and understandable lines, following natural (rivers, mountains) and man-made boundaries (main thoroughfares, highways)</li>
+<li>Keep election areas compact – election areas should be more circular or rectangular, and not snaking lines or ribbons
+</li>
+</ul>`,
   california_city: `<p>The City of California City is in the process of moving from an at-large election system to a
 by-district election system. To draw these new election districts for the
 City Council, we need to hear from you! It’s important the City knows

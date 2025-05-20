@@ -672,7 +672,7 @@ export function spatial_abilities(id) {
       boundaries: [
         {
           id: "districts",
-          label: "Current District Boundaries",
+          label: "Attendance Boundaries",
           path: "school_districts/california/sanjose_east",
           lineColor: "purple",
           centroids: true,
