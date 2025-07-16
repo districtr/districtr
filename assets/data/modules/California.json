@@ -133,17 +133,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.sanjose_east2_blocks20"
+              "url": "mapbox://districtr.sanjose_east_blocks20?v=2"
             },
-            "sourceLayer": "sanjose_east2_blocks20"
+            "sourceLayer": "sanjose_east_blocks20"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.sanjose_east2_blocks20_points"
+              "url": "mapbox://districtr.sanjose_east_blocks20_points?v=2"
             },
-            "sourceLayer": "sanjose_east2_blocks20_points"
+            "sourceLayer": "sanjose_east_blocks20_points"
           }
         ]
       }
