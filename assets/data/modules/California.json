@@ -15,59 +15,52 @@
             "total": {
               "key": "Population",
               "name": "Total population",
-              "sum": 538121,
+              "sum": 548721,
               "min": 0,
-              "max": 1914
+              "max": 2884
             },
             "subgroups": [
               {
                 "key": "NH_White",
                 "name": "White population",
-                "sum": 89159,
+                "sum": 71290,
                 "min": 0,
-                "max": 739
+                "max": 960
               },
               {
                 "key": "NH_AfAm",
                 "name": "Black population",
-                "sum": 16349,
+                "sum": 12972,
                 "min": 0,
-                "max": 181
+                "max": 199
               },
               {
                 "key": "Hispanic_or_Latino",
                 "name": "Hispanic population",
-                "sum": 203712,
+                "sum": 192074,
                 "min": 0,
-                "max": 1178
+                "max": 1308
               },
               {
                 "key": "NH_Asian",
                 "name": "Asian population",
-                "sum": 216259,
+                "sum": 252539,
                 "min": 0,
-                "max": 1238
+                "max": 1131
               },
               {
                 "key": "NH_HOPI",
                 "name": "Native Hawaiian / Pacific Islander population",
-                "sum": 2502,
+                "sum": 2075,
                 "min": 0,
-                "max": 25
+                "max": 16
               },
               {
                 "key": "NH_AiAn",
                 "name": "American Indian population",
-                "sum": 1183,
+                "sum": 983,
                 "min": 0,
-                "max": 14
-              },
-              {
-                "key": "NH_Others",
-                "name": "Other population",
-                "sum": 99546,
-                "min": 0,
-                "max": 621
+                "max": 9
               }
             ]
           },
@@ -77,7 +70,7 @@
             "total": {
               "key": "CVAP_18-22_Total",
               "name": "Total citizen voting age population",
-              "sum": 347394,
+              "sum": 336182,
               "min": 0,
               "max": 1798
             },
@@ -85,42 +78,42 @@
               {
                 "key": "CVAP_18-22_White Alone",
                 "name": "White citizen voting age population",
-                "sum": 64843,
+                "sum": 61702,
                 "min": 0,
                 "max": 790
               },
               {
                 "key": "CVAP_18-22_Black or African American Alone",
                 "name": "Black citizen voting age population",
-                "sum": 10411,
+                "sum": 9902,
                 "min": 0,
                 "max": 195
               },
               {
                 "key": "CVAP_18-22_Hispanic or Latino",
                 "name": "Hispanic citizen voting age population",
-                "sum": 99558,
+                "sum": 96625,
                 "min": 0,
                 "max": 612
               },
               {
                 "key": "CVAP_18-22_American Indian or Alaska Native Alone",
                 "name": "American Indian voting age population",
-                "sum": 919,
+                "sum": 898,
                 "min": 0,
                 "max": 48
               },
               {
                 "key": "CVAP_18-22_Asian Alone",
                 "name": "Asian citizen voting age population",
-                "sum": 162110,
+                "sum": 157716,
                 "min": 0,
                 "max": 815
               },
               {
                 "key": "CVAP_18-22_Native Hawaiian or Other Pacific Islander Alone",
                 "name": "Native Hawaiian / Pacific Islander citizen voting age population",
-                "sum": 1487,
+                "sum": 1479,
                 "min": 0,
                 "max": 128
               }
@@ -140,7 +133,7 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.sanjose_east_blocks20"
+              "url": "mapbox://districtr.sanjose_east_blocks20?v=2"
             },
             "sourceLayer": "sanjose_east_blocks20"
           },
@@ -148,7 +141,7 @@
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.sanjose_east_blocks20_points"
+              "url": "mapbox://districtr.sanjose_east_blocks20_points?v=2"
             },
             "sourceLayer": "sanjose_east_blocks20_points"
           }
