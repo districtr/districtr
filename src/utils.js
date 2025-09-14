@@ -1006,6 +1006,11 @@ export function spatial_abilities(id) {
       number_markers: true,
       current_districts: true,
     },
+    tracy_ca: {
+      border: true,
+      shapefile: true,
+      number_markers: true,
+    },
     ca_fremont: {
       coalition: false,
       border: true,

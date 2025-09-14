@@ -180,6 +180,7 @@ const stateForEvent = {
   gilroy: "California",
   california_city: "California",
   esuhsd: "California",
+  tracy: "California",
 };
 
 const validEventCodes = {
@@ -387,6 +388,7 @@ const validEventCodes = {
   gilroy: "gilroy",
   california_city: "calicity",
   esuhsd: "sanjose_east",
+  tracy: "tracy_ca",
 };
 
 const blockPlans = {
@@ -647,6 +649,7 @@ const hybrid_events = [
   "gilroy",
   "california_city",
   "esuhsd",
+  "tracy",
 ];
 
 const portal_events = ["open-maps", "fyi"];
@@ -2485,6 +2488,12 @@ highways)</li>
 circular or rectangular, and not snaking lines or ribbons</li>
 </ul>
 </p>`,
+tracy: `<p>Tracy is in the process of moving from an at-large election system to a by-district election system. This process, called districting, is important in ensuring that each City Council Member represents substantially the same number of constituents. How those lines are drawn affects how people are represented.
+</p><p>Districting also determines which neighborhoods and communities are grouped together into a district. Communities are those with common social or economic interests that should be included within a single district for effective, fair representation. They are best described by those with first‐hand knowledge. We want to hear about your community; you know it best!
+</p><p>You can also submit your own plan for how to divide the city into four districts. Every plan submitted will be carefully reviewed and included as part of the public record. For more information, visit
+<a href='https://cityoftracy.org/districting' target='_blank'>this link</a>.
+</p><p>Get started by clicking the orange or purple button. To share your map, click “Save” in the upper right corner of the mapping module, select “Share Now,” and then click on the “Share to Gallery” button. A “Team or Plan Name” is optional.
+</p>`,
   esuhsd: `<p>The East Side Union High School District is in the process of moving from an at-large election system to a by-trustee area election system. To draw these new election areas for the Board of Trustees, we need to hear from you! It’s important the District knows about your community as the lines are being drawn, so the trustee area lines can amplify the voices of residents. Learn more <a href="https://www.esuhsd.org/By-District-Trustee-Elections/index.html" target="_blank">on our website</a>.</p>
 <p>Examples of communities can include neighborhoods, school attendance boundaries, areas where many residents speak the same language, or areas where the residents use the same public facilities.</p>
 <p>We need your help to build a community map and our new by-trustee area map! Please use this tool to identify the boundaries of your community and provide draft election area maps.</p>
@@ -3499,6 +3508,9 @@ const longAbout = {
   ],
   esuhsd: [
     `This mapping module uses the <strong>official redistricting data for California</strong>, published by the Statewide Database (SWDB) based on 2020 Census Data.`,
+  ],
+  tracy: [
+    'This mapping module uses the official redistricting data for California, published by the Statewide Database (SWDB) based on 2020 Census Data and 2019-2023 American-Community Survey with processing by Wagaman Strategies.',
   ],
 };
 
