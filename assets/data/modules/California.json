@@ -1,5 +1,141 @@
 [
   {
+    "id": "tracy_ca",
+    "name": "Tracy",
+    "state": "California",
+    "units": [
+      {
+        "id": "blocks20",
+        "name": "2020 Blocks",
+        "unitType": "2020 Blocks",
+        "columnSets": [
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "[Population Total]",
+              "name": "Total population",
+              "sum": 93350,
+              "min": 0,
+              "max": 883
+            },
+            "subgroups": [
+              {
+                "key": "[Population White]",
+                "name": "White population",
+                "sum": 25210,
+                "min": 0,
+                "max": 273
+              },
+              {
+                "key": "[Population Black]",
+                "name": "Black population",
+                "sum": 6478,
+                "min": 0,
+                "max": 116
+              },
+              {
+                "key": "[Population Latino]",
+                "name": "Hispanic population",
+                "sum": 36146,
+                "min": 0,
+                "max": 410
+              },
+              {
+                "key": "[Population Asian]",
+                "name": "Asian population",
+                "sum": 21176,
+                "min": 0,
+                "max": 362
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "[CVAP Total]",
+              "name": "Voting age population",
+              "sum": 59598,
+              "min": 0,
+              "max": 888
+            },
+            "subgroups": [
+              {
+                "key": "[CVAP White]",
+                "name": "White voting age population",
+                "sum": 19570,
+                "min": 0,
+                "max": 293
+              },
+              {
+                "key": "[CVAP Black]",
+                "name": "Black voting age population",
+                "sum": 4763,
+                "min": 0,
+                "max": 177
+              },
+              {
+                "key": "[CVAP Latino]",
+                "name": "Hispanic voting age population",
+                "sum": 20640,
+                "min": 0,
+                "max": 227
+              },
+              {
+                "key": "[CVAP Asian]",
+                "name": "Asian voting age population",
+                "sum": 12909,
+                "min": 0,
+                "max": 397
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "Block Code",
+          "key": "Block20"
+        },
+        "bounds": [
+          [
+            -121.5493,
+            37.6619
+          ],
+          [
+            -121.3801,
+            37.7796
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.tracy_ca_blocks"
+            },
+            "sourceLayer": "tracy_ca_blocks"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.tracy_ca_blocks_points"
+            },
+            "sourceLayer": "tracy_ca_blocks_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "City Council",
+        "type": "districts",
+        "numberOfParts": 4,
+        "pluralNoun": "Districts"
+      }
+    ]
+  },
+  {
     "id": "sanjose_east",
     "state": "California",
     "name": "East Side Union High School District",
