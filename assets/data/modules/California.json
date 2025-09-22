@@ -52,10 +52,10 @@
           },
           {
             "type": "population",
-            "name": "Voting Age Population",
+            "name": "Citizen Voting Age Population",
             "total": {
               "key": "[CVAP Total]",
-              "name": "Voting age population",
+              "name": "Citizen Voting Age Population",
               "sum": 59598,
               "min": 0,
               "max": 888
@@ -63,28 +63,28 @@
             "subgroups": [
               {
                 "key": "[CVAP White]",
-                "name": "White voting age population",
+                "name": "White Citizen Voting Age Population",
                 "sum": 19570,
                 "min": 0,
                 "max": 293
               },
               {
                 "key": "[CVAP Black]",
-                "name": "Black voting age population",
+                "name": "Black Citizen Voting Age Population",
                 "sum": 4763,
                 "min": 0,
                 "max": 177
               },
               {
                 "key": "[CVAP Latino]",
-                "name": "Hispanic voting age population",
+                "name": "Hispanic Citizen Voting Age Population",
                 "sum": 20640,
                 "min": 0,
                 "max": 227
               },
               {
                 "key": "[CVAP Asian]",
-                "name": "Asian voting age population",
+                "name": "Asian Citizen Voting Age Population",
                 "sum": 12909,
                 "min": 0,
                 "max": 397
