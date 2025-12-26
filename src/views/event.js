@@ -652,7 +652,6 @@ const hybrid_events = [
   "california_city",
   "esuhsd",
   "tracy",
-  "classroom",
 ];
 
 const portal_events = ["open-maps", "fyi"];

@@ -2022,9 +2022,16 @@ export function spatial_abilities(id) {
     },
     "graders-il": {
       number_markers: true,
+      county_brush: true,
+      // county_filter: [
+      //   "all",
+      //   [">", ["get", "GEOID20"], "17000"],
+      //   ["<", ["get", "GEOID20"], "18000"],
+      // ],
     },
     "graders-ks": {
       number_markers: true,
+      county_brush: true,
     },
     ma: {
       number_markers: true,

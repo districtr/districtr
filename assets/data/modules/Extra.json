@@ -2,7 +2,7 @@
   {
     "units": [
       {
-        "id": "vtds20",
+        "id": "vtds",
         "name": "2020 VTDs",
         "unitType": "VTDs",
         "columnSets": [
@@ -298,8 +298,8 @@
           }
         ],
         "idColumn": {
-          "name": "FID",
-          "key": "fid"
+          "name": "GEOID",
+          "key": "VTD"
         },
         "bounds": [
           [
@@ -316,17 +316,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.graders-il_vtds"
+              "url": "mapbox://districtr.graders-il3_vtds"
             },
-            "sourceLayer": "gradersil_vtds"
+            "sourceLayer": "gradersil3_vtds"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.graders-il_vtds_points"
+              "url": "mapbox://districtr.graders-il3_vtds_points"
             },
-            "sourceLayer": "gradersil_vtds_points"
+            "sourceLayer": "gradersil3_vtds_points"
           }
         ]
       }
@@ -672,7 +672,7 @@
     "state": "Extra",
     "units": [
       {
-        "id": "vtds20",
+        "id": "vtds",
         "name": "2020 VTDs",
         "unitType": "VTDs",
         "columnSets": [
@@ -1048,8 +1048,8 @@
           }
         ],
         "idColumn": {
-          "name": "FID",
-          "key": "fid"
+          "name": "VTD",
+          "key": "VTD"
         },
         "bounds": [
           [
@@ -1066,17 +1066,17 @@
             "type": "fill",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.graders-ks_vtds"
+              "url": "mapbox://districtr.graders-ks3_vtds"
             },
-            "sourceLayer": "gradersks_vtds"
+            "sourceLayer": "gradersks3_vtds"
           },
           {
             "type": "circle",
             "source": {
               "type": "vector",
-              "url": "mapbox://districtr.graders-ks_vtds_points"
+              "url": "mapbox://districtr.graders-ks3_vtds_points"
             },
-            "sourceLayer": "gradersks_vtds_points"
+            "sourceLayer": "gradersks3_vtds_points"
           }
         ]
       }

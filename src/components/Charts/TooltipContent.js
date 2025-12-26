@@ -43,8 +43,12 @@ function tooltipDots(features, parts) {
 }
 
 function tooltipHeading(features, nameColumn, pluralNoun, parts) {
+  let singular = pluralNoun.slice(0, -1);
+  if (pluralNoun === "Counties") {
+    singular = "County";
+  }
     let title = `${features.length} ${
-        features.length == 1 ? pluralNoun.slice(0, -1) : pluralNoun
+        features.length == 1 ? singular : pluralNoun
     }`;
     if (
         nameColumn !== undefined &&

@@ -101,7 +101,7 @@ export default function DataLayersPlugin(editor) {
     }
 
     let selectBoundaries = abilities.boundaries || [];
-    let showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA || (state.place.id === "portland23"),
+    let showingCounties = smatch(state.place.state) === smatch(state.place.name) || showVRA || (state.place.id === "portland23" || state.place.id === "graders-il" || state.place.id === "graders-ks"),
           stateID = state.place.state.toLowerCase().replace(/\s+/g, ""),
           placeID = ["california", "ohio", "texas", "arizona"].includes(stateID) ? state.place.id : stateID;
     if (state.place.state === "Washington, DC") {
@@ -197,7 +197,21 @@ export default function DataLayersPlugin(editor) {
         tab.addSection(() => html`<h4>Boundaries</h4>`)
     }
     if (showingCounties) {
+      if (state.place.id === "graders-il") {
+        addCountyLayer(tab, { ...state, place: {
+            ...state.place,
+            state: "Illinois"
+          }
+        });
+      } else if (state.place.id === "graders-ks") {
+        addCountyLayer(tab, { ...state, place: {
+            ...state.place,
+            state: "Kansas"
+          }
+        });
+      } else {
         addCountyLayer(tab, state);
+      }
     }
     if (abilities.native_american) {
         addAmerIndianLayer(tab, state);

@@ -424,6 +424,12 @@ export function addLayers(map, swipemap, parts, tilesets, layerAdder, borderID, 
     // sources for the Map.
     for (let tileset of tilesets) map.addSource(tileset.sourceLayer, tileset.source);
 
+    if (borderID === "graders-il") {
+      stateName = "Illinois";
+    } else if (borderID === "graders-ks") {
+      stateName = "Kansas";
+    }
+
         // Add base units to the map.
     let clusterTileset = tilesets.find((t) => t.type === "fill"),
         { units, unitsBorders } = addBaseUnits(map, parts, clusterTileset, layerAdder),
