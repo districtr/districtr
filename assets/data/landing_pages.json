@@ -1,5 +1,17 @@
 [
   {
+    "state": "Extra",
+    "code": "EX",
+    "modules": [
+      {
+        "name": "Statewide",
+        "ids": ["graders-ia", "graders-il", "graders-ks"],
+        "default": "true",
+        "id": "state"
+      }
+    ]
+  },
+  {
     "state": "Alabama",
     "code": "AL",
     "modules": [

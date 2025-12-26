@@ -2017,6 +2017,15 @@ export function spatial_abilities(id) {
         },
       ],
     },
+    "graders-ia": {
+      number_markers: true,
+    },
+    "graders-il": {
+      number_markers: true,
+    },
+    "graders-ks": {
+      number_markers: true,
+    },
     ma: {
       number_markers: true,
       shapefile: true,

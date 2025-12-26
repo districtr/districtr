@@ -1,0 +1,1092 @@
+[
+  {
+    "units": [
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2012 Presidential",
+            "subgroups": [
+              {
+                "key": "pres_12_dem",
+                "name": "Democratic",
+                "sum": 3013750,
+                "min": 1,
+                "max": 1970
+              },
+              {
+                "key": "pres_12_rep",
+                "name": "Republican",
+                "sum": 2131662,
+                "min": 0,
+                "max": 1536
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "pres_16_dem",
+                "name": "Democratic",
+                "sum": 3090729,
+                "min": 0,
+                "max": 2034
+              },
+              {
+                "key": "pres_16_rep",
+                "name": "Republican",
+                "sum": 2146015,
+                "min": 0,
+                "max": 1646
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Senate",
+            "subgroups": [
+              {
+                "key": "sen_16_dem",
+                "name": "Democratic",
+                "sum": 3012940,
+                "min": 4,
+                "max": 1999
+              },
+              {
+                "key": "sen_16_rep",
+                "name": "Republican",
+                "sum": 2184692,
+                "min": 1,
+                "max": 1592
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "gov_18_dem",
+                "name": "Democratic",
+                "sum": 2479746,
+                "min": 0,
+                "max": 1755
+              },
+              {
+                "key": "gov_18_rep",
+                "name": "Republican",
+                "sum": 1765751,
+                "min": 0,
+                "max": 1557
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2022 Governor",
+            "subgroups": [
+              {
+                "key": "gov_22_dem",
+                "name": "Democratic",
+                "sum": 2253748,
+                "min": 0,
+                "max": 1958
+              },
+              {
+                "key": "gov_22_rep",
+                "name": "Republican",
+                "sum": 1739095,
+                "min": 0,
+                "max": 1992
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2022 Attorney General",
+            "subgroups": [
+              {
+                "key": "ag_22_dem",
+                "name": "Democratic",
+                "sum": 2219420,
+                "min": 0,
+                "max": 1975
+              },
+              {
+                "key": "ag_22_rep",
+                "name": "Republican",
+                "sum": 1774468,
+                "min": 0,
+                "max": 2016
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Presidential",
+            "subgroups": [
+              {
+                "key": "pres_20_dem",
+                "name": "Democratic",
+                "sum": 3471915,
+                "min": 0,
+                "max": 2924
+              },
+              {
+                "key": "pres_20_rep",
+                "name": "Republican",
+                "sum": 2446891,
+                "min": 0,
+                "max": 2685
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Senate",
+            "subgroups": [
+              {
+                "key": "sen_20_dem",
+                "name": "Democratic",
+                "sum": 3278930,
+                "min": 1,
+                "max": 2797
+              },
+              {
+                "key": "sen_20_rep",
+                "name": "Republican",
+                "sum": 2319870,
+                "min": 0,
+                "max": 2562
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2022 Senate",
+            "subgroups": [
+              {
+                "key": "sen_22_dem",
+                "name": "Democratic",
+                "sum": 2329136,
+                "min": 0,
+                "max": 2040
+              },
+              {
+                "key": "sen_22_rep",
+                "name": "Republican",
+                "sum": 1701055,
+                "min": 0,
+                "max": 1974
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "total_pop_20",
+              "name": "Total population",
+              "sum": 12812508,
+              "min": 0,
+              "max": 12065
+            },
+            "subgroups": [
+              {
+                "key": "white_pop_20",
+                "name": "White population",
+                "sum": 7472751,
+                "min": 0,
+                "max": 7842
+              },
+              {
+                "key": "bpop_20",
+                "name": "Black population",
+                "sum": 1992213,
+                "min": 0,
+                "max": 3953
+              },
+              {
+                "key": "hpop_20",
+                "name": "Hispanic population",
+                "sum": 2264976,
+                "min": 0,
+                "max": 4552
+              },
+              {
+                "key": "asian_nhpi_pop_20",
+                "name": "Asian, Native Hawaiian, and Pacific Islander population",
+                "sum": 849244,
+                "min": 0,
+                "max": 2810
+              },
+              {
+                "key": "amin_pop_20",
+                "name": "American Indian population",
+                "sum": 110358,
+                "min": 0,
+                "max": 122
+              },
+              {
+                "key": "other_pop_20",
+                "name": "Other race population",
+                "sum": 122966,
+                "min": 0,
+                "max": 124
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "total_vap_20",
+              "name": "Voting age population",
+              "sum": 9999469,
+              "min": 0,
+              "max": 10679
+            },
+            "subgroups": [
+              {
+                "key": "white_vap_20",
+                "name": "White voting age population",
+                "sum": 6123548,
+                "min": 0,
+                "max": 5912
+              },
+              {
+                "key": "bvap_20",
+                "name": "Black voting age population",
+                "sum": 1468381,
+                "min": 0,
+                "max": 3807
+              },
+              {
+                "key": "hvap_20",
+                "name": "Hispanic voting age population",
+                "sum": 1582490,
+                "min": 0,
+                "max": 3046
+              },
+              {
+                "key": "amin_vap_20",
+                "name": "Native American voting age population",
+                "sum": 85785,
+                "min": 0,
+                "max": 121
+              },
+              {
+                "key": "asian_nhpi_vap_20",
+                "name": "Asian, Native Hawaiian, and Pacific Islander voting age population",
+                "sum": 650254,
+                "min": 0,
+                "max": 2178
+              },
+              {
+                "key": "other_vap_20",
+                "name": "Other races voting age population",
+                "sum": 89011,
+                "min": 0,
+                "max": 123
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "FID",
+          "key": "fid"
+        },
+        "bounds": [
+          [
+            -91.5131,
+            36.9703
+          ],
+          [
+            -87.4952,
+            42.5085
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.graders-il_vtds"
+            },
+            "sourceLayer": "gradersil_vtds"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.graders-il_vtds_points"
+            },
+            "sourceLayer": "gradersil_vtds_points"
+          }
+        ]
+      }
+    ],
+    "id": "graders-il",
+    "name": "Illinois",
+    "state": "Extra",
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 17,
+        "pluralNoun": "Congressional Districts"
+      }
+    ]
+  },
+  {
+    "state": "Extra",
+    "id": "graders-ia",
+    "units": [
+      {
+        "id": "counties20",
+        "name": "2020 Counties",
+        "unitType": "Counties",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2008 Presidential",
+            "subgroups": [
+              {
+                "key": "pres_08_dem",
+                "name": "Democratic",
+                "sum": 828607,
+                "min": 1037,
+                "max": 120984
+              },
+              {
+                "key": "pres_08_rep",
+                "name": "Republican",
+                "sum": 682104,
+                "min": 1039,
+                "max": 89668
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Presidential",
+
+            "subgroups": [
+              {
+                "key": "pres_12_dem",
+                "name": "Democratic",
+                "sum": 822778,
+                "min": 867,
+                "max": 128459
+              },
+              {
+                "key": "pres_12_rep",
+                "name": "Republican",
+                "sum": 730691,
+                "min": 1106,
+                "max": 96029
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "pres_16_dem",
+                "name": "Democratic",
+                "sum": 650119,
+                "min": 508,
+                "max": 119750
+              },
+              {
+                "key": "pres_16_rep",
+                "name": "Republican",
+                "sum": 800084,
+                "min": 1354,
+                "max": 93406
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Senate",
+            "subgroups": [
+              {
+                "key": "sen_16_dem",
+                "name": "Democratic",
+                "sum": 545470,
+                "min": 396,
+                "max": 100332
+              },
+              {
+                "key": "sen_16_rep",
+                "name": "Republican",
+                "sum": 924982,
+                "min": 1515,
+                "max": 118112
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "gov_18_dem",
+                "name": "Democratic",
+                "sum": 627603,
+                "min": 428,
+                "max": 120243
+              },
+              {
+                "key": "gov_18_rep",
+                "name": "Republican",
+                "sum": 667751,
+                "min": 1156,
+                "max": 82424
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Presidential",
+            "subgroups": [
+              {
+                "key": "pres_20_dem",
+                "name": "Democratic",
+                "sum": 759061,
+                "min": 590,
+                "max": 146250
+              },
+              {
+                "key": "pres_20_rep",
+                "name": "Republican",
+                "sum": 897672,
+                "min": 1530,
+                "max": 106800
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Senate",
+            "subgroups": [
+              {
+                "key": "sen_20_dem",
+                "name": "Democratic",
+                "sum": 754859,
+                "min": 594,
+                "max": 142328
+              },
+              {
+                "key": "sen_20_rep",
+                "name": "Republican",
+                "sum": 864997,
+                "min": 1497,
+                "max": 106443
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2024 Presidential",
+            "subgroups": [
+              {
+                "key": "pres_24_dem",
+                "name": "Democratic",
+                "sum": 707278,
+                "min": 555,
+                "max": 140075
+              },
+              {
+                "key": "pres_24_rep",
+                "name": "Republican",
+                "sum": 927019,
+                "min": 1517,
+                "max": 112240
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "total_pop_20",
+              "name": "Total population",
+              "sum": 3190369,
+              "min": 3704,
+              "max": 492401
+            },
+            "subgroups": [
+              {
+                "key": "white_pop_20",
+                "name": "White population",
+                "sum": 2638201,
+                "min": 3518,
+                "max": 362260
+              },
+              {
+                "key": "bpop_20",
+                "name": "Black population",
+                "sum": 172988,
+                "min": 34,
+                "max": 44015
+              },
+              {
+                "key": "hpop_20",
+                "name": "Hispanic population",
+                "sum": 208742,
+                "min": 38,
+                "max": 46455
+              },
+              {
+                "key": "asian_nhpi_pop_20",
+                "name": "Asian, Native Hawaiian, and Pacific Islander population",
+                "sum": 99846,
+                "min": 21,
+                "max": 28676
+              },
+              {
+                "key": "amin_pop_20",
+                "name": "American Indian population",
+                "sum": 39938,
+                "min": 28,
+                "max": 5409
+              },
+              {
+                "key": "other_pop_20",
+                "name": "Other race population",
+                "sum": 30654,
+                "min": 24,
+                "max": 5586
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "total_vap_20",
+              "name": "Voting age population",
+              "sum": 2450103,
+              "min": 2891,
+              "max": 371655
+            },
+            "subgroups": [
+              {
+                "key": "white_vap_20",
+                "name": "White voting age population",
+                "sum": 2093769,
+                "min": 2772,
+                "max": 288392
+              },
+              {
+                "key": "bvap_20",
+                "name": "Black voting age population",
+                "sum": 104136,
+                "min": 9,
+                "max": 26679
+              },
+              {
+                "key": "hvap_20",
+                "name": "Hispanic voting age population",
+                "sum": 130941,
+                "min": 17,
+                "max": 28961
+              },
+              {
+                "key": "amin_vap_20",
+                "name": "Native American voting age population",
+                "sum": 29145,
+                "min": 18,
+                "max": 4057
+              },
+              {
+                "key": "asian_nhpi_vap_20",
+                "name": "Asian, Native Hawaiian, and Pacific Islander voting age population",
+                "sum": 70277,
+                "min": 4,
+                "max": 19562
+              },
+              {
+                "key": "other_vap_20",
+                "name": "Other races voting age population",
+                "sum": 21835,
+                "min": 20,
+                "max": 4004
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "2020 Census GEOID",
+          "key": "path"
+        },
+        "bounds": [
+          [
+            -96.6395,
+            40.3754
+          ],
+          [
+            -90.1401,
+            43.5012
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.graders-ia_counties"
+            },
+            "sourceLayer": "gradersia_counties"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.graders-ia_counties_points"
+            },
+            "sourceLayer": "gradersia_counties_points"
+          }
+        ]
+      }
+    ],
+    "name": "Iowa",
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 4,
+        "pluralNoun": "Congressional Districts"
+      }
+    ]
+  },
+  {
+    "id": "graders-ks",
+    "name": "Kansas",
+    "state": "Extra",
+    "units": [
+      {
+        "id": "vtds20",
+        "name": "2020 VTDs",
+        "unitType": "VTDs",
+        "columnSets": [
+          {
+            "type": "election",
+            "name": "2008 Presidential",
+            "subgroups": [
+              {
+                "key": "pres_08_dem",
+                "name": "Democratic",
+                "sum": 514665,
+                "min": 0,
+                "max": 1375
+              },
+              {
+                "key": "pres_08_rep",
+                "name": "Republican",
+                "sum": 699511,
+                "min": 0,
+                "max": 2130
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2012 Presidential",
+            "subgroups": [
+              {
+                "key": "pres_12_dem",
+                "name": "Democratic",
+                "sum": 435053,
+                "min": 0,
+                "max": 1160
+              },
+              {
+                "key": "pres_12_rep",
+                "name": "Republican",
+                "sum": 688670,
+                "min": 0,
+                "max": 1979
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Presidential",
+            "subgroups": [
+              {
+                "key": "pres_16_dem",
+                "name": "Democratic",
+                "sum": 426982,
+                "min": 0,
+                "max": 911
+              },
+              {
+                "key": "pres_16_rep",
+                "name": "Republican",
+                "sum": 670975,
+                "min": 0,
+                "max": 1910
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2016 Senate",
+            "subgroups": [
+              {
+                "key": "sen_16_dem",
+                "name": "Democratic",
+                "sum": 379721,
+                "min": 0,
+                "max": 923
+              },
+              {
+                "key": "sen_16_rep",
+                "name": "Republican",
+                "sum": 732322,
+                "min": 0,
+                "max": 2228
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Governor",
+            "subgroups": [
+              {
+                "key": "gov_18_dem",
+                "name": "Democratic",
+                "sum": 506504,
+                "min": 0,
+                "max": 1135
+              },
+              {
+                "key": "gov_18_rep",
+                "name": "Republican",
+                "sum": 453028,
+                "min": 0,
+                "max": 1298
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2022 Governor",
+            "subgroups": [
+              {
+                "key": "gov_22_dem",
+                "name": "Democratic",
+                "sum": 499849,
+                "min": 0,
+                "max": 1348
+              },
+              {
+                "key": "gov_22_rep",
+                "name": "Republican",
+                "sum": 477591,
+                "min": 0,
+                "max": 1635
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2018 Attorney General",
+            "subgroups": [
+              {
+                "key": "ag_18_dem",
+                "name": "Democratic",
+                "sum": 427166,
+                "min": 0,
+                "max": 1014
+              },
+              {
+                "key": "ag_18_rep",
+                "name": "Republican",
+                "sum": 613640,
+                "min": 0,
+                "max": 1728
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2022 Attorney General",
+            "subgroups": [
+              {
+                "key": "ag_22_dem",
+                "name": "Democratic",
+                "sum": 490925,
+                "min": 0,
+                "max": 1327
+              },
+              {
+                "key": "ag_22_rep",
+                "name": "Republican",
+                "sum": 506817,
+                "min": 0,
+                "max": 1670
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2022 Secretary of State",
+            "subgroups": [
+              {
+                "key": "sos_22_dem",
+                "name": "Democratic",
+                "sum": 386661,
+                "min": 0,
+                "max": 1109
+              },
+              {
+                "key": "sos_22_rep",
+                "name": "Republican",
+                "sum": 580908,
+                "min": 0,
+                "max": 1911
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2022 Treasurer",
+            "subgroups": [
+              {
+                "key": "treas_22_dem",
+                "name": "Democratic",
+                "sum": 411813,
+                "min": 0,
+                "max": 1120
+              },
+              {
+                "key": "treas_22_rep",
+                "name": "Republican",
+                "sum": 537488,
+                "min": 0,
+                "max": 1752
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Presidential",
+            "subgroups": [
+              {
+                "key": "pres_20_dem",
+                "name": "Democratic",
+                "sum": 570320,
+                "min": 0,
+                "max": 1441
+              },
+              {
+                "key": "pres_20_rep",
+                "name": "Republican",
+                "sum": 771401,
+                "min": 0,
+                "max": 2374
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2020 Senate",
+            "subgroups": [
+              {
+                "key": "sen_20_dem",
+                "name": "Democratic",
+                "sum": 571527,
+                "min": 0,
+                "max": 1422
+              },
+              {
+                "key": "sen_20_rep",
+                "name": "Republican",
+                "sum": 727957,
+                "min": 0,
+                "max": 2247
+              }
+            ]
+          },
+          {
+            "type": "election",
+            "name": "2022 Senate",
+            "subgroups": [
+              {
+                "key": "sen_22_dem",
+                "name": "Democratic",
+                "sum": 372214,
+                "min": 0,
+                "max": 1110
+              },
+              {
+                "key": "sen_22_rep",
+                "name": "Republican",
+                "sum": 602976,
+                "min": 0,
+                "max": 1923
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Population",
+            "total": {
+              "key": "total_pop_20",
+              "name": "Total population",
+              "sum": 2937880,
+              "min": 0,
+              "max": 8040
+            },
+            "subgroups": [
+              {
+                "key": "white_pop_20",
+                "name": "White population",
+                "sum": 2122575,
+                "min": 0,
+                "max": 5841
+              },
+              {
+                "key": "bpop_20",
+                "name": "Black population",
+                "sum": 223275,
+                "min": 0,
+                "max": 2647
+              },
+              {
+                "key": "hpop_20",
+                "name": "Hispanic population",
+                "sum": 368889,
+                "min": 0,
+                "max": 5754
+              },
+              {
+                "key": "asian_nhpi_pop_20",
+                "name": "Asian, Native Hawaiian, and Pacific Islander population",
+                "sum": 110736,
+                "min": 0,
+                "max": 1792
+              },
+              {
+                "key": "amin_pop_20",
+                "name": "American Indian population",
+                "sum": 80791,
+                "min": 0,
+                "max": 823
+              },
+              {
+                "key": "other_pop_20",
+                "name": "Other race population",
+                "sum": 31614,
+                "min": 0,
+                "max": 160
+              }
+            ]
+          },
+          {
+            "type": "population",
+            "name": "Voting Age Population",
+            "total": {
+              "key": "total_vap_20",
+              "name": "Voting age population",
+              "sum": 2229316,
+              "min": 0,
+              "max": 5856
+            },
+            "subgroups": [
+              {
+                "key": "white_vap_20",
+                "name": "White voting age population",
+                "sum": 1683982,
+                "min": 0,
+                "max": 4740
+              },
+              {
+                "key": "bvap_20",
+                "name": "Black voting age population",
+                "sum": 148173,
+                "min": 0,
+                "max": 1820
+              },
+              {
+                "key": "hvap_20",
+                "name": "Hispanic voting age population",
+                "sum": 235657,
+                "min": 0,
+                "max": 3712
+              },
+              {
+                "key": "amin_vap_20",
+                "name": "Native American voting age population",
+                "sum": 59727,
+                "min": 0,
+                "max": 555
+              },
+              {
+                "key": "asian_nhpi_vap_20",
+                "name": "Asian, Native Hawaiian, and Pacific Islander voting age population",
+                "sum": 79207,
+                "min": 0,
+                "max": 1345
+              },
+              {
+                "key": "other_vap_20",
+                "name": "Other races voting age population",
+                "sum": 22570,
+                "min": 0,
+                "max": 160
+              }
+            ]
+          }
+        ],
+        "idColumn": {
+          "name": "FID",
+          "key": "fid"
+        },
+        "bounds": [
+          [
+            -102.0518,
+            36.993
+          ],
+          [
+            -94.5884,
+            40.0032
+          ]
+        ],
+        "tilesets": [
+          {
+            "type": "fill",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.graders-ks_vtds"
+            },
+            "sourceLayer": "gradersks_vtds"
+          },
+          {
+            "type": "circle",
+            "source": {
+              "type": "vector",
+              "url": "mapbox://districtr.graders-ks_vtds_points"
+            },
+            "sourceLayer": "gradersks_vtds_points"
+          }
+        ]
+      }
+    ],
+    "districtingProblems": [
+      {
+        "name": "Congress",
+        "numberOfParts": 4,
+        "pluralNoun": "Congressional Districts"
+      }
+    ]
+  }
+]

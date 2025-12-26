@@ -181,6 +181,7 @@ const stateForEvent = {
   california_city: "California",
   esuhsd: "California",
   tracy: "California",
+  classroom: "Extra",
 };
 
 const validEventCodes = {
@@ -389,6 +390,7 @@ const validEventCodes = {
   california_city: "calicity",
   esuhsd: "sanjose_east",
   tracy: "tracy_ca",
+  classroom: ["graders-ia", "graders-il", "graders-ks"],
 };
 
 const blockPlans = {
@@ -650,6 +652,7 @@ const hybrid_events = [
   "california_city",
   "esuhsd",
   "tracy",
+  "classroom",
 ];
 
 const portal_events = ["open-maps", "fyi"];
