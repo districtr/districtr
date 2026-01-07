@@ -181,7 +181,7 @@ const stateForEvent = {
   california_city: "California",
   esuhsd: "California",
   tracy: "California",
-  classroom: "Extra",
+  labschool: "Extra",
 };
 
 const validEventCodes = {
@@ -390,7 +390,7 @@ const validEventCodes = {
   california_city: "calicity",
   esuhsd: "sanjose_east",
   tracy: "tracy_ca",
-  classroom: ["graders-ia", "graders-il", "graders-ks"],
+  labschool: ["graders-ia", "graders-il", "graders-ks"],
 };
 
 const blockPlans = {
@@ -4499,7 +4499,6 @@ export default () => {
         : `/.netlify/functions/eventRead?skip=0&limit=${limitNum + 1}&event=${eventCode}`;
 
     let showPlans = (data, drafts = false) => {
-      console.log(["showPlans", data, drafts]);
       let loadExtraPlans =
         data.plans.length > limitNum ||
         window.location.hostname.includes("localhost");
