@@ -106,9 +106,9 @@ export default class Brush extends HoverWithRadius {
                             name.splice(-1);
                             return name.join(" ");
                         };
-                    if (this.placeID === "portland23") {
-                      [countyProp, countyFIPS] = idSearch("Precinct", null);
-                    } else {
+                  if (this.placeID === "portland23") {
+                    [countyProp, countyFIPS] = idSearch("Precinct", null);
+                  } else {
                     [countyProp, countyFIPS] = idSearch("GEOID10", 5)
                         || idSearch("GEOID", 5)
                         || idSearch("GEOID20", 5)
