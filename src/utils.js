@@ -2019,19 +2019,17 @@ export function spatial_abilities(id) {
     },
     "graders-ia": {
       number_markers: true,
+      shapefile: true,
     },
     "graders-il": {
       number_markers: true,
       county_brush: true,
-      // county_filter: [
-      //   "all",
-      //   [">", ["get", "GEOID20"], "17000"],
-      //   ["<", ["get", "GEOID20"], "18000"],
-      // ],
+      shapefile: true,
     },
     "graders-ks": {
       number_markers: true,
       county_brush: true,
+      shapefile: true,
     },
     ma: {
       number_markers: true,

@@ -108,26 +108,6 @@
           },
           {
             "type": "election",
-            "name": "2022 Attorney General",
-            "subgroups": [
-              {
-                "key": "ag_22_dem",
-                "name": "Democratic",
-                "sum": 2219420,
-                "min": 0,
-                "max": 1975
-              },
-              {
-                "key": "ag_22_rep",
-                "name": "Republican",
-                "sum": 1774468,
-                "min": 0,
-                "max": 2016
-              }
-            ]
-          },
-          {
-            "type": "election",
             "name": "2020 Presidential",
             "subgroups": [
               {
