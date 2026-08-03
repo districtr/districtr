@@ -688,7 +688,7 @@ const eventDescriptions = {
   <p>OPEN Maps (“Ohio Public Engagement in Neighborhoods” mapping project) is a joint project between the MGGG Redistricting Lab at the Tisch College of Civic Life and the Ohio State University’s Kirwan Institute for the Study of Race and Ethnicity.</p>\
   <p>Our goal is to <strong>collect over 500 community maps and narratives</strong>. Our team will synthesize these maps in a final report that we will submit to Ohio's politician redistricting commission.</p>\
   <p>Ohio residents, you can participate by drawing and describing Ohio communities in one of our modules. When you click “Save” to share your map, <strong>enter the tag “OPEN-maps”</strong> to post your map on this public submission page!</p>\
-  <p>Visit our <a href='https://districtr.org/training' target='_blank'>training resources</a> page to learn more about Communities of Interest and prompts that you can answer to describe your community. Join one of our Districtr train-the-trainers to learn more about why communities matter and how to collect useful narratives.</p>",
+  <p>Visit our <a href='https://legacy.districtr.org/training' target='_blank'>training resources</a> page to learn more about Communities of Interest and prompts that you can answer to describe your community. Join one of our Districtr train-the-trainers to learn more about why communities matter and how to collect useful narratives.</p>",
   "fair-districts-oh": "Welcome to the event page for Fair Districts Ohio!",
   "colorado-cc": "Welcome to the event page for Colorado Common Cause!",
   ttt: "Training the Trainers",
@@ -786,7 +786,7 @@ const eventDescriptions = {
   prjusd:
     "<p>Welcome to the public mapping page for the Paso Robles Joint Unified School District (“PRJUSD”) Board of Education. PRJUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election.  In by-area elections, PRJUSD will consist of 7 voting areas that are roughly equal in population.  Board members will be elected from each of the seven areas only by voters who reside within the respective areas.  Board members will be required to reside within the area from which they are elected.  For example, Area A’s representative on the PRJUSD Board will need to reside within Area A and is only elected by voters who reside within  Area A.</p>\
     <p>As part of the creation of voting areas, PRJUSD is seeking public input on what these voting areas should look like.  To let the School District know what you think the maps should look like, you can create your own map utilizing this website or you can take one of the previously created maps and modify it. \
-    <a href='https://districtr.org/guide' target='_blank'>Click here</a> for a tutorial.</p>\
+    <a href='https://legacy.districtr.org/guide' target='_blank'>Click here</a> for a tutorial.</p>\
     <p><strong>To display your map on this page, be sure the tag \"PRJUSD\" is filled out after you've clicked \"Save\" to share the map.</strong></p>",
   hia: "Welcome to the event page for Houston in Action!",
   onelovemi:
@@ -1474,7 +1474,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>\
   "mp-maps":
     "<p>Welcome to the Districtr public mapping tool to support the City of Menlo Park's 2021 City Council redistricting effort.<p>\
      <p>As part of the City's effort to provide transparency and meet requirements of the California FAIR MAPS Act, we encourage residents to \
-     submit their draft city council districts and “Communities of Interest” (COI) using the <a href='https://districtr.org/' target='_blank'>Districtr.org</a> mapping tool. A “Community of Interest” \
+     submit their draft city council districts and “Communities of Interest” (COI) using the <a href='https://legacy.districtr.org/' target='_blank'>Districtr.org</a> mapping tool. A “Community of Interest” \
      is defined by California law as: “a population that shares common social or economic interests that should be included within a single district \
      for purposes of its effective and fair representation.”</p>\
      <p>Draft districts must be contiguous and maintain equal population size to ensure equal representation between districts.</p>\
@@ -1731,7 +1731,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       the maps should look like, you can create your own map utilizing this
       website or you can take one of the previously created maps and modify it,
       then submit the map for consideration by the Board of Trustees.
-      <a href="https://districtr.org/guide">Click here</a> for a tutorial.
+      <a href="https://legacy.districtr.org/guide">Click here</a> for a tutorial.
     </p>
     <p>
       To let the Board know about your community and what brings it together,
@@ -1760,7 +1760,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       the maps should look like, you can create your own map utilizing this website
       or you can take one of the previously created maps and modify it, then submit
       the map for consideration by the Board of Trustees.
-      <a href="https://districtr.org/guide">Click here</a> for a tutorial.
+      <a href="https://legacy.districtr.org/guide">Click here</a> for a tutorial.
     </p>
     <p>
       To let the Board know about your community and what brings it together,
@@ -1823,7 +1823,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   <p>Welcome to the public mapping page for the Santa Barbara School District (SBUSD) Board of Education. SBUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election. In by-area elections, SBUSD will consist of 5 or 7 voting areas that are roughly equal in population. Board members will be elected from each of the areas only by voters who reside within the respective areas. Board members will be required to reside within the area from which they are elected. For example, Area A’s representative on the SBUSD Board will need to reside within Area A and is only elected by voters who reside within Area A.
   </p>
   <p>
-  As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing this website or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://districtr.org/guide">here</a> for a tutorial.
+  As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing this website or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://legacy.districtr.org/guide">here</a> for a tutorial.
   </p>
   `,
   pvsd: `
@@ -1844,7 +1844,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     should look like, you can create your own map utilizing this website or you
     can take one of the previously created maps and modify it, then submit the
     map for consideration by the Board of Education.
-    <a href="https://districtr.org/guide">Click here</a> for a tutorial.
+    <a href="https://legacy.districtr.org/guide">Click here</a> for a tutorial.
     Please note that the deadline for submission of public maps is January 27,
     2022 in order to be considered by PVSD's Board of Education.
   </p>
@@ -1877,13 +1877,13 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
   sbusd_5: `
     <p>Welcome to the public mapping page for the Santa Barbara School District (SBUSD) Board of Education. SBUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election. In by-area elections, SBUSD will consist of 5 or 7 voting areas that are roughly equal in population. Board members will be elected from each of the areas only by voters who reside within the respective areas. Board members will be required to reside within the area from which they are elected. For example, Area A’s representative on the SBUSD Board will need to reside within Area A and is only elected by voters who reside within Area A.</p>
     <p>
-    As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing the website below or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://districtr.org/guide">here</a> for a tutorial.
+    As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing the website below or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://legacy.districtr.org/guide">here</a> for a tutorial.
     </p>
     `,
   sbusd_7: `
     <p>Welcome to the public mapping page for the Santa Barbara School District (SBUSD) Board of Education. SBUSD is transitioning from at-large elections to by-area elections to be implemented for the November 2022 election. In by-area elections, SBUSD will consist of 5 or 7 voting areas that are roughly equal in population. Board members will be elected from each of the areas only by voters who reside within the respective areas. Board members will be required to reside within the area from which they are elected. For example, Area A’s representative on the SBUSD Board will need to reside within Area A and is only elected by voters who reside within Area A.</p>
     <p>
-    As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing the website below or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://districtr.org/guide">here</a> for a tutorial.
+    As part of the creation of voting areas, SBUSD is seeking public input on what these voting areas should look like. To let SBUSD know what you think the maps should look like, you can create your own map utilizing the website below or you can take one of the previously created maps and modify it, then submit the map for consideration by the Board of Education. Click <a href="https://legacy.districtr.org/guide">here</a> for a tutorial.
     </p>
     `,
   millbrae: `
@@ -2017,7 +2017,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       information about population, demographics, and registered voters by party registration.
       These data come from the 2020 Census and the Pima County Recorder’s Office (Recorder’s
       voter registration data as of December 6, 2021). Additional data for Pima County is
-      available on <a href='https://districtr.org/arizona' target=_blank>Arizona’s Districtr page</a>,
+      available on <a href='https://legacy.districtr.org/arizona' target=_blank>Arizona’s Districtr page</a>,
       including election results by precinct for 2018 statewide offices.
     </p>
   `,
@@ -2143,7 +2143,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
       When your map is complete, click "Save" in the upper right corner of the mapping
       module. To pin your own map to the gallery on this page, be sure that the
       tag <strong>"worcestersd"</strong> is visible in the save window. For a detailed
-      how-to guide for Districtr, visit our <a href=https://districtr.org/guide>Guide
+      how-to guide for Districtr, visit our <a href=https://legacy.districtr.org/guide>Guide
       page.</a>
     </p>
   `,
@@ -2196,7 +2196,7 @@ out after you've clicked &quot;Save&quot; to share the map.</strong></p>",
     </p>
     <p>
       For a detailed how-to guide of Districtr, visit the
-      <a href=https://districtr.org/guide>User Guide</a>.
+      <a href=https://legacy.districtr.org/guide>User Guide</a>.
     </p>
   `,
   actransit: `
@@ -3561,7 +3561,7 @@ export default () => {
         "New York City Council Mapping Page";
     } else if (eventCode === "pimaaz") {
       document.getElementById("districting-options-title").innerHTML =
-        "<p>Click the purple box below to start with a blank map. If you’d prefer to start using the current district boundaries, click <a href='https://districtr.org/edit/113736?event=pimaaz' target=_blank>here</a>. After working, click “Save” in the upper right corner of the mapping module to save your work. Copy the URL shown in the “Save” box so that you can return to your map. To display your map on this page, either as a proposed plan or a draft, click the “Share to Gallery” button.</p><p><strong>Note: The maximum population deviation shown on the Population tab displays the maximum population deviation of any <u>single</u> district from ideal size.</strong> This isn’t the method used to calculate the 10 percent deviation statutory requirement. To ensure your plan has less than 10 percent deviation, hover over the District bars and sum the deviations (ignoring negative percentages) for the highest- and lowest-populated Districts.</p>";
+        "<p>Click the purple box below to start with a blank map. If you’d prefer to start using the current district boundaries, click <a href='https://legacy.districtr.org/edit/113736?event=pimaaz' target=_blank>here</a>. After working, click “Save” in the upper right corner of the mapping module to save your work. Copy the URL shown in the “Save” box so that you can return to your map. To display your map on this page, either as a proposed plan or a draft, click the “Share to Gallery” button.</p><p><strong>Note: The maximum population deviation shown on the Population tab displays the maximum population deviation of any <u>single</u> district from ideal size.</strong> This isn’t the method used to calculate the 10 percent deviation statutory requirement. To ensure your plan has less than 10 percent deviation, hover over the District bars and sum the deviations (ignoring negative percentages) for the highest- and lowest-populated Districts.</p>";
       document.getElementById("about-section").innerHTML = document
         .getElementById("about-section")
         .innerHTML.replace("<h2>About</h2>", "");

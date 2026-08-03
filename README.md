@@ -5,6 +5,10 @@
 [![Greenkeeper badge](https://badges.greenkeeper.io/districtr/districtr.svg)](https://greenkeeper.io/)
 
 
+> **Legacy version.** This repo is the previous generation of Districtr, kept
+> live at [legacy.districtr.org](https://legacy.districtr.org). The current app
+> lives at [districtr.org](https://districtr.org) in a new repository.
+
 Districtr is the open-source web app that empowers all people to draw
 districting plans.
 
