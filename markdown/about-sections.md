@@ -106,7 +106,7 @@ The source shapefile with demographic information is available for download from
 [MGGG's GitHub organization](https://github.com/mggg/chicago/tree/master/shapefiles).
 
 In April 2019, MGGG published
-[a study on various reform proposals for the Chicago City Council](https://districtr.org/chicago).
+[a study on various reform proposals for the Chicago City Council](https://legacy.districtr.org/chicago).
 Our findings strongly support a transition to multimember wards with ranked
 choice voting to secure and sustain fair representation.
 
@@ -123,7 +123,7 @@ The source shapefile with demographic information is available for download from
 [MGGG's GitHub organization](https://github.com/mggg/chicago/tree/master/shapefiles).
 
 In April 2019, MGGG published
-[a study on various reform proposals for the Chicago City Council](https://districtr.org/chicago).
+[a study on various reform proposals for the Chicago City Council](https://legacy.districtr.org/chicago).
 Our findings strongly support a transition to multimember wards with ranked
 choice voting to secure and sustain fair representation.
 

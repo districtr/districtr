@@ -60,7 +60,7 @@ function loadPlan(url) {
     if (window.location.href.includes("localhost:") && url == "")
         return loadPlanFromURL("/assets/mi-plans/state_house.json?v=2");
     let districtr_id = url.split('/')[url.split('/').length - 1];
-    return fetch('https://districtr.org/.netlify/functions/planRead?id=' + districtr_id)
+    return fetch('/.netlify/functions/planRead?id=' + districtr_id)
     .then(res => res.json())
     .then(loadPlanFromJSON);
 }
