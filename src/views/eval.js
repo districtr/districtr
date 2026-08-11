@@ -154,6 +154,8 @@ function renderRight(pane, context, state, mapState) {
             data.counties == -1 ? "" : 
                 analyzer.addRevealSection(municipalities ? "Municipality Splits" : "County Splits", 
                     (uiState, dispatch) => county_section(state, data.counties, municipalities))
+            state.place.name == 'Indiana' ? 
+                analyzer.addRevealSection('Incumbency Considerations', (uiState, dispatch) => incumbent_section(state)) : "";
             analyzer.render();
         });
 }
@@ -402,6 +404,7 @@ function election_section(state, partisanship) {
         break;
         default: favorstr = "favored different parties in different elections";
     }
+    console.log(rows);
     let avg_bias = roundToDecimal(bias_acc.reduce((a,b) => a + b, 0)/bias_acc.length, 1);
     
     let score_headers = ['Election', "Efficiency Gap", "Mean Median", "Partisan Bias", "Eguia's Metric"];
@@ -628,6 +631,39 @@ function county_section(state, data, municipalities) {
     ${num_split > 0 ? html`
         <h4 text-align:"center">${noun_cap} Split Details</h4>
         ${DataTable(headers, rows, true)}` : ""}`
+}
+
+function incumbent_section(state) {
+    console.log(state);
+    let locations = incumbent_locations(state.place.name, state.unitsRecord.id, state.plan.problem.name);
+    console.log(locations);
+    let dists = locations.map((x) => state.plan.assignment[x]).flat();
+    console.log(dists);
+    let parts = state.plan.problem.numberOfParts,
+        headers = ["District", "Incumbents"], rows = [], bunked = []
+
+    for (let i = 0; i < parts; i++) {
+        let num_inc = dists.reduce((a, v) => (v == i ? a + 1 : a), 0);
+        rows.push({
+        label: html`<span
+        class="part-number"
+        style="background:${districtColors[i % districtColors.length].hex};
+        display:table-flex"
+        >${i+1}</span>`,
+        entries: [{content: html`<text style:"text-align:center">${num_inc}<text>`}]
+        })
+        if (num_inc > 1) {
+            bunked.push(i);
+        }
+    }
+    return html`<div id="incumbent-table">${DataTable(headers, rows, true)}<div>
+    Double bunked districts are: <br/>
+    ${bunked.map(i => html`<span
+        class="part-number"
+        style="background:${districtColors[i % districtColors.length].hex};
+        display:inline-flex"
+        >${i+1}</span>`)}
+    `
 }
 
 /** HELPER FUNCTIONS */
@@ -2051,3 +2087,17 @@ function state_name_to_postal(st) {
     return results[st];
 }
 
+function incumbent_locations(st, units, problem) {
+    switch (st) {
+        case "Indiana":
+            switch (units) {
+                case 'precincts': 
+                    switch (problem) {
+                        case "Congress": return [4191, 4367, 4805, 3357, 3202, 2624, 2540, 1949, 1437];
+                        default: return -1;
+                    }
+                default: return -1;
+            }
+        default: return -1;
+    }
+}
